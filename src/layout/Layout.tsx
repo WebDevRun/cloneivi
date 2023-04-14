@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import styles from './Layout.module.scss'
 
 interface ILayout {
-  children: JSX.Element[] | JSX.Element
+  children: ReactNode
 }
 
-export const Layout: FC<ILayout> = ({ children }: ILayout) => {
+export const Layout: FC<ILayout> = ({ children }) => {
   return <div className={styles.layout}>{children}</div>
 }
