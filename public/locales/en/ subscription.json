@@ -1,0 +1,16 @@
+{
+  "paySubscription": "Pay for a subscription",
+  "subscriptionTitle": "Connecting a subscription",
+  "subscriptionSubText": "Ivi for 30 days for 99 ₽",
+  "paymentMethodTitle": "Select a Payment Method",
+  "paymentMethodText": "To connect the ivi subscription. 30 days for 99 ₽, renewal on May 15 for 399 ₽. Payment will be due 24 hours prior to renewal.",
+  "bankCard": "Bank card",
+  "cardDetailsTitle": "Enter card details",
+  "cardDetailsText": "We guarantee payment security",
+  "cardNumber": "Card number",
+  "cardDate": "ММ/YY",
+  "cardCVV": "CVV2",
+  "plug": "Connect for",
+  "otherPayment": "Other payment methods",
+  "confirmation": "\nNazhimaya knopku, ya podtverzhdayu, chto soglashayus' s usloviyami Pol'zovatel'skogo soglasheniya i Publichnoy oferty i chto s predostavlennoy mnoy bankovskoy karty, libo s lichnogo scheta budut regulyarno spisyvat'sya denezhnyye sredstva za Podpisku. Srok prodleniya budet raven tekushchemu periodu, na kotoryy priobretayetsya Podpiska.\nBy clicking the button, I confirm that I agree with the terms of the User Agreement and the Public Offer and that funds for the Subscription will be regularly debited from the bank card provided by me or from my personal account. The renewal period will be equal to the current period for which the Subscription is purchased."
+}
