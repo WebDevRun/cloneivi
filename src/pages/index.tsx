@@ -1,14 +1,10 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 
 import Logo from '@/ui/Logo'
 
-export interface HomeProps {}
-
-export default function Home(
-  _props: InferGetServerSidePropsType<typeof getServerSideProps>
-) {
+export default function Home() {
   const { t } = useTranslation(['header'])
 
   return (
@@ -19,9 +15,7 @@ export default function Home(
   )
 }
 
-export const getServerSideProps: GetServerSideProps<HomeProps> = async ({
-  locale,
-}) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'ru', ['header'])),
