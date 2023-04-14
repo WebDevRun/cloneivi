@@ -1,7 +1,8 @@
+
 import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
-
+import { Layout } from '@/layout/Layout'
 import Logo from '@/ui/Logo'
 
 export default function Home() {
@@ -11,6 +12,10 @@ export default function Home() {
     <main>
       <Logo />
       <h1>{t('header:example')}</h1>
+      <Layout>
+        <Logo />
+        <h1>Clone IVI</h1>
+      </Layout>
     </main>
   )
 }
