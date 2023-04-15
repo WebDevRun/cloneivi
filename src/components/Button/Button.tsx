@@ -29,7 +29,7 @@ interface ButtonProps {
 }
 
 /**
- * Primary UI component for user interaction
+ * Primary UI component
  */
 
 export const Button = ({
