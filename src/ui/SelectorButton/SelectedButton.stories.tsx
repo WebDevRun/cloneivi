@@ -1,10 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { SelectorButton } from './index'
+import { SelectorButton } from './SelectorButton'
 
 
 const meta: Meta<typeof SelectorButton> = {
   title: 'Selector/SelectorButton',
+  tags: ['autodocs'],
   component: SelectorButton,
   argTypes: {
     disabled: {
@@ -21,6 +22,10 @@ const meta: Meta<typeof SelectorButton> = {
     name: {
       type: 'string',
       description: 'Имя селектора'
+    },
+    setActive: {
+      type: 'function',
+      description: 'Функция для изменения состояния'
     }
   }
 }
