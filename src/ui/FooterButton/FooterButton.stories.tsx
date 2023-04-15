@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import FooterButton from "./FooterButton";
 import mailIcon from '../../pages/icons/mail.svg'
-import '../../global.scss'
 import Image from "next/image";
 
 const meta: Meta<typeof FooterButton> = {

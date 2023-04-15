@@ -1,4 +1,3 @@
-
 import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
@@ -16,6 +15,22 @@ export default function Home() {
     <main>
       <Logo />
       <h1>Clone IVI</h1>
+      <FooterButton
+        subText='Загрузить в'
+        text='Play Store'
+        type='square'
+        iconAlt='#'
+        iconSrc={mailIcon}
+      />
+
+      <FooterButton
+        subText='Загрузить в'
+        text='Play Store'
+        type='square'
+        iconAlt='#'
+        iconSrc='https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/googlePlayLogo.svg'
+      />
+
     </main>
   )
 }
