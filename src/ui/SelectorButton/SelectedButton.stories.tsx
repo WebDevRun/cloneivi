@@ -1,6 +1,6 @@
-import { SelectorButton } from './index'
+import { Meta, StoryObj } from '@storybook/react'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import { SelectorButton } from './index'
 
 
 const meta: Meta<typeof SelectorButton> = {
@@ -10,14 +10,10 @@ const meta: Meta<typeof SelectorButton> = {
     disabled: {
       type: 'boolean',
       description: 'Отключение кнопки',
-      options: [true, false],
-      controls: { type: 'radio' }
     },
     active: {
       type: 'boolean',
-      description: 'Активация всплывающего меню',
-      options: [true, false],
-      controls: { type: 'radio' }
+      description: 'Активация всплывающего меню'
     },
     selectedItems: {
       description: 'Массив выбранных объектов',
