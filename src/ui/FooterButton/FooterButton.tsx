@@ -21,7 +21,7 @@ export const FooterButton: FC<IProps> = ({ subText, text, type, iconSrc = '', ic
     return (
         <Link className={mainCl} href='/'>
             <div className={styles.btnContent}>
-                {iconSrc &&
+                {iconSrc && iconAlt &&
                     <Image width={20} height={20} src={iconSrc} alt={iconAlt} />
                 }
                 {text &&
