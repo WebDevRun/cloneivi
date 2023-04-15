@@ -14,7 +14,7 @@ interface IProps{
 }
 
 export const FooterButton: FC<IProps> = (props) => {
-    const { subText, text, type, iconSrc, iconAlt, ...rest } = props
+    const { subText, text, type, iconSrc, iconAlt } = props
 
     const mainCl = cn(
         styles.btn,
