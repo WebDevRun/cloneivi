@@ -1,0 +1,50 @@
+.button {
+  border-width: 1px;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+.button_primary {
+  background-image: linear-gradient(270deg, #ea003d 0, #c447ff 100%);
+}
+
+.button_secondary {
+  background-color: #ea003d;
+}
+
+.button_secondary:hover{
+  background-color: #ff0f4d;
+}
+
+.button_makoto {
+  background-color: #100e19;
+}
+
+.button_makoto:hover {
+  background-color: #1f1b2e;
+}
+
+.button_medium {
+  padding: 7px 11px;
+
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.button_large {
+  padding: 9px 15px;
+
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.button_with_icon {
+  display: flex;
+  align-items: center;
+}
+
+.button_with_icon> :first-child {
+  margin-right: 0.5rem;
+}
