@@ -7,7 +7,7 @@ interface IProps {
     miniInfo?: string;
     text?: string;
     children?: any;
-    type: string;
+    type: 'square' | 'circle';
 }
 
 const FooterButton: FC<IProps> = (props) => {
