@@ -13,7 +13,7 @@ interface IProps{
     iconAlt?: any;
 }
 
-const FooterButton: FC<IProps> = (props) => {
+export const FooterButton: FC<IProps> = (props) => {
     const { subText, text, type, iconSrc, iconAlt, ...rest } = props
 
     const mainCl = cn(
