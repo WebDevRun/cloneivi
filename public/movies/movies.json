@@ -1,0 +1,67 @@
+[
+  {
+    "raiting": 7.4,
+    "raitingCount": 988865,
+    "reviews": { "total": 204, "positive": 187, "negative": 4, "neutral": 13 },
+    "title": { "ru": "Один дома", "en": "Home alone" },
+    "productionYear": 1990,
+    "countries": ["США"],
+    "genre": { "ru": ["комедия", "семейный"], "en": ["comedy", "family"] },
+    "director": "Крис Коламбус",
+    "ageRaiting": "0+",
+    "reitingMPAA": "PG",
+    "time": {
+      "minutes": 103,
+      "h:m": "01:43"
+    },
+    "actors": [
+      "Маколей Калкин",
+      "Джо Пеши",
+      "Дэниел Стерн",
+      "Кэтрин О’Хара",
+      "Джон Хёрд",
+      "Робертс Блоссом",
+      "Джерри Бэммен",
+      "Девин Рэтрей",
+      "Джон Кэнди",
+      "Киран Калкин",
+      "Анджела Геталс",
+      "Хиллари Вульф",
+      "Ларри Хэнкин"
+    ]
+  },
+  {
+    "raiting": 8.7,
+    "raitingCount": 552101,
+    "reviews": { "total": 245, "positive": 210, "negative": 6, "neutral": 29 },
+    "title": {
+      "ru": "Властелин колец: Возвращение короля",
+      "en": "The Lord of the Rings: The Return of the King"
+    },
+    "productionYear": 2003,
+    "countries": ["Новая Зеландия", "США"],
+    "genre": {
+      "ru": ["фэнтези", "adventures", "драма", "боевик"],
+      "en": ["fantasy", "family", "drama", "action"]
+    },
+    "director": "Питер Джексон",
+    "ageRaiting": "12+",
+    "reitingMPAA": "PG-13",
+    "time": {
+      "minutes": 201,
+      "h:m": "03:21"
+    },
+    "actors": [
+      "Элайджа Вуд",
+      "Вигго Мортенсен",
+      "Шон Эстин",
+      "Иэн Маккеллен",
+      "Орландо Блум",
+      "Доминик Монахэн",
+      "Билли Бойд",
+      "Энди Серкис",
+      "Миранда Отто",
+      "Бернард Хилл"
+    ]
+  }
+]
