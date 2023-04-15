@@ -13,9 +13,7 @@ interface IProps{
     iconAlt?: any;
 }
 
-export const FooterButton: FC<IProps> = (props) => {
-    const { subText, text, type, iconSrc, iconAlt } = props
-
+export const FooterButton: FC<IProps> = ({ subText, text, type, iconSrc, iconAlt }) => {
     const mainCl = cn(
         styles.btn,
         styles[type]
@@ -26,7 +24,7 @@ export const FooterButton: FC<IProps> = (props) => {
             <div className={styles.btnContent}>
                 <Image width={20} height={20} src={iconSrc} alt={iconAlt} />
                 {text &&
-                    <div style={subText ? { top: '4px' } : {}}>
+                    <div className={styles.buttonText} style={subText ? { top: '4px' } : {}}>
                         <p className={styles.subText}>{subText}</p>
                         {text}
                     </div>
