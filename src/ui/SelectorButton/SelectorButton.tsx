@@ -5,7 +5,7 @@ import { Dispatch, FC, MouseEventHandler, SetStateAction } from 'react'
 import arrowDown from './arrow-down.svg'
 import styles from './SelectorButton.module.scss'
 
-interface ISelectorButton {
+interface SelectorButtonProps {
   name: string
   disabled?: boolean
   active: boolean
@@ -13,7 +13,7 @@ interface ISelectorButton {
   selectedItems: string[]
 }
 
-export const SelectorButton: FC<ISelectorButton> = ({ name, active, setActive, disabled, selectedItems }) => {
+export const SelectorButton: FC<SelectorButtonProps> = ({ name, active, setActive, disabled, selectedItems }) => {
   const selectButtonStyles = cn(
     styles.selectButton,
     active && !disabled && styles.selectButtonActive,
@@ -36,7 +36,7 @@ export const SelectorButton: FC<ISelectorButton> = ({ name, active, setActive, d
         <span className={styles.name}>{name}</span>
         <div className={styles.selected}>{selectedItems.join(', ')}</div>
       </div>
-      <Image src={arrowDown} alt={'arrow-down'} />
+      <Image src={arrowDown} alt='arrow-down' />
     </label>
   )
 }
