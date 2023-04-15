@@ -1,30 +1,30 @@
 import Link from "next/link";
 import { FC } from "react";
-import cl from './FooterButton.module.scss';
+import styles from './FooterButton.module.scss';
 import cn from 'classnames'
 
 interface IProps {
-    miniInfo?: string;
+    subText?: string;
     text?: string;
     children?: any;
     type: 'square' | 'circle';
 }
 
 const FooterButton: FC<IProps> = (props) => {
-    const { miniInfo, text, children, type } = props
+    const { subText, text, children, type } = props
 
     const mainCl = cn(
-        cl.btn,
-        cl[type]
+        styles.btn,
+        styles[type]
     )
 
     return (
         <Link className={mainCl} href='/'>
-            <div className={cl.btnContent}>
+            <div className={styles.btnContent}>
                 {children}
                 {text &&
-                    <div style={miniInfo ? { top: '4px' } : {}}>
-                        <p className={cl.miniInfo}>{miniInfo}</p>
+                    <div style={subText ? { top: '4px' } : {}}>
+                        <p className={styles.subText}>{subText}</p>
                         {text}
                     </div>
                 }

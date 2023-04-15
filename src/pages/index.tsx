@@ -11,7 +11,7 @@ export default function Home() {
       <h1>Clone IVI</h1>
       <FooterButton
         type='square'
-        miniInfo='Доступно в'
+        subText='Доступно в'
         text='Google Play'
       >
         <img src='https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/googlePlayLogo.svg' alt='' />
@@ -19,7 +19,7 @@ export default function Home() {
 
       <FooterButton
         type='square'
-        miniInfo='Загрузить'
+        subText='Загрузить'
         text='App Store'
       >
         <img src='https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/appleLogo.svg' alt='' />
