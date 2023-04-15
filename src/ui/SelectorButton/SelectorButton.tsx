@@ -23,7 +23,7 @@ export const SelectorButton: FC<ISelectorButton> = ({ name, active, setActive, d
   return (
     <label className={selectButtonStyles}>
       <input type='checkbox'
-             checked={active}
+             defaultChecked={active}
              onClick={() => !disabled && setActive(prevState => !prevState)}
       />
       <div className={styles.content}>
