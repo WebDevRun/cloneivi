@@ -1,3 +1,8 @@
+
+import { GetStaticProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
+import { Layout } from '@/layout/Layout'
 import FooterButton from '@/ui/FooterButton/FooterButton'
 import Logo from '@/ui/Logo'
 import devicesIcon from './icons/devices-line.svg'
@@ -5,50 +10,20 @@ import mailIcon from './icons/mail.svg'
 import Image from 'next/image'
 
 export default function Home() {
+  const { t } = useTranslation(['header'])
+
   return (
     <main>
       <Logo />
       <h1>Clone IVI</h1>
-      <FooterButton
-        type='square'
-        subText='Доступно в'
-        text='Google Play'
-      >
-        <img src='https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/googlePlayLogo.svg' alt='' />
-      </FooterButton>
-
-      <FooterButton
-        type='square'
-        subText='Загрузить'
-        text='App Store'
-      >
-        <img src='https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/appleLogo.svg' alt='' />
-      </FooterButton>
-
-      <FooterButton
-        type='square'
-        text='Все устройства'
-      >
-        <Image width={20} src={devicesIcon} alt='' />
-      </FooterButton>
-
-      <FooterButton
-        type='circle'
-      >
-        <img style={{ width: '16px' }} src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_vkontakte.svg" alt="" />
-      </FooterButton>
-
-      <FooterButton
-        type='circle'
-      >
-        <img style={{ width: '16px' }} src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_telegram.svg" alt="" />
-      </FooterButton>
-
-      <FooterButton
-        type='square'
-      >
-        <Image src={mailIcon} alt=''/>
-      </FooterButton>
     </main>
   )
+}
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'ru', ['header'])),
+    },
+  }
 }
