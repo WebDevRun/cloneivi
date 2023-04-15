@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import { SelectorButton } from './index'
+
+import type { Meta, StoryObj } from '@storybook/react'
 
 
 const meta: Meta<typeof SelectorButton> = {
@@ -60,7 +61,7 @@ export const Active: Story = {
   args: {
     name: 'Жанры',
     active: true,
-    selectedItems: [''],
+    selectedItems: [],
   }
 }
 
