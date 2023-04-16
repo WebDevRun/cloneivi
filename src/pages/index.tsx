@@ -1,7 +1,7 @@
-
 import { GetStaticProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
 import { Layout } from '@/layout/Layout'
 import Logo from '@/ui/Logo'
 
