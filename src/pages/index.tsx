@@ -1,7 +1,8 @@
-import { AppLayout } from '@layouts/AppLayout'
 import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+import { AppLayout } from '@layouts/AppLayout'
 
 export default function Home() {
   const { t } = useTranslation(['header'])
