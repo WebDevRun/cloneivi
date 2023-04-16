@@ -3,7 +3,6 @@
   font-weight: 700;
   font-style: normal;
   src: url("../../assets/fonts/iviSans-Bold.woff2");
-  //src: url("./src/assets/fonts/iviSans-Bold.woff2");
 }
 
 @font-face {
@@ -11,13 +10,6 @@
   font-weight: 500;
   font-style: normal;
   src: url("../../assets/fonts/iviSans-Medium.woff2");
-}
-
-@font-face {
-  font-family: 'iviSans';
-  font-weight: 400;
-  font-style: normal;
-  src: url("../../assets/fonts/iviSans-Regular.woff2");
 }
 
 @font-face {
@@ -40,7 +32,6 @@
   font-style: normal;
   src: url("../../assets/fonts/ivi-icons.woff");
 }
-
 
 * {
   font-family: iviSans, Arial, Helvetica, "Helvetica Neue", FreeSans, sans-serif;
