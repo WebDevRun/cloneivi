@@ -2,9 +2,6 @@ import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { AppLayout } from '@layouts/AppLayout'
-import devicesIcon from './icons/devices-line.svg'
-import mailIcon from './icons/mail.svg'
-import Image from 'next/image'
 
 export default function Home() {
   const { t } = useTranslation(['header'])
