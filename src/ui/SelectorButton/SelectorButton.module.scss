@@ -4,6 +4,10 @@
   height: 56px;
   color: #fff;
   padding: 8px 16px;
+<<<<<<< HEAD
+=======
+  box-sizing: border-box;
+>>>>>>> 535ccac (chore: selector button)
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -20,6 +24,10 @@
   .content {
     width: 90%;
     padding-right: 16px;
+<<<<<<< HEAD
+=======
+    box-sizing: border-box;
+>>>>>>> 535ccac (chore: selector button)
 
     .name {
       font-size: 15px;
@@ -28,6 +36,10 @@
 
     .selected {
       color: #a5a1b2;
+<<<<<<< HEAD
+=======
+      //width: 100%;
+>>>>>>> 535ccac (chore: selector button)
       font-size: 13px;
       line-height: 16px;
       overflow: hidden;
@@ -35,6 +47,12 @@
       white-space: nowrap
     }
   }
+<<<<<<< HEAD
+=======
+
+  .arrow {
+  }
+>>>>>>> 535ccac (chore: selector button)
 }
 
 .selectButtonActive {
