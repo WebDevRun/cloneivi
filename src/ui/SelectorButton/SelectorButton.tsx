@@ -28,7 +28,7 @@ import { Dispatch, FC, MouseEventHandler, SetStateAction } from 'react'
 import arrowDown from './arrow-down.svg'
 import styles from './SelectorButton.module.scss'
 
-interface ISelectorButton {
+interface SelectorButtonProps {
   name: string
   disabled?: boolean
   active: boolean
@@ -36,8 +36,12 @@ interface ISelectorButton {
   selectedItems: string[]
 }
 
+<<<<<<< HEAD
 export const SelectorButton: FC<ISelectorButton> = ({ name, active, setActive, disabled, selectedItems }) => {
 >>>>>>> 535ccac (chore: selector button)
+=======
+export const SelectorButton: FC<SelectorButtonProps> = ({ name, active, setActive, disabled, selectedItems }) => {
+>>>>>>> 54dca8b (chore: remove index.scss)
   const selectButtonStyles = cn(
     styles.selectButton,
     active && !disabled && styles.selectButtonActive,
@@ -80,6 +84,7 @@ export const SelectorButton: FC<ISelectorButton> = ({ name, active, setActive, d
       </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Image src={arrowDown} alt='arrow-down' />
 =======
       <Image className={styles.arrow} src={arrowDown} alt={'arrow-down'} />
@@ -87,6 +92,9 @@ export const SelectorButton: FC<ISelectorButton> = ({ name, active, setActive, d
 =======
       <Image src={arrowDown} alt={'arrow-down'} />
 >>>>>>> 95dbbef (refactor: some fix)
+=======
+      <Image src={arrowDown} alt='arrow-down' />
+>>>>>>> 54dca8b (chore: remove index.scss)
     </label>
   )
 }
