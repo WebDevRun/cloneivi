@@ -2,10 +2,10 @@ import { FC, ReactNode } from 'react'
 
 import styles from './AppLayout.module.scss'
 
-interface ILayout {
+interface AppLayoutProps {
   children: ReactNode
 }
 
-export const AppLayout: FC<ILayout> = ({ children }) => {
+export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   return <div className={styles.layout}>{children}</div>
 }
