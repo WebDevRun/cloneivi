@@ -10,7 +10,9 @@
     "test": "jest",
     "test:w": "jest --watch",
     "sb": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "cr:com": "generate-react component",
+    "cr:ui": "generate-react component --type=ui"
   },
   "dependencies": {
     "@types/node": "18.15.11",
@@ -39,6 +41,7 @@
     "@testing-library/react": "^14.0.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-storybook": "^0.6.11",
+    "generate-react-cli": "^8.3.0",
     "husky": "^8.0.3",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
