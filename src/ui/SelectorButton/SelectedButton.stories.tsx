@@ -1,11 +1,16 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Meta, StoryObj } from '@storybook/react'
 
 import { SelectorButton } from './SelectorButton'
 =======
 import type { Meta, StoryObj } from '@storybook/react'
+=======
+>>>>>>> 4b6dfc5 (refactor: remove selectButton from index.tsx, import refactoring)
 import { SelectorButton } from './index'
 >>>>>>> 535ccac (chore: selector button)
+
+import type { Meta, StoryObj } from '@storybook/react'
 
 
 const meta: Meta<typeof SelectorButton> = {
@@ -85,10 +90,14 @@ export const Active: Story = {
     name: 'Жанры',
     active: true,
 <<<<<<< HEAD
+<<<<<<< HEAD
     selectedItems: [],
 =======
     selectedItems: [''],
 >>>>>>> 535ccac (chore: selector button)
+=======
+    selectedItems: [],
+>>>>>>> 4b6dfc5 (refactor: remove selectButton from index.tsx, import refactoring)
   }
 }
 

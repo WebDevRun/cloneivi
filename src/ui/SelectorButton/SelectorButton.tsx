@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import cn from 'classnames'
 import Image from 'next/image'
 import { Dispatch, FC, MouseEventHandler, SetStateAction } from 'react'
@@ -18,9 +19,14 @@ export const SelectorButton: FC<SelectorButtonProps> = ({ name, active, setActiv
 =======
 import React, { FC, SetStateAction } from 'react'
 import styles from './SelectorButton.module.scss'
+=======
+>>>>>>> 4b6dfc5 (refactor: remove selectButton from index.tsx, import refactoring)
 import cn from 'classnames'
-import arrowDown from './arrow-down.svg'
 import Image from 'next/image'
+import React, { FC, SetStateAction } from 'react'
+
+import arrowDown from './arrow-down.svg'
+import styles from './SelectorButton.module.scss'
 
 interface ISelectorButton {
   name: string
