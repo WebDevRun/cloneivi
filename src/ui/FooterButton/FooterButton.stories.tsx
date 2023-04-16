@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import FooterButton  from "./FooterButton";
+import { FooterButton } from "./FooterButton";
 
 const meta: Meta<typeof FooterButton> = {
     title: 'FooterButton',
@@ -21,11 +21,17 @@ export const Primary: Story = {
     args: {
         type: 'square',
         text: 'Click me',
+        iconSrc: "https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/googlePlayLogo.svg",
+        iconAlt: 'PS',
+        href: '/'
     },
 };
 
 export const widhoutText: Story = {
     args: {
         type: 'circle',
+        iconSrc: "https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/googlePlayLogo.svg",
+        iconAlt: 'PS',
+        href: '/'
     }
 }

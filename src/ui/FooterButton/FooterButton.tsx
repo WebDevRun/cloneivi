@@ -1,24 +1,33 @@
 import Link from "next/link";
 import { FC } from "react";
-import cl from './FooterButton.module.scss';
+import styles from './FooterButton.module.scss';
+import cn from 'classnames'
+import Image, { ImageProps, StaticImageData } from "next/image";
 
 interface IProps {
-    miniInfo?: string;
+    subText?: string;
     text?: string;
-    children?: any;
-    type: string;
+    type: 'square' | 'circle';
+    iconSrc?: string;
+    iconAlt?: string;
+    href: string;
 }
 
-const FooterButton: FC<IProps> = (props) => {
-    const { miniInfo, text, children, type } = props
+export const FooterButton: FC<IProps> = ({ subText, text, type, iconSrc = '', iconAlt = '', href }) => {
+    const mainCl = cn(
+        styles.btn,
+        styles[type]
+    )
 
     return (
-        <Link style={type === 'square' ? { borderRadius: '8px' } : { borderRadius: '50%' }} className={cl.btn} href='/'>
-            <div className={cl.btnContent}>
-                {children}
+        <Link className={mainCl} href={href}>
+            <div className={styles.btnContent}>
+                {iconSrc && iconAlt &&
+                    <Image width={20} height={20} src={iconSrc} alt={iconAlt} />
+                }
                 {text &&
-                    <div style={miniInfo ? { top: '4px' } : {}}>
-                        <p className={cl.miniInfo}>{miniInfo}</p>
+                    <div className={styles.buttonText} style={subText ? { top: '4px' } : {}}>
+                        <p className={styles.subText}>{subText}</p>
                         {text}
                     </div>
                 }
@@ -26,5 +35,3 @@ const FooterButton: FC<IProps> = (props) => {
         </Link>
     );
 };
-
-export default FooterButton;

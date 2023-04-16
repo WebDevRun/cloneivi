@@ -1,1 +1,1 @@
-export { default } from './FooterButton'
+export { FooterButton } from './FooterButton'
