@@ -1,15 +1,51 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './Button'
-
-import logout from './logout.svg'
-import playArrow from './play_arrow.svg'
 import user from './user.svg'
-import search from './search.svg'
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
   tags: ['autodocs'],
+  argTypes: {
+    mode: {
+      type: 'string',
+      options: [
+        'primary',
+        'secondary',
+        'player',
+        'trailer',
+        'share',
+        'signIn',
+        'search',
+        'defer',
+        'free',
+        'rateSm',
+        'rateMd',
+        'filter',
+      ],
+      description: 'Назначение кнопки',
+    },
+    text: {
+      type: 'string',
+      description: 'Основной текст на кнопке',
+    },
+    subText: {
+      type: 'string',
+      description: 'Дополнительный текст на кнопке',
+    },
+    iconSrc: {
+      type: 'string',
+      description: 'Иконка',
+    },
+    iconAlt: {
+      type: 'string',
+      description: 'Alt текст',
+    },
+    onClick: {
+      type: 'function',
+      description: 'Обработчик нажатия',
+    },
+  },
 
   parameters: {
     backgrounds: {
@@ -63,7 +99,7 @@ export const Share: Story = {
 
 export const Sign_In: Story = {
   args: {
-    mode: 'sign_in',
+    mode: 'signIn',
     iconSrc: user,
   },
 }
@@ -90,14 +126,14 @@ export const Free: Story = {
 
 export const RateSm: Story = {
   args: {
-    mode: 'rate_sm',
+    mode: 'rateSm',
     text: 'Оценить',
   },
 }
 
 export const RateMd: Story = {
   args: {
-    mode: 'rate_md',
+    mode: 'rateMd',
     text: 'Написать рецензию',
   },
 }

@@ -1,8 +1,6 @@
 .button {
   border: 0;
   background: 0 0;
-  padding: 0;
-  margin: 0;
   width: auto;
   overflow: visible;
   text-align: center;
@@ -16,8 +14,6 @@
   border-width: 1px;
   border-radius: 8px;
   color: #ffffff;
-
-  font-family: iviSans, Arial, Helvetica, Helvetica Neue, FreeSans, sans-serif;
 
   & img {
     display: flex;
@@ -34,7 +30,7 @@
   padding: 7px 11px;
   background-image: linear-gradient(270deg, #ea003d 0, #c447ff 100%);
 
-  & .main_text {
+  .mainText {
     font-size: 13px;
     line-height: 16px;
     font-weight: 500;
@@ -81,11 +77,11 @@
   background-color: #312b45;
   border-color: #312b45;
 
-  & .main_text {
+  & .mainText {
     margin-left: 6px;
   }
 
-  & .main_text {
+  & .mainText {
     font-size: 15px;
     line-height: 20px;
     font-weight: 500;
@@ -102,14 +98,14 @@
   }
 }
 
-.sub_text {
+.subText {
   font-size: 13px;
   line-height: 16px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.72);
 }
 
-.sign_in {
+.signIn {
   background-color: #100e19;
   width: 48px;
   height: 48px;
@@ -136,22 +132,22 @@
     margin-right: 8px;
   }
 
-  & .main_text {
+  & .mainText {
     font-size: 15px;
     line-height: 20px;
     font-weight: 500;
   }
 }
 
-.rate_sm,
-.rate_md {
+.rateSm,
+.rateMd {
   border-width: 1px;
   border-radius: 6px;
   padding: 3px 7px;
 
   border: 1px solid rgba(255, 255, 255, 0.32);
 
-  & .main_text {
+  & .mainText {
     font-size: 13px;
     line-height: 16px;
     font-weight: 500;
@@ -167,11 +163,11 @@
   }
 }
 
-.rate_sm {
+.rateSm {
   height: 24px;
 }
 
-.rate_md {
+.rateMd {
   height: 32px;
 }
 
@@ -182,46 +178,11 @@
   line-height: 20px;
   font-weight: 500;
 
-  & .main_text {
+  & .mainText {
     margin-left: 6px;
   }
 
   &:hover {
     color: #ea003d;
   }
-}
-
-// Size
-
-.medium {
-  padding: 7px 11px;
-
-  font-size: 13px;
-  line-height: 16px;
-  font-weight: 500;
-}
-
-.large {
-  padding: 9px 15px;
-
-  font-size: 15px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-.with_icon {
-  display: flex;
-  align-items: center;
-}
-
-.with_icon > :first-child {
-  margin-right: 0.5rem;
-}
-
-.makoto {
-  background-color: #100e19;
-}
-
-.makoto:hover {
-  background-color: #1f1b2e;
 }

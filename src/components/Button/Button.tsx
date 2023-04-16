@@ -4,47 +4,26 @@ import styles from './Button.module.scss'
 import Image from 'next/image'
 
 interface ButtonProps {
-  /**
-   * Назначение кнопки
-   */
   mode?:
     | 'primary'
     | 'secondary'
     | 'player'
     | 'trailer'
     | 'share'
-    | 'sign_in'
+    | 'signIn'
     | 'search'
     | 'defer'
     | 'free'
-    | 'rate_sm'
-    | 'rate_md'
+    | 'rateSm'
+    | 'rateMd'
     | 'filter'
-  /**
-   * Иконка
-   */
+
   iconSrc?: string
-  /**
-   * Alt текст
-   */
   iconAlt?: string
-  /**
-   * Основной текст на кнопке
-   */
   text?: string
-  /**
-   * Дополнительный текст на кнопке
-   */
   subText?: string
-  /**
-   * Обработчик нажатия
-   */
   onClick?: () => void
 }
-
-/**
- * Primary UI component
- */
 
 export const Button = ({
   mode = 'secondary',
@@ -63,9 +42,9 @@ export const Button = ({
         </div>
       )}
       {text && (
-        <div className={styles.main_text}>
+        <div className={styles.mainText}>
           {text}
-          <div className={styles.sub_text}>{subText}</div>
+          <div className={styles.subText}>{subText}</div>
         </div>
       )}
     </button>
