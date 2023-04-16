@@ -1,41 +1,45 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import cn from 'classnames'
 import styles from './Button.module.scss'
-import Image, { ImageProps, StaticImageData } from 'next/image'
-import logout from './logout.svg'
-import playArrow from './play_arrow.svg'
-
-const icon = {
-  share: logout,
-  trailer: playArrow,
-}
+import Image from 'next/image'
 
 interface ButtonProps {
   /**
    * Назначение кнопки
    */
-  mode: 'primary' | 'secondary' | 'makoto' | 'player' | 'trailer' | 'share'
+  mode?:
+    | 'primary'
+    | 'secondary'
+    | 'player'
+    | 'trailer'
+    | 'share'
+    | 'sign_in'
+    | 'search'
+    | 'defer'
+    | 'free'
+    | 'rate_sm'
+    | 'rate_md'
+    | 'filter'
   /**
-   * Цвет фона
+   * Иконка
    */
-  backgroundColor?: string
+  iconSrc?: string
   /**
-   * Размер кнопки
+   * Alt текст
    */
-  size: 'small' | 'medium' | 'large'
+  iconAlt?: string
   /**
-   * Текст на кнопке
+   * Основной текст на кнопке
    */
   text?: string
+  /**
+   * Дополнительный текст на кнопке
+   */
   subText?: string
   /**
    * Обработчик нажатия
    */
   onClick?: () => void
-  /**
-   * Код для иконки и чего-то еще
-   */
-  children?: ReactNode
 }
 
 /**
@@ -44,23 +48,18 @@ interface ButtonProps {
 
 export const Button = ({
   mode = 'secondary',
-  size = 'medium',
-  backgroundColor,
   text,
   subText,
-  children,
-  ...props
+  iconSrc = '',
+  iconAlt = '',
 }: ButtonProps) => {
-  const mainCn = cn(styles.button, styles[mode], styles[size])
-
-  const iconSrc = icon[mode]
-  const iconAlt = 'slkdflskdfk'
+  const mainCn = cn(styles.button, styles[mode])
 
   return (
-    <button type="button" className={mainCn} {...props}>
+    <button type="button" className={mainCn}>
       {iconSrc && iconAlt && (
-        <div className="icon_button">
-          <Image width={16} height={16} src={iconSrc} alt={iconAlt} />
+        <div className={styles.icon}>
+          <Image src={iconSrc} alt={iconAlt} />
         </div>
       )}
       {text && (

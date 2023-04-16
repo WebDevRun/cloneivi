@@ -1,4 +1,4 @@
-button {
+.button {
   border: 0;
   background: 0 0;
   padding: 0;
@@ -7,59 +7,47 @@ button {
   overflow: visible;
   text-align: center;
   white-space: nowrap;
-  cursor: pointer;
 
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.button {
+  cursor: pointer;
   border-width: 1px;
   border-radius: 8px;
   color: #ffffff;
 
   font-family: iviSans, Arial, Helvetica, Helvetica Neue, FreeSans, sans-serif;
 
-  &:hover {
-    background-color: #3a3352;
+  & img {
+    display: flex;
+    align-items: center;
+  }
+
+  &:not(:hover):not(:active) {
+    transition-duration: 0.4s;
   }
 }
 
-.trailer {
-  height: 40px;
-  border-width: 1px;
-  border-radius: 8px;
-  padding: 9px 15px;
-  background-color: #312b45;
-  border-color: #312b45;
-}
-
-.trailer > .icon_button {
-  margin-right: 6px;
-}
-
-.button:not(:hover):not(:active) * {
-  transition-duration: 0.4s;
-}
-
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-button img {
-  display: flex;
-  align-items: center;
-}
-
 .primary {
+  height: 32px;
+  padding: 7px 11px;
   background-image: linear-gradient(270deg, #ea003d 0, #c447ff 100%);
+
+  & .main_text {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+  }
 }
 
 .secondary {
+  height: 40px;
   background-color: #ea003d;
+  padding: 9px 15px;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
 }
 
 .secondary,
@@ -69,28 +57,49 @@ button img {
   }
 }
 
-.makoto {
-  background-color: #100e19;
-}
-
-.makoto:hover {
-  background-color: #1f1b2e;
-}
-
 .player {
   border-color: transparent;
   background-color: rgba(234, 0, 61, 0.8);
   color: #ffffff;
-
   height: 48px;
-  border-width: 1px;
-  border-radius: 8px;
   padding: 5px 15px;
 
   font-size: 15px;
   line-height: 20px;
   font-weight: 500;
   width: 320px;
+
+  transition-property: border-color, background-color;
+}
+
+.free,
+.share,
+.defer,
+.trailer {
+  height: 40px;
+  padding: 9px 15px;
+  background-color: #312b45;
+  border-color: #312b45;
+
+  & .main_text {
+    margin-left: 6px;
+  }
+
+  & .main_text {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+  }
+
+  &:hover {
+    background-color: #3a3352;
+  }
+}
+
+.share {
+  & img {
+    transform: rotate(-90deg);
+  }
 }
 
 .sub_text {
@@ -100,17 +109,85 @@ button img {
   color: rgba(255, 255, 255, 0.72);
 }
 
-.share {
-  background-color: #312b45;
-  border-color: #312b45;
-  height: 40px;
+.sign_in {
+  background-color: #100e19;
   width: 48px;
-  border-width: 1px;
+  height: 48px;
   border-radius: 8px;
-  padding: 9px 15px;
+  padding: 12px;
+  border: solid 2px rgba(255, 255, 255, 0.48);
 
-  & img {
-    transform: rotate(-90deg);
+  &:hover {
+    border: solid 2px rgba(255, 255, 255, 1);
+    transition-delay: 0.1s;
+  }
+}
+
+.search {
+  height: 40px;
+  padding: 10px 0;
+  background-color: #100e19;
+
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+
+  & .icon {
+    margin-right: 8px;
+  }
+
+  & .main_text {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+  }
+}
+
+.rate_sm,
+.rate_md {
+  border-width: 1px;
+  border-radius: 6px;
+  padding: 3px 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.32);
+
+  & .main_text {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+  }
+
+  &:hover {
+    border: 1px solid rgba(255, 255, 255, 1);
+  }
+
+  &:not(:hover) {
+    transition-duration: 0.4s;
+    transition-property: border;
+  }
+}
+
+.rate_sm {
+  height: 24px;
+}
+
+.rate_md {
+  height: 32px;
+}
+
+.filter {
+  border-width: 0;
+  padding: 10px 0;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+
+  & .main_text {
+    margin-left: 6px;
+  }
+
+  &:hover {
+    color: #ea003d;
   }
 }
 
@@ -139,4 +216,12 @@ button img {
 
 .with_icon > :first-child {
   margin-right: 0.5rem;
+}
+
+.makoto {
+  background-color: #100e19;
+}
+
+.makoto:hover {
+  background-color: #1f1b2e;
 }

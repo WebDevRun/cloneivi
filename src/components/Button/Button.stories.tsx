@@ -1,14 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './Button'
-import { Call } from './svg'
+
+import logout from './logout.svg'
+import playArrow from './play_arrow.svg'
+import user from './user.svg'
+import search from './search.svg'
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
   tags: ['autodocs'],
-  argTypes: {
-    backgroundColor: {
-      control: 'color',
+
+  parameters: {
+    backgrounds: {
+      default: 'twitter',
+      values: [
+        { name: 'twitter', value: '#00aced' },
+        { name: 'facebook', value: '#3b5998' },
+      ],
     },
   },
 }
@@ -30,18 +39,11 @@ export const Secondary: Story = {
   },
 }
 
-export const Makoto: Story = {
-  args: {
-    mode: 'makoto',
-    text: 'Смотреть по подписке',
-  },
-}
-
 export const Player: Story = {
   args: {
     mode: 'player',
     text: 'Смотреть с рекламой',
-    subText: 'серия 1 сезон 1'
+    subText: 'серия 1 сезон 1',
   },
 }
 
@@ -52,43 +54,57 @@ export const Trailer: Story = {
   },
 }
 
-
 export const Share: Story = {
   args: {
     mode: 'share',
+    text: 'Поделиться',
   },
 }
 
-export const Large: Story = {
+export const Sign_In: Story = {
   args: {
-    size: 'large',
-    text: 'Смотреть бесплатно',
+    mode: 'sign_in',
+    iconSrc: user,
   },
 }
 
-export const Medium: Story = {
+export const Search: Story = {
   args: {
-    size: 'medium',
-    text: 'Смотреть бесплатно',
+    mode: 'search',
+    text: 'Поиск',
   },
 }
 
-export const Small: Story = {
+export const Defer: Story = {
   args: {
-    size: 'small',
-    text: 'Button',
+    mode: 'defer',
   },
 }
 
-export const Icon: Story = {
+export const Free: Story = {
   args: {
-    text: 'Button',
-    children: <Call />,
+    mode: 'defer',
+    text: 'Бесплатные мультфильмы',
   },
 }
 
-export const OnlyIcon: Story = {
+export const RateSm: Story = {
   args: {
-    children: <Call />
+    mode: 'rate_sm',
+    text: 'Оценить',
+  },
+}
+
+export const RateMd: Story = {
+  args: {
+    mode: 'rate_md',
+    text: 'Написать рецензию',
+  },
+}
+
+export const Filter: Story = {
+  args: {
+    mode: 'filter',
+    text: 'Фильтры',
   },
 }
