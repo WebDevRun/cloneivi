@@ -1,6 +1,5 @@
 import { AppProps } from 'next/app'
 import { appWithTranslation } from 'next-i18next'
-import '../index.scss'
 
 import '../styles/index.scss'
 

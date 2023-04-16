@@ -1,8 +1,9 @@
-import React, { FC, SetStateAction } from 'react'
-import styles from './SelectorButton.module.scss'
 import cn from 'classnames'
-import arrowDown from './arrow-down.svg'
 import Image from 'next/image'
+import React, { FC, SetStateAction } from 'react'
+
+import arrowDown from './arrow-down.svg'
+import styles from './SelectorButton.module.scss'
 
 interface ISelectorButton {
   name: string
