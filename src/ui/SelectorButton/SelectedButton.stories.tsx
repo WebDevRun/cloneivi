@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Meta, StoryObj } from '@storybook/react'
 
 import { SelectorButton } from './SelectorButton'
@@ -9,8 +10,11 @@ import type { Meta, StoryObj } from '@storybook/react'
 >>>>>>> 4b6dfc5 (refactor: remove selectButton from index.tsx, import refactoring)
 import { SelectorButton } from './index'
 >>>>>>> 535ccac (chore: selector button)
+=======
+import { Meta, StoryObj } from '@storybook/react'
+>>>>>>> 95dbbef (refactor: some fix)
 
-import type { Meta, StoryObj } from '@storybook/react'
+import { SelectorButton } from './index'
 
 
 const meta: Meta<typeof SelectorButton> = {
@@ -24,6 +28,7 @@ const meta: Meta<typeof SelectorButton> = {
     disabled: {
       type: 'boolean',
       description: 'Отключение кнопки',
+<<<<<<< HEAD
 <<<<<<< HEAD
     },
     active: {
@@ -39,6 +44,12 @@ const meta: Meta<typeof SelectorButton> = {
       options: [true, false],
       controls: { type: 'radio' }
 >>>>>>> 535ccac (chore: selector button)
+=======
+    },
+    active: {
+      type: 'boolean',
+      description: 'Активация всплывающего меню'
+>>>>>>> 95dbbef (refactor: some fix)
     },
     selectedItems: {
       description: 'Массив выбранных объектов',
