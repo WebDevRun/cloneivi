@@ -1,30 +1,122 @@
+button {
+  border: 0;
+  background: 0 0;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  overflow: visible;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .button {
   border-width: 1px;
   border-radius: 8px;
   color: #ffffff;
+
+  font-family: iviSans, Arial, Helvetica, Helvetica Neue, FreeSans, sans-serif;
+
+  &:hover {
+    background-color: #3a3352;
+  }
 }
 
-.button_primary {
+.trailer {
+  height: 40px;
+  border-width: 1px;
+  border-radius: 8px;
+  padding: 9px 15px;
+  background-color: #312b45;
+  border-color: #312b45;
+}
+
+.trailer > .icon_button {
+  margin-right: 6px;
+}
+
+.button:not(:hover):not(:active) * {
+  transition-duration: 0.4s;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button img {
+  display: flex;
+  align-items: center;
+}
+
+.primary {
   background-image: linear-gradient(270deg, #ea003d 0, #c447ff 100%);
 }
 
-.button_secondary {
+.secondary {
   background-color: #ea003d;
 }
 
-.button_secondary:hover{
-  background-color: #ff0f4d;
+.secondary,
+.player {
+  &:hover {
+    background-color: #ff0f4d;
+  }
 }
 
-.button_makoto {
+.makoto {
   background-color: #100e19;
 }
 
-.button_makoto:hover {
+.makoto:hover {
   background-color: #1f1b2e;
 }
 
-.button_medium {
+.player {
+  border-color: transparent;
+  background-color: rgba(234, 0, 61, 0.8);
+  color: #ffffff;
+
+  height: 48px;
+  border-width: 1px;
+  border-radius: 8px;
+  padding: 5px 15px;
+
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  width: 320px;
+}
+
+.sub_text {
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.share {
+  background-color: #312b45;
+  border-color: #312b45;
+  height: 40px;
+  width: 48px;
+  border-width: 1px;
+  border-radius: 8px;
+  padding: 9px 15px;
+
+  & img {
+    transform: rotate(-90deg);
+  }
+}
+
+// Size
+
+.medium {
   padding: 7px 11px;
 
   font-size: 13px;
@@ -32,7 +124,7 @@
   font-weight: 500;
 }
 
-.button_large {
+.large {
   padding: 9px 15px;
 
   font-size: 15px;
@@ -40,11 +132,11 @@
   font-weight: 500;
 }
 
-.button_with_icon {
+.with_icon {
   display: flex;
   align-items: center;
 }
 
-.button_with_icon> :first-child {
+.with_icon > :first-child {
   margin-right: 0.5rem;
 }

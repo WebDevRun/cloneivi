@@ -19,48 +19,70 @@ type Story = StoryObj<typeof Button>
 export const Primary: Story = {
   args: {
     mode: 'primary',
-    label: 'Оплатить подписку',
+    text: 'Оплатить подписку',
   },
 }
 
 export const Secondary: Story = {
   args: {
     mode: 'secondary',
-    label: 'Смотреть по подписке',
+    text: 'Смотреть по подписке',
   },
 }
 
 export const Makoto: Story = {
   args: {
     mode: 'makoto',
-    label: 'Смотреть по подписке',
+    text: 'Смотреть по подписке',
+  },
+}
+
+export const Player: Story = {
+  args: {
+    mode: 'player',
+    text: 'Смотреть с рекламой',
+    subText: 'серия 1 сезон 1'
+  },
+}
+
+export const Trailer: Story = {
+  args: {
+    mode: 'trailer',
+    text: 'Трейлер',
+  },
+}
+
+
+export const Share: Story = {
+  args: {
+    mode: 'share',
   },
 }
 
 export const Large: Story = {
   args: {
     size: 'large',
-    label: 'Смотреть бесплатно',
+    text: 'Смотреть бесплатно',
   },
 }
 
 export const Medium: Story = {
   args: {
     size: 'medium',
-    label: 'Смотреть бесплатно',
+    text: 'Смотреть бесплатно',
   },
 }
 
 export const Small: Story = {
   args: {
     size: 'small',
-    label: 'Button',
+    text: 'Button',
   },
 }
 
 export const Icon: Story = {
   args: {
-    label: 'Button',
+    text: 'Button',
     children: <Call />,
   },
 }
