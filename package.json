@@ -12,7 +12,8 @@
     "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "cr:com": "generate-react component",
-    "cr:ui": "generate-react component --type=ui"
+    "cr:ui": "generate-react component --type=ui",
+    "cr:lay": "generate-react component --type=layouts"
   },
   "dependencies": {
     "@types/node": "18.15.11",
