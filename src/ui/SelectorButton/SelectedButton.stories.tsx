@@ -4,6 +4,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import { SelectorButton } from './SelectorButton'
+<<<<<<< HEAD
 =======
 import type { Meta, StoryObj } from '@storybook/react'
 =======
@@ -15,14 +16,20 @@ import { Meta, StoryObj } from '@storybook/react'
 >>>>>>> 95dbbef (refactor: some fix)
 
 import { SelectorButton } from './index'
+=======
+>>>>>>> 4100324 (selector stories fix)
 
 
 const meta: Meta<typeof SelectorButton> = {
   title: 'Selector/SelectorButton',
 <<<<<<< HEAD
+<<<<<<< HEAD
   tags: ['autodocs'],
 =======
 >>>>>>> 535ccac (chore: selector button)
+=======
+  tags: ['autodocs'],
+>>>>>>> 4100324 (selector stories fix)
   component: SelectorButton,
   argTypes: {
     disabled: {
@@ -58,12 +65,18 @@ const meta: Meta<typeof SelectorButton> = {
       type: 'string',
       description: 'Имя селектора'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4100324 (selector stories fix)
     },
     setActive: {
       type: 'function',
       description: 'Функция для изменения состояния'
+<<<<<<< HEAD
 =======
 >>>>>>> 535ccac (chore: selector button)
+=======
+>>>>>>> 4100324 (selector stories fix)
     }
   }
 }
