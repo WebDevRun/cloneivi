@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './Button'
-import user from './user.svg'
+
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
@@ -11,6 +11,7 @@ const meta: Meta<typeof Button> = {
       type: 'string',
       options: [
         'primary',
+        'primaryMob',
         'secondary',
         'player',
         'trailer',
@@ -22,6 +23,7 @@ const meta: Meta<typeof Button> = {
         'rateSm',
         'rateMd',
         'filter',
+        'language',
       ],
       description: 'Назначение кнопки',
     },
@@ -68,10 +70,23 @@ export const Primary: Story = {
   },
 }
 
+export const PrimaryMob: Story = {
+  args: {
+    mode: 'primaryMob',
+    text: 'Смотреть 30 дней за 1₽',
+  },
+}
+
 export const Secondary: Story = {
   args: {
     mode: 'secondary',
     text: 'Смотреть по подписке',
+  },
+}
+
+export const Language: Story = {
+  args: {
+    mode: 'language',
   },
 }
 
@@ -100,7 +115,6 @@ export const Share: Story = {
 export const Sign_In: Story = {
   args: {
     mode: 'signIn',
-    iconSrc: user,
   },
 }
 

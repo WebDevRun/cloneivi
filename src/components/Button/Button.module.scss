@@ -37,6 +37,13 @@
   }
 }
 
+.primaryMob {
+  background-color: #312b45;
+  border-color: #312b45;
+  height: 32px;
+  padding: 7px 11px;
+}
+
 .secondary {
   height: 40px;
   background-color: #ea003d;
@@ -123,6 +130,7 @@
   height: 40px;
   padding: 10px 0;
   background-color: #100e19;
+  color: hsla(0, 0%, 100%, 0.48);
 
   font-size: 15px;
   line-height: 20px;
@@ -136,6 +144,10 @@
     font-size: 15px;
     line-height: 20px;
     font-weight: 500;
+  }
+
+  &:hover {
+    color: hsla(0, 0%, 100%, 1);
   }
 }
 
@@ -185,4 +197,9 @@
   &:hover {
     color: #ea003d;
   }
+}
+
+.language img {
+  height: 40px;
+  width: 40px;
 }
