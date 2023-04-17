@@ -4,7 +4,6 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { ArrowSvg } from '@ui/svg/ArrowSvg'
 
 import styles from './Slider.module.scss'
-import { log } from 'util'
 
 export interface SliderProps {
   Component: FC
@@ -53,30 +52,30 @@ export const Slider: FC<SliderProps> = ({
     const gap = Math.round((clientWidth - showSlides * itemWidth) / (showSlides - 1))
     setSlidesCount(showSlides)
     setItemWidth(itemWidth)
+
     setItemsGap(gap)
     if (!scrollStep || scrollStep > showSlides) {
-      setScrollStep(showSlides - 1)
+      setScrollStep(showSlides > 1 ? showSlides - 1 : 1)
     }
   }
 
   const nextClickHandler = () => {
-    console.log(gap)
-    const itemsLeft = items.length - ((Math.abs(position) + slidesCount * (itemWidth + gap)) / (itemWidth + gap))
-    const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + gap) : itemsLeft * (itemWidth + gap)
+    const itemsLeft = items.length - ((Math.abs(position) + slidesCount * (itemWidth + itemsGap)) / (itemWidth + itemsGap))
+    const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + itemsGap) : itemsLeft * (itemWidth + itemsGap)
     setPosition(prevState => prevState - pos)
   }
 
   const prevClickHandler = () => {
-    const itemsLeft = Math.abs(position) / (itemWidth + gap)
-    const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + gap) : itemsLeft * (itemWidth + gap)
+    const itemsLeft = Math.abs(position) / (itemWidth + itemsGap)
+    const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + itemsGap) : itemsLeft * (itemWidth + itemsGap)
     setPosition(prevState => prevState + pos)
   }
 
   return (
     <div className={styles.slider}>
       {
-        position !== 1 &&
-        <button className={cn(styles.button, styles.buttonLeft)} onClick={prevClickHandler}>
+        position !== 0 &&
+        <button className={cn(styles.button, styles[`${arrowSize}ButtonLeft`])} onClick={prevClickHandler}>
           <ArrowSvg color={'#BCBCBF'}
                     size={arrowSize === 'big' ? 32 : arrowSize === 'small' ? 16 : 0}
                     direction={'left'}
@@ -95,13 +94,16 @@ export const Slider: FC<SliderProps> = ({
           }
         </div>
       </div>
-      <button className={cn(styles.button, styles.buttonRight)}
-              onClick={nextClickHandler}>
-        <ArrowSvg color={'#BCBCBF'}
-                  size={arrowSize === 'big' ? 32 : arrowSize === 'small' ? 16 : 0}
-                  direction={'right'}
-        />
-      </button>
+      {
+        position > -(items.length - slidesCount) * (itemWidth + itemsGap) &&
+        <button className={cn(styles.button, styles[`${arrowSize}ButtonRight`])}
+                onClick={nextClickHandler}>
+          <ArrowSvg color={'#BCBCBF'}
+                    size={arrowSize === 'big' ? 32 : arrowSize === 'small' ? 16 : 0}
+                    direction={'right'}
+          />
+        </button>
+      }
     </div>
   )
 }

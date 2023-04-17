@@ -5,7 +5,7 @@
 
     .track {
       display: flex;
-      transition: 0.2s;
+      transition: 0.6s;
 
       .item {
         height: 100%;
@@ -30,13 +30,21 @@
     position: absolute;
     top: -50%;
     transform: translateY(50%);
+  }
 
-    &Left {
-      left: -30px
-    }
+  .smallButtonLeft {
+    left: -15px
+  }
 
-    &Right {
-      right: -30px
-    }
+  .bigButtonLeft {
+    left: -30px
+  }
+
+  .smallButtonRight {
+    right: -15px
+  }
+
+  .bigButtonRight {
+    right: -30px
   }
 }

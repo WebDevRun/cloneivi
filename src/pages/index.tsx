@@ -34,7 +34,7 @@ export default function Home() {
     <main>
       <AppLayout>
         <h1>{t('header:more')}</h1>
-        <Slider Component={Comp}  items={items} onItemClick={() => console.log('asd')} arrowSize={'small'} slidesToShow={6}/>
+        <Slider Component={Comp}  items={items} onItemClick={() => console.log('asd')} arrowSize={'small'} />
       </AppLayout>
     </main>
   )
