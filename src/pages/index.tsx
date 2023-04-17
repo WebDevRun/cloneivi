@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { AppLayout } from '@layouts/AppLayout'
 import { Slider } from '@components/Slider'
+import Comp from '@components/comp'
 
 export default function Home() {
   const { t } = useTranslation(['header'])
@@ -33,7 +34,7 @@ export default function Home() {
     <main>
       <AppLayout>
         <h1>{t('header:more')}</h1>
-        <Slider component={<div style={{width: 100}}></div>}  items={items} onItemClick={() => console.log('asd')}/>
+        <Slider Component={Comp}  items={items} onItemClick={() => console.log('asd')} arrowSize={'small'}/>
       </AppLayout>
     </main>
   )
