@@ -1,9 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { FooterButton } from "./FooterButton";
+import { FooterLink } from "./FooterLink";
+import '../../styles/index.scss'
 
-const meta: Meta<typeof FooterButton> = {
-    title: 'FooterButton',
-    component: FooterButton,
+const meta: Meta<typeof FooterLink> = {
+    title: 'FooterLink',
+    component: FooterLink,
+    tags: ['autodocs'],
     argTypes: {
         type: {
             type: "string",
@@ -15,7 +17,7 @@ const meta: Meta<typeof FooterButton> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof FooterButton>;
+type Story = StoryObj<typeof FooterLink>;
 
 export const Primary: Story = {
     args: {

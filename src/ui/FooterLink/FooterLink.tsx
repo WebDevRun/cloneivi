@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FC } from "react";
-import styles from './FooterButton.module.scss';
+import styles from './FooterLink.module.scss';
 import cn from 'classnames'
 import Image, { ImageProps, StaticImageData } from "next/image";
 
@@ -13,7 +13,7 @@ interface IProps {
     href: string;
 }
 
-export const FooterButton: FC<IProps> = ({ subText, text, type, iconSrc = '', iconAlt = '', href }) => {
+export const FooterLink: FC<IProps> = ({ subText, text, type, iconSrc = '', iconAlt = '', href }) => {
     const mainCl = cn(
         styles.btn,
         styles[type]
