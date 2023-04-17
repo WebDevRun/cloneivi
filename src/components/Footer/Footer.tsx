@@ -1,12 +1,13 @@
-import React from 'react';
-import styles from './Footer.module.scss'
 import Link from 'next/link';
+import { FC } from 'react';
 
-export const Footer = () => {
+import styles from './Footer.module.scss'
+
+export const Footer: FC = () => {
     return (
         <footer className={styles.footer}>
             <hr />
-            <div className={styles.footerMain}>
+            <div className={styles.footerContent}>
                 <div className={styles.footerColumn}>
                     <p className={styles.footerColumnTitle}>О нас</p>
                     <ul className={styles.footerLinkList}>
@@ -95,6 +96,39 @@ export const Footer = () => {
                 </div>
             </div>
             <hr />
+            <div className={styles.footerContentBottom}>
+                <div className={styles.footerColumn}>
+                    <div className={styles.footerStores}>
+                        <button>App Store</button>
+                        <button>Play Store</button>
+                        <button>Smart Tv</button>
+                        <button>Все Устройства</button>
+                    </div>
+                    <div className={styles.footerCopyrights}>
+                        <p>© 2023 ООО «Иви.ру»</p>
+                        <p>HBO ® and related service marks are the property of Home Box Office, Inc</p>
+                    </div>
+                </div>
+                <div className={styles.footerColumn}>
+                    <div className={styles.footerComunity}>
+                        <button>
+                            <img src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_odnoklassniki.svg" alt="" />
+                        </button>
+                        <button>
+                            <img src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_odnoklassniki.svg" alt="" />
+                        </button>
+                        <button>
+                            <img src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_odnoklassniki.svg" alt="" />
+                        </button>
+                        <button>
+                            <img src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_odnoklassniki.svg" alt="" />
+                        </button>
+                        <button>
+                            <img src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_odnoklassniki.svg" alt="" />
+                        </button>
+                    </div>
+                </div>
+            </div>
         </footer>
     );
 };

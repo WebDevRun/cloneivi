@@ -3,6 +3,7 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { AppLayout } from '@layouts/AppLayout'
+import { Footer } from '@components/Footer'
 
 export default function Home() {
   const { t } = useTranslation(['header'])
@@ -11,6 +12,7 @@ export default function Home() {
     <main>
       <AppLayout>
         <h1>{t('header:more')}</h1>
+        <Footer />
       </AppLayout>
     </main>
   )

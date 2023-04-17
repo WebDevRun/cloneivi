@@ -1,22 +1,31 @@
+$textColor: rgba(255, 255, 255, .48);
+$titleColor: rgba(255, 255, 255, 1);
+
+
 .footer {
-    width: 80%;
-    margin: 0 auto;
     font-size: 15px;
-    color: rgba(255, 255, 255, .48);
+    color: $textColor;
     hr{
-        border-color: rgba(255,255,255,.16);
+        border: 1px solid rgba(255,255,255,.16);
+    }
+    button{
+        background: #1f1b2e;
+        color: white;
+        border-radius: 10px;
+        min-width: 40px;
+        min-height: 40px;
     }
 }
 
 
-.footerMain {
+.footerContent {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: 48px 0;
 
     .footerColumn {
         .footerColumnTitle {
-            color: white;
+            color: $titleColor;
             font-size: 15px;
             font-weight: 700;
             margin-bottom: 8px;
@@ -109,6 +118,33 @@
         .footerWidgetText{
             text-align: center;
             margin-top: 24px;
+        }
+    }
+}
+
+
+.footerContentBottom{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 48px 0;
+    .footerColumn{
+        .footerStores{
+            display: flex;
+            gap: 12px;
+            button{
+                padding: 0 10px;
+            }
+        }
+        .footerCopyrights{
+            margin-top: 32px;
+        }
+        .footerComunity{
+            display: flex;
+            justify-content: end;
+            gap: 12px;
+            button{
+                border-radius: 50%;
+            }
         }
     }
 }
