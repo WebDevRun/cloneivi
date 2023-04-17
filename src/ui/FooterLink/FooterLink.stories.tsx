@@ -37,3 +37,23 @@ export const widhoutText: Story = {
         href: '/'
     }
 }
+
+export const withSubtext: Story = {
+    args: {
+        type: 'square',
+        text: 'Play Store',
+        subText: 'Загрузить в',
+        href: '/'
+    }
+}
+
+export const withAll: Story = {
+    args: {
+        type: 'square',
+        text: 'Play Store',
+        subText: 'Загрузить в',
+        iconSrc: "https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/googlePlayLogo.svg",
+        iconAlt: 'PS',
+        href: '/'
+    }
+}

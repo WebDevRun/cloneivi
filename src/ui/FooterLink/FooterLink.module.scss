@@ -2,28 +2,27 @@
     display: inline-block;
     background: #1f1b2e;
     color: white;
-    text-decoration: none;
     width: auto;
     padding: 10px;
-    border-radius: 8px;
 }
 
 .btn .btnContent {
     display: flex;
     gap: 5px;
     font-weight: 500;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
     align-items: center;
 }
 
-.btnContent div{
-    position: relative;
+.subText {
+    font-size: 10px;
+    color: rgba(255,255,255,.72);
 }
 
-.subText {
-    position: absolute;
-    font-size: 10px;
-    top: -14px;
-    color: rgba(255,255,255,.72);
+.square{
+    border-radius: 8px;
+}
+
+.circle{
+    border-radius: 50px;
 }
