@@ -5,20 +5,22 @@ import styles from './ArrowSvg.module.scss'
 interface ArrowSvgProps {
   color?: string
   direction?: 'top' | 'left' | 'bottom' | 'right'
-  size?: number
+  size: 'small' | 'big'
 }
 
-export const ArrowSvg: FC<ArrowSvgProps> = ({ color = '#fff', direction = 'right', size = 32 }) => {
+export const ArrowSvg: FC<ArrowSvgProps> = ({ color = '#fff', direction = 'right', size }) => {
 
   return (
-    <svg xmlns='http://www.w3.org/2000/svg'
-         viewBox='0 0 5.41 9.49'
-         height={size}
+    <svg version='1.1' xmlns='http://www.w3.org/2000/svg'
+         height={size === 'small' ? 16 : size === 'big' ? 32 : 0} viewBox='0 0 12 32'
          fill={color}
          className={styles[direction]}
     >
+      <title>arrowRight_16</title>
       <path
-        d='M.19,9.3c-.12-.12-.19-.27-.19-.44s.06-.32,.19-.44l3.66-3.66L.18,1.08C.06,.96,0,.81,0,.64c0-.18,.06-.33,.19-.45,.12-.12,.27-.19,.44-.19s.32,.06,.44,.19L5.28,4.4c.05,.05,.09,.1,.11,.16s.03,.12,.03,.19c0,.07-.01,.13-.03,.19s-.06,.11-.11,.16L1.06,9.31c-.12,.12-.26,.18-.43,.18s-.32-.06-.44-.19Z' />
+        d='M3.197 32l-3.197-1.95 8.28-14.066-8.28-14.034 3.197-1.95 8.28 14.034q0.511 0.927 0.511 1.966t-0.511 1.966z'></path>
     </svg>
+
+
   )
 }

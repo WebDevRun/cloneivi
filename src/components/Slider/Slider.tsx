@@ -77,12 +77,11 @@ export const Slider: FC<SliderProps> = ({
         position !== 0 &&
         <button className={cn(styles.button, styles[`${arrowSize}ButtonLeft`])} onClick={prevClickHandler}>
           <ArrowSvg color={'#BCBCBF'}
-                    size={arrowSize === 'big' ? 32 : arrowSize === 'small' ? 16 : 0}
+                    size={arrowSize || 'big'}
                     direction={'left'}
           />
         </button>
       }
-
       <div className={styles.container} ref={container}>
         <div className={styles.track} style={{ gap: itemsGap, transform: `translateX(${position}px)` }} ref={track}>
           {
@@ -99,7 +98,7 @@ export const Slider: FC<SliderProps> = ({
         <button className={cn(styles.button, styles[`${arrowSize}ButtonRight`])}
                 onClick={nextClickHandler}>
           <ArrowSvg color={'#BCBCBF'}
-                    size={arrowSize === 'big' ? 32 : arrowSize === 'small' ? 16 : 0}
+                    size={arrowSize || 'big'}
                     direction={'right'}
           />
         </button>

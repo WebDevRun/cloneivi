@@ -9,18 +9,6 @@
 
       .item {
         height: 100%;
-
-        &:nth-child(3n + 1) {
-          background-color: red;
-        }
-
-        &:nth-child(3n + 2) {
-          background-color: green;
-        }
-
-        &:nth-child(3n + 3) {
-          background-color: blue;
-        }
       }
     }
   }
@@ -28,8 +16,15 @@
   .button {
     background-color: transparent;
     position: absolute;
+    height: 100%;
     top: -50%;
     transform: translateY(50%);
+
+    &:hover {
+      svg {
+        fill: #F1F1F3;
+      }
+    }
   }
 
   .smallButtonLeft {
