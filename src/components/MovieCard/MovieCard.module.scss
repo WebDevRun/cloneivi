@@ -1,0 +1,58 @@
+.movieCard {
+    max-width: 154px;
+
+    .movieCardImageCont {
+        position: relative;
+
+        .movieCardImage {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .textBadge {
+            font-size: 13px;
+            font-weight: 700;
+            color: white;
+            background-color: #ff542e;
+            box-shadow: 0 4px 12px rgba(255, 84, 46, .4);
+            padding: 3px 8px;
+            border-radius: 50px;
+            width: auto;
+            position: absolute;
+            top: 5px;
+            left: -5px;
+        }
+
+        .ageBadge {
+            width: 24px;
+            height: 16px;
+            background: rgba(0, 0, 0, .6);
+            border-radius: 4px;
+            font-size: 10.5px;
+            color: lightgray;
+            position: absolute;
+            bottom: 10px;
+            right: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .movieCardInfo{
+        margin-top: 8px;
+        .movieCardName{
+            color: #d9d7e0;
+            font-size: 15px;
+            font-weight: 500;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .movieCardType{
+            color: #ea003d;
+            font-size: 13px;
+            font-weight: 400;
+        }
+    }
+}
