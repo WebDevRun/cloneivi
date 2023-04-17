@@ -4,6 +4,7 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { ArrowSvg } from '@ui/svg/ArrowSvg'
 
 import styles from './Slider.module.scss'
+import { log } from 'util'
 
 export interface SliderProps {
   Component: FC
@@ -20,7 +21,7 @@ export const Slider: FC<SliderProps> = ({
                                           items,
                                           Component,
                                           onItemClick,
-                                          slidesToShow = 0,
+                                          slidesToShow,
                                           startPosition,
                                           slidesToScroll,
                                           arrowSize = 'big',
@@ -28,11 +29,11 @@ export const Slider: FC<SliderProps> = ({
                                         }) => {
   const container = useRef<HTMLDivElement | null>(null)
   const track = useRef<HTMLDivElement | null>(null)
-  const [itemWidth, setItemWidth] = useState(0)
-  const [slidesCount, setSlidesCount] = useState(slidesToShow)
-  const [clientWidth, setClientWidth] = useState(0)
-  const [itemsGap, setItemsGap] = useState(gap)
-  const [position, setPosition] = useState(startPosition || 1)
+  const [itemWidth, setItemWidth] = useState<number>(0)
+  const [slidesCount, setSlidesCount] = useState<number>(slidesToShow || 0)
+  const [itemsGap, setItemsGap] = useState<number>(gap || 24)
+  const [position, setPosition] = useState<number>(startPosition || 0)
+  const [scrollStep, setScrollStep] = useState<number>(slidesToScroll || 0)
 
   useEffect(() => {
     const itemClientWidth = track.current?.children[0].children[0].clientWidth
@@ -49,33 +50,40 @@ export const Slider: FC<SliderProps> = ({
 
   const setSettings = (showSlides, itemWidth) => {
     const clientWidth = container.current?.clientWidth
-    const gap = (clientWidth - showSlides * itemWidth) / (showSlides - 1)
+    const gap = Math.round((clientWidth - showSlides * itemWidth) / (showSlides - 1))
     setSlidesCount(showSlides)
     setItemWidth(itemWidth)
-    setClientWidth(clientWidth || 0)
     setItemsGap(gap)
+    if (!scrollStep || scrollStep > showSlides) {
+      setScrollStep(showSlides - 1)
+    }
   }
 
   const nextClickHandler = () => {
-    const itemsLeft = items.length - (Math.abs(position) + slidesCount * itemWidth) / itemWidth
-    const pos = itemsLeft >= slidesCount ? slidesCount * itemWidth : itemsLeft * itemWidth
+    console.log(gap)
+    const itemsLeft = items.length - ((Math.abs(position) + slidesCount * (itemWidth + gap)) / (itemWidth + gap))
+    const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + gap) : itemsLeft * (itemWidth + gap)
     setPosition(prevState => prevState - pos)
   }
 
   const prevClickHandler = () => {
-    const itemsLeft = Math.abs(position) / itemWidth
-    const pos = itemsLeft >= slidesCount ? slidesCount * itemWidth : itemsLeft * itemWidth
+    const itemsLeft = Math.abs(position) / (itemWidth + gap)
+    const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + gap) : itemsLeft * (itemWidth + gap)
     setPosition(prevState => prevState + pos)
   }
 
   return (
     <div className={styles.slider}>
-      <button className={cn(styles.button, styles.buttonLeft)} disabled={position === 0} onClick={prevClickHandler}>
-        <ArrowSvg color={'#BCBCBF'}
-                  size={arrowSize === 'big' ? 32 : arrowSize === 'small' ? 16 : 0}
-                  direction={'left'}
-        />
-      </button>
+      {
+        position !== 1 &&
+        <button className={cn(styles.button, styles.buttonLeft)} onClick={prevClickHandler}>
+          <ArrowSvg color={'#BCBCBF'}
+                    size={arrowSize === 'big' ? 32 : arrowSize === 'small' ? 16 : 0}
+                    direction={'left'}
+          />
+        </button>
+      }
+
       <div className={styles.container} ref={container}>
         <div className={styles.track} style={{ gap: itemsGap, transform: `translateX(${position}px)` }} ref={track}>
           {
@@ -87,12 +95,12 @@ export const Slider: FC<SliderProps> = ({
           }
         </div>
       </div>
-      <button className={cn(styles.button, styles.buttonRight)} disabled={position <= -(items.length - slidesToShow) * itemWidth} onClick={nextClickHandler}>
+      <button className={cn(styles.button, styles.buttonRight)}
+              onClick={nextClickHandler}>
         <ArrowSvg color={'#BCBCBF'}
                   size={arrowSize === 'big' ? 32 : arrowSize === 'small' ? 16 : 0}
                   direction={'right'}
         />
-
       </button>
     </div>
   )
