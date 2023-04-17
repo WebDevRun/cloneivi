@@ -2,6 +2,8 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { MoviePlayer } from './MoviePlayer'
 
+import '../../styles/index.scss'
+
 const meta: Meta<typeof MoviePlayer> = {
   title: 'MoviePlayer',
   tags: ['autodocs'],
