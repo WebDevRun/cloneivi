@@ -13,7 +13,7 @@ export interface SliderProps {
   slidesToScroll?: number
   startPosition?: number
   gap?: number,
-  arrowSize?: 'small' | 'big'
+  arrowSize?: 'small' | 'big',
 }
 
 export const Slider: FC<SliderProps> = ({
@@ -24,8 +24,10 @@ export const Slider: FC<SliderProps> = ({
                                           startPosition,
                                           slidesToScroll,
                                           arrowSize = 'big',
-                                          gap = 24
+                                          gap = 24,
+
                                         }) => {
+  console.log(typeof Component)
   const container = useRef<HTMLDivElement | null>(null)
   const track = useRef<HTMLDivElement | null>(null)
   const [itemWidth, setItemWidth] = useState<number>(0)
