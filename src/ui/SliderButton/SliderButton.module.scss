@@ -1,0 +1,27 @@
+.sliderButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .image {
+    margin-bottom: 8px;
+  }
+}
+
+.square {
+  flex-direction: column;
+}
+
+.circle {
+
+}
+
+.fill {
+  width: 177px;
+  height: 108px;
+  background-color: #1F1B2E;
+}
+
+.outlined {
+
+}

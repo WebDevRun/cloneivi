@@ -7,27 +7,27 @@ import styles from './Slider.module.scss'
 
 export interface SliderProps {
   Component: FC
-  items: ISliderItem[]
+  componentSetting?: object
+  items: any[]
   onItemClick: () => void
   slidesToShow?: number
   slidesToScroll?: number
   startPosition?: number
   gap?: number,
-  arrowSize?: 'small' | 'big',
+  arrowSize?: 'small' | 'big'
 }
 
 export const Slider: FC<SliderProps> = ({
                                           items,
                                           Component,
+                                          componentSetting = {},
                                           onItemClick,
                                           slidesToShow,
                                           startPosition,
                                           slidesToScroll,
                                           arrowSize = 'big',
                                           gap = 24,
-
                                         }) => {
-  console.log(typeof Component)
   const container = useRef<HTMLDivElement | null>(null)
   const track = useRef<HTMLDivElement | null>(null)
   const [itemWidth, setItemWidth] = useState<number>(0)
@@ -89,7 +89,7 @@ export const Slider: FC<SliderProps> = ({
           {
             items.map(item => (
               <div key={item.id} className={styles.item} onClick={onItemClick}>
-                <Component {...item} />
+                <Component {...item} {...componentSetting} />
               </div>
             ))
           }

@@ -1,1 +1,0 @@
-export { GenresButton } from './GenresButton'
