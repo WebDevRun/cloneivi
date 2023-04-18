@@ -9,5 +9,3 @@ export interface TemplateNameProps {
 export const TemplateName: FC<TemplateNameProps> = ({ children }) => {
   return <div className={styles.templateName}>{children}</div>
 }
-
-const a = { a: 1, b: 2, c: 3 }
