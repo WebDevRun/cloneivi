@@ -22,22 +22,22 @@ export const FooterLink: FC<FooterLinkProps> = ({
   iconAlt,
   href,
 }) => {
-  const mainCl = cn(styles.btn, styles[type])
-
   return (
     <Link
-      style={subText ? { padding: '5px 10px' } : {}}
-      className={mainCl}
+      className={cn(styles.btn, styles[type], {
+        [styles.btn_withSubText]: subText,
+      })}
       href={href}
     >
       <div className={styles.btnContent}>
         {iconSrc && iconAlt && (
           <Image width={20} height={20} src={iconSrc} alt={iconAlt} />
         )}
-        {text && (
-          <div>
-            <p className={styles.subText}>{subText}</p>
-            {text}
+
+        {(text || subText) && (
+          <div className={styles.textContainer}>
+            {subText && <p className={styles.subText}>{subText}</p>}
+            {text && <p className={styles.text}>{text}</p>}
           </div>
         )}
       </div>

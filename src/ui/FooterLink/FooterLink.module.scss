@@ -1,28 +1,35 @@
 .btn {
-    display: inline-block;
-    background: #1f1b2e;
-    color: white;
-    width: auto;
-    padding: 10px;
+  display: inline-block;
+  background: #1f1b2e;
+  color: white;
+  padding: 10px;
+
+  &_withSubText {
+    padding: 5px 10px;
+  }
 }
 
-.btn .btnContent {
-    display: flex;
-    gap: 5px;
-    font-weight: 500;
-    font-size: 14px;
-    align-items: center;
+.btnContent {
+  display: flex;
+  font-weight: 500;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+}
+
+.textContainer {
+  margin-left: 5px;
 }
 
 .subText {
-    font-size: 10px;
-    color: rgba(255,255,255,.72);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.72);
 }
 
-.square{
-    border-radius: 8px;
+.square {
+  border-radius: 8px;
 }
 
-.circle{
-    border-radius: 50px;
+.circle {
+  border-radius: 50px;
 }

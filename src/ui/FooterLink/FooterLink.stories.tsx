@@ -1,5 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
+import googlePlay from '../../assets/images/install/google-play.svg'
+
 import { FooterLink } from './FooterLink'
 import '../../styles/index.scss'
 
@@ -10,9 +12,30 @@ const meta: Meta<typeof FooterLink> = {
   argTypes: {
     type: {
       type: 'string',
-      description: 'Для изменения вида кнопки',
+      description: 'Изменение вида кнопки',
       options: ['square', 'circle'],
       control: { type: 'radio' },
+    },
+    href: {
+      type: 'string',
+      description: 'URL ссылки',
+    },
+    iconSrc: {
+      type: 'string',
+      description: 'URL картинки',
+      defaultValue: '',
+    },
+    iconAlt: {
+      type: 'string',
+      description: 'Альтернативный тект если не отображается картинка',
+    },
+    text: {
+      type: 'string',
+      description: 'Основной текст',
+    },
+    subText: {
+      type: 'string',
+      description: 'Дополнительный текст',
     },
   },
 }
@@ -20,33 +43,31 @@ const meta: Meta<typeof FooterLink> = {
 export default meta
 type Story = StoryObj<typeof FooterLink>
 
-export const Primary: Story = {
-  args: {
-    type: 'square',
-    text: 'Click me',
-    iconSrc:
-      'https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/googlePlayLogo.svg',
-    iconAlt: 'PS',
-    href: '/',
-  },
-}
-
-export const WidhoutText: Story = {
-  args: {
-    type: 'circle',
-    iconSrc:
-      'https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/googlePlayLogo.svg',
-    iconAlt: 'PS',
-    href: '/',
-  },
-}
-
-export const WithSubtext: Story = {
+export const WithoutIcon: Story = {
   args: {
     type: 'square',
     text: 'Play Store',
     subText: 'Загрузить в',
-    href: '/',
+    href: '#',
+  },
+}
+
+export const WithoutSutText: Story = {
+  args: {
+    type: 'square',
+    text: 'Click me',
+    iconSrc: googlePlay,
+    iconAlt: 'googlePlay',
+    href: '#',
+  },
+}
+
+export const WithoutText: Story = {
+  args: {
+    type: 'circle',
+    iconSrc: googlePlay,
+    iconAlt: 'googlePlay',
+    href: '#',
   },
 }
 
@@ -55,9 +76,8 @@ export const WithAll: Story = {
     type: 'square',
     text: 'Play Store',
     subText: 'Загрузить в',
-    iconSrc:
-      'https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/googlePlayLogo.svg',
-    iconAlt: 'PS',
-    href: '/',
+    iconSrc: googlePlay,
+    iconAlt: 'googlePlay',
+    href: '#',
   },
 }
