@@ -18,6 +18,11 @@ export const MovieCard: FC<MovieCardProps> = ({ href, imgAlt, imgSrc, ageLimit, 
         <img className={styles.movieCardImage} src={imgSrc} alt={imgAlt} />
         <div className={styles.textBadge}>эксклюзив</div>
         <div className={styles.ageBadge}>{ageLimit}+</div>
+
+
+        <div className={styles.movieInfo}>
+
+        </div>
       </div>
       <div className={styles.movieCardInfo}>
         <p className={styles.movieCardName}>{movieName}</p>

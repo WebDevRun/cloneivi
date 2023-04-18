@@ -3,6 +3,19 @@
 
     .movieCardImageCont {
         position: relative;
+        transition: .3s ease-in-out;
+        .movieInfo {
+            opacity: 0;
+            background: rgba(0, 0, 0, .6);
+            width: 100%;
+            max-height: 236.91px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: .3s ease-in-out;
+            border-radius: 10px;
+        }
 
         .movieCardImage {
             width: 100%;
@@ -21,6 +34,7 @@
             position: absolute;
             top: 5px;
             left: -5px;
+            z-index: 1;
         }
 
         .ageBadge {
@@ -39,9 +53,10 @@
         }
     }
 
-    .movieCardInfo{
+    .movieCardInfo {
         margin-top: 8px;
-        .movieCardName{
+
+        .movieCardName {
             color: #d9d7e0;
             font-size: 15px;
             font-weight: 500;
@@ -49,10 +64,20 @@
             overflow: hidden;
             white-space: nowrap;
         }
-        .movieCardType{
+
+        .movieCardType {
             color: #ea003d;
             font-size: 13px;
             font-weight: 400;
+        }
+    }
+}
+
+.movieCard:hover {
+    .movieCardImageCont{
+        transform: scale(1.05);
+        .movieInfo {
+            opacity: 1;
         }
     }
 }
