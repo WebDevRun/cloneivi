@@ -1,6 +1,7 @@
 import { Button } from './Button'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
+import '@styles/index.scss'
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
@@ -38,6 +39,9 @@ const meta: Meta<typeof Button> = {
     iconSrc: {
       type: 'string',
       description: 'Иконка',
+    },
+    iconSvg: {
+      description: 'Компонент с иконкой svg',
     },
     iconAlt: {
       type: 'string',

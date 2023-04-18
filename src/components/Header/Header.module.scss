@@ -47,12 +47,22 @@
 
 .buttonMobile {
   display: none;
+  margin-right: 20px;
 }
 
 .notifyLink {
   display: flex;
   justify-content: center;
   width: 36px;
+
+  svg {
+    fill: rgba(255, 255, 255, 0.48);
+    transition-duration: 0.4s;
+
+    &:hover {
+      fill: #fff;
+    }
+  }
 }
 
 .headerAvatar {

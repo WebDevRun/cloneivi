@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import Image from 'next/image'
-import React from 'react'
+import { FC, ReactNode } from 'react'
 
 import styles from './Button.module.scss'
 
@@ -22,27 +22,33 @@ interface ButtonProps {
     | 'language'
 
   iconSrc?: string
+  iconSvg?: ReactNode
   iconAlt?: string
   text?: string
   subText?: string
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
-export const Button = ({
-  mode = 'secondary',
-  text,
-  subText,
-  iconSrc = '',
-  iconAlt = '',
-  onClick,
-}: ButtonProps) => {
+export const Button: FC<ButtonProps> = ({
+                                          mode = 'secondary',
+                                          text,
+                                          subText,
+                                          iconSrc,
+                                          iconSvg,
+                                          iconAlt,
+                                          onClick
+                                        }) => {
   const mainCn = cn(styles.button, styles[mode])
-
   return (
-    <button type="button" className={mainCn} onClick={onClick}>
+    <button type='button' className={mainCn} onClick={onClick}>
       {iconSrc && iconAlt && (
         <div className={styles.icon}>
           <Image src={iconSrc} alt={iconAlt} />
+        </div>
+      )}
+      {iconSvg && iconAlt && (
+        <div className={styles.icon}>
+          {iconSvg}
         </div>
       )}
       {text && (
