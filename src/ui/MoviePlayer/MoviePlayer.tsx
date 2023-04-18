@@ -4,6 +4,7 @@ import { FC, MouseEventHandler, useEffect, useRef, useState } from 'react'
 import { FullscreenButton } from './FullscreenButton'
 import styles from './MoviePlayer.module.scss'
 import { PlayButton } from './PlayButton'
+import { Volume } from './Volume'
 
 export interface MoviePlayerProps {
   name: string
@@ -25,6 +26,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
   const [isFirstPlay, setIsFirstPlay] = useState(true)
   const [playStatus, setPlayStatus] = useState<playStatusTypes>('stop')
   const [isFullscreen, setIsFullscreen] = useState<isFullscreenTypes>(undefined)
+  const [volume, setVolume] = useState(0.4)
 
   const videoLayoutRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -52,6 +54,11 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
     if (isFullscreen === true) setFullscreen()
     if (isFullscreen === false) exitFullscreen()
   }, [isFullscreen])
+
+  useEffect(() => {
+    if (videoRef.current) videoRef.current.volume = volume
+    console.log(volume)
+  }, [volume])
 
   const playClickHandler: MouseEventHandler<
     HTMLVideoElement | HTMLDivElement
@@ -140,6 +147,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
               playStatus={playStatus}
               setPlayStatus={setPlayStatus}
             />
+            <Volume volume={volume} setVolume={setVolume} />
           </div>
         </div>
       )}
