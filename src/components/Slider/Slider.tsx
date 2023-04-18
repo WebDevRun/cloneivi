@@ -9,7 +9,7 @@ export interface SliderProps {
   Component: FC
   componentSetting?: object
   items: any[]
-  onItemClick: () => void
+  onItemClick: (id: number) => void
   slidesToShow?: number
   slidesToScroll?: number
   startPosition?: number
@@ -88,7 +88,7 @@ export const Slider: FC<SliderProps> = ({
         <div className={styles.track} style={{ gap: itemsGap, transform: `translateX(${position}px)` }} ref={track}>
           {
             items.map(item => (
-              <div key={item.id} className={styles.item} onClick={onItemClick}>
+              <div key={item.id} className={styles.item} onClick={() => onItemClick(item.id)}>
                 <Component {...item} {...componentSetting} />
               </div>
             ))

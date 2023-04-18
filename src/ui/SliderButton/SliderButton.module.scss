@@ -2,6 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.4s;
 
   .image {
     margin-bottom: 8px;
@@ -10,6 +13,7 @@
 
 .square {
   flex-direction: column;
+  border-radius: 8px;
 }
 
 .circle {
@@ -17,11 +21,27 @@
 }
 
 .fill {
-  width: 177px;
+  width: 153px;
   height: 108px;
   background-color: #1F1B2E;
+  font-size: 15px;
+  line-height: 20px;
+
+  &:hover {
+    background-color: #27223a;
+  }
 }
 
 .outlined {
+  width: 108px;
+  height: 88px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  font-size: 13px;
+  line-height: 16px;
+
+  &:hover {
+    background-color: #7E798F;
+  }
 
 }

@@ -43,8 +43,8 @@ export default function Home() {
     <main>
       <AppLayout>
         <h1>{t('header:more')}</h1>
-        <Slider Component={SliderButton} items={arr} onItemClick={() => 'fh'}
-                componentSetting={{ type: 'square', style: 'fill' }} />
+        <Slider Component={SliderButton} items={arr} onItemClick={console.log}
+                componentSetting={{ type: 'square', style: 'outlined' }} />
       </AppLayout>
     </main>
   )
