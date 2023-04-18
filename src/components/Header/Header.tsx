@@ -2,24 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import logo from '@assets/images/common/ivi.svg'
-import notify from '@assets/images/header/notifications.svg'
-import search from '@assets/images/header/search.svg'
 import { HeaderSvg } from '@ui/svg/HeaderSvg'
 
-import { Button } from '../Button'
-import { Language } from '../Language/Language'
+import { Button } from '../../ui/Button'
+import { Language } from '../../ui/Language'
+import {IMenuItem, MENU} from "../../utils/consts"
 
 import styles from './Header.module.scss'
-
-
-const menu = [
-  { id: '1', name: 'Мой Иви', href: 'https://www.ivi.ru/' },
-  { id: '2', name: 'Что нового', href: 'https://www.ivi.ru/new' },
-  { id: '3', name: 'Фильмы', href: 'https://www.ivi.ru/movies' },
-  { id: '4', name: 'Сериалы', href: 'https://www.ivi.ru/series' },
-  { id: '5', name: 'Мультфильмы', href: 'https://www.ivi.ru/animation' },
-  { id: '6', name: 'TV+', href: 'https://www.ivi.ru/tvplus' }
-]
 
 export const Header = () => {
   return (
@@ -29,7 +18,7 @@ export const Header = () => {
       </Link>
 
       <nav className={styles.menu}>
-        {menu.map((item) => (
+        {MENU.map((item: IMenuItem) => (
           <li className={styles.menuItem} key={item.id}>
             <Link href={item.href} title={item.name}>
               <div className={styles.menuItemText}>{item.name}</div>
