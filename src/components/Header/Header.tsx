@@ -14,7 +14,7 @@ export const Header = () => {
   return (
     <div className={styles.header}>
       <Link href='https://www.ivi.ru/'>
-        <Image src={logo} alt='logo'></Image>
+        <Image src={logo} alt='logo' />
       </Link>
 
       <nav className={styles.menu}>
