@@ -30,27 +30,23 @@ interface ButtonProps {
 }
 
 export const Button: FC<ButtonProps> = ({
-                                          mode = 'secondary',
-                                          text,
-                                          subText,
-                                          iconSrc,
-                                          iconSvg,
-                                          iconAlt,
-                                          onClick
-                                        }) => {
+  mode = 'secondary',
+  text,
+  subText,
+  iconSrc,
+  iconSvg,
+  iconAlt,
+  onClick,
+}) => {
   const mainCn = cn(styles.button, styles[mode])
   return (
-    <button type='button' className={mainCn} onClick={onClick}>
+    <button type="button" className={mainCn} onClick={onClick}>
       {iconSrc && iconAlt && (
         <div className={styles.icon}>
           <Image src={iconSrc} alt={iconAlt} />
         </div>
       )}
-      {iconSvg && iconAlt && (
-        <div className={styles.icon}>
-          {iconSvg}
-        </div>
-      )}
+      {iconSvg && iconAlt && <div className={styles.icon}>{iconSvg}</div>}
       {text && (
         <div className={styles.mainText}>
           {text}

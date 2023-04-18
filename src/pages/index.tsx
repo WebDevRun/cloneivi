@@ -12,7 +12,7 @@ export default function Home() {
     <main>
       <AppLayout>
         <h1>{t('header:more')}</h1>
-        <Header ></Header>
+        <Header />
       </AppLayout>
     </main>
   )

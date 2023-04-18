@@ -50,7 +50,7 @@ export const Header = () => {
         </div>
         <div>
           <Button
-            iconSvg={<HeaderSvg size={16} icon={'search'} />}
+            iconSvg={<HeaderSvg size={16} icon='search' />}
             iconAlt='Поиск'
             mode='search'
             text='Поиск'
@@ -62,19 +62,19 @@ export const Header = () => {
         className={styles.notifyLink}
         href='https://www.ivi.ru/profile/pull_notifications'
       >
-        <HeaderSvg size={16} icon={'notify'} />
+        <HeaderSvg size={16} icon='notify' />
       </Link>
 
       <div className={styles.headerAvatar}>
         <Button
-          iconSvg={<HeaderSvg size={20} icon={'profile'} />}
+          iconSvg={<HeaderSvg size={20} icon='profile' />}
           iconAlt='Воити в аккаунт'
           mode='signIn'
         />
       </div>
 
       <div className={styles.language}>
-        <Language></Language>
+        <Language />
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
-import { Button } from './Button'
-
 import { Meta, StoryObj } from '@storybook/react'
+
+import { Button } from './Button'
 import '@styles/index.scss'
 
 const meta: Meta<typeof Button> = {
