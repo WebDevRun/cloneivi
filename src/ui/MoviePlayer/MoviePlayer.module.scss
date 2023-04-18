@@ -53,8 +53,9 @@ $white: #ffffff;
 
 .controlsInnerContainer {
   display: grid;
-  margin: 0 fn.toRem(32px) fn.toRem(14px);
   grid-template-columns: repeat(5, minmax(min-content, 1fr));
+  align-items: center;
+  margin: 0 fn.toRem(32px) fn.toRem(14px);
   transform: translateY(fn.toRem(160px));
 }
 

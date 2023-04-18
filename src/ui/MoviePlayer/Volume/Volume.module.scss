@@ -1,0 +1,46 @@
+@use '@styles/functions' as fn;
+
+$buttonSize: fn.toRem(40px);
+$imageSize: fn.toRem(20px);
+$rangeColor: #ffffff;
+
+.volume {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  width: $buttonSize;
+  height: $buttonSize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.image {
+  width: $imageSize;
+  height: $imageSize;
+}
+
+.range {
+  appearance: none;
+  width: fn.toRem(48px);
+  height: fn.toRem(4px);
+  background-color: transparent;
+  cursor: pointer;
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: fn.toRem(4px);
+    height: fn.toRem(4px);
+    background-color: $rangeColor;
+    border-radius: 50%;
+  }
+
+  &::-webkit-slider-runnable-track {
+    appearance: none;
+    background-color: rgba($color: $rangeColor, $alpha: 0.32);
+    border-radius: 2px;
+  }
+}
