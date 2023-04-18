@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { MoviePlayer } from './MoviePlayer'
 
-import '../../styles/index.scss'
+import '@styles/index.scss'
 
 const meta: Meta<typeof MoviePlayer> = {
   title: 'MoviePlayer',
@@ -17,6 +17,14 @@ const meta: Meta<typeof MoviePlayer> = {
       type: 'string',
       description: 'Ссылка на видео',
     },
+    name: {
+      type: 'string',
+      description: 'Наименование фильма',
+    },
+    text: {
+      type: 'string',
+      description: 'Информация о фильме',
+    },
   },
 }
 
@@ -30,5 +38,7 @@ export const Default: Story = {
       'https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4',
     posterSrc:
       'https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217',
+    name: 'Большой самоуверенный кролик',
+    text: 'Ролик',
   },
 }

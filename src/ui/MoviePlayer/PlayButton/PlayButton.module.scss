@@ -1,0 +1,40 @@
+@use '@styles/functions' as fn;
+
+.playButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 80ms;
+}
+
+.big {
+  max-width: fn.toRem(88px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: #ea003d;
+  padding: fn.toRem(20px);
+
+  &:hover {
+    background-color: #ff0f4d;
+  }
+}
+
+.small {
+  width: fn.toRem(40px);
+  height: fn.toRem(40px);
+  border-radius: 8px;
+  background-color: rgba($color: #ffffff, $alpha: 0.008);
+  padding: 10px;
+
+  &:hover {
+    background-color: rgba($color: #ffffff, $alpha: 0.16);
+  }
+}
+
+.playImage {
+  width: 100%;
+  height: auto;
+}

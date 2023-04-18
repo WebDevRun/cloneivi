@@ -1,0 +1,17 @@
+@use '@styles/functions' as fn;
+
+.fullscreenButton {
+  position: absolute;
+  bottom: fn.toRem(20px);
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+}
+
+.fullscreenImage {
+  width: 100%;
+  height: auto;
+}
