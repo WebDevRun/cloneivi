@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
+
 import { FooterLink } from './FooterLink'
 import '../../styles/index.scss'
 
@@ -30,7 +31,7 @@ export const Primary: Story = {
   },
 }
 
-export const widhoutText: Story = {
+export const WidhoutText: Story = {
   args: {
     type: 'circle',
     iconSrc:
@@ -40,7 +41,7 @@ export const widhoutText: Story = {
   },
 }
 
-export const withSubtext: Story = {
+export const WithSubtext: Story = {
   args: {
     type: 'square',
     text: 'Play Store',
@@ -49,7 +50,7 @@ export const withSubtext: Story = {
   },
 }
 
-export const withAll: Story = {
+export const WithAll: Story = {
   args: {
     type: 'square',
     text: 'Play Store',
