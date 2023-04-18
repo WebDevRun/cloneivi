@@ -5,10 +5,12 @@ $titleColor: rgba(255, 255, 255, 1);
 .footer {
     font-size: 15px;
     color: $textColor;
-    hr{
-        border: 1px solid rgba(255,255,255,.16);
+
+    hr {
+        border: 1px solid rgba(255, 255, 255, .16);
     }
-    button{
+
+    button {
         background: #1f1b2e;
         color: white;
         border-radius: 10px;
@@ -93,11 +95,12 @@ $titleColor: rgba(255, 255, 255, 1);
         }
     }
 
-    .footerWidget{
+    .footerWidget {
         display: flex;
         flex-direction: column;
         align-items: center;
         cursor: pointer;
+
         .footerWidgetIcon {
             --start-gradient-color: #A869F0;
             --end-gradient-color: #834CC2;
@@ -115,7 +118,8 @@ $titleColor: rgba(255, 255, 255, 1);
             background: linear-gradient(180deg, var(--start-gradient-color) 0%, var(--end-gradient-color) 100%);
             box-shadow: 0 0 104px var(--shadow-color);
         }
-        .footerWidgetText{
+
+        .footerWidgetText {
             text-align: center;
             margin-top: 24px;
         }
@@ -123,27 +127,70 @@ $titleColor: rgba(255, 255, 255, 1);
 }
 
 
-.footerContentBottom{
+.footerContentBottom {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 48px 0;
-    .footerColumn{
-        .footerStores{
+
+    .footerColumn {
+        .footerStores {
             display: flex;
             gap: 12px;
-            button{
+
+            button {
                 padding: 0 10px;
             }
         }
-        .footerCopyrights{
+
+        .footerCopyrights {
             margin-top: 32px;
         }
-        .footerComunity{
+
+        .footerComunity {
             display: flex;
             justify-content: end;
             gap: 12px;
-            button{
+
+            button {
                 border-radius: 50%;
+            }
+        }
+    }
+}
+
+.mobileFooter {
+    display: none;
+}
+
+
+@media (max-width: 1160px) {
+    .footer {
+        display: none;
+    }
+
+    .mobileFooter {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(31, 27, 46, .88);
+
+        .tabBarItem {
+            max-width: 120px;
+            display: block;
+            background-image: url('https://solea-parent.dfs.ivi.ru/picture/7e798f,7e798f/tabBarGlow.svg');
+            background-size: 64px 48px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            color: white;
+
+            .tabBarIcon{
+                margin-top: 8px;
+                display: flex;
+                justify-content: center;
+                align-items: end;
             }
         }
     }
