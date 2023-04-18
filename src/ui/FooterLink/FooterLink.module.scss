@@ -1,0 +1,28 @@
+.btn {
+    display: inline-block;
+    background: #1f1b2e;
+    color: white;
+    width: auto;
+    padding: 10px;
+}
+
+.btn .btnContent {
+    display: flex;
+    gap: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    align-items: center;
+}
+
+.subText {
+    font-size: 10px;
+    color: rgba(255,255,255,.72);
+}
+
+.square{
+    border-radius: 8px;
+}
+
+.circle{
+    border-radius: 50px;
+}
