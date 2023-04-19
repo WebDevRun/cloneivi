@@ -5,8 +5,8 @@ import styles from './DropDownLayout.module.scss'
 
 export interface ModalLayoutProps {
   children: ReactNode
-  size: 'big' | 'small'
-  position: 'left' | 'center' | 'right'
+  size?: 'big' | 'small'
+  position?: 'left' | 'center' | 'right'
   type: 'filter' | 'header'
 }
 
@@ -15,7 +15,7 @@ export const DropDownLayout: FC<ModalLayoutProps> = ({ children, position, size,
     <div className={cn(
       styles.dropDownLayout,
       styles[type],
-      styles[size],
+      size && styles[size],
       position && styles[position],
     )}>
       {children}
