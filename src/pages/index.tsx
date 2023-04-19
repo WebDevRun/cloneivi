@@ -9,7 +9,7 @@ import { SliderButton } from '@ui/SliderButton'
 import vk from '@assets/images/social/vkontakte.svg'
 
 export default function Home() {
-  const { t } = useTranslation(['header'])
+  const { t } = useTranslation( ['header'] )
 
   const arr = [
     { id: 0, text: 'Драмы', iconSrc: vk, iconAlt: 'Драмы' },
@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <main>
       <AppLayout>
-        <h1>{t('header:more')}</h1>
+        <h1>{t( 'header:more' )}</h1>
         <Slider Component={SliderButton} items={arr} onItemClick={console.log}
                 componentSetting={{ type: 'square', style: 'outlined' }} />
       </AppLayout>
@@ -51,7 +51,7 @@ export default function Home() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const localeData = await serverSideTranslations(locale ?? 'ru', ['header'])
+  const localeData = await serverSideTranslations( locale ?? 'ru', ['header'] )
   return {
     props: {
       ...localeData,

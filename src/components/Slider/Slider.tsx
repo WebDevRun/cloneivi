@@ -4,6 +4,7 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { ArrowSvg } from '@ui/svg/ArrowSvg'
 
 import styles from './Slider.module.scss'
+import { dir } from 'i18next'
 
 export interface SliderProps {
   Component: FC
@@ -23,22 +24,22 @@ export const Slider: FC<SliderProps> = ({
   componentSetting = {},
   onItemClick,
   slidesToShow,
-  startPosition= 0,
+  startPosition = 0,
   slidesToScroll,
   arrowSize = 'big',
   gap = 24,
 }) => {
   const container = useRef<HTMLDivElement | null>( null )
   const track = useRef<HTMLDivElement | null>( null )
-  const [ itemWidth, setItemWidth ] = useState<number>( 0 )
-  const [ slidesCount, setSlidesCount ] = useState<number>( slidesToShow || 0 )
-  const [ itemsGap, setItemsGap ] = useState<number>( gap || 24 )
-  const [ position, setPosition ] = useState<number>( startPosition || 0 )
-  const [ scrollStep, setScrollStep ] = useState<number>( slidesToScroll || 0 )
+  const [itemWidth, setItemWidth] = useState<number>( 0 )
+  const [slidesCount, setSlidesCount] = useState<number>( slidesToShow || 0 )
+  const [itemsGap, setItemsGap] = useState<number>( gap || 24 )
+  const [position, setPosition] = useState<number>( startPosition || 0 )
+  const [scrollStep, setScrollStep] = useState<number>( slidesToScroll || 0 )
 
   useEffect( () => {
-    const item = track.current?.children[0].children[0]
-    const itemClientWidth = item?.clientTop * 2 + item?.clientWidth
+    const item = track.current?.firstElementChild?.firstElementChild
+    const itemClientWidth = (item as HTMLElement)?.offsetWidth
 
     if (slidesCount) {
       setSettings( slidesCount, itemClientWidth )
@@ -55,7 +56,7 @@ export const Slider: FC<SliderProps> = ({
     const gap = (clientWidth - showSlides * itemWidth) / (showSlides - 1)
     setSlidesCount( showSlides )
     setItemWidth( itemWidth )
-    setPosition(-startPosition * (itemWidth + gap) || 0)
+    setPosition( -startPosition * (itemWidth + gap) || 0 )
 
     setItemsGap( gap )
     if (!scrollStep || scrollStep > showSlides) {
@@ -76,23 +77,23 @@ export const Slider: FC<SliderProps> = ({
   }
 
   return (
-    <div className={ styles.slider }>
+    <div className={styles.slider}>
       {
         position !== 0 &&
-        <button className={ cn( styles.button, styles[`${ arrowSize }ButtonLeft`] ) } onClick={ prevClickHandler }>
-          <ArrowSvg color={ '#BCBCBF' }
-                    size={ arrowSize || 'big' }
-                    direction={ 'left' }
+        <button className={cn( styles.button, styles[`${arrowSize}ButtonLeft`] )} onClick={prevClickHandler}>
+          <ArrowSvg color={'#BCBCBF'}
+                    size={arrowSize || 'big'}
+                    direction={'left'}
           />
         </button>
       }
-      <div className={ styles.container } ref={ container }>
-        <div className={ styles.track } style={ { gap: itemsGap, transform: `translateX(${ position }px)` } }
-             ref={ track }>
+      <div className={styles.container} ref={container}>
+        <div className={styles.track} style={{ gap: itemsGap, transform: `translateX(${position}px)` }}
+             ref={track}>
           {
             items.map( item => (
-              <div key={ item.id } className={ styles.item } onClick={ () => onItemClick( item.id ) }>
-                <Component { ...item } { ...componentSetting } />
+              <div key={item.id} className={styles.item}>
+                <Component {...item} {...componentSetting} onClick={() => onItemClick( item.id )} />
               </div>
             ) )
           }
@@ -100,11 +101,11 @@ export const Slider: FC<SliderProps> = ({
       </div>
       {
         position > -(items.length - slidesCount) * (itemWidth + itemsGap) &&
-        <button className={ cn( styles.button, styles[`${ arrowSize }ButtonRight`] ) }
-                onClick={ nextClickHandler }>
-          <ArrowSvg color={ '#BCBCBF' }
-                    size={ arrowSize || 'big' }
-                    direction={ 'right' }
+        <button className={cn( styles.button, styles[`${arrowSize}ButtonRight`] )}
+                onClick={nextClickHandler}>
+          <ArrowSvg color={'#BCBCBF'}
+                    size={arrowSize || 'big'}
+                    direction={'right'}
           />
         </button>
       }
