@@ -1,4 +1,8 @@
-import { IMenuItem } from "@/types/navigate"
+export interface IMenuItem {
+  id: string;
+  name: string;
+  href: string;
+}
 
 export const MENU: IMenuItem[] = [
   { id: '1', name: 'Мой Иви', href: 'https://www.ivi.ru/' },
