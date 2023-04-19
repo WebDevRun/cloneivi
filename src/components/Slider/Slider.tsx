@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { FC, useEffect, useRef, useState } from 'react'
 
-import { ArrowSvg } from '@ui/svg/ArrowSvg'
+import { ArrowSvg } from '@assets/svg/ArrowSvg'
 
 import styles from './Slider.module.scss'
 
