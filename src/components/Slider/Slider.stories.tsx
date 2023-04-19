@@ -6,7 +6,9 @@ const meta: Meta<typeof Slider> = {
   title: 'Slider',
   tags: ['autodocs'],
   component: Slider,
-  argTypes: {},
+  argTypes: {
+
+  },
 }
 
 export default meta
