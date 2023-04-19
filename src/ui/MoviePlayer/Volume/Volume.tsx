@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import {
-  ChangeEventHandler,
   Dispatch,
   FC,
   MouseEventHandler,
   SetStateAction,
+  useEffect,
   useRef,
+  useState,
 } from 'react'
 
 import volumeMax from '@assets/images/player/volume-max.svg'
@@ -21,7 +22,30 @@ export interface VolumeProps {
 }
 
 export const Volume: FC<VolumeProps> = ({ volume, setVolume }) => {
+  const [hoverVolume, setHoverVolume] = useState(0)
+  const [selectedRange, setSelectedRange] = useState(volume)
   const tempVolume = useRef(0)
+  const hoverRangeRef = useRef<HTMLDivElement>(null)
+  const selectedRangeRef = useRef<HTMLDivElement>(null)
+  const hoverRangeValueRef = useRef<HTMLParagraphElement>(null)
+
+  useEffect(() => {
+    const hoverRangeElement = hoverRangeRef.current
+    const hoverRangeValueElement = hoverRangeValueRef.current
+
+    if (hoverRangeElement === null || hoverRangeValueElement == null) return
+
+    hoverRangeElement.style.width = `${hoverVolume * 100}%`
+    hoverRangeValueElement.style.left = `${hoverVolume * 100}%`
+  }, [hoverVolume])
+
+  useEffect(() => {
+    const element = selectedRangeRef.current
+    if (element === null) return
+
+    setVolume(selectedRange)
+    element.style.width = `${selectedRange * 100}%`
+  }, [selectedRange, setVolume])
 
   const buttonClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
     if (volume === 0) {
@@ -33,9 +57,24 @@ export const Volume: FC<VolumeProps> = ({ volume, setVolume }) => {
     setVolume(0)
   }
 
-  const rangeHoverHandler: MouseEventHandler<HTMLDivElement> = (event) => {
-    console.dir(event)
-    // setVolume(parseFloat(event.currentTarget))
+  const rangeMouseMoveHandler: MouseEventHandler<HTMLDivElement> = (event) => {
+    const offsetWidth = event.currentTarget.offsetWidth
+    const offsetX = event.nativeEvent.offsetX
+    const volume = Math.round((offsetX / offsetWidth) * 100) / 100
+
+    setHoverVolume(volume)
+  }
+
+  const rangeMouseLeaveHandler: MouseEventHandler<HTMLDivElement> = (event) => {
+    setHoverVolume(0)
+  }
+
+  const rangeClickHandler: MouseEventHandler<HTMLDivElement> = (event) => {
+    const offsetWidth = event.currentTarget.offsetWidth
+    const offsetX = event.nativeEvent.offsetX
+    const volume = Math.round((offsetX / offsetWidth) * 100) / 100
+
+    setSelectedRange(volume)
   }
 
   const setVolumeImage = (volume: number) => {
@@ -55,12 +94,19 @@ export const Volume: FC<VolumeProps> = ({ volume, setVolume }) => {
         />
       </button>
 
-      <div className={styles.range}>
-        <div className={styles.selectedRange}></div>
-        <div
-          className={styles.hoverRange}
-          onMouseMove={rangeHoverHandler}
-        ></div>
+      <div
+        className={styles.range}
+        onMouseMove={rangeMouseMoveHandler}
+        onMouseLeave={rangeMouseLeaveHandler}
+        onClick={rangeClickHandler}
+      >
+        <div className={styles.rangeTrack}></div>
+        <div ref={selectedRangeRef} className={styles.selectedRange}></div>
+        <div ref={hoverRangeRef} className={styles.hoverRange}>
+          <p ref={hoverRangeValueRef} className={styles.hoverRangeValue}>
+            {Math.round(hoverVolume * 100)}
+          </p>
+        </div>
       </div>
     </div>
   )

@@ -26,15 +26,53 @@ $rangeColor: #ffffff;
 .range {
   position: relative;
   width: fn.toRem(48px);
+  height: fn.toRem(15px);
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover .hoverRangeValue {
+    opacity: 1;
+  }
+}
+
+.rangeTrack {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: fn.toRem(48px);
   height: fn.toRem(4px);
   background-color: rgba($color: $rangeColor, $alpha: 0.32);
   border-radius: 2px;
-  cursor: pointer;
+  transform: translateY(-50%);
 }
 
 .hoverRange {
+  position: absolute;
+  top: 50%;
+  left: 0;
   width: fn.toRem(48px);
   height: fn.toRem(4px);
   background-color: rgba($color: $rangeColor, $alpha: 0.4);
   border-radius: 2px;
+  transform: translateY(-50%);
+}
+
+.selectedRange {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: fn.toRem(48px);
+  height: fn.toRem(4px);
+  background-color: $rangeColor;
+  border-radius: 2px;
+  transform: translateY(-50%);
+}
+
+.hoverRangeValue {
+  position: absolute;
+  top: fn.toRem(-12px);
+  font-weight: 600;
+  font-size: fn.toRem(10px);
+  color: $rangeColor;
+  opacity: 0;
 }
