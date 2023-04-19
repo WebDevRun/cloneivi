@@ -1,12 +1,22 @@
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
-import HomeIcon from '../../assets/images/common/home_20__0.svg';
+import HomeIcon from '@/assets/images/common/HomeIcon';
 
 import styles from './Footer.module.scss';
 import Image from 'next/image';
+import cn from 'classnames';
+import CatalogIcon from '@/assets/images/common/CatalogIcon';
+import SearchIcon from '@/assets/images/common/SearchIcon';
+import MoreIcon from '@/assets/images/common/MoreIcon';
 
 export const Footer: FC = () => {
+    const [activeButton, setActiveButton] = useState<string | null>('btn1');
+
+    const handleClick = (buttonName: string) => {
+        setActiveButton(buttonName);
+    };
+
     return (
         <>
             <footer className={styles.footer}>
@@ -137,10 +147,58 @@ export const Footer: FC = () => {
 
             <footer className={styles.mobileFooter}>
                 <div className={styles.tabBar}>
-                    <Link className={styles.tabBarItem} href={'/'}>
+                    <Link
+                        onClick={() => handleClick('btn1')}
+                        className={cn(styles.tabBarItem, { [styles.active]: activeButton === 'btn1' })}
+                        href={'/'}
+                    >
+                        <div className={styles.light}></div>
                         <div className={styles.tabBarIcon}>
-                            {/* <HomeIcon fill={'white'}/> */}
-                            <Image src={HomeIcon} alt='h'/>
+                            <HomeIcon fill={activeButton === 'btn1' ? 'white' : 'gray'} />
+                        </div>
+                        <p className={styles.tabBarText}>Мой Иви</p>
+                    </Link>
+                    <Link
+                        onClick={() => handleClick('btn2')}
+                        className={cn(styles.tabBarItem, { [styles.active]: activeButton === 'btn2' })}
+                        href={'/'}
+                    >
+                        <div className={styles.light}></div>
+                        <div className={styles.tabBarIcon}>
+                            <CatalogIcon fill={activeButton === 'btn2' ? 'white' : 'gray'} />
+                        </div>
+                        <p className={styles.tabBarText}>Мой Иви</p>
+                    </Link>
+                    <Link
+                        onClick={() => handleClick('btn3')}
+                        className={cn(styles.tabBarItem, { [styles.active]: activeButton === 'btn3' })}
+                        href={'/'}
+                    >
+                        <div className={styles.light}></div>
+                        <div className={styles.tabBarIcon}>
+                            <SearchIcon fill={activeButton === 'btn3' ? 'white' : 'gray'} />
+                        </div>
+                        <p className={styles.tabBarText}>Мой Иви</p>
+                    </Link>
+                    <Link
+                        onClick={() => handleClick('btn4')}
+                        className={cn(styles.tabBarItem, { [styles.active]: activeButton === 'btn4' })}
+                        href={'/'}
+                    >
+                        <div className={styles.light}></div>
+                        <div className={styles.tabBarIcon}>
+                            <HomeIcon fill={activeButton === 'btn4' ? 'white' : 'gray'} />
+                        </div>
+                        <p className={styles.tabBarText}>Мой Иви</p>
+                    </Link>
+                    <Link
+                        onClick={() => handleClick('btn5')}
+                        className={cn(styles.tabBarItem, { [styles.active]: activeButton === 'btn5' })}
+                        href={'/'}
+                    >
+                        <div className={styles.light}></div>
+                        <div className={styles.tabBarIcon}>
+                            <MoreIcon fill={activeButton === 'btn5' ? 'white' : 'gray'} />
                         </div>
                         <p className={styles.tabBarText}>Мой Иви</p>
                     </Link>
