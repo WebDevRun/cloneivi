@@ -35,7 +35,7 @@ export const Header = () => {
         <div className={styles.buttonMobile}>
           <Button mode="primaryMob" text="Смотреть 30 дней за 1₽" />
         </div>
-        <div>
+        <div  className={styles.headerSearch}>
           <Button
             iconSvg={<HeaderSvg size={16} icon="search" />}
             iconAlt="Поиск"

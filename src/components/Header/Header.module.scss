@@ -37,23 +37,22 @@
   align-items: center;
   flex-grow: 1;
   justify-content: flex-end;
-  margin-left: 16px;
-  margin-right: 12px;
 }
 
-.additionalButton {
-  margin-right: 20px;
-}
 
 .buttonMobile {
   display: none;
-  margin-right: 20px;
+}
+
+.headerSearch {
+  margin-left: 20px;
 }
 
 .notifyLink {
   display: flex;
   justify-content: center;
   width: 36px;
+  margin-left: 12px;
 
   svg {
     fill: rgba(255, 255, 255, 0.48);
@@ -75,11 +74,8 @@
 
 @media screen and (max-width: 1160px) {
   .menu,
-  .headerSearch {
-    display: none;
-  }
-
-  .additionalButton {
+  .headerSearch,
+  .additionalButton{
     display: none;
   }
 
