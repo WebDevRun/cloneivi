@@ -57,7 +57,6 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
 
   useEffect(() => {
     if (videoRef.current) videoRef.current.volume = volume
-    console.log(volume)
   }, [volume])
 
   const playClickHandler: MouseEventHandler<
