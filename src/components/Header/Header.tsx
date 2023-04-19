@@ -1,13 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { IMenuItem } from '@/types/navigate'
 import logo from '@assets/images/common/ivi.svg'
 import { HeaderSvg } from '@ui/svg/HeaderSvg'
 
-import { Button } from '../../ui/Button'
+import { Button } from '../../layouts/Button'
 import { Language } from '../../ui/Language'
-import { MENU } from '../../utils/consts'
+import { HEADER_MENU } from '../../utils/consts'
 
 import styles from './Header.module.scss'
 
@@ -19,7 +18,7 @@ export const Header = () => {
       </Link>
 
       <nav className={styles.menu}>
-        {MENU.map((item: IMenuItem) => (
+        {HEADER_MENU.map((item) => (
           <li className={styles.menuItem} key={item.id}>
             <Link href={item.href} title={item.name}>
               <div className={styles.menuItemText}>{item.name}</div>
@@ -30,18 +29,25 @@ export const Header = () => {
 
       <div className={styles.topWide}>
         <div className={styles.additionalButton}>
-          <Button mode="primary" text="Оплатить подписку" />
+          <Button
+            background="transparent"
+            horizontalPadding={11}
+            verticalPadding={7}
+            onClick={() => {}}
+          >
+            <p style={{ color: 'red' }}>Тест</p>
+          </Button>
         </div>
         <div className={styles.buttonMobile}>
-          <Button mode="primaryMob" text="Смотреть 30 дней за 1₽" />
+          {/* <Button mode="primaryMob" text="Смотреть 30 дней за 1₽" /> */}
         </div>
         <div>
-          <Button
+          {/* <Button
             iconSvg={<HeaderSvg size={16} icon="search" />}
             iconAlt="Поиск"
             mode="search"
             text="Поиск"
-          />
+          /> */}
         </div>
       </div>
 
@@ -53,11 +59,11 @@ export const Header = () => {
       </Link>
 
       <div className={styles.headerAvatar}>
-        <Button
+        {/* <Button
           iconSvg={<HeaderSvg size={20} icon="profile" />}
           iconAlt="Воити в аккаунт"
           mode="signIn"
-        />
+        /> */}
       </div>
 
       <div className={styles.language}>
