@@ -14,7 +14,7 @@ export interface SliderProps {
   slidesToScroll?: number
   startPosition?: number
   gap?: number,
-  arrowSize?: 'small' | 'big'
+  arrowSize?: 'small'|'big'
 }
 
 export const Slider: FC<SliderProps> = ({
@@ -28,8 +28,8 @@ export const Slider: FC<SliderProps> = ({
   arrowSize = 'big',
   gap = 24,
 }) => {
-  const container = useRef<HTMLDivElement | null>( null )
-  const track = useRef<HTMLDivElement | null>( null )
+  const container = useRef<HTMLDivElement|null>( null )
+  const track = useRef<HTMLDivElement|null>( null )
   const [itemWidth, setItemWidth] = useState<number>( 0 )
   const [slidesCount, setSlidesCount] = useState<number>( slidesToShow || 0 )
   const [itemsGap, setItemsGap] = useState<number>( gap || 24 )
@@ -87,7 +87,7 @@ export const Slider: FC<SliderProps> = ({
         </button>
       }
       <div className={styles.container} ref={container}>
-        <div className={styles.track} style={{ gap: itemsGap, transform: `translateX(${position}px)` }}
+        <div className={styles.track} style={{gap: itemsGap, transform: `translateX(${position}px)`}}
              ref={track}>
           {
             items.map( item => (
