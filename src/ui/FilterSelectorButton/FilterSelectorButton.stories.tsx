@@ -1,12 +1,12 @@
 
 import { Meta, StoryObj } from '@storybook/react'
 
-import { SelectorButton } from './SelectorButton'
+import { FilterSelectorButton } from './FilterSelectorButton'
 
-const meta: Meta<typeof SelectorButton> = {
-  title: 'Selector/SelectorButton',
+const meta: Meta<typeof FilterSelectorButton> = {
+  title: 'Selector/FilterSelectorButton',
   tags: ['autodocs'],
-  component: SelectorButton,
+  component: FilterSelectorButton,
   argTypes: {
     disabled: {
       type: 'boolean',
@@ -32,7 +32,7 @@ const meta: Meta<typeof SelectorButton> = {
 
 export default meta
 
-type Story = StoryObj<typeof SelectorButton>;
+type Story = StoryObj<typeof FilterSelectorButton>;
 
 export const Default: Story = {
   args: {
