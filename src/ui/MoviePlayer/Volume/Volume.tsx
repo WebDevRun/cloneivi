@@ -33,8 +33,9 @@ export const Volume: FC<VolumeProps> = ({ volume, setVolume }) => {
     setVolume(0)
   }
 
-  const rangeChangeHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
-    setVolume(parseFloat(event.currentTarget.value))
+  const rangeHoverHandler: MouseEventHandler<HTMLDivElement> = (event) => {
+    console.dir(event)
+    // setVolume(parseFloat(event.currentTarget))
   }
 
   const setVolumeImage = (volume: number) => {
@@ -54,17 +55,13 @@ export const Volume: FC<VolumeProps> = ({ volume, setVolume }) => {
         />
       </button>
 
-      {/* <label className={styles.rangeLabel}> */}
-      <input
-        className={styles.range}
-        type="range"
-        min="0"
-        max="1"
-        step="0.01"
-        value={volume}
-        onChange={rangeChangeHandler}
-      />
-      {/* </label> */}
+      <div className={styles.range}>
+        <div className={styles.selectedRange}></div>
+        <div
+          className={styles.hoverRange}
+          onMouseMove={rangeHoverHandler}
+        ></div>
+      </div>
     </div>
   )
 }
