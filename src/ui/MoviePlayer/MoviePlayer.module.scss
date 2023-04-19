@@ -79,3 +79,8 @@ $white: #ffffff;
   color: rgba($color: $white, $alpha: 0.72);
   font-size: fn.toRem(13px);
 }
+
+.volume {
+  display: flex;
+  align-items: center;
+}

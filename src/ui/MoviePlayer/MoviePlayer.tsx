@@ -4,7 +4,8 @@ import { FC, MouseEventHandler, useEffect, useRef, useState } from 'react'
 import { FullscreenButton } from './FullscreenButton'
 import styles from './MoviePlayer.module.scss'
 import { PlayButton } from './PlayButton'
-import { Volume } from './Volume'
+import { Range } from './Range'
+import { VolumeButton } from './VolumeButton'
 
 export interface MoviePlayerProps {
   name: string
@@ -146,7 +147,10 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
               playStatus={playStatus}
               setPlayStatus={setPlayStatus}
             />
-            <Volume volume={volume} setVolume={setVolume} />
+            <div className={styles.volume}>
+              <VolumeButton volume={volume} setVolume={setVolume} />
+              <Range value={volume} setValue={setVolume} />
+            </div>
           </div>
         </div>
       )}
