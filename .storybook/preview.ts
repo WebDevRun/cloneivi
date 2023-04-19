@@ -9,19 +9,6 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
-    backgrounds: {
-      default: 'dark',
-      values: [
-        {
-          name: 'light',
-          value: '#ffffff',
-        },
-        {
-          name: 'dark',
-          value: '#100E19',
-        },
-      ],
-    },
   },
 }
 
