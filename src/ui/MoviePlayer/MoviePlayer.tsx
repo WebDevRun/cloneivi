@@ -1,10 +1,11 @@
 import cn from 'classnames'
 import { FC, MouseEventHandler, useEffect, useRef, useState } from 'react'
 
+import { Range } from '@layouts/Range'
+
 import { FullscreenButton } from './FullscreenButton'
 import styles from './MoviePlayer.module.scss'
 import { PlayButton } from './PlayButton'
-import { Range } from './Range'
 import { VolumeButton } from './VolumeButton'
 
 export interface MoviePlayerProps {
@@ -28,10 +29,12 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
   const [playStatus, setPlayStatus] = useState<playStatusTypes>('stop')
   const [isFullscreen, setIsFullscreen] = useState<isFullscreenTypes>(undefined)
   const [volume, setVolume] = useState(0.4)
+  const [hoverVolume, setHoverVolume] = useState(0)
 
   const videoLayoutRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const timer = useRef<NodeJS.Timeout | undefined>(undefined)
+  const hoverRangeValueRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
     if (playStatus === 'play') {
@@ -149,7 +152,22 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
             />
             <div className={styles.volume}>
               <VolumeButton volume={volume} setVolume={setVolume} />
-              <Range value={volume} setValue={setVolume} />
+              <Range
+                value={volume}
+                setValue={setVolume}
+                hoverValue={hoverVolume}
+                setHoverValue={setHoverVolume}
+              >
+                {Math.round(hoverVolume * 100) !== 0 && (
+                  <div
+                    ref={hoverRangeValueRef}
+                    className={styles.hoverRangeVolume}
+                    style={{ left: `${hoverVolume * 100}%` }}
+                  >
+                    {Math.round(hoverVolume * 100)}
+                  </div>
+                )}
+              </Range>
             </div>
           </div>
         </div>

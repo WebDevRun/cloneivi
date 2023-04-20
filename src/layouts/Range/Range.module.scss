@@ -10,10 +10,6 @@ $rangeTrackHeight: fn.toRem(4px);
   height: fn.toRem(15px);
   background-color: transparent;
   cursor: pointer;
-
-  &:hover .hoverRangeValue {
-    opacity: 1;
-  }
 }
 
 .rangeTrack {
@@ -49,15 +45,5 @@ $rangeTrackHeight: fn.toRem(4px);
   background-color: $rangeColor;
   border-radius: 2px;
   transform: translateY(-50%);
-  z-index: -1;
-}
-
-.hoverRangeValue {
-  position: absolute;
-  top: fn.toRem(-8px);
-  font-weight: 600;
-  font-size: fn.toRem(10px);
-  color: $rangeColor;
-  opacity: 0;
   z-index: -1;
 }
