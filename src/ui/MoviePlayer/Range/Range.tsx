@@ -28,25 +28,8 @@ export const Range: FC<RangeProps> = ({ value, setValue }) => {
   }, [value])
 
   useEffect(() => {
-    const hoverRangeElement = hoverRangeRef.current
-    const hoverRangeValueElement = hoverRangeValueRef.current
-
-    if (hoverRangeElement === null) return
-
-    hoverRangeElement.style.width = `${hoverValue * 100}%`
-
-    if (hoverRangeValueElement == null) return
-
-    hoverRangeValueElement.style.left = `${hoverValue * 100}%`
-  }, [hoverValue])
-
-  useEffect(() => {
-    const element = selectedRangeRef.current
-
-    if (element === null) return
-
-    element.style.width = `${selectedRange * 100}%`
-  }, [selectedRange])
+    setValue(selectedRange)
+  }, [selectedRange, setValue])
 
   const rangeMouseMoveHandler: MouseEventHandler<HTMLDivElement> = (event) => {
     const offsetWidth = event.currentTarget.offsetWidth
@@ -67,7 +50,6 @@ export const Range: FC<RangeProps> = ({ value, setValue }) => {
   }
 
   const mouseUpHandler: MouseEventHandler<HTMLDivElement> = (event) => {
-    setValue(selectedRange)
     setIsMouseDown(false)
   }
 
@@ -89,12 +71,24 @@ export const Range: FC<RangeProps> = ({ value, setValue }) => {
       onClick={rangeClickHandler}
     >
       <div className={styles.rangeTrack}></div>
-      <div ref={selectedRangeRef} className={styles.selectedRange}></div>
-      <div ref={hoverRangeRef} className={styles.hoverRange}></div>
+      <div
+        ref={selectedRangeRef}
+        className={styles.selectedRange}
+        style={{ width: `${selectedRange * 100}%` }}
+      ></div>
+      <div
+        ref={hoverRangeRef}
+        className={styles.hoverRange}
+        style={{ width: `${hoverValue * 100}%` }}
+      ></div>
       {Math.round(hoverValue * 100) !== 0 && (
-        <p ref={hoverRangeValueRef} className={styles.hoverRangeValue}>
+        <div
+          ref={hoverRangeValueRef}
+          className={styles.hoverRangeValue}
+          style={{ left: `${hoverValue * 100}%` }}
+        >
           {Math.round(hoverValue * 100)}
-        </p>
+        </div>
       )}
     </div>
   )
