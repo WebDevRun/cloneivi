@@ -84,3 +84,12 @@ $white: #ffffff;
   display: flex;
   align-items: center;
 }
+
+.hoverRangeVolume {
+  position: absolute;
+  top: fn.toRem(-8px);
+  font-weight: 600;
+  font-size: fn.toRem(10px);
+  color: $white;
+  z-index: -1;
+}

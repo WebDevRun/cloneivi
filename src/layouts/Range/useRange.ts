@@ -1,6 +1,5 @@
 import {
   Dispatch,
-  FC,
   MouseEventHandler,
   SetStateAction,
   useEffect,
@@ -8,20 +7,15 @@ import {
   useState,
 } from 'react'
 
-import styles from './Range.module.scss'
-
-export interface RangeProps {
-  value: number
-  setValue: Dispatch<SetStateAction<number>>
-}
-
-export const Range: FC<RangeProps> = ({ value, setValue }) => {
-  const [hoverValue, setHoverValue] = useState(0)
+export const useRange = (
+  value: number,
+  setValue: Dispatch<SetStateAction<number>>,
+  setHoverValue: Dispatch<SetStateAction<number>>
+) => {
   const [selectedRange, setSelectedRange] = useState(value)
   const [isMouseDown, setIsMouseDown] = useState(false)
   const hoverRangeRef = useRef<HTMLDivElement>(null)
   const selectedRangeRef = useRef<HTMLDivElement>(null)
-  const hoverRangeValueRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
     setSelectedRange(value)
@@ -61,35 +55,14 @@ export const Range: FC<RangeProps> = ({ value, setValue }) => {
     setSelectedRange(value)
   }
 
-  return (
-    <div
-      className={styles.range}
-      onMouseMove={rangeMouseMoveHandler}
-      onMouseOut={rangeMouseOutHandler}
-      onMouseDown={mouseDownHandler}
-      onMouseUp={mouseUpHandler}
-      onClick={rangeClickHandler}
-    >
-      <div className={styles.rangeTrack}></div>
-      <div
-        ref={selectedRangeRef}
-        className={styles.selectedRange}
-        style={{ width: `${selectedRange * 100}%` }}
-      ></div>
-      <div
-        ref={hoverRangeRef}
-        className={styles.hoverRange}
-        style={{ width: `${hoverValue * 100}%` }}
-      ></div>
-      {Math.round(hoverValue * 100) !== 0 && (
-        <div
-          ref={hoverRangeValueRef}
-          className={styles.hoverRangeValue}
-          style={{ left: `${hoverValue * 100}%` }}
-        >
-          {Math.round(hoverValue * 100)}
-        </div>
-      )}
-    </div>
-  )
+  return {
+    selectedRange,
+    hoverRangeRef,
+    selectedRangeRef,
+    rangeMouseMoveHandler,
+    rangeMouseOutHandler,
+    mouseDownHandler,
+    mouseUpHandler,
+    rangeClickHandler,
+  }
 }
