@@ -10,24 +10,20 @@ import { playStatusTypes } from '../MoviePlayer'
 import styles from './PlayButton.module.scss'
 
 export interface PlayButtonProps {
-  type: 'big' | 'small'
+  display: 'preview' | 'playing'
   playStatus: playStatusTypes
   setPlayStatus: Dispatch<SetStateAction<playStatusTypes>>
 }
 
 export const PlayButton: FC<PlayButtonProps> = ({
-  type,
+  display,
   playStatus,
   setPlayStatus,
 }) => {
   const playButtonClickHandler: MouseEventHandler<HTMLButtonElement> = (
     event
   ) => {
-    if (playStatus === 'pause') {
-      setPlayStatus('play')
-      return
-    }
-    if (playStatus === 'stop') {
+    if (playStatus === 'pause' || playStatus === 'stop') {
       setPlayStatus('play')
       return
     }
@@ -49,7 +45,7 @@ export const PlayButton: FC<PlayButtonProps> = ({
 
   return (
     <button
-      className={cn(styles.playButton, styles[type])}
+      className={cn(styles.playButton, styles[display])}
       onClick={playButtonClickHandler}
     >
       <Image
