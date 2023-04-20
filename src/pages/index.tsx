@@ -4,7 +4,6 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { AppLayout } from '@layouts/AppLayout'
 
-
 const Home = () => {
   const { t } = useTranslation( ['header'] )
 

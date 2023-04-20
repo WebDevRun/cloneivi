@@ -91,8 +91,8 @@ export const Slider: FC<SliderProps> = ({
              ref={track}>
           {
             items.map( item => (
-              <div key={item.id} className={styles.item}>
-                <Component {...item} {...componentSetting} onClick={() => onItemClick( item.id )} />
+              <div key={item.id} className={styles.item} onClick={() => onItemClick( item.id )}>
+                <Component {...item} {...componentSetting} />
               </div>
             ) )
           }
