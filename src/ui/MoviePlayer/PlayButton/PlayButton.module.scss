@@ -1,13 +1,11 @@
 @use '@styles/functions' as fn;
+@use '../general' as gn;
 
 .playButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition-duration: 80ms;
+  @include gn.buttonStyles;
 }
 
-.big {
+.preview {
   max-width: fn.toRem(88px);
   position: absolute;
   top: 50%;
@@ -22,19 +20,10 @@
   }
 }
 
-.small {
-  width: fn.toRem(40px);
-  height: fn.toRem(40px);
-  border-radius: 8px;
-  background-color: rgba($color: #ffffff, $alpha: 0.008);
-  padding: 10px;
-
-  &:hover {
-    background-color: rgba($color: #ffffff, $alpha: 0.16);
-  }
+.playing {
+  @include gn.playingButtonStyles;
 }
 
 .playImage {
-  width: 100%;
-  height: auto;
+  @include gn.buttonImageStyles;
 }

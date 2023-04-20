@@ -52,6 +52,7 @@ $white: #ffffff;
 }
 
 .controlsInnerContainer {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(5, minmax(min-content, 1fr));
   align-items: center;
@@ -92,4 +93,10 @@ $white: #ffffff;
   font-size: fn.toRem(10px);
   color: $white;
   z-index: -1;
+}
+
+.currentTime,
+.duration {
+  color: $white;
+  font-size: fn.toRem(13px);
 }

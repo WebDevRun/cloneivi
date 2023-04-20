@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import Image from 'next/image'
 import { Dispatch, FC, MouseEventHandler, SetStateAction } from 'react'
 
@@ -9,11 +10,13 @@ import { isFullscreenTypes } from '../MoviePlayer'
 import styles from './FullscreenButton.module.scss'
 
 interface FullscreenButtonProps {
+  display: 'preview' | 'playing'
   isFullscreen: isFullscreenTypes
   setIsFullscreen: Dispatch<SetStateAction<isFullscreenTypes>>
 }
 
 export const FullscreenButton: FC<FullscreenButtonProps> = ({
+  display,
   isFullscreen,
   setIsFullscreen,
 }) => {
@@ -25,7 +28,7 @@ export const FullscreenButton: FC<FullscreenButtonProps> = ({
 
   return (
     <button
-      className={styles.fullscreenButton}
+      className={cn(styles.fullscreenButton, styles[display])}
       onClick={fullscreenCheckboxChangeHandler}
     >
       <Image

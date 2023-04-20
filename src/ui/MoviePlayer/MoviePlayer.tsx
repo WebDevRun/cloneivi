@@ -1,14 +1,18 @@
 import cn from 'classnames'
 import { FC } from 'react'
 
+import { formatTime } from '@/utils/functions/formatTime'
 import { Range } from '@layouts/Range'
 
+import { Button } from './Button'
 import { FullscreenButton } from './FullscreenButton'
 import styles from './MoviePlayer.module.scss'
 import { PlayButton } from './PlayButton'
 import { useMoviePlayer } from './useMoviePlayer'
 import { VolumeButton } from './VolumeButton'
 
+export type playStatusTypes = 'play' | 'pause' | 'stop'
+export type isFullscreenTypes = boolean | undefined
 export interface MoviePlayerProps {
   name: string
   text?: string
@@ -29,9 +33,14 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
     volume,
     playStatus,
     hoverVolume,
+    currentTime,
+    duration,
+    hoverCurrentTime,
     videoRef,
     videoLayoutRef,
     hoverRangeValueRef,
+    setCurrentTime,
+    setHoverCurrentTime,
     setPlayStatus,
     setHoverVolume,
     setVolume,
@@ -60,9 +69,17 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
 
       {isFirstPlay && (
         <PlayButton
-          type="big"
+          display="preview"
           playStatus={playStatus}
           setPlayStatus={setPlayStatus}
+        />
+      )}
+
+      {isFirstPlay && (
+        <FullscreenButton
+          display="preview"
+          isFullscreen={isFullscreen}
+          setIsFullscreen={setIsFullscreen}
         />
       )}
 
@@ -94,11 +111,25 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
               [styles.controlsInnerContainer_hover]: isHover,
             })}
           >
+            <div className={styles.currentTime}>{formatTime(currentTime)}</div>
+            <Range
+              value={currentTime / duration}
+              setValue={setCurrentTime}
+              hoverValue={hoverCurrentTime}
+              setHoverValue={setHoverCurrentTime}
+            >
+              <div className={styles.currentTime}>
+                {formatTime(currentTime)}
+              </div>
+            </Range>
+            <div className={styles.duration}>{formatTime(duration)}</div>
+
             <PlayButton
-              type="small"
+              display="playing"
               playStatus={playStatus}
               setPlayStatus={setPlayStatus}
             />
+
             <div className={styles.volume}>
               <VolumeButton volume={volume} setVolume={setVolume} />
               <Range
@@ -118,14 +149,18 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
                 )}
               </Range>
             </div>
+
+            <Button image="setting" />
+            <Button image="subtitles" />
+
+            <FullscreenButton
+              display="playing"
+              isFullscreen={isFullscreen}
+              setIsFullscreen={setIsFullscreen}
+            />
           </div>
         </div>
       )}
-
-      <FullscreenButton
-        isFullscreen={isFullscreen}
-        setIsFullscreen={setIsFullscreen}
-      />
     </div>
   )
 }
