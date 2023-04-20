@@ -1,44 +1,65 @@
 .sliderButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   font-weight: 500;
   transition: background-color 0.4s;
   overflow: hidden;
+  text-transform: capitalize;
+}
 
-  .image {
-    margin-bottom: 8px;
-  }
+.fill,
+.outline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .square {
-  flex-direction: column;
-  border-radius: 8px;
-}
 
-.fill {
-  width: 153px;
-  height: 108px;
-  background-color: #1F1B2E;
-  font-size: 15px;
-  line-height: 20px;
+  .fill,
+  .outline {
+    flex-direction: column;
+    border-radius: 8px;
 
-  &:hover {
-    background-color: #27223a;
+    .image {
+      margin-bottom: 8px;
+    }
+  }
+
+  .fill {
+    width: 153px;
+    height: 108px;
+    background-color: #1F1B2E;
+    font-size: 15px;
+    line-height: 20px;
+
+    &:hover {
+      background-color: #27223a;
+    }
+  }
+
+  .outline {
+    width: 108px;
+    height: 88px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    font-size: 13px;
+    line-height: 16px;
+
+    &:hover {
+      background-color: #7E798F;
+    }
   }
 }
 
-.outlined {
-  width: 108px;
-  height: 88px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.32);
-  font-size: 13px;
-  line-height: 16px;
+.circle {
+  width: 150px;
+  height: 34px;
+  border-radius: 32px;
 
-  &:hover {
-    background-color: #7E798F;
+  .outline {
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    font-size: 13px;
+    line-height: 16px;
+
   }
-
 }

@@ -1,10 +1,9 @@
 import cn from 'classnames'
 import { FC, useEffect, useRef, useState } from 'react'
 
-import { ArrowSvg } from '@ui/../../assets/svg/ArrowSvg'
+import { ArrowSvg } from '@assets/svg/ArrowSvg'
 
 import styles from './Slider.module.scss'
-import { dir } from 'i18next'
 
 export interface SliderProps {
   Component: FC
