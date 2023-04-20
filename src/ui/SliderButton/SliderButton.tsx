@@ -2,7 +2,6 @@ import cn from 'classnames'
 import Image from 'next/image'
 import { FC } from 'react'
 
-import { IGenres } from '@/utils/consts/genres'
 import add from '@assets/images/filter/filter-add.svg'
 import remove from '@assets/images/filter/filter-remove.svg'
 import { GenresSvg } from '@assets/svg/GenresSvg/GenresSvg'

@@ -52,6 +52,7 @@ export const Slider: FC<SliderProps> = ({
 
   const setSettings = (showSlides, itemWidth) => {
     const clientWidth = container.current?.clientWidth
+    console.log(clientWidth)
     const gap = (clientWidth - showSlides * itemWidth) / (showSlides - 1)
     setSlidesCount( showSlides )
     setItemWidth( itemWidth )
