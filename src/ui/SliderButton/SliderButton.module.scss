@@ -7,7 +7,8 @@
 }
 
 .fill,
-.outline {
+.outline,
+.active {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,10 +20,7 @@
   .outline {
     flex-direction: column;
     border-radius: 8px;
-
-    .image {
-      margin-bottom: 8px;
-    }
+    gap: 8px;
   }
 
   .fill {
@@ -54,12 +52,40 @@
 .circle {
   width: 150px;
   height: 34px;
-  border-radius: 32px;
+
+  .outline,
+  .active,
+  .fill {
+    height: 100%;
+    border-radius: 32px;
+    padding: 8px 16px;
+    gap: 8px;
+
+    .image {
+      margin-right: 8px;
+    }
+  }
+
+  .outline,
+  .active {
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .active {
+    flex-direction: row-reverse;
+    background-color: #7E798F;
+  }
+
+  .fill {
+    background-color: #312B45;
+
+    .name {
+      color: #a5a1b2;
+    }
+  }
 
   .outline {
     border: 1px solid rgba(255, 255, 255, 0.32);
-    font-size: 13px;
-    line-height: 16px;
-
   }
 }

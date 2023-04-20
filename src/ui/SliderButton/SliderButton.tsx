@@ -1,29 +1,37 @@
 import cn from 'classnames'
 import Image from 'next/image'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 
-import styles from './SliderButton.module.scss'
+import { IGenres } from '@/utils/consts/genres'
+import add from '@assets/images/filter/filter-add.svg'
+import remove from '@assets/images/filter/filter-remove.svg'
 import { GenresSvg } from '@assets/svg/GenresSvg/GenresSvg'
 
+import styles from './SliderButton.module.scss'
+
 export interface SliderButtonProps {
-  name: string
+  name: IGenres
   type: 'square' | 'circle'
-  style: 'fill' | 'outline'
-  iconSrc?: 'string'
-  iconAlt?: 'string'
+  style: 'fill' | 'outline' | 'active'
 }
 
-export const SliderButton: FC<SliderButtonProps> = ({type, iconSrc, name, style, iconAlt}) => {
+export const SliderButton: FC<SliderButtonProps> = ({type, name, style}) => {
   return (
-    <div className={cn( styles.sliderButton, styles[type] )} >
+    <div className={cn( styles.sliderButton, styles[type] )}>
       <div className={styles[style]}>
-        {iconSrc && iconAlt
-          ? <Image className={styles.image} width={32} height={32} src={iconSrc} alt={iconAlt} />
-          : <div className={styles.image}>
-            <GenresSvg icon={name} iconType={style === 'fill' ? 'twoTone' : 'outlined'} size={32} />
-          </div>
+        {type === 'square' &&
+          <GenresSvg icon={name} iconType={style === 'fill' ? 'twoTone' : 'outlined'} size={32} />
         }
-        <div>{name}</div>
+        {
+          type === 'circle' && style === 'active' &&
+          <Image width={11} height={11} src={remove} alt='remove' />
+        }
+        {
+          type === 'circle' && style === 'outline' &&
+          <Image width={11} height={11} src={add} alt='add' />
+        }
+
+        <div className={styles.name}>{name}</div>
       </div>
     </div>
   )
