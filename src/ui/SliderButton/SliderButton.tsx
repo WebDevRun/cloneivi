@@ -10,17 +10,21 @@ import { GenresSvg } from '@assets/svg/GenresSvg/GenresSvg'
 import styles from './SliderButton.module.scss'
 
 export interface SliderButtonProps {
-  name: IGenres
+  name: string
   type: 'square' | 'circle'
   style: 'fill' | 'outline' | 'active'
 }
 
-export const SliderButton: FC<SliderButtonProps> = ({type, name, style}) => {
+export const SliderButton: FC<SliderButtonProps> = ({
+  type = 'square',
+  name = 'anime',
+  style = 'outline',
+}) => {
   return (
     <div className={cn( styles.sliderButton, styles[type] )}>
       <div className={styles[style]}>
         {type === 'square' &&
-          <GenresSvg icon={name} iconType={style === 'fill' ? 'twoTone' : 'outlined'} size={32} />
+          <GenresSvg icon={name!} iconType={style === 'fill' ? 'twoTone' : 'outlined'} size={32} />
         }
         {
           type === 'circle' && style === 'active' &&
