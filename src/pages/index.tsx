@@ -2,6 +2,8 @@ import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+import { HeaderDropdown } from '@/components/HeaderDropdown/HeaderDropdown'
+import { DropDownLayout } from '@/layouts/DropDownLayout'
 import { AppLayout } from '@layouts/AppLayout'
 
 export default function Home() {
@@ -11,6 +13,9 @@ export default function Home() {
     <main>
       <AppLayout>
         <h1>{t('header:more')}</h1>
+        <DropDownLayout position="center" size="small" type="header">
+          <HeaderDropdown />
+        </DropDownLayout>
       </AppLayout>
     </main>
   )
