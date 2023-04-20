@@ -1,3 +1,6 @@
+$border: 1px solid rgba(255, 255, 255, 0.32);
+$activeColor: #7E798F;
+
 .sliderButton {
   cursor: pointer;
   font-weight: 500;
@@ -39,12 +42,12 @@
     width: 108px;
     height: 88px;
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.32);
+    border: $border;
     font-size: 13px;
     line-height: 16px;
 
     &:hover {
-      background-color: #7E798F;
+      background-color: $activeColor;
     }
   }
 }
@@ -74,7 +77,7 @@
 
   .active {
     flex-direction: row-reverse;
-    background-color: #7E798F;
+    background-color: $activeColor;
   }
 
   .fill {
@@ -90,6 +93,6 @@
   }
 
   .outline {
-    border: 1px solid rgba(255, 255, 255, 0.32);
+    border: $border;
   }
 }
