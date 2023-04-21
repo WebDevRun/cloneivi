@@ -117,10 +117,10 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
           >
             <div className={styles.currentTime}>{formatTime(currentTime)}</div>
             <Range
-              value={Math.round((currentTime / duration) * 100) / 100}
-              setValue={currentTimeSetter}
-              hoverValue={hoverCurrentTime}
-              setHoverValue={setHoverCurrentTime}
+              coefficient={Math.round((currentTime / duration) * 100) / 100}
+              setСoefficient={currentTimeSetter}
+              hoverСoefficient={hoverCurrentTime}
+              setHoverСoefficient={setHoverCurrentTime}
             >
               <div className={styles.currentTimeOnRange}>
                 {formatTime(currentTime)}
@@ -137,10 +137,10 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
             <div className={styles.volume}>
               <VolumeButton volume={volume} setVolume={setVolume} />
               <Range
-                value={volume}
-                setValue={setVolume}
-                hoverValue={hoverVolume}
-                setHoverValue={setHoverVolume}
+                coefficient={volume}
+                setСoefficient={setVolume}
+                hoverСoefficient={hoverVolume}
+                setHoverСoefficient={setHoverVolume}
               >
                 {Math.round(hoverVolume * 100) !== 0 && (
                   <div

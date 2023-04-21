@@ -3,31 +3,31 @@ import { MouseEventHandler, useEffect, useRef, useState } from 'react'
 import { RangeProps } from './Range'
 
 export const useRange = (
-  value: RangeProps['value'],
-  setValue: RangeProps['setValue'],
-  setHoverValue: RangeProps['setHoverValue']
+  coefficient: RangeProps['coefficient'],
+  setСoefficient: RangeProps['setСoefficient'],
+  setHoverСoefficient: RangeProps['setHoverСoefficient']
 ) => {
-  const [selectedRange, setSelectedRange] = useState(value)
+  const [selectedRange, setSelectedRange] = useState(coefficient)
   const [isMouseDown, setIsMouseDown] = useState(false)
   const hoverRangeRef = useRef<HTMLDivElement>(null)
   const selectedRangeRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    setSelectedRange(value)
-  }, [value])
+    setSelectedRange(coefficient)
+  }, [coefficient])
 
   const rangeMouseMoveHandler: MouseEventHandler<HTMLDivElement> = (event) => {
     const offsetWidth = event.currentTarget.offsetWidth
     const offsetX = event.nativeEvent.offsetX
     const value = Math.round((offsetX / offsetWidth) * 100) / 100
 
-    setHoverValue(value)
+    setHoverСoefficient(value)
 
-    if (isMouseDown) setValue(value)
+    if (isMouseDown) setСoefficient(value)
   }
 
   const rangeMouseOutHandler: MouseEventHandler<HTMLDivElement> = (event) => {
-    setHoverValue(0)
+    setHoverСoefficient(0)
   }
 
   const mouseDownHandler: MouseEventHandler<HTMLDivElement> = (event) => {
@@ -43,7 +43,7 @@ export const useRange = (
     const offsetX = event.nativeEvent.offsetX
     const value = Math.round((offsetX / offsetWidth) * 100) / 100
 
-    setValue(value)
+    setСoefficient(value)
   }
 
   return {
