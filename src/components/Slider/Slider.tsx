@@ -13,7 +13,7 @@ export interface SliderProps {
   slidesToShow?: number
   slidesToScroll?: number
   startPosition?: number
-  gap?: number,
+  gap?: number
   arrowSize?: 'small' | 'big'
 }
 
