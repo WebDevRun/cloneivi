@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 
 import logo from '../../assets/images/common/ivi.svg'
 import notify from '../../assets/images/header/notifications.svg'
@@ -11,26 +12,28 @@ import { Language } from '../Language/Language'
 import styles from './Header.module.scss'
 
 const menu = [
-  { id: '1', name: 'Мой Иви', href: 'https://www.ivi.ru/' },
-  { id: '2', name: 'Что нового', href: 'https://www.ivi.ru/new' },
-  { id: '3', name: 'Фильмы', href: 'https://www.ivi.ru/movies' },
-  { id: '4', name: 'Сериалы', href: 'https://www.ivi.ru/series' },
-  { id: '5', name: 'Мультфильмы', href: 'https://www.ivi.ru/animation' },
-  { id: '6', name: 'TV+', href: 'https://www.ivi.ru/tvplus' },
+  { id: '1', name: 'header:myIvi', href: 'https://www.ivi.ru/' },
+  { id: '2', name: 'header:whatsNew', href: 'https://www.ivi.ru/new' },
+  { id: '3', name: 'header:movies', href: 'https://www.ivi.ru/movies' },
+  { id: '4', name: 'header:serials', href: 'https://www.ivi.ru/series' },
+  { id: '5', name: 'header:animations', href: 'https://www.ivi.ru/animation' },
+  { id: '6', name: 'header:tv', href: 'https://www.ivi.ru/tvplus' },
 ]
 
 export const Header = () => {
+  const { t } = useTranslation(['header'])
+
   return (
     <div className={styles.header}>
       <Link className={styles.headerLogo} href="https://www.ivi.ru/">
-        <Image src={logo} alt="logo"></Image>
+        <Image src={logo} alt={t('header:logo') as string}></Image>
       </Link>
 
       <nav className={styles.menu}>
         {menu.map((item) => (
           <li className={styles.menuItem} key={item.id}>
             <Link href={item.href} title={item.name}>
-              <div className={styles.menuItemText}>{item.name}</div>
+              <div className={styles.menuItemText}>{t(item.name)}</div>
             </Link>
           </li>
         ))}
@@ -38,20 +41,20 @@ export const Header = () => {
 
       <div className={styles.topWide}>
         <div className={styles.additionalButton}>
-          <Button mode="primary" text="Оплатить подписку" />
+          <Button mode="primary" text={t('header:pay') as string} />
         </div>
         <div className={styles.buttonMobile}>
           <Button
             mode="primaryMob"
-            text="Смотреть 30 дней за 1₽"
+            text={t('header:see') as string}
           />
         </div>
         <div className={styles.headerSearch}>
           <Button
             iconSrc={search}
-            iconAlt="Поиск"
+            iconAlt={t('header:search') as string}
             mode="search"
-            text="Поиск"
+            text={t('header:search') as string}
           />
         </div>
       </div>
@@ -66,7 +69,7 @@ export const Header = () => {
       <div className={styles.headerAvatar}>
         <Button
           iconSrc={login}
-          iconAlt="Воити в аккаунт"
+          iconAlt={t('header:logIn') as string}
           mode="signIn"
         />
       </div>
