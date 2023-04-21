@@ -1,15 +1,15 @@
 [
   {
-    "raiting": 7.4,
-    "raitingCount": 988865,
+    "rating": 7.4,
+    "ratingCount": 988865,
     "reviews": { "total": 204, "positive": 187, "negative": 4, "neutral": 13 },
     "title": { "ru": "Один дома", "en": "Home alone" },
     "productionYear": 1990,
     "countries": ["США"],
     "genre": { "ru": ["комедия", "семейный"], "en": ["comedy", "family"] },
     "director": "Крис Коламбус",
-    "ageRaiting": "0+",
-    "reitingMPAA": "PG",
+    "ageRating": "0+",
+    "ratingMPAA": "PG",
     "time": {
       "minutes": 103,
       "h:m": "01:43"
@@ -31,8 +31,8 @@
     ]
   },
   {
-    "raiting": 8.7,
-    "raitingCount": 552101,
+    "rating": 8.7,
+    "ratingCount": 552101,
     "reviews": { "total": 245, "positive": 210, "negative": 6, "neutral": 29 },
     "title": {
       "ru": "Властелин колец: Возвращение короля",
@@ -45,8 +45,8 @@
       "en": ["fantasy", "family", "drama", "action"]
     },
     "director": "Питер Джексон",
-    "ageRaiting": "12+",
-    "reitingMPAA": "PG-13",
+    "ageRating": "12+",
+    "retingMPAA": "PG-13",
     "time": {
       "minutes": 201,
       "h:m": "03:21"
