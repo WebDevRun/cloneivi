@@ -8,6 +8,7 @@ import { Button } from './Button'
 import { FullscreenButton } from './FullscreenButton'
 import styles from './MoviePlayer.module.scss'
 import { PlayButton } from './PlayButton'
+import { TopBar } from './TopBar'
 import { useMoviePlayer } from './useMoviePlayer'
 import { VolumeButton } from './VolumeButton'
 
@@ -87,22 +88,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
         />
       )}
 
-      {isLoadedMetadata && (
-        <div
-          className={cn(styles.infoContainer, {
-            [styles.infoContainer_hover]: isHover,
-          })}
-        >
-          <div
-            className={cn(styles.infoInnerContainer, {
-              [styles.infoInnerContainer_hover]: isHover,
-            })}
-          >
-            <p className={styles.name}>{name}</p>
-            {text && <p className={styles.text}>{text}</p>}
-          </div>
-        </div>
-      )}
+      {isLoadedMetadata && <TopBar name={name} text={text} isHover={isHover} />}
 
       {isLoadedMetadata && (
         <div
