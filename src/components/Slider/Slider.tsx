@@ -52,16 +52,27 @@ export const Slider: FC<SliderProps> = ({
 
   const setSettings = (showSlides, itemWidth) => {
     const clientWidth = container.current?.clientWidth
-    console.log(clientWidth)
     const gap = (clientWidth - showSlides * itemWidth) / (showSlides - 1)
+    const startPost = getStartPosition(showSlides)
     setSlidesCount(showSlides)
     setItemWidth(itemWidth)
-    setPosition(-startPosition * (itemWidth + gap) || 0)
+    setPosition(-startPost * (itemWidth + gap) || 0)
 
     setItemsGap(gap)
     if (!scrollStep || scrollStep > showSlides) {
       setScrollStep(showSlides > 1 ? showSlides - 1 : 1)
     }
+  }
+
+  const getStartPosition = (showSlides) => {
+    let startPos = startPosition
+    if (startPosition < 0) {
+      startPos = 0
+    }
+    if (startPosition > items.length - showSlides) {
+      startPos = items.length - showSlides
+    }
+    return startPos
   }
 
   const nextClickHandler = () => {
