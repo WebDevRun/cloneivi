@@ -122,6 +122,9 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
                 setСoefficient={currentTimeSetter}
                 hoverСoefficient={hoverCurrentTime}
                 setHoverСoefficient={setHoverCurrentTime}
+                selectedRangeColor="red"
+                borderRadius="r8"
+                hasThumb={true}
               >
                 {hoverCurrentTime > 0 && (
                   <div
@@ -150,6 +153,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
                 setСoefficient={setVolume}
                 hoverСoefficient={hoverVolume}
                 setHoverСoefficient={setHoverVolume}
+                borderRadius="r2"
               >
                 {hoverVolume > 0 && (
                   <div

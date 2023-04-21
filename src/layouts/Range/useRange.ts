@@ -11,6 +11,7 @@ export const useRange = (
   const [isMouseDown, setIsMouseDown] = useState(false)
   const hoverRangeRef = useRef<HTMLDivElement>(null)
   const selectedRangeRef = useRef<HTMLDivElement>(null)
+  const thumbRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setSelectedRange(coefficient)
@@ -50,6 +51,7 @@ export const useRange = (
     selectedRange,
     hoverRangeRef,
     selectedRangeRef,
+    thumbRef,
     rangeMouseMoveHandler,
     rangeMouseOutHandler,
     mouseDownHandler,
