@@ -1,7 +1,7 @@
 @use '@styles/functions' as fn;
 
 $rangeColor: #ffffff;
-$rangeWidth: fn.toRem(48px);
+$rangeWidth: 100%;
 $rangeTrackHeight: fn.toRem(4px);
 
 .range {

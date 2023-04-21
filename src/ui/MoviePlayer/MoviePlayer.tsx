@@ -49,6 +49,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
     mouseLeaveHandler,
     playClickHandler,
     loadedMetadataHandler,
+    endedHandler,
   } = useMoviePlayer()
 
   return (
@@ -65,6 +66,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
         poster={posterSrc}
         onClick={playClickHandler}
         onLoadedMetadata={loadedMetadataHandler}
+        onEnded={endedHandler}
       >
         <source src={videoSrc} />
       </video>
@@ -120,7 +122,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
               hoverValue={hoverCurrentTime}
               setHoverValue={setHoverCurrentTime}
             >
-              <div className={styles.currentTime}>
+              <div className={styles.currentTimeOnRange}>
                 {formatTime(currentTime)}
               </div>
             </Range>
