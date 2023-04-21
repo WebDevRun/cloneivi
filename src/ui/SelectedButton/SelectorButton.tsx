@@ -35,12 +35,12 @@ export const SelectorButton: FC<SelectorButtonProps> = ({
 
   return (
     <label className={selectButtonStyles}>
-      <input type="checkbox" defaultChecked={active} onClick={clickHandler} />
+      <input type='checkbox' defaultChecked={active} onClick={clickHandler} />
       <div className={styles.content}>
         <span className={styles.name}>{name}</span>
         <div className={styles.selected}>{selectedItems.join(', ')}</div>
       </div>
-      <Image src={arrowDown} alt="arrow-down" />
+      <Image src={arrowDown} alt='arrow-down' />
     </label>
   )
 }
