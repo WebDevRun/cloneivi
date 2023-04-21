@@ -1,14 +1,20 @@
-import { MouseEventHandler, useEffect, useRef, useState } from 'react'
+import {
+  MouseEventHandler,
+  ReactEventHandler,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 
 import { isFullscreenTypes, playStatusTypes } from './MoviePlayer'
 
 export const useMoviePlayer = () => {
   const [isHover, setIsHover] = useState(false)
-  const [isFirstPlay, setIsFirstPlay] = useState(true)
   const [playStatus, setPlayStatus] = useState<playStatusTypes>('stop')
   const [isFullscreen, setIsFullscreen] = useState<isFullscreenTypes>(undefined)
   const [volume, setVolume] = useState(0.4)
   const [hoverVolume, setHoverVolume] = useState(0)
+  const [isLoadedMetadata, setIsLoadedMetadata] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [hoverCurrentTime, setHoverCurrentTime] = useState(0)
 
@@ -21,7 +27,6 @@ export const useMoviePlayer = () => {
   useEffect(() => {
     if (playStatus === 'play') {
       videoRef.current?.play()
-      setIsFirstPlay(false)
     }
 
     if (playStatus === 'pause') {
@@ -46,7 +51,10 @@ export const useMoviePlayer = () => {
   }, [volume])
 
   useEffect(() => {
+    if (isLoadedMetadata === false) return
+
     const element = videoRef.current
+
     if (element === null) return
 
     if (element.currentTime >= element.duration) {
@@ -61,10 +69,10 @@ export const useMoviePlayer = () => {
     return () => {
       clearInterval(currentTimeTimer.current)
     }
-  }, [])
+  }, [isLoadedMetadata])
 
   const playClickHandler: MouseEventHandler<HTMLVideoElement> = () => {
-    if (isFirstPlay) return
+    if (!isLoadedMetadata) return
 
     if (playStatus === 'pause') {
       setPlayStatus('play')
@@ -90,10 +98,22 @@ export const useMoviePlayer = () => {
     }, 20000)
   }
 
+  const loadedMetadataHandler: ReactEventHandler<HTMLVideoElement> = (
+    event
+  ) => {
+    setIsLoadedMetadata(true)
+  }
+
+  const currentTimeSetter = (time: number) => {
+    if (videoRef.current === null) return
+
+    videoRef.current.currentTime = time
+  }
+
   return {
     isHover,
     isFullscreen,
-    isFirstPlay,
+    isLoadedMetadata,
     volume,
     hoverVolume,
     videoRef,
@@ -109,8 +129,10 @@ export const useMoviePlayer = () => {
     setIsFullscreen,
     setVolume,
     setHoverVolume,
+    currentTimeSetter,
     playClickHandler,
     mouseEnterHandler,
     mouseLeaveHandler,
+    loadedMetadataHandler,
   }
 }
