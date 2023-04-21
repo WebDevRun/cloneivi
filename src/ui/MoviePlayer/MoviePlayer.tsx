@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { FC } from 'react'
+import { FC, ReactEventHandler } from 'react'
 
 import { formatTime } from '@/utils/functions/formatTime'
 import { Range } from '@layouts/Range'
@@ -28,8 +28,8 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
 }) => {
   const {
     isHover,
-    isFirstPlay,
     isFullscreen,
+    isLoadedMetadata,
     volume,
     playStatus,
     hoverVolume,
@@ -39,7 +39,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
     videoRef,
     videoLayoutRef,
     hoverRangeValueRef,
-    setCurrentTime,
+    currentTimeSetter,
     setHoverCurrentTime,
     setPlayStatus,
     setHoverVolume,
@@ -48,6 +48,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
     mouseEnterHandler,
     mouseLeaveHandler,
     playClickHandler,
+    loadedMetadataHandler,
   } = useMoviePlayer()
 
   return (
@@ -63,11 +64,12 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
         preload="none"
         poster={posterSrc}
         onClick={playClickHandler}
+        onLoadedMetadata={loadedMetadataHandler}
       >
         <source src={videoSrc} />
       </video>
 
-      {isFirstPlay && (
+      {!isLoadedMetadata && (
         <PlayButton
           display="preview"
           playStatus={playStatus}
@@ -75,7 +77,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
         />
       )}
 
-      {isFirstPlay && (
+      {!isLoadedMetadata && (
         <FullscreenButton
           display="preview"
           isFullscreen={isFullscreen}
@@ -83,7 +85,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
         />
       )}
 
-      {!isFirstPlay && (
+      {isLoadedMetadata && (
         <div
           className={cn(styles.infoContainer, {
             [styles.infoContainer_hover]: isHover,
@@ -100,7 +102,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
         </div>
       )}
 
-      {!isFirstPlay && (
+      {isLoadedMetadata && (
         <div
           className={cn(styles.controlsContainer, {
             [styles.controlsContainer_hover]: isHover,
@@ -113,8 +115,8 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
           >
             <div className={styles.currentTime}>{formatTime(currentTime)}</div>
             <Range
-              value={currentTime / duration}
-              setValue={setCurrentTime}
+              value={Math.round((currentTime / duration) * 100) / 100}
+              setValue={currentTimeSetter}
               hoverValue={hoverCurrentTime}
               setHoverValue={setHoverCurrentTime}
             >

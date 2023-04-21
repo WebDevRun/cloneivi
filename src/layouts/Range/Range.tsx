@@ -1,4 +1,4 @@
-import { Dispatch, FC, ReactNode, SetStateAction } from 'react'
+import { FC, ReactNode } from 'react'
 
 import styles from './Range.module.scss'
 import { useRange } from './useRange'
@@ -6,8 +6,8 @@ import { useRange } from './useRange'
 export interface RangeProps {
   value: number
   hoverValue: number
-  setValue: Dispatch<SetStateAction<number>>
-  setHoverValue: Dispatch<SetStateAction<number>>
+  setValue: (number: number) => void
+  setHoverValue: (number: number) => void
   children?: ReactNode
 }
 

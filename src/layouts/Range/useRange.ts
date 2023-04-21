@@ -1,16 +1,11 @@
-import {
-  Dispatch,
-  MouseEventHandler,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import { MouseEventHandler, useEffect, useRef, useState } from 'react'
+
+import { RangeProps } from './Range'
 
 export const useRange = (
-  value: number,
-  setValue: Dispatch<SetStateAction<number>>,
-  setHoverValue: Dispatch<SetStateAction<number>>
+  value: RangeProps['value'],
+  setValue: RangeProps['setValue'],
+  setHoverValue: RangeProps['setHoverValue']
 ) => {
   const [selectedRange, setSelectedRange] = useState(value)
   const [isMouseDown, setIsMouseDown] = useState(false)
@@ -21,10 +16,6 @@ export const useRange = (
     setSelectedRange(value)
   }, [value])
 
-  useEffect(() => {
-    setValue(selectedRange)
-  }, [selectedRange, setValue])
-
   const rangeMouseMoveHandler: MouseEventHandler<HTMLDivElement> = (event) => {
     const offsetWidth = event.currentTarget.offsetWidth
     const offsetX = event.nativeEvent.offsetX
@@ -32,7 +23,7 @@ export const useRange = (
 
     setHoverValue(value)
 
-    if (isMouseDown) setSelectedRange(value)
+    if (isMouseDown) setValue(value)
   }
 
   const rangeMouseOutHandler: MouseEventHandler<HTMLDivElement> = (event) => {
@@ -52,7 +43,7 @@ export const useRange = (
     const offsetX = event.nativeEvent.offsetX
     const value = Math.round((offsetX / offsetWidth) * 100) / 100
 
-    setSelectedRange(value)
+    setValue(value)
   }
 
   return {
