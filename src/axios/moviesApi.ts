@@ -1,4 +1,4 @@
-import { $instance } from '@/api/index'
+import { $instance } from '@/axios/index'
 import { IMovie } from '@/types/films'
 
 export const getFilms = async (): Promise<IMovie[]> => {
