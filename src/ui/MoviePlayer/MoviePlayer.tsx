@@ -116,23 +116,32 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
             })}
           >
             <div className={styles.currentTime}>{formatTime(currentTime)}</div>
-            <Range
-              coefficient={Math.round((currentTime / duration) * 100) / 100}
-              setСoefficient={currentTimeSetter}
-              hoverСoefficient={hoverCurrentTime}
-              setHoverСoefficient={setHoverCurrentTime}
-            >
-              <div className={styles.currentTimeOnRange}>
-                {formatTime(currentTime)}
-              </div>
-            </Range>
+            <div className={styles.timeRange}>
+              <Range
+                coefficient={Math.round((currentTime / duration) * 100) / 100}
+                setСoefficient={currentTimeSetter}
+                hoverСoefficient={hoverCurrentTime}
+                setHoverСoefficient={setHoverCurrentTime}
+              >
+                {hoverCurrentTime > 0 && (
+                  <div
+                    style={{ left: `${hoverCurrentTime * 100}%` }}
+                    className={styles.timeOnRange}
+                  >
+                    {formatTime(duration * hoverCurrentTime)}
+                  </div>
+                )}
+              </Range>
+            </div>
             <div className={styles.duration}>{formatTime(duration)}</div>
 
-            <PlayButton
-              display="playing"
-              playStatus={playStatus}
-              setPlayStatus={setPlayStatus}
-            />
+            <div className={styles.playButton}>
+              <PlayButton
+                display="playing"
+                playStatus={playStatus}
+                setPlayStatus={setPlayStatus}
+              />
+            </div>
 
             <div className={styles.volume}>
               <VolumeButton volume={volume} setVolume={setVolume} />
@@ -142,7 +151,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
                 hoverСoefficient={hoverVolume}
                 setHoverСoefficient={setHoverVolume}
               >
-                {Math.round(hoverVolume * 100) !== 0 && (
+                {hoverVolume > 0 && (
                   <div
                     ref={hoverRangeValueRef}
                     className={styles.hoverRangeVolume}

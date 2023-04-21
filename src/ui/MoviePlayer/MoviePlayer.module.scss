@@ -81,6 +81,28 @@ $white: #ffffff;
   font-size: fn.toRem(13px);
 }
 
+.timeRange {
+  grid-column: 2/-2;
+}
+
+.currentTime,
+.timeOnRange,
+.duration {
+  color: $white;
+  font-size: fn.toRem(13px);
+}
+
+.currentTime {
+  margin-left: fn.toRem(12px);
+}
+
+.timeOnRange {
+  position: absolute;
+  top: fn.toRem(-15px);
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
 .volume {
   display: flex;
   align-items: center;
@@ -92,18 +114,5 @@ $white: #ffffff;
   font-weight: 600;
   font-size: fn.toRem(10px);
   color: $white;
-  z-index: -1;
-}
-
-.currentTime,
-.currentTimeOnRange,
-.duration {
-  color: $white;
-  font-size: fn.toRem(13px);
-}
-
-.currentTimeOnRange {
-  position: absolute;
-  top: fn.toRem(-8px);
   z-index: -1;
 }
