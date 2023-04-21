@@ -58,7 +58,10 @@ export const MovieCard: FC<MovieCardProps> = ({
             )}
             <SimilarIcon fill="white" />
             <RatingIcon fill="white" />
-            <DislikeIcon onClick={addDislike} fill={dislike ? "red" : 'white'} />
+            <DislikeIcon
+              onClick={addDislike}
+              fill={dislike ? 'red' : 'white'}
+            />
           </div>
           <div className={styles.movieProperties}>
             <div className={styles.propertiesRow}>
