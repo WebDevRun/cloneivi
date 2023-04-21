@@ -1,0 +1,171 @@
+$textColor: rgba(255, 255, 255, 0.48);
+$titleColor: rgba(255, 255, 255, 1);
+
+.line {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 48px 0;
+
+  .footerColumn {
+    .footerColumnDescription {
+      p {
+        color: $textColor;
+      }
+    }
+
+    .footerColumnTitle {
+      color: $titleColor;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .footerLinkList {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .footerLinkItem {
+        a {
+          font-size: 15px;
+          color: rgba(255, 255, 255, 0.48);
+
+          &:hover {
+            color: white;
+          }
+        }
+      }
+
+      .certificationLink {
+        background-image: -webkit-linear-gradient(135deg, #c447ff, #ea003d);
+        background-image: -o-linear-gradient(135deg, #c447ff, #ea003d);
+        background-image: linear-gradient(-45deg, #c447ff, #ea003d);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+}
+
+.footerColumn {
+  .footerSupport {
+    margin-top: 20px;
+
+    button {
+      padding: 12px;
+    }
+
+    .footerSupportButtons {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+
+      button {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+      }
+    }
+
+    .footerQuestions {
+      margin-top: 24px;
+
+      p {
+        color: $textColor;
+      }
+
+      a {
+        font-size: 15px;
+        color: white;
+      }
+    }
+  }
+
+  .footerWidget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+    .footerWidgetIcon {
+      --start-gradient-color: #a869f0;
+      --end-gradient-color: #834cc2;
+      --shadow-color: #a869f0;
+      width: 104px;
+      height: 104px;
+      border-radius: 20px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(var(--start-gradient-color)),
+        to(var(--end-gradient-color))
+      );
+      background: -webkit-linear-gradient(
+        top,
+        var(--start-gradient-color) 0%,
+        var(--end-gradient-color) 100%
+      );
+      background: -o-linear-gradient(
+        top,
+        var(--start-gradient-color) 0%,
+        var(--end-gradient-color) 100%
+      );
+      background: linear-gradient(
+        180deg,
+        var(--start-gradient-color) 0%,
+        var(--end-gradient-color) 100%
+      );
+      box-shadow: 0 0 104px var(--shadow-color);
+    }
+
+    .footerWidgetText {
+      text-align: center;
+      margin-top: 24px;
+    }
+  }
+}
+
+.footerContentBottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 48px 0;
+
+  .footerColumn {
+    .footerStores {
+      display: flex;
+      gap: 12px;
+
+      button {
+        padding: 0 10px;
+      }
+    }
+
+    .footerCopyrights {
+      margin-top: 32px;
+      p {
+        color: $textColor;
+      }
+    }
+
+    .footerComunity {
+      display: flex;
+      justify-content: end;
+      gap: 12px;
+
+      button {
+        border-radius: 50%;
+      }
+    }
+  }
+}

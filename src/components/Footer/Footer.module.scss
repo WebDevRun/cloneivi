@@ -1,213 +1,25 @@
-$textColor: rgba(255, 255, 255, .48);
+$textColor: rgba(255, 255, 255, 0.48);
 $titleColor: rgba(255, 255, 255, 1);
 
-
 .footer {
-    font-size: 15px;
-    color: $textColor;
-
-    hr {
-        border: 1px solid rgba(255, 255, 255, .16);
-    }
-
-    button {
-        background: #1f1b2e;
-        color: white;
-        border-radius: 10px;
-        min-width: 40px;
-        min-height: 40px;
-    }
-}
-
-
-.footerContent {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 48px 0;
-
-    .footerColumn {
-        .footerColumnTitle {
-            color: $titleColor;
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .footerLinkList {
-            list-style-type: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-
-            .footerLinkItem {
-                a {
-                    font-size: 15px;
-                    color: rgba(255, 255, 255, .48);
-
-                    &:hover {
-                        color: white;
-                    }
-                }
-            }
-
-            .certificationLink {
-                background-image: -webkit-linear-gradient(135deg, #c447ff, #ea003d);
-                background-image: -o-linear-gradient(135deg, #c447ff, #ea003d);
-                background-image: linear-gradient(-45deg, #c447ff, #ea003d);
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-        }
-    }
-}
-
-
-.footerColumn {
-    .footerSupport {
-        margin-top: 20px;
-
-        button {
-            padding: 12px;
-        }
-
-        .footerSupportButtons {
-            margin-top: 12px;
-            display: flex;
-            gap: 10px;
-
-            button {
-                width: 40px;
-                height: 40px;
-                padding: 0;
-            }
-        }
-
-        .footerQuestions {
-            margin-top: 24px;
-
-            a {
-                font-size: 15px;
-                color: white;
-            }
-        }
-    }
-
-    .footerWidget {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-
-        .footerWidgetIcon {
-            --start-gradient-color: #A869F0;
-            --end-gradient-color: #834CC2;
-            --shadow-color: #A869F0;
-            width: 104px;
-            height: 104px;
-            border-radius: 20px;
-            -webkit-box-pack: center;
-            -webkit-justify-content: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            background: -webkit-gradient(linear, left top, left bottom, from(var(--start-gradient-color)), to(var(--end-gradient-color)));
-            background: -webkit-linear-gradient(top, var(--start-gradient-color) 0%, var(--end-gradient-color) 100%);
-            background: -o-linear-gradient(top, var(--start-gradient-color) 0%, var(--end-gradient-color) 100%);
-            background: linear-gradient(180deg, var(--start-gradient-color) 0%, var(--end-gradient-color) 100%);
-            box-shadow: 0 0 104px var(--shadow-color);
-        }
-
-        .footerWidgetText {
-            text-align: center;
-            margin-top: 24px;
-        }
-    }
-}
-
-
-.footerContentBottom {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 48px 0;
-
-    .footerColumn {
-        .footerStores {
-            display: flex;
-            gap: 12px;
-
-            button {
-                padding: 0 10px;
-            }
-        }
-
-        .footerCopyrights {
-            margin-top: 32px;
-        }
-
-        .footerComunity {
-            display: flex;
-            justify-content: end;
-            gap: 12px;
-
-            button {
-                border-radius: 50%;
-            }
-        }
-    }
+  font-size: 15px;
 }
 
 .mobileFooter {
-    display: none;
+  display: none;
 }
 
-
 @media (max-width: 1160px) {
-    .footer {
-        display: none;
-    }
+  .footer {
+    display: none;
+  }
 
-    .mobileFooter {
-        width: 100%;
-        display: block;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(31, 27, 46, .88);
-
-        .tabBar {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 120px));
-            justify-content: center;
-
-            .tabBarItem {
-                position: relative;
-                text-align: center;
-                padding-top: 8px;
-                padding-bottom: 4px;
-
-                &.active .light {
-                    background-image: url(https://solea-parent.dfs.ivi.ru/picture/7e798f,7e798f/tabBarGlow.svg);
-                    background-position: 50% 50%;
-                    background-repeat: no-repeat;
-                    background-size: 64px 48px;
-                    width: 64px;
-                    height: 48px;
-                    position: absolute;
-                    top: 0;
-                    left: 50%;
-                    transform: translateX(-50%);
-                }
-
-                .tabBarText{
-                    font-size: 10px;
-                    font-weight: 500;
-                    color: gray;
-                }
-
-                &.active .tabBarText{
-                    color: white;
-                }
-            }
-        }
-    }
+  .mobileFooter {
+    width: 100%;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(31, 27, 46, 0.88);
+  }
 }
