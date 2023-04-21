@@ -169,14 +169,21 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
               </Range>
             </div>
 
-            <Button image="setting" />
-            <Button image="subtitles" />
+            <div className={styles.setting}>
+              <Button image="setting" />
+            </div>
 
-            <FullscreenButton
-              display="playing"
-              isFullscreen={isFullscreen}
-              setIsFullscreen={setIsFullscreen}
-            />
+            <div className={styles.subtitles}>
+              <Button image="subtitles" />
+            </div>
+
+            <div className={styles.fullscreen}>
+              <FullscreenButton
+                display="playing"
+                isFullscreen={isFullscreen}
+                setIsFullscreen={setIsFullscreen}
+              />
+            </div>
           </div>
         </div>
       )}

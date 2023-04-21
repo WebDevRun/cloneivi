@@ -46,7 +46,7 @@ export const Range: FC<RangeProps> = ({
       onMouseUp={mouseUpHandler}
       onClick={rangeClickHandler}
     >
-      <div className={styles.rangeTrack}></div>
+      <div className={cn(styles.rangeTrack, styles[borderRadius])}></div>
       <div
         ref={selectedRangeRef}
         className={cn(
