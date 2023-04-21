@@ -1,17 +1,28 @@
-export const formatTime = (time: number | undefined) => {
+type Time = number | undefined
+interface options {
+  format?: 'hh:mm:ss' | 'hh:mm'
+}
+
+export function formatTime(time: Time, options?: options) {
   if (time === undefined || isNaN(time)) return '0:00:00'
 
   const date = new Date(0, 0, 0)
 
   date.setSeconds(time)
 
-  let hour: number | string = date.getHours()
-  let minutes: number | string = date.getMinutes()
-  let seconds: number | string = date.getSeconds()
+  const hour = date.getHours()
+  const minutes = date.getMinutes()
+  const seconds = date.getSeconds()
 
-  hour = hour < 10 ? `0${hour}` : hour
-  minutes = minutes < 10 ? `0${minutes}` : minutes
-  seconds = seconds < 10 ? `0${seconds}` : seconds
+  const hourStr = hour < 10 ? `0${hour}` : hour
+  const minutesStr = minutes < 10 ? `0${minutes}` : minutes
+  const secondsStr = seconds < 10 ? `0${seconds}` : seconds
 
-  return `${hour}:${minutes}:${seconds}`
+  if (options?.format === 'hh:mm') {
+    if (hour) return `${hourStr}:${minutesStr}`
+
+    return `${minutesStr}:${secondsStr}`
+  }
+
+  return `${hourStr}:${minutesStr}:${secondsStr}`
 }

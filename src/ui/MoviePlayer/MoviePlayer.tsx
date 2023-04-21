@@ -131,7 +131,9 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
                     style={{ left: `${hoverCurrentTime * 100}%` }}
                     className={styles.timeOnRange}
                   >
-                    {formatTime(duration * hoverCurrentTime)}
+                    {formatTime(duration * hoverCurrentTime, {
+                      format: 'hh:mm',
+                    })}
                   </div>
                 )}
               </Range>
