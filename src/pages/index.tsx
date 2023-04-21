@@ -7,7 +7,6 @@ import { AppLayout } from '@layouts/AppLayout'
 export default function Home() {
   const { t } = useTranslation(['header'])
 
-
   return (
     <main>
       <AppLayout>
