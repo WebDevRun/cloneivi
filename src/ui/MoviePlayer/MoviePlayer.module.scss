@@ -96,7 +96,14 @@ $white: #ffffff;
 }
 
 .currentTime,
+.currentTimeOnRange,
 .duration {
   color: $white;
   font-size: fn.toRem(13px);
+}
+
+.currentTimeOnRange {
+  position: absolute;
+  top: fn.toRem(-8px);
+  z-index: -1;
 }

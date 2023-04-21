@@ -25,13 +25,31 @@ export const useMoviePlayer = () => {
   const currentTimeTimer = useRef<NodeJS.Timer>()
 
   useEffect(() => {
+    return () => {
+      clearInterval(currentTimeTimer.current)
+    }
+  }, [])
+
+  useEffect(() => {
+    const elementRef = videoRef.current
+
+    if (elementRef === null) return
+
     if (playStatus === 'play') {
-      videoRef.current?.play()
+      elementRef.play()
+      currentTimeTimer.current = setInterval(() => {
+        setCurrentTime(elementRef.currentTime)
+      }, 1000)
+      return
     }
 
     if (playStatus === 'pause') {
-      videoRef.current?.pause()
+      elementRef.pause()
+      return
     }
+
+    setCurrentTime(0)
+    clearInterval(currentTimeTimer.current)
   }, [playStatus])
 
   useEffect(() => {
@@ -49,27 +67,6 @@ export const useMoviePlayer = () => {
   useEffect(() => {
     if (videoRef.current) videoRef.current.volume = volume
   }, [volume])
-
-  useEffect(() => {
-    if (isLoadedMetadata === false) return
-
-    const element = videoRef.current
-
-    if (element === null) return
-
-    if (element.currentTime >= element.duration) {
-      clearInterval(currentTimeTimer.current)
-      return
-    }
-
-    currentTimeTimer.current = setInterval(() => {
-      if (element) setCurrentTime(element.currentTime)
-    }, 1000)
-
-    return () => {
-      clearInterval(currentTimeTimer.current)
-    }
-  }, [isLoadedMetadata])
 
   const playClickHandler: MouseEventHandler<HTMLVideoElement> = () => {
     if (!isLoadedMetadata) return
@@ -104,10 +101,14 @@ export const useMoviePlayer = () => {
     setIsLoadedMetadata(true)
   }
 
-  const currentTimeSetter = (time: number) => {
+  const endedHandler: ReactEventHandler<HTMLVideoElement> = (event) => {
+    setPlayStatus('stop')
+  }
+
+  const currentTimeSetter = (timePercent: number) => {
     if (videoRef.current === null) return
 
-    videoRef.current.currentTime = time
+    videoRef.current.currentTime = videoRef.current.duration * timePercent
   }
 
   return {
@@ -123,7 +124,6 @@ export const useMoviePlayer = () => {
     currentTime,
     duration: videoRef.current ? videoRef.current.duration : 0,
     hoverCurrentTime,
-    setCurrentTime,
     setHoverCurrentTime,
     setPlayStatus,
     setIsFullscreen,
@@ -134,5 +134,6 @@ export const useMoviePlayer = () => {
     mouseEnterHandler,
     mouseLeaveHandler,
     loadedMetadataHandler,
+    endedHandler,
   }
 }
