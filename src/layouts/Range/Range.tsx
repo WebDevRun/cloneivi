@@ -4,18 +4,18 @@ import styles from './Range.module.scss'
 import { useRange } from './useRange'
 
 export interface RangeProps {
-  value: number
-  hoverValue: number
-  setValue: (number: number) => void
-  setHoverValue: (number: number) => void
+  coefficient: number
+  hoverСoefficient: number
+  setСoefficient: (number: number) => void
+  setHoverСoefficient: (number: number) => void
   children?: ReactNode
 }
 
 export const Range: FC<RangeProps> = ({
-  value,
-  setValue,
-  hoverValue,
-  setHoverValue,
+  coefficient,
+  setСoefficient,
+  hoverСoefficient,
+  setHoverСoefficient,
   children,
 }) => {
   const {
@@ -27,7 +27,7 @@ export const Range: FC<RangeProps> = ({
     rangeClickHandler,
     rangeMouseMoveHandler,
     rangeMouseOutHandler,
-  } = useRange(value, setValue, setHoverValue)
+  } = useRange(coefficient, setСoefficient, setHoverСoefficient)
 
   return (
     <div
@@ -47,7 +47,7 @@ export const Range: FC<RangeProps> = ({
       <div
         ref={hoverRangeRef}
         className={styles.hoverRange}
-        style={{ width: `${hoverValue * 100}%` }}
+        style={{ width: `${hoverСoefficient * 100}%` }}
       ></div>
       {children}
     </div>
