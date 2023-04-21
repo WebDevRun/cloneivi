@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import { FC, ReactNode } from 'react'
 
 import styles from './Range.module.scss'
@@ -9,6 +10,9 @@ export interface RangeProps {
   setСoefficient: (number: number) => void
   setHoverСoefficient: (number: number) => void
   children?: ReactNode
+  selectedRangeColor?: 'white' | 'red'
+  borderRadius?: 'none' | 'r2' | 'r8'
+  hasThumb?: boolean
 }
 
 export const Range: FC<RangeProps> = ({
@@ -17,11 +21,15 @@ export const Range: FC<RangeProps> = ({
   hoverСoefficient,
   setHoverСoefficient,
   children,
+  selectedRangeColor = 'white',
+  borderRadius = 'none',
+  hasThumb = false,
 }) => {
   const {
     selectedRange,
     hoverRangeRef,
     selectedRangeRef,
+    thumbRef,
     mouseDownHandler,
     mouseUpHandler,
     rangeClickHandler,
@@ -31,7 +39,7 @@ export const Range: FC<RangeProps> = ({
 
   return (
     <div
-      className={styles.range}
+      className={cn(styles.range, styles[borderRadius])}
       onMouseMove={rangeMouseMoveHandler}
       onMouseOut={rangeMouseOutHandler}
       onMouseDown={mouseDownHandler}
@@ -41,14 +49,25 @@ export const Range: FC<RangeProps> = ({
       <div className={styles.rangeTrack}></div>
       <div
         ref={selectedRangeRef}
-        className={styles.selectedRange}
+        className={cn(
+          styles.selectedRange,
+          styles[selectedRangeColor],
+          styles[borderRadius]
+        )}
         style={{ width: `${selectedRange * 100}%` }}
       ></div>
       <div
         ref={hoverRangeRef}
-        className={styles.hoverRange}
+        className={cn(styles.hoverRange, styles[borderRadius])}
         style={{ width: `${hoverСoefficient * 100}%` }}
       ></div>
+      {hasThumb && (
+        <div
+          ref={thumbRef}
+          style={{ left: `${selectedRange * 100}%` }}
+          className={cn(styles.thumb, styles[selectedRangeColor])}
+        ></div>
+      )}
       {children}
     </div>
   )
