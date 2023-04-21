@@ -1,4 +1,3 @@
-
 import { Meta, StoryObj } from '@storybook/react'
 
 import { SelectorButton } from './SelectorButton'

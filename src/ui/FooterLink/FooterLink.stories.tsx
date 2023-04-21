@@ -52,10 +52,10 @@ export const WithoutIcon: Story = {
   },
 }
 
-export const WithoutSutText: Story = {
+export const WithoutSubText: Story = {
   args: {
     type: 'square',
-    text: 'Click me',
+    text: 'Welcome',
     iconSrc: googlePlay,
     iconAlt: 'googlePlay',
     href: '#',

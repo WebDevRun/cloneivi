@@ -2,6 +2,7 @@ import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import styles from './FooterLink.module.scss'
 
@@ -22,6 +23,8 @@ export const FooterLink: FC<FooterLinkProps> = ({
   iconAlt,
   href,
 }) => {
+  let { t } = useTranslation()
+
   return (
     <Link
       className={cn(styles.btn, styles[type], {
@@ -37,7 +40,7 @@ export const FooterLink: FC<FooterLinkProps> = ({
         {(text || subText) && (
           <div className={styles.textContainer}>
             {subText && <p className={styles.subText}>{subText}</p>}
-            {text && <p className={styles.text}>{text}</p>}
+            {text && <p className={styles.text}>{t(text)}</p>}
           </div>
         )}
       </div>
