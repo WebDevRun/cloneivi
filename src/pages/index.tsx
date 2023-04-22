@@ -15,7 +15,7 @@ export default function Home() {
         <div style={{display: 'flex', gap: '20px'}}>
           <MovieCard
             href="/"
-            imgSrc="	https://thumbs.dfs.ivi.ru/storage26/contents/a/0/5944f945ac1f0e39d6d0ca1c709f31.jpg/234x360//?q=85"
+            imgSrc="https://thumbs.dfs.ivi.ru/storage26/contents/a/0/5944f945ac1f0e39d6d0ca1c709f31.jpg/234x360//?q=85"
             imgAlt="Movie img"
             ageLimit={18}
             movieName="Ничто не случается"

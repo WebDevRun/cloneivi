@@ -116,6 +116,7 @@
         .movieCardImage {
             width: 100%;
             border-radius: 10px;
+            display: block;
         }
 
         .textBadge {
@@ -171,7 +172,7 @@
 
 .movieCard:hover {
     .movieCardImageCont {
-        // transform: scale(1.05);
+        transform: scale(1.05);
 
         .movieInfo {
             opacity: 1;
