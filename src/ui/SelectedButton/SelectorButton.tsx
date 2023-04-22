@@ -1,8 +1,7 @@
+import arrowDown from '@assets/images/selectors/arrow-down.svg'
 import cn from 'classnames'
 import Image from 'next/image'
 import { Dispatch, FC, MouseEventHandler, SetStateAction } from 'react'
-
-import arrowDown from '@assets/images/selectors/arrow-down.svg'
 
 import styles from './SelectorButton.module.scss'
 

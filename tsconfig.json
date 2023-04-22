@@ -25,6 +25,6 @@
       "@public/*": ["./public/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./jest.setup.ts", "src/i18n.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./jest.setup.ts"],
   "exclude": ["node_modules"]
 }

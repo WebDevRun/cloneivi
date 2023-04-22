@@ -2,7 +2,6 @@ import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import { FooterLink } from '@/ui/FooterLink'
 import { AppLayout } from '@layouts/AppLayout'
 
 export default function Home() {
@@ -12,7 +11,6 @@ export default function Home() {
     <main>
       <AppLayout>
         <h1>{t('header:more')}</h1>
-        <FooterLink href="/" type="square" text="Welcome" />
       </AppLayout>
     </main>
   )
