@@ -1,22 +1,18 @@
-import cn from 'classnames'
-import Link from 'next/link'
 import { FC, useState } from 'react'
 
-import Svg from '@/assets/svg/Svg'
-
 import styles from './Footer.module.scss'
-import FooterDesktop from './FooterDesktop/FooterDesktop'
-import FooterMobile from './FooterMobile/FooterMobile'
+import { FooterDesktop } from './FooterDesktop/FooterDesktop'
+import { FooterMobile } from './FooterMobile/FooterMobile'
 
 export const Footer: FC = () => {
   return (
-    <>
-      <footer className={styles.footer}>
+    <footer>
+      <div className={styles.footer}>
         <FooterDesktop />
-      </footer>
-      <footer className={styles.mobileFooter}>
+      </div>
+      <div className={styles.mobileFooter}>
         <FooterMobile />
-      </footer>
-    </>
+      </div>
+    </footer>
   )
 }

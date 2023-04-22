@@ -1,14 +1,12 @@
 $textColor: rgba(255, 255, 255, 0.48);
 $titleColor: rgba(255, 255, 255, 1);
 
-.line {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-}
-
 .footerContent {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 48px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 
   .footerColumn {
     .footerColumnDescription {
@@ -94,9 +92,9 @@ $titleColor: rgba(255, 255, 255, 1);
     cursor: pointer;
 
     .footerWidgetIcon {
-      --start-gradient-color: #a869f0;
-      --end-gradient-color: #834cc2;
-      --shadow-color: #a869f0;
+      $start-gradient-color: #a869f0;
+      $end-gradient-color: #834cc2;
+      $shadow-color: #a869f0;
       width: 104px;
       height: 104px;
       border-radius: 20px;
@@ -108,25 +106,25 @@ $titleColor: rgba(255, 255, 255, 1);
         linear,
         left top,
         left bottom,
-        from(var(--start-gradient-color)),
-        to(var(--end-gradient-color))
+        from($start-gradient-color),
+        to($end-gradient-color)
       );
       background: -webkit-linear-gradient(
         top,
-        var(--start-gradient-color) 0%,
-        var(--end-gradient-color) 100%
+        $start-gradient-color 0%,
+        $end-gradient-color 100%
       );
       background: -o-linear-gradient(
         top,
-        var(--start-gradient-color) 0%,
-        var(--end-gradient-color) 100%
+        $start-gradient-color 0%,
+        $end-gradient-color 100%
       );
       background: linear-gradient(
         180deg,
-        var(--start-gradient-color) 0%,
-        var(--end-gradient-color) 100%
+        $start-gradient-color 0%,
+        $end-gradient-color 100%
       );
-      box-shadow: 0 0 104px var(--shadow-color);
+      box-shadow: 0 0 104px $shadow-color;
     }
 
     .footerWidgetText {

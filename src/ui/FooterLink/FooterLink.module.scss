@@ -3,7 +3,10 @@
   background: #1f1b2e;
   color: white;
   padding: 10px;
-  transition-duration: 80ms;
+
+  &:not(:hover){
+    transition-duration: .4s;
+  }
 
   &_withSubText {
     padding: 5px 10px;

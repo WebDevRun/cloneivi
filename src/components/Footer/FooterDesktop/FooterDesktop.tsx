@@ -16,64 +16,47 @@ import { FooterLink } from '@/ui/FooterLink'
 
 import styles from './FooterDesktop.module.scss'
 
-const FooterDesktop = () => {
+export const FooterDesktop = () => {
+  const footerLinks1 = [
+    'О компании',
+    'Вакансии',
+    'Программа бета-тестирования',
+    'Информация для партнёров',
+    'Размещение рекламы',
+    'Пользовательское соглашение',
+    'Политика конфиденциальности',
+    'Комплаенс',
+  ]
+  const footerLinks2 = [
+    'Мой Иви',
+    'Что нового',
+    'Фильмы',
+    'Сериалы',
+    'Мультфильмы',
+    'ТВ-каналы',
+    'Что посмотреть',
+  ]
   return (
     <>
-      <hr className={styles.line} />
       <div className={styles.footerContent}>
         <div className={styles.footerColumn}>
           <p className={styles.footerColumnTitle}>О нас</p>
           <ul className={styles.footerLinkList}>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">О компании</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Вакансии</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Программа бета-тестирования</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Информация для партнёров</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Размещение рекламы</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Пользовательское соглашение</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Политика конфиденциальности</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Комплаенс</Link>
-            </li>
+            {footerLinks1.map((link, index) => (
+              <li key={index} className={styles.footerLinkItem}>
+                <Link href="#">{link}</Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div className={styles.footerColumn}>
           <p className={styles.footerColumnTitle}>Разделы</p>
           <ul className={styles.footerLinkList}>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Мой Иви</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Что нового</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Фильмы</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Сериалы</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Мультфильмы</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">ТВ-каналы</Link>
-            </li>
-            <li className={styles.footerLinkItem}>
-              <Link href="#">Что посмотреть</Link>
-            </li>
+            {footerLinks2.map((link, index) => (
+              <li key={index} className={styles.footerLinkItem}>
+                <Link href="#">{link}</Link>
+              </li>
+            ))}
             <li className={styles.footerLinkItem}>
               <Link className={styles.certificationLink} href="#">
                 Активация сертификата
@@ -118,7 +101,6 @@ const FooterDesktop = () => {
           </div>
         </div>
       </div>
-      <hr className={styles.line} />
       <div className={styles.footerContentBottom}>
         <div className={styles.footerColumn}>
           <div className={styles.footerStores}>
@@ -196,5 +178,3 @@ const FooterDesktop = () => {
     </>
   )
 }
-
-export default FooterDesktop

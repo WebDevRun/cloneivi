@@ -7,7 +7,7 @@ import Svg from '@/assets/svg/Svg'
 import styles from './FooterMobile.module.scss'
 
 
-const FooterMobile = () => {
+export const FooterMobile = () => {
   const [activeButton, setActiveButton] = useState<string | null>('btn1')
 
   const handleClick = (buttonName: string) => {
@@ -100,5 +100,3 @@ const FooterMobile = () => {
     </>
   )
 }
-
-export default FooterMobile
