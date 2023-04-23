@@ -19,8 +19,10 @@ const Home = () => {
                 componentSetting={{type: 'square', style: 'fill'}} />
         <Slider Component={SliderButton} items={GENRES_ICONS} arrowSize={'big'} type={'list'} onItemClick={() => ''}
                 componentSetting={{type: 'square', style: 'fill'}} infinite={true} />
+        <Slider Component={SliderButton} items={GENRES_ICONS} arrowSize={'big'} type={'oneItem'} onItemClick={() => ''}
+                componentSetting={{type: 'square', style: 'fill'}} infinite={true} />
       </AppLayout>
-      <Slider Component={Temp} items={GENRES_ICONS} arrowSize={'big'} type={'oneItem'} onItemClick={() => ''} infinite={true} autoScroll={true}/>
+      <Slider Component={Temp} items={GENRES_ICONS} arrowSize={'big'} type={'oneItem'} onItemClick={() => ''} infinite={true} />
     </main>
   )
 }

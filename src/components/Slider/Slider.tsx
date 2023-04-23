@@ -38,7 +38,7 @@ export const Slider: FC<SliderProps> = ({
   gap = 24,
   infinite = false,
   type,
-  autoScroll = false
+  autoScroll = false,
 }) => {
   const TRANSITION = 600
   const INTERVAL = 10000
@@ -55,6 +55,7 @@ export const Slider: FC<SliderProps> = ({
   const [cloneCount, setCloneCount] = useState<ICloneCount>({head: 0, tail: 0})
   const [buttonPosition, setButtonPosition] = useState<number>(0)
   const [margin, setMargin] = useState<number>(0)
+  const [activeItem, setActiveItem] = useState<number>(0)
 
   useEffect(() => {
     window.addEventListener('resize', setItemSettings)
@@ -115,13 +116,14 @@ export const Slider: FC<SliderProps> = ({
 
   useEffect(() => {
     if (autoScroll) {
-      const interval =window.setInterval(nextClickHandler, INTERVAL)
+      const interval = window.setInterval(nextClickHandler, INTERVAL)
       return () => window.clearInterval(interval)
     }
 
-    if (!infinite) return
-
     const currentPosition = Math.round(Math.abs(position - margin) / (itemWidth + itemsGap))
+    setActiveItem(currentPosition)
+
+    if (!infinite) return
 
     if (currentPosition >= sliderItems.length - cloneCount.tail) {
       setTimeout(() => {
@@ -240,7 +242,9 @@ export const Slider: FC<SliderProps> = ({
              ref={track}>
           {
             sliderItems.map((item, index) => (
-              <div key={index} className={styles.item} onClick={() => onItemClick(item.id)}>
+              <div key={index}
+                   className={cn(styles.item, type === 'oneItem' && index !== activeItem && styles.unActive)}
+                   onClick={() => onItemClick(item.id)}>
                 <Component {...item} {...componentSetting} />
               </div>
             ))

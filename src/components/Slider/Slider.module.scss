@@ -9,6 +9,11 @@
 
       .item {
         height: 100%;
+        transition: opacity 0.6s ;
+      }
+
+      .unActive {
+        opacity: 0.6;
       }
     }
   }
