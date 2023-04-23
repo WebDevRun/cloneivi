@@ -110,7 +110,7 @@ export const Slider: FC<SliderProps> = ({
     }
 
     setCloneCount({head: 0, tail: 0})
-  }, [infinite, items, scrollStep, type, slidesCount, itemWidth])
+  }, [infinite, items, scrollStep, type, slidesCount])
 
   useEffect(() => {
     const rightItems = items.slice(0, cloneCount.tail)
