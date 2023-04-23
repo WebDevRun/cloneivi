@@ -4,6 +4,7 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { ArrowSvg } from '@assets/svg/ArrowSvg'
 
 import styles from './Slider.module.scss'
+import { clearInterval } from 'timers'
 
 export interface SliderProps {
   Component: FC
@@ -17,6 +18,7 @@ export interface SliderProps {
   startPosition?: number
   gap?: number
   infinite?: boolean
+  autoScroll?: boolean
 }
 
 export interface ICloneCount {
@@ -36,8 +38,10 @@ export const Slider: FC<SliderProps> = ({
   gap = 24,
   infinite = false,
   type,
+  autoScroll = false
 }) => {
   const TRANSITION = 600
+  const INTERVAL = 10000
   const container = useRef<HTMLDivElement | null>(null)
   const track = useRef<HTMLDivElement | null>(null)
 
@@ -110,6 +114,11 @@ export const Slider: FC<SliderProps> = ({
   }, [cloneCount, items])
 
   useEffect(() => {
+    if (autoScroll) {
+      const interval =window.setInterval(nextClickHandler, INTERVAL)
+      return () => window.clearInterval(interval)
+    }
+
     if (!infinite) return
 
     const currentPosition = Math.round(Math.abs(position - margin) / (itemWidth + itemsGap))
