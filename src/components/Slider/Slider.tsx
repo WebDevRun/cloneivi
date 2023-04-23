@@ -58,20 +58,67 @@ export const Slider: FC<SliderProps> = ({
   }, [])
 
   useEffect(() => {
-    setScrollSettings()
-  }, [slidesCount, itemWidth])
+    setTransitionDuration(0)
+
+    const clientWidth = container.current?.clientWidth
+    const gap = slidesCount > 1 ? (clientWidth - slidesCount * itemWidth) / (slidesCount - 1) : clientWidth - slidesCount * itemWidth
+    let scroll = scrollStep
+
+    setItemsGap(gap)
+
+    if ((!scrollStep || scrollStep > slidesCount) && slidesCount) {
+      scroll = slidesCount > 1 ? slidesCount - 1 : 1
+      setScrollStep(scroll)
+    }
+
+    setTimeout(() => {
+      setTransitionDuration(TRANSITION)
+    }, TRANSITION)
+  }, [slidesCount, itemWidth, scrollStep])
 
   useEffect(() => {
-    setClone()
-  }, [scrollStep])
+    if (infinite) {
+      if (type === 'list') {
+        const tailCloneCount = scrollStep - items.length % scrollStep + slidesCount
+        setCloneCount({head: scrollStep, tail: tailCloneCount})
+        return
+      }
+
+      if (type === 'oneItem') {
+        setCloneCount({head: 2, tail: 2})
+        return
+      }
+    }
+
+    setCloneCount({head: 0, tail: 0})
+  }, [infinite, items, scrollStep, type, slidesCount])
 
   useEffect(() => {
-    setSliderItems(getSliderItems())
-  }, [cloneCount])
+    const rightItems = items.slice(0, cloneCount.tail)
+    const leftItems = items.slice(items.length - cloneCount.head, items.length)
+    setSliderItems([...leftItems, ...items, ...rightItems])
+  }, [cloneCount, items])
 
   useEffect(() => {
-    setStartPosition()
-  }, [cloneCount, itemWidth])
+    const itemsLeft = Math.round(sliderItems.length - ((Math.abs(position) + slidesCount * (itemWidth + itemsGap)) / (itemWidth + itemsGap)))
+    const itemsRight = Math.round(Math.abs(position) / (itemWidth + itemsGap))
+
+    // console.log(itemsRight, 'ir')
+    // console.log(itemsLeft, 'il')
+  }, [position])
+
+  useEffect(() => {
+    let startPos = startPosition + cloneCount.head
+
+    if (startPosition < 0) {
+      startPos = cloneCount.head
+    }
+
+    if (startPosition > items.length - slidesCount) {
+      startPos = items.length - slidesCount - cloneCount.head
+    }
+    setPosition(-startPos * (itemWidth + itemsGap) || 0)
+  }, [cloneCount, itemsGap, itemWidth, items, slidesCount, startPosition])
 
 
   const setItemSettings = () => {
@@ -94,56 +141,6 @@ export const Slider: FC<SliderProps> = ({
     setTimeout(() => {
       setTransitionDuration(TRANSITION)
     }, TRANSITION)
-  }
-
-  const setScrollSettings = () => {
-    setTransitionDuration(0)
-    const clientWidth = container.current?.clientWidth
-    const gap = slidesCount > 1 ? (clientWidth - slidesCount * itemWidth) / (slidesCount - 1) : clientWidth - slidesCount * itemWidth
-    let scroll = scrollStep
-    setItemsGap(gap)
-    if ((!scrollStep || scrollStep > slidesCount) && slidesCount) {
-      scroll = slidesCount > 1 ? slidesCount - 1 : 1
-      setScrollStep(scroll)
-    }
-    setTimeout(() => {
-      setTransitionDuration(TRANSITION)
-    }, TRANSITION)
-  }
-
-  const setClone = () => {
-    if (infinite) {
-      if (type === 'list') {
-        const tailCloneCount = items.length % scrollStep + scrollStep
-        setCloneCount({head: scrollStep, tail: tailCloneCount})
-        return
-      }
-      if (type === 'oneItem') {
-        setCloneCount({head: 2, tail: 2})
-        return
-      }
-    }
-    setCloneCount({head: 0, tail: 0})
-  }
-
-  const getSliderItems = () => {
-    const rightItems = items.slice(0, cloneCount.tail)
-    const leftItems = items.slice(items.length - cloneCount.head, items.length)
-    return [...leftItems, ...items, ...rightItems]
-  }
-
-  const setStartPosition = () => {
-    let startPos = startPosition + cloneCount.head
-
-    if (startPosition < 0) {
-      startPos = cloneCount.head
-    }
-
-    if (startPosition > items.length - slidesCount) {
-      startPos = items.length - slidesCount - cloneCount.head
-    }
-    setPosition(-startPos * (itemWidth + gap) || 0)
-    return startPos
   }
 
   const nextClickHandler = () => {

@@ -17,7 +17,7 @@ const Home = () => {
         <Slider Component={SliderButton} items={GENRES_ICONS} arrowSize={'big'} type={'list'} onItemClick={() => ''}
                 componentSetting={{type: 'square', style: 'fill'}} />
         <Slider Component={SliderButton} items={GENRES_ICONS} arrowSize={'big'} type={'list'} onItemClick={() => ''}
-                componentSetting={{type: 'square', style: 'fill'}} infinite={true}/>
+                componentSetting={{type: 'square', style: 'fill'}} infinite={true} />
       </AppLayout>
     </main>
   )
