@@ -74,6 +74,7 @@ export const GenresFilledSlider: Story = {
     arrowSize: 'big',
     onItemClick: () => {},
     items: GENRES_ICONS,
+    type: 'list',
   },
   render: args => {
     return (
@@ -89,8 +90,7 @@ export const GenresOutlinedSlider: Story = {
     Component: SliderButton,
     componentSetting: {type: 'square', style: 'outline'},
     arrowSize: 'small',
-    onItemClick: () => {
-    },
+    onItemClick: () => {},
     items: GENRES_ICONS,
     type: 'list',
   },

@@ -41,6 +41,11 @@ export const Slider: FC<SliderProps> = ({
 }) => {
   const TRANSITION = 600
   const INTERVAL = 10000
+  const SMALL_BUTTON_GAP = 15
+  const BIG_BUTTON_GAP = 30
+  const ONE_ITEM_BUTTON_GAP = 60
+  const ONE_ITEM_MIN_CLONE_COUNT = 3
+
   const container = useRef<HTMLDivElement | null>(null)
   const track = useRef<HTMLDivElement | null>(null)
 
@@ -99,13 +104,13 @@ export const Slider: FC<SliderProps> = ({
       }
 
       if (type === 'oneItem') {
-        setCloneCount({head: 2, tail: 2})
+        setCloneCount({head: ONE_ITEM_MIN_CLONE_COUNT, tail: ONE_ITEM_MIN_CLONE_COUNT})
         return
       }
     }
 
     setCloneCount({head: 0, tail: 0})
-  }, [infinite, items, scrollStep, type, slidesCount])
+  }, [infinite, items, scrollStep, type, slidesCount, itemWidth])
 
   useEffect(() => {
     const rightItems = items.slice(0, cloneCount.tail)
@@ -166,16 +171,16 @@ export const Slider: FC<SliderProps> = ({
   useEffect(() => {
     if (type === 'list') {
       if (arrowSize === 'big') {
-        setButtonPosition(-30)
+        setButtonPosition(-BIG_BUTTON_GAP)
       }
 
       if (arrowSize === 'small') {
-        setButtonPosition(-15)
+        setButtonPosition(-SMALL_BUTTON_GAP)
       }
     }
 
     if (type === 'oneItem') {
-      setButtonPosition(margin - 60)
+      setButtonPosition(margin - ONE_ITEM_BUTTON_GAP)
     }
   }, [itemWidth, margin])
 
