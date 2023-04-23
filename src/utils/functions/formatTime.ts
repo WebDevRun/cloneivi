@@ -1,28 +1,55 @@
-type Time = number | undefined
-interface options {
-  format?: 'hh:mm:ss' | 'hh:mm'
-}
+type Seconds = number | undefined
+type Locale = 'ru' | 'en'
 
-export function formatTime(time: Time, options?: options) {
-  if (time === undefined || isNaN(time)) return '0:00:00'
+export const formatTime = (
+  sec: Seconds,
+  locale: Locale,
+  options?: Intl.DateTimeFormatOptions
+) => {
+  if (sec === undefined || isNaN(sec)) return '0:00:00'
 
   const date = new Date(0, 0, 0)
 
-  date.setSeconds(time)
+  date.setSeconds(sec)
 
-  const hour = date.getHours()
-  const minutes = date.getMinutes()
-  const seconds = date.getSeconds()
+  const formatTime = date.toLocaleTimeString(locale, options)
 
-  const hourStr = hour < 10 ? `0${hour}` : hour
-  const minutesStr = minutes < 10 ? `0${minutes}` : minutes
-  const secondsStr = seconds < 10 ? `0${seconds}` : seconds
+  return formatTime
+}
 
-  if (options?.format === 'hh:mm') {
-    if (hour) return `${hourStr}:${minutesStr}`
+type TimeFormat = 'hh:mm:ss' | 'hh:mm' | 'mm:ss'
 
-    return `${minutesStr}:${secondsStr}`
+export const setDescriptions = (
+  time: string,
+  timeFormat: TimeFormat,
+  locale: Locale
+) => {
+  const timeArray = time
+    .split(':')
+    .map((value) => (value[0] === '0' ? value.slice(1) : value))
+
+  if (timeFormat === 'hh:mm') {
+    const [h, m] = timeArray
+    const hour = locale === 'ru' ? `${h} ч.` : `${h} h.`
+    const minutes = locale === 'ru' ? `${m} мин.` : `${m} min.`
+
+    return `${hour} ${minutes}`
   }
 
-  return `${hourStr}:${minutesStr}:${secondsStr}`
+  if (timeFormat === 'mm:ss') {
+    const [m, s] = timeArray
+    const minutes = locale === 'ru' ? `${m} мин.` : `${m} min.`
+    const seconds = locale === 'ru' ? `${s} сек.` : `${s} sec.`
+
+    return `${minutes} ${seconds}`
+  }
+
+  if (timeFormat === 'hh:mm:ss') {
+    const [h, m, s] = timeArray
+    const hour = locale === 'ru' ? `${h} ч.` : `${h} h.`
+    const minutes = locale === 'ru' ? `${m} мин.` : `${m} min.`
+    const seconds = locale === 'ru' ? `${s} сек.` : `${s} sec.`
+
+    return `${hour} ${minutes} ${seconds}`
+  }
 }
