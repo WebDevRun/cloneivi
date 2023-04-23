@@ -6,12 +6,12 @@ import { ILinkList } from '../../types'
 
 import styles from './ShowList.module.scss'
 
-export interface INativeScroll {
+export interface IShowList {
   data: ILinkList
   col: 'single' | 'double'
 }
 
-export const ShowList: FC<INativeScroll> = ({ data, col }) => {
+export const ShowList: FC<IShowList> = ({ data, col }) => {
   return (
     <>
       <div className={styles.linksList}>

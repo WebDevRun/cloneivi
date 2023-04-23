@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
+import { FC } from 'react'
 
 import logo from '../../assets/images/common/ivi.svg'
 import notify from '../../assets/images/header/notifications.svg'
@@ -20,8 +21,17 @@ const menu = [
   { id: '6', name: 'header:tv', href: 'https://www.ivi.ru/tvplus' },
 ]
 
-export const Header = () => {
+export const Header: FC = () => {
   const { t } = useTranslation(['header'])
+
+  const handleMouseOver = (e: React.MouseEvent<HTMLLinkElement>) => {
+    const target = e.target as HTMLLinkElement
+    const event = new CustomEvent('myCustomEventName', {
+      detail: target.textContent,
+    })
+
+    window.dispatchEvent(event)
+  }
 
   return (
     <div className={styles.header}>
@@ -29,7 +39,7 @@ export const Header = () => {
         <Image src={logo} alt={t('header:logo') as string}></Image>
       </Link>
 
-      <nav className={styles.menu}>
+      <nav className={styles.menu} onMouseOver={handleMouseOver}>
         {menu.map((item) => (
           <li className={styles.menuItem} key={item.id}>
             <Link href={item.href} title={item.name}>
@@ -41,13 +51,10 @@ export const Header = () => {
 
       <div className={styles.topWide}>
         <div className={styles.additionalButton}>
-          <Button mode="primary" text={t('header:pay') as string} />
+          <Button mode="primary" text={'pay'} />
         </div>
         <div className={styles.buttonMobile}>
-          <Button
-            mode="primaryMob"
-            text={t('header:see') as string}
-          />
+          <Button mode="primaryMob" text={t('header:see') as string} />
         </div>
         <div className={styles.headerSearch}>
           <Button
@@ -75,7 +82,7 @@ export const Header = () => {
       </div>
 
       <div className={styles.language}>
-          <Language></Language>
+        <Language />
       </div>
     </div>
   )

@@ -1,8 +1,10 @@
-import { FC } from 'react'
+import cn from 'classnames'
+import { FC, useEffect, useState } from 'react'
 
 import { IDataForLinks } from '../../types'
 // Данные импортируются здесь, но можно передавать пропсом
 import data from '../header-dropdown.json'
+import data2 from '../header-dropdown2.json'
 import { NativeScroll } from '../NativeScroll'
 import { ShowList } from '../ShowList/ShowList'
 import { SubscriptionWidget } from '../SubscriptionWidget/SubscriptionWidget'
@@ -10,9 +12,32 @@ import { SubscriptionWidget } from '../SubscriptionWidget/SubscriptionWidget'
 import styles from './HeaderDropdown.module.scss'
 
 export const HeaderDropdown: FC = () => {
-  const lists = data as IDataForLinks
+  //const lists = data as IDataForLinks
+  const [active, setActive] = useState('headerDropdown')
+  const [lists, setLists] = useState(data)
+
+  let mainCn = cn(styles[active])
+
+  function eventHandler(e: CustomEventInit<any>) {
+    if (e.detail === 'Фильмы') {
+      setLists(data)
+      setActive('headerDropdownActive')
+    } else if (e.detail === 'Сериалы') {
+      setLists(data2)
+      setActive('headerDropdownActive')
+    } else setActive('headerDropdown')
+  }
+
+  useEffect(() => {
+    window.addEventListener('myCustomEventName', eventHandler)
+
+    return () => {
+      window.removeEventListener('myCustomEventName', eventHandler)
+    }
+  })
+
   return (
-    <div className={styles.headerDropdown}>
+    <div className={mainCn}>
       <div>
         <div className={styles.headerDropdownBody}>
           <div className={styles.dropdownContent}>

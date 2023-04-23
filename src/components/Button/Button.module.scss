@@ -1,6 +1,6 @@
 .button {
   border: 0;
-  background: 0 0;
+  background: transparent;
   width: auto;
   overflow: visible;
   text-align: center;
@@ -13,7 +13,8 @@
   cursor: pointer;
   border-width: 1px;
   border-radius: 8px;
-  color: #ffffff;
+  color: #fff;
+  transition-duration: 0.4s;
 
   & img {
     display: flex;

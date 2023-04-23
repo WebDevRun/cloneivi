@@ -28,5 +28,12 @@
 
   a {
     color: hsla(0, 0%, 100%, 0.48);
+
+    &:hover {
+      color: #ffffff;
+    }
+    &:not(:hover):not(:active) {
+      transition-duration: 0.4s;
+    }
   }
 }

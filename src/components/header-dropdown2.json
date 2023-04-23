@@ -3,19 +3,9 @@
     "title": "Жанры",
     "items": [
       {
-        "href": "https://www.ivi.ru/movies/arthouse",
-        "title": "Смотреть фильмы артхаус онлайн",
-        "text": "Артхаус"
-      },
-      {
         "href": "https://www.ivi.ru/movies/boeviki",
         "title": "Смотреть боевики онлайн",
         "text": "Боевики"
-      },
-      {
-        "href": "https://www.ivi.ru/movies/western",
-        "title": "Смотреть вестроны онлайн",
-        "text": "Вестерн"
       },
       {
         "href": "https://www.ivi.ru/movies/voennye",
@@ -131,6 +121,21 @@
         "href": "https://www.ivi.ru/movies/su",
         "title": "Смотреть советское кино онлайн",
         "text": "Советское кино"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/ru",
+        "title": "Смотреть американские фильмы онлайн",
+        "text": "Американские"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/foreign",
+        "title": "Смотреть корейские фильмы онлайн",
+        "text": "Корейские"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/su",
+        "title": "Смотреть турецкое кино онлайн",
+        "text": "Турецкие"
       }
     ]
   },
@@ -168,35 +173,14 @@
         "text": "Новинки"
       },
       {
-        "href": "https://www.ivi.ru/collections",
-        "title": "Подборки",
-        "text": "Подборки"
-      },
-      {
         "href": "https://www.ivi.ru/movies/all?ivi_rating_10_gte=7&amp;sort=ivi&amp;rating_part=main&amp;rating_model=ready",
         "title": "Иви.Рейтинг",
         "text": "Иви.Рейтинг"
       },
       {
-        "href": "https://www.ivi.ru/new/soon-ivi",
-        "title": "Смотреть скоро на Иви",
-        "text": "Скоро на Иви"
-      },
-      {
-        "href": "https://www.ivi.ru/trailers",
-        "title": "Смотреть трейлеры",
-        "text": "Трейлеры"
-      },
-      {
-        "href": "https://www.ivi.ru/goodmovies",
-        "title": "Что посмотреть",
-        "text": "Что посмотреть"
-      }
-      ,
-      {
         "href": "https://www.ivi.ru/collections/movies-hd",
-        "title": "Смотреть фильмы в HD онлайн",
-        "text": "Фильмы в HD"
+        "title": "Смотреть сериалы в HD онлайн",
+        "text": "Сериалы в HD"
       },
       {
         "href": "https://www.ivi.ru/collections/vyibor-ivi",
@@ -217,11 +201,6 @@
         "href": "https://www.ivi.ru/collections/best-movies",
         "title": "Популярные фильмы",
         "text": "Популярные фильмы"
-      },
-      {
-        "href": "https://www.ivi.ru/collections/ivi-originals",
-        "title": "Фильмы Иви",
-        "text": "Фильмы Иви"
       }
     ]
   }
