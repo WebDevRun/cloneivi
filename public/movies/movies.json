@@ -6,7 +6,7 @@
     "title": { "ru": "Один дома", "en": "Home alone" },
     "productionYear": 1990,
     "countries": ["США"],
-    "genre": { "ru": ["комедия", "семейный"], "en": ["comedy", "family"] },
+    "genres": { "ru": ["комедия", "семейный"], "en": ["comedy", "family"] },
     "director": "Крис Коламбус",
     "ageRating": "0+",
     "ratingMPAA": "PG",
@@ -40,7 +40,7 @@
     },
     "productionYear": 2003,
     "countries": ["Новая Зеландия", "США"],
-    "genre": {
+    "genres": {
       "ru": ["фэнтези", "adventures", "драма", "боевик"],
       "en": ["fantasy", "family", "drama", "action"]
     },
