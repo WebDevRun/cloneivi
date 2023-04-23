@@ -80,7 +80,7 @@ export const Slider: FC<SliderProps> = ({
     if (infinite) {
       if (type === 'list') {
         const tailCloneCount = scrollStep - items.length % scrollStep + slidesCount
-        setCloneCount({head: scrollStep, tail: tailCloneCount})
+        setCloneCount({head: tailCloneCount, tail: tailCloneCount})
         return
       }
 
@@ -100,11 +100,35 @@ export const Slider: FC<SliderProps> = ({
   }, [cloneCount, items])
 
   useEffect(() => {
-    const itemsLeft = Math.round(sliderItems.length - ((Math.abs(position) + slidesCount * (itemWidth + itemsGap)) / (itemWidth + itemsGap)))
-    const itemsRight = Math.round(Math.abs(position) / (itemWidth + itemsGap))
+    if (!infinite) return
 
-    // console.log(itemsRight, 'ir')
-    // console.log(itemsLeft, 'il')
+    const currentPosition = Math.round(Math.abs(position) / (itemWidth + itemsGap))
+
+    if (currentPosition >= sliderItems.length - cloneCount.tail) {
+      setTimeout(() => {
+        setTransitionDuration(0)
+
+        const pos = cloneCount.head + Math.abs(sliderItems.length - cloneCount.head - currentPosition)
+        setPosition(-pos * (itemWidth + itemsGap))
+
+        setTimeout(() => {
+          setTransitionDuration(TRANSITION)
+        }, 100)
+      }, TRANSITION)
+    }
+
+    if (currentPosition < cloneCount.head) {
+      setTimeout(() => {
+        setTransitionDuration(0)
+
+        const pos = sliderItems.length - cloneCount.tail - (cloneCount.tail - currentPosition)
+        setPosition(-pos * (itemWidth + itemsGap))
+
+        setTimeout(() => {
+          setTransitionDuration(TRANSITION)
+        }, 100)
+      }, TRANSITION)
+    }
   }, [position])
 
   useEffect(() => {
