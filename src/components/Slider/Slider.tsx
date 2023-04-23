@@ -4,7 +4,6 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { ArrowSvg } from '@assets/svg/ArrowSvg'
 
 import styles from './Slider.module.scss'
-import { clearInterval } from 'timers'
 
 export interface SliderProps {
   Component: FC
