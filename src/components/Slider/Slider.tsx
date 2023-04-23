@@ -114,11 +114,6 @@ export const Slider: FC<SliderProps> = ({
   }, [cloneCount, items])
 
   useEffect(() => {
-    if (autoScroll) {
-      const interval = window.setInterval(nextClickHandler, INTERVAL)
-      return () => window.clearInterval(interval)
-    }
-
     const currentPosition = Math.round(Math.abs(position - margin) / (itemWidth + itemsGap))
     setActiveItem(currentPosition)
 
@@ -148,6 +143,11 @@ export const Slider: FC<SliderProps> = ({
           setTransitionDuration(TRANSITION)
         }, 100)
       }, TRANSITION)
+    }
+
+    if (autoScroll) {
+      const interval = window.setInterval(nextClickHandler, INTERVAL)
+      return () => window.clearInterval(interval)
     }
   }, [position])
 
