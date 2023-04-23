@@ -1,20 +1,22 @@
 import { formatTime, setDescriptions } from './formatTime'
 
 const secondsToMinutes = 100
+const secondsToHour = 3720
 
 describe('formatTime tests', () => {
   it('should return 00:00:00 by default', () => {
-    const timeStr = formatTime(secondsToMinutes, 'ru')
+    const timeStr = formatTime(secondsToMinutes, '00:00:00')
     expect(timeStr).toBe('00:01:40')
   })
 
-  it('should return 00:00', () => {
-    const timeStr = formatTime(secondsToMinutes, 'ru', {
-      minute: '2-digit',
-      second: '2-digit',
-    })
-
+  it('should return 00:00 for minutes', () => {
+    const timeStr = formatTime(secondsToMinutes, '00:00')
     expect(timeStr).toBe('01:40')
+  })
+
+  it('should return 00:00 for hour', () => {
+    const timeStr = formatTime(secondsToHour, '00:00')
+    expect(timeStr).toBe('01:02')
   })
 })
 

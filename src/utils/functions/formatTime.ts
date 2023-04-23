@@ -1,23 +1,28 @@
 type Seconds = number | undefined
-type Locale = 'ru' | 'en'
 
-export const formatTime = (
-  sec: Seconds,
-  locale: Locale,
-  options?: Intl.DateTimeFormatOptions
-) => {
+export const formatTime = (sec: Seconds, format: '00:00:00' | '00:00') => {
   if (sec === undefined || isNaN(sec)) return '0:00:00'
 
   const date = new Date(0, 0, 0)
 
   date.setSeconds(sec)
 
-  const formatTime = date.toLocaleTimeString(locale, options)
+  const hour = date.getHours()
+  const minutes = date.getMinutes()
+  const seconds = date.getSeconds()
+  const hourStr = hour < 10 ? `0${hour}` : hour
+  const minutesStr = minutes < 10 ? `0${minutes}` : minutes
+  const secondsStr = seconds < 10 ? `0${seconds}` : seconds
 
-  return formatTime
+  if (format === '00:00') {
+    return hour ? `${hourStr}:${minutesStr}` : `${minutesStr}:${secondsStr}`
+  }
+
+  return `${hourStr}:${minutesStr}:${secondsStr}`
 }
 
 type TimeFormat = 'hh:mm:ss' | 'hh:mm' | 'mm:ss'
+type Locale = 'ru' | 'en'
 
 export const setDescriptions = (
   time: string,
