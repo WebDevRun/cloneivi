@@ -101,7 +101,9 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
               [styles.controlsInnerContainer_hover]: isHover,
             })}
           >
-            <div className={styles.currentTime}>{formatTime(currentTime)}</div>
+            <div className={styles.currentTime}>
+              {formatTime(currentTime, '00:00:00')}
+            </div>
             <div className={styles.timeRange}>
               <Range
                 coefficient={Math.round((currentTime / duration) * 100) / 100}
@@ -117,14 +119,14 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
                     style={{ left: `${hoverCurrentTime * 100}%` }}
                     className={styles.timeOnRange}
                   >
-                    {formatTime(duration * hoverCurrentTime, {
-                      format: 'hh:mm',
-                    })}
+                    {formatTime(duration * hoverCurrentTime, '00:00')}
                   </div>
                 )}
               </Range>
             </div>
-            <div className={styles.duration}>{formatTime(duration)}</div>
+            <div className={styles.duration}>
+              {formatTime(duration, '00:00:00')}
+            </div>
 
             <div className={styles.playButton}>
               <PlayButton
