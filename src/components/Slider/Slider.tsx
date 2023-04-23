@@ -17,7 +17,11 @@ export interface SliderProps {
   startPosition?: number
   gap?: number
   infinite?: boolean
-  cloneCount?: string
+}
+
+export interface ICloneCount {
+  head: number
+  tail: number
 }
 
 export const Slider: FC<SliderProps> = ({
@@ -27,14 +31,13 @@ export const Slider: FC<SliderProps> = ({
   onItemClick,
   slidesToShow,
   startPosition = 0,
-  slidesToScroll,
+  slidesToScroll = 0,
   arrowSize,
   gap = 24,
   infinite = false,
   type,
-  cloneCount = 2,
 }) => {
-  const TRANSITION = 0.6
+  const TRANSITION = 600
   const container = useRef<HTMLDivElement | null>(null)
   const track = useRef<HTMLDivElement | null>(null)
   const [itemWidth, setItemWidth] = useState<number>(0)
@@ -43,82 +46,108 @@ export const Slider: FC<SliderProps> = ({
   const [position, setPosition] = useState<number>(startPosition || 0)
   const [scrollStep, setScrollStep] = useState<number>(slidesToScroll || 0)
   const [transitionDuration, setTransitionDuration] = useState<number>(0)
-  const [sliderItems, setSliderItems] = useState<typeof items[]>([])
-  // const [cloneCount, setCloneCount] = useState<number>(cloneCount)
+  const [sliderItems, setSliderItems] = useState<typeof items>(items)
+  const [cloneCount, setCloneCount] = useState<ICloneCount>({head: 0, tail: 0})
 
   useEffect(() => {
-    window.addEventListener('resize', sliderSetting)
-    sliderSetting()
+    window.addEventListener('resize', setItemSettings)
+    setItemSettings()
     return () => {
-      window.removeEventListener('resize', sliderSetting)
+      window.removeEventListener('resize', setItemSettings)
     }
   }, [])
 
   useEffect(() => {
-    if (infinite) {
+    setScrollSettings()
+  }, [slidesCount, itemWidth])
 
-    }
+  useEffect(() => {
+    setClone()
+  }, [scrollStep])
 
-    setSliderItems(items)
-  }, [items, infinite])
+  useEffect(() => {
+    setSliderItems(getSliderItems())
+  }, [cloneCount])
 
-  const sliderSetting = () => {
+  useEffect(() => {
+    setStartPosition()
+  }, [cloneCount, itemWidth])
+
+
+  const setItemSettings = () => {
     setTransitionDuration(0)
     const item = track.current?.firstElementChild?.firstElementChild
     const itemClientWidth = (item as HTMLElement)?.offsetWidth
+    let slideCount = slidesCount
 
-    if (type === 'list') {
-      if (slidesCount) {
-        setSettings(slidesCount, itemClientWidth)
-      } else {
-        const slideCount = Math.floor((container.current?.clientWidth + gap) / (itemClientWidth + gap))
-
-        if (itemClientWidth) {
-          setSettings(slideCount, itemClientWidth)
-        }
-      }
+    if (type === 'list' && !slideCount) {
+      slideCount = Math.floor((container.current?.clientWidth + gap) / (itemClientWidth + gap))
     }
 
     if (type === 'oneItem') {
 
     }
 
+    setSlidesCount(slideCount)
+    setItemWidth(itemClientWidth)
+
     setTimeout(() => {
       setTransitionDuration(TRANSITION)
     }, TRANSITION)
   }
 
-  const setSettings = (showSlides, itemWidth) => {
+  const setScrollSettings = () => {
+    setTransitionDuration(0)
     const clientWidth = container.current?.clientWidth
-    const gap = showSlides > 1 ? (clientWidth - showSlides * itemWidth) / (showSlides - 1) : clientWidth - showSlides * itemWidth
-    const startPost = getStartPosition(showSlides)
-
-    setSlidesCount(showSlides)
-    setItemWidth(itemWidth)
-    setPosition(-startPost * (itemWidth + gap) || 0)
+    const gap = slidesCount > 1 ? (clientWidth - slidesCount * itemWidth) / (slidesCount - 1) : clientWidth - slidesCount * itemWidth
+    let scroll = scrollStep
     setItemsGap(gap)
-
-    if (!scrollStep || scrollStep > showSlides) {
-      setScrollStep(showSlides > 1 ? showSlides - 1 : 1)
+    if ((!scrollStep || scrollStep > slidesCount) && slidesCount) {
+      scroll = slidesCount > 1 ? slidesCount - 1 : 1
+      setScrollStep(scroll)
     }
+    setTimeout(() => {
+      setTransitionDuration(TRANSITION)
+    }, TRANSITION)
   }
 
-  const getStartPosition = (showSlides) => {
-    let startPos = startPosition
+  const setClone = () => {
+    if (infinite) {
+      if (type === 'list') {
+        const tailCloneCount = items.length % scrollStep + scrollStep
+        setCloneCount({head: scrollStep, tail: tailCloneCount})
+        return
+      }
+      if (type === 'oneItem') {
+        setCloneCount({head: 2, tail: 2})
+        return
+      }
+    }
+    setCloneCount({head: 0, tail: 0})
+  }
+
+  const getSliderItems = () => {
+    const rightItems = items.slice(0, cloneCount.tail)
+    const leftItems = items.slice(items.length - cloneCount.head, items.length)
+    return [...leftItems, ...items, ...rightItems]
+  }
+
+  const setStartPosition = () => {
+    let startPos = startPosition + cloneCount.head
 
     if (startPosition < 0) {
-      startPos = 0
+      startPos = cloneCount.head
     }
 
-    if (startPosition > items.length - showSlides) {
-      startPos = items.length - showSlides
+    if (startPosition > items.length - slidesCount) {
+      startPos = items.length - slidesCount - cloneCount.head
     }
-
+    setPosition(-startPos * (itemWidth + gap) || 0)
     return startPos
   }
 
   const nextClickHandler = () => {
-    const itemsLeft = items.length - ((Math.abs(position) + slidesCount * (itemWidth + itemsGap)) / (itemWidth + itemsGap))
+    const itemsLeft = sliderItems.length - ((Math.abs(position) + slidesCount * (itemWidth + itemsGap)) / (itemWidth + itemsGap))
     const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + itemsGap) : itemsLeft * (itemWidth + itemsGap)
 
     setPosition(prevState => prevState - pos)
@@ -147,12 +176,12 @@ export const Slider: FC<SliderProps> = ({
              style={{
                gap: itemsGap,
                transform: `translateX(${position}px)`,
-               transition: `${transitionDuration}s`,
+               transition: `${transitionDuration}ms`,
              }}
              ref={track}>
           {
-            items.map(item => (
-              <div key={item.id} className={styles.item} onClick={() => onItemClick(item.id)}>
+            sliderItems.map((item, index) => (
+              <div key={index} className={styles.item} onClick={() => onItemClick(item.id)}>
                 <Component {...item} {...componentSetting} />
               </div>
             ))
@@ -160,7 +189,7 @@ export const Slider: FC<SliderProps> = ({
         </div>
       </div>
       {
-        position > -(items.length - slidesCount) * (itemWidth + itemsGap) &&
+        position > -(sliderItems.length - slidesCount) * (itemWidth + itemsGap) &&
         <button className={cn(styles.button, styles[`${arrowSize}ButtonRight`])}
                 onClick={nextClickHandler}>
           <ArrowSvg color={'#BCBCBF'}

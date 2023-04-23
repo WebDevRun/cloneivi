@@ -16,6 +16,8 @@ const Home = () => {
         <h1>{t('header:more')}</h1>
         <Slider Component={SliderButton} items={GENRES_ICONS} arrowSize={'big'} type={'list'} onItemClick={() => ''}
                 componentSetting={{type: 'square', style: 'fill'}} />
+        <Slider Component={SliderButton} items={GENRES_ICONS} arrowSize={'big'} type={'list'} onItemClick={() => ''}
+                componentSetting={{type: 'square', style: 'fill'}} infinite={true}/>
       </AppLayout>
     </main>
   )
