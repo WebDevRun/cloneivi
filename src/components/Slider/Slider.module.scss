@@ -1,5 +1,6 @@
 .slider {
   position: relative;
+
   .container {
     overflow: hidden;
 
@@ -13,6 +14,7 @@
   }
 
   .button {
+    z-index: 10;
     background-color: transparent;
     position: absolute;
     height: 100%;
@@ -24,21 +26,5 @@
         fill: #F1F1F3;
       }
     }
-  }
-
-  .smallButtonLeft {
-    left: -15px
-  }
-
-  .bigButtonLeft {
-    left: -30px
-  }
-
-  .smallButtonRight {
-    right: -15px
-  }
-
-  .bigButtonRight {
-    right: -30px
   }
 }

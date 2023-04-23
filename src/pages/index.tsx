@@ -2,11 +2,11 @@ import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import { Header } from '@components/Header'
 import { AppLayout } from '@layouts/AppLayout'
 import { Slider } from '@components/Slider'
 import { SliderButton } from '@ui/SliderButton/SliderButton'
 import { GENRES_ICONS } from '@/utils/consts/genres'
+import Temp from '@components/Temp'
 
 const Home = () => {
   const {t} = useTranslation(['header'])
@@ -20,6 +20,7 @@ const Home = () => {
         <Slider Component={SliderButton} items={GENRES_ICONS} arrowSize={'big'} type={'list'} onItemClick={() => ''}
                 componentSetting={{type: 'square', style: 'fill'}} infinite={true} />
       </AppLayout>
+      <Slider Component={Temp} items={GENRES_ICONS} arrowSize={'big'} type={'oneItem'} onItemClick={() => ''} infinite={true}/>
     </main>
   )
 }

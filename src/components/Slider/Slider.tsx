@@ -40,6 +40,7 @@ export const Slider: FC<SliderProps> = ({
   const TRANSITION = 600
   const container = useRef<HTMLDivElement | null>(null)
   const track = useRef<HTMLDivElement | null>(null)
+
   const [itemWidth, setItemWidth] = useState<number>(0)
   const [slidesCount, setSlidesCount] = useState<number>(slidesToShow || 0)
   const [itemsGap, setItemsGap] = useState<number>(gap || 24)
@@ -48,6 +49,8 @@ export const Slider: FC<SliderProps> = ({
   const [transitionDuration, setTransitionDuration] = useState<number>(0)
   const [sliderItems, setSliderItems] = useState<typeof items>(items)
   const [cloneCount, setCloneCount] = useState<ICloneCount>({head: 0, tail: 0})
+  const [buttonPosition, setButtonPosition] = useState<number>(0)
+  const [margin, setMargin] = useState<number>(0)
 
   useEffect(() => {
     window.addEventListener('resize', setItemSettings)
@@ -60,15 +63,22 @@ export const Slider: FC<SliderProps> = ({
   useEffect(() => {
     setTransitionDuration(0)
 
-    const clientWidth = container.current?.clientWidth
-    const gap = slidesCount > 1 ? (clientWidth - slidesCount * itemWidth) / (slidesCount - 1) : clientWidth - slidesCount * itemWidth
-    let scroll = scrollStep
+    if (type === 'list') {
+      const clientWidth = container.current?.clientWidth
+      const gap = slidesCount > 1 ? (clientWidth - slidesCount * itemWidth) / (slidesCount - 1) : clientWidth - slidesCount * itemWidth
+      let scroll = scrollStep
 
-    setItemsGap(gap)
+      setItemsGap(gap)
 
-    if ((!scrollStep || scrollStep > slidesCount) && slidesCount) {
-      scroll = slidesCount > 1 ? slidesCount - 1 : 1
-      setScrollStep(scroll)
+      if ((!scrollStep || scrollStep > slidesCount) && slidesCount) {
+        scroll = slidesCount > 1 ? slidesCount - 1 : 1
+        setScrollStep(scroll)
+      }
+    }
+
+    if (type === 'oneItem') {
+      setItemsGap(16)
+      setScrollStep(1)
     }
 
     setTimeout(() => {
@@ -102,14 +112,14 @@ export const Slider: FC<SliderProps> = ({
   useEffect(() => {
     if (!infinite) return
 
-    const currentPosition = Math.round(Math.abs(position) / (itemWidth + itemsGap))
+    const currentPosition = Math.round(Math.abs(position - margin) / (itemWidth + itemsGap))
 
     if (currentPosition >= sliderItems.length - cloneCount.tail) {
       setTimeout(() => {
         setTransitionDuration(0)
 
         const pos = cloneCount.head + Math.abs(sliderItems.length - cloneCount.head - currentPosition)
-        setPosition(-pos * (itemWidth + itemsGap))
+        setPosition(-pos * (itemWidth + itemsGap) + margin)
 
         setTimeout(() => {
           setTransitionDuration(TRANSITION)
@@ -122,7 +132,7 @@ export const Slider: FC<SliderProps> = ({
         setTransitionDuration(0)
 
         const pos = sliderItems.length - cloneCount.tail - (cloneCount.tail - currentPosition)
-        setPosition(-pos * (itemWidth + itemsGap))
+        setPosition(-pos * (itemWidth + itemsGap) + margin)
 
         setTimeout(() => {
           setTransitionDuration(TRANSITION)
@@ -133,7 +143,6 @@ export const Slider: FC<SliderProps> = ({
 
   useEffect(() => {
     let startPos = startPosition + cloneCount.head
-
     if (startPosition < 0) {
       startPos = cloneCount.head
     }
@@ -141,9 +150,29 @@ export const Slider: FC<SliderProps> = ({
     if (startPosition > items.length - slidesCount) {
       startPos = items.length - slidesCount - cloneCount.head
     }
-    setPosition(-startPos * (itemWidth + itemsGap) || 0)
-  }, [cloneCount, itemsGap, itemWidth, items, slidesCount, startPosition])
+    setPosition(-startPos * (itemWidth + itemsGap) + margin || 0)
+  }, [cloneCount, itemsGap, itemWidth, items, slidesCount, startPosition, margin])
 
+  useEffect(() => {
+    if (type === 'list') {
+      if (arrowSize === 'big') {
+        setButtonPosition(-30)
+      }
+
+      if (arrowSize === 'small') {
+        setButtonPosition(-15)
+      }
+    }
+
+    if (type === 'oneItem') {
+      setButtonPosition(margin - 60)
+    }
+  }, [itemWidth, margin])
+
+  useEffect(() => {
+    type === 'oneItem' &&
+    setMargin((container.current?.clientWidth - itemWidth) / 2)
+  }, [itemWidth, container.current?.clientWidth])
 
   const setItemSettings = () => {
     setTransitionDuration(0)
@@ -156,7 +185,7 @@ export const Slider: FC<SliderProps> = ({
     }
 
     if (type === 'oneItem') {
-
+      slideCount = 1
     }
 
     setSlidesCount(slideCount)
@@ -168,14 +197,14 @@ export const Slider: FC<SliderProps> = ({
   }
 
   const nextClickHandler = () => {
-    const itemsLeft = sliderItems.length - ((Math.abs(position) + slidesCount * (itemWidth + itemsGap)) / (itemWidth + itemsGap))
+    const itemsLeft = sliderItems.length - ((Math.abs(position - margin) + slidesCount * (itemWidth + itemsGap)) / (itemWidth + itemsGap))
     const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + itemsGap) : itemsLeft * (itemWidth + itemsGap)
 
     setPosition(prevState => prevState - pos)
   }
 
   const prevClickHandler = () => {
-    const itemsLeft = Math.abs(position) / (itemWidth + itemsGap)
+    const itemsLeft = Math.abs(position - margin) / (itemWidth + itemsGap)
     const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + itemsGap) : itemsLeft * (itemWidth + itemsGap)
 
     setPosition(prevState => prevState + pos)
@@ -184,8 +213,8 @@ export const Slider: FC<SliderProps> = ({
   return (
     <div className={styles.slider}>
       {
-        position !== 0 &&
-        <button className={cn(styles.button, styles[`${arrowSize}ButtonLeft`])} onClick={prevClickHandler}>
+        (position - margin !== 0 || infinite) &&
+        <button className={styles.button} onClick={prevClickHandler} style={{left: `${buttonPosition}px`}}>
           <ArrowSvg color='#BCBCBF'
                     size={arrowSize}
                     direction='left'
@@ -210,9 +239,8 @@ export const Slider: FC<SliderProps> = ({
         </div>
       </div>
       {
-        position > -(sliderItems.length - slidesCount) * (itemWidth + itemsGap) &&
-        <button className={cn(styles.button, styles[`${arrowSize}ButtonRight`])}
-                onClick={nextClickHandler}>
+        (position - margin > -(sliderItems.length - slidesCount) * (itemWidth + itemsGap) || infinite) &&
+        <button className={styles.button} onClick={nextClickHandler} style={{right: `${buttonPosition}px`}}>
           <ArrowSvg color={'#BCBCBF'}
                     size={arrowSize}
                     direction='right'
