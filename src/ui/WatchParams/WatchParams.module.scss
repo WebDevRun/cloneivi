@@ -1,0 +1,71 @@
+@use '@styles/variables' as var;
+@use '@styles/functions' as fn;
+@use '@styles/mixins' as mix;
+
+$transparentWhite: rgba(
+  $color: var.$mainTextColor,
+  $alpha: 0.72,
+);
+
+.watchParams {
+  $horizontalPadding: fn.toRem(12px);
+
+  display: flex;
+  flex-direction: column;
+  gap: fn.toRem(4px);
+  padding-left: $horizontalPadding;
+  padding-right: $horizontalPadding;
+}
+
+.paramList {
+  color: $transparentWhite;
+  font-size: fn.toRem(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > *:not(:first-child)::before {
+    content: '';
+    margin-left: fn.toRem(8px);
+  }
+}
+
+.withBetweenPoints {
+  & > *:not(:first-child)::before {
+    @include mix.betweenPoints(fn.toRem(6px));
+  }
+}
+
+.date,
+.country,
+.genre {
+  color: inherit;
+  transition-duration: 0.4s;
+
+  &:hover {
+    color: var.$mainTextColor;
+  }
+}
+
+.quality {
+  padding: 2px 6px;
+  background-color: rgba($color: var.$mainTextColor, $alpha: 0.16);
+  box-shadow: 0 4px 12px transparent;
+  border-radius: 4px;
+  color: var.$mainTextColor;
+}
+
+.volumeContainer {
+  $size: fn.toRem(15px);
+
+  width: $size;
+  height: $size;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.volume {
+  width: 100%;
+  height: auto;
+}

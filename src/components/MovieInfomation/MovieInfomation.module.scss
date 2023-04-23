@@ -1,45 +1,21 @@
+@use '@styles/variables' as var;
 @use '@styles/functions' as fn;
-
-$white: #ffffff;
-$transparentWhite: rgba(
-  $color: $white,
-  $alpha: 0.72,
-);
-$horizontalPadding: fn.toRem(12px);
+@use '@styles/mixins' as mix;
 
 .movieInfomation {
   max-width: 465px;
 }
 
-.title,
-.watchParams {
+.title {
+  $horizontalPadding: fn.toRem(12px);
+
   padding-left: $horizontalPadding;
   padding-right: $horizontalPadding;
-  text-align: center;
-}
-
-.title {
   font-size: fn.toRem(42px);
   line-height: fn.toRem(44px);
   margin-top: fn.toRem(8px);
   margin-bottom: fn.toRem(20px);
   font-weight: 700;
-  color: $white;
-}
-
-.paramList {
+  color: var.$mainTextColor;
   text-align: center;
-  color: $transparentWhite;
-  font-size: fn.toRem(15px);
-}
-
-.date,
-.country,
-.genre {
-  color: inherit;
-  transition-duration: 0.4s;
-
-  &:hover {
-    color: $white;
-  }
 }
