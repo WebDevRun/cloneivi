@@ -17,6 +17,67 @@ import { FooterLink } from '@/ui/FooterLink'
 import styles from './FooterDesktop.module.scss'
 
 export const FooterDesktop = () => {
+  const footerSocailMedias = [
+    {
+      href: '/',
+      iconSrc: vkIcon,
+      iconAlt: 'VK',
+    },
+    {
+      href: '/',
+      iconSrc: okIcon,
+      iconAlt: 'OK',
+    },
+    {
+      href: '/',
+      iconSrc: twitterIcon,
+      iconAlt: 'TW',
+    },
+    {
+      href: '/',
+      iconSrc: viberIcon,
+      iconAlt: 'VB',
+    },
+    {
+      href: '/',
+      iconSrc: linkedinIcon,
+      iconAlt: 'LD',
+    },
+    {
+      href: '/',
+      iconSrc: telegramIcon,
+      iconAlt: 'TG',
+    },
+  ]
+  const footerStores = [
+    {
+      href: '/',
+      iconSrc: appStoreIcon,
+      iconAlt: 'App Store',
+      text: 'App Store',
+      subText: 'Загрузить в',
+    },
+    {
+      href: '/',
+      iconSrc: playStoreIcon,
+      iconAlt: 'Play Store',
+      text: 'Google Play',
+      subText: 'Доступно в',
+    },
+    {
+      href: '/',
+      iconSrc: smartTvIcon,
+      iconAlt: 'Smart Tv',
+      text: 'Smart Tv',
+      subText: 'Смотрите на',
+    },
+    {
+      href: '/',
+      iconSrc: anyDevIcon,
+      iconAlt: 'All Dev',
+      text: 'Все Устройства',
+    },
+  ]
   const footerLinks1 = [
     'О компании',
     'Вакансии',
@@ -104,37 +165,17 @@ export const FooterDesktop = () => {
       <div className={styles.footerContentBottom}>
         <div className={styles.footerColumn}>
           <div className={styles.footerStores}>
-            <FooterLink
-              href="/"
-              type="square"
-              iconSrc={appStoreIcon}
-              iconAlt="App Store"
-              text="App Store"
-              subText="Загрузить в"
-            />
-            <FooterLink
-              href="/"
-              type="square"
-              iconSrc={playStoreIcon}
-              iconAlt="Play Store"
-              text="Google Play"
-              subText="Доступно в"
-            />
-            <FooterLink
-              href="/"
-              type="square"
-              iconSrc={smartTvIcon}
-              iconAlt="Smart Tv"
-              text="Smart Tv"
-              subText="Смотрите на"
-            />
-            <FooterLink
-              href="/"
-              type="square"
-              iconSrc={anyDevIcon}
-              iconAlt="All Dev"
-              text="Все Устройства"
-            />
+            {footerStores.map((store, index) => (
+              <FooterLink
+                key={index}
+                href={store.href}
+                type="square"
+                iconSrc={store.iconSrc}
+                iconAlt={store.iconAlt}
+                text={store.text}
+                subText={store.subText}
+              />
+            ))}
           </div>
           <div className={styles.footerCopyrights}>
             <p>© 2023 ООО «Иви.ру»</p>
@@ -146,32 +187,15 @@ export const FooterDesktop = () => {
         </div>
         <div className={styles.footerColumn}>
           <div className={styles.footerComunity}>
-            <FooterLink href="/" type="circle" iconSrc={vkIcon} iconAlt="Ok" />
-            <FooterLink href="/" type="circle" iconSrc={okIcon} iconAlt="Ok" />
-            <FooterLink
-              href="/"
-              type="circle"
-              iconSrc={twitterIcon}
-              iconAlt="Ok"
-            />
-            <FooterLink
-              href="/"
-              type="circle"
-              iconSrc={viberIcon}
-              iconAlt="Ok"
-            />
-            <FooterLink
-              href="/"
-              type="circle"
-              iconSrc={linkedinIcon}
-              iconAlt="Ok"
-            />
-            <FooterLink
-              href="/"
-              type="circle"
-              iconSrc={telegramIcon}
-              iconAlt="Ok"
-            />
+            {footerSocailMedias.map((socialMedia, index) => (
+              <FooterLink
+                key={index}
+                href={socialMedia.href}
+                type="circle"
+                iconSrc={socialMedia.iconSrc}
+                iconAlt={socialMedia.iconAlt}
+              />
+            ))}
           </div>
         </div>
       </div>

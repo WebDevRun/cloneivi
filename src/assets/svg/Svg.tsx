@@ -1,9 +1,9 @@
-import { FC } from 'react'
+import { FC, MouseEventHandler } from 'react'
 
 interface IconProps {
   icon: string
   fill: string
-  onclick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+  onclick?: MouseEventHandler<HTMLButtonElement>
 }
 
 const Svg: FC<IconProps> = ({ icon, ...props }) => {

@@ -6,8 +6,40 @@ import Svg from '@/assets/svg/Svg'
 
 import styles from './FooterMobile.module.scss'
 
-
 export const FooterMobile = () => {
+  const footerButtons = [
+    {
+      btnName: 'btn1',
+      href: '/',
+      icon: 'HomeIcon',
+      btnText: 'Мой Иви',
+    },
+    {
+      btnName: 'btn2',
+      href: '/',
+      icon: 'CatalogIcon',
+      btnText: 'Каталог',
+    },
+    {
+      btnName: 'btn3',
+      href: '/',
+      icon: 'SearchIcon',
+      btnText: 'Поиск',
+    },
+    {
+      btnName: 'btn4',
+      href: '/',
+      icon: 'AvatarIcon',
+      btnText: 'Профиль',
+    },
+    {
+      btnName: 'btn5',
+      href: '/',
+      icon: 'MoreIcon',
+      btnText: 'Ещё',
+    },
+  ]
+
   const [activeButton, setActiveButton] = useState<string | null>('btn1')
 
   const handleClick = (buttonName: string) => {
@@ -16,86 +48,25 @@ export const FooterMobile = () => {
   return (
     <>
       <div className={styles.tabBar}>
-        <Link
-          onClick={() => handleClick('btn1')}
-          className={cn(styles.tabBarItem, {
-            [styles.active]: activeButton === 'btn1',
-          })}
-          href={'/'}
-        >
-          <div className={styles.light}></div>
-          <div className={styles.tabBarIcon}>
-            <Svg
-              icon="HomeIcon"
-              fill={activeButton === 'btn1' ? 'white' : 'gray'}
-            />
-          </div>
-          <p className={styles.tabBarText}>Мой Иви</p>
-        </Link>
-        <Link
-          onClick={() => handleClick('btn2')}
-          className={cn(styles.tabBarItem, {
-            [styles.active]: activeButton === 'btn2',
-          })}
-          href={'/'}
-        >
-          <div className={styles.light}></div>
-          <div className={styles.tabBarIcon}>
-            <Svg
-              icon="CatalogIcon"
-              fill={activeButton === 'btn2' ? 'white' : 'gray'}
-            />
-          </div>
-          <p className={styles.tabBarText}>Мой Иви</p>
-        </Link>
-        <Link
-          onClick={() => handleClick('btn3')}
-          className={cn(styles.tabBarItem, {
-            [styles.active]: activeButton === 'btn3',
-          })}
-          href={'/'}
-        >
-          <div className={styles.light}></div>
-          <div className={styles.tabBarIcon}>
-            <Svg
-              icon="SearchIcon"
-              fill={activeButton === 'btn3' ? 'white' : 'gray'}
-            />
-          </div>
-          <p className={styles.tabBarText}>Мой Иви</p>
-        </Link>
-        <Link
-          onClick={() => handleClick('btn4')}
-          className={cn(styles.tabBarItem, {
-            [styles.active]: activeButton === 'btn4',
-          })}
-          href={'/'}
-        >
-          <div className={styles.light}></div>
-          <div className={styles.tabBarIcon}>
-            <Svg
-              icon="AvatarIcon"
-              fill={activeButton === 'btn4' ? 'white' : 'gray'}
-            />
-          </div>
-          <p className={styles.tabBarText}>Мой Иви</p>
-        </Link>
-        <Link
-          onClick={() => handleClick('btn5')}
-          className={cn(styles.tabBarItem, {
-            [styles.active]: activeButton === 'btn5',
-          })}
-          href={'/'}
-        >
-          <div className={styles.light}></div>
-          <div className={styles.tabBarIcon}>
-            <Svg
-              icon="MoreIcon"
-              fill={activeButton === 'btn5' ? 'white' : 'gray'}
-            />
-          </div>
-          <p className={styles.tabBarText}>Мой Иви</p>
-        </Link>
+        {footerButtons.map((btn, index) => (
+          <Link
+            key={index}
+            onClick={() => handleClick(btn.btnName)}
+            className={cn(styles.tabBarItem, {
+              [styles.active]: activeButton === btn.btnName,
+            })}
+            href={btn.href}
+          >
+            <div className={styles.light}></div>
+            <div className={styles.tabBarIcon}>
+              <Svg
+                icon={btn.icon}
+                fill={activeButton === btn.btnName ? 'white' : 'gray'}
+              />
+            </div>
+            <p className={styles.tabBarText}>{btn.btnText}</p>
+          </Link>
+        ))}
       </div>
     </>
   )
