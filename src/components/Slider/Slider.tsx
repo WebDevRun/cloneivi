@@ -244,6 +244,7 @@ export const Slider: FC<SliderProps> = ({
             sliderItems.map((item, index) => (
               <div key={index}
                    className={cn(styles.item, type === 'oneItem' && index !== activeItem && styles.unActive)}
+                   style={{transition: `opacity ${transitionDuration}ms`}}
                    onClick={() => onItemClick(item.id)}>
                 <Component {...item} {...componentSetting} />
               </div>
