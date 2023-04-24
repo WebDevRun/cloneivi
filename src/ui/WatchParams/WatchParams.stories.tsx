@@ -40,11 +40,11 @@ type Story = StoryObj<typeof WatchParams>
 
 export const Default: Story = {
   args: {
-    productionYear: movies[0].productionYear,
-    duration: movies[0].time.minutes,
-    ageRating: movies[0].ageRaiting,
-    countries: movies[0].countries,
-    genres: movies[0].genres.ru,
-    quality: 'FullHD',
+    productionYear: movies[0].year,
+    duration: movies[0].duration,
+    ageRating: `${movies[0].age_limit}+`,
+    countries: [movies[0].country],
+    genres: movies[0].genres,
+    quality: movies[0].qualities[0],
   },
 }
