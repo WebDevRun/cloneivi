@@ -1,0 +1,1 @@
+export { WatchDescription } from './WatchDescription'

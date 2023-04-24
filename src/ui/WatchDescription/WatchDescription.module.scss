@@ -1,0 +1,48 @@
+@use '@styles/variables' as var;
+@use '@styles/functions' as fn;
+
+$transparentWite: rgba(
+  $color: var.$mainTextColor,
+  $alpha: 0.72,
+);
+
+.watchDescription {
+  line-height: 22px;
+}
+
+.description,
+.languageContainer,
+.disclaimer {
+  font-size: fn.toRem(15px);
+}
+
+.description {
+  color: $transparentWite;
+}
+
+.options {
+  $top: fn.toRem(32px);
+
+  margin-top: $top;
+  margin-bottom: fn.toRem(8px);
+  padding-top: fn.toRem(16px);
+  padding-bottom: $top;
+  border-top: 1px solid rgba($color: var.$mainTextColor, $alpha: 0.16);
+}
+
+.languageText {
+  color: $transparentWite;
+}
+
+.languages {
+  margin-top: fn.toRem(4px);
+}
+
+.disclaimerContainer {
+  margin-top: fn.toRem(16px);
+  color: var.$mainTextColor;
+}
+
+.disclaimer {
+  color: rgba($color: var.$mainTextColor, $alpha: 0.4);
+}

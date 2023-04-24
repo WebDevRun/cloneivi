@@ -8,18 +8,14 @@ $transparentWhite: rgba(
 );
 
 .watchParams {
-  $horizontalPadding: fn.toRem(12px);
-
   display: flex;
   flex-direction: column;
   gap: fn.toRem(4px);
-  padding-left: $horizontalPadding;
-  padding-right: $horizontalPadding;
+  font-size: fn.toRem(15px);
 }
 
 .paramList {
   color: $transparentWhite;
-  font-size: fn.toRem(15px);
   display: flex;
   align-items: center;
   justify-content: center;

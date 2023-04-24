@@ -4,17 +4,20 @@
 
 .movieInfomation {
   max-width: 465px;
+
+  & > * {
+    $horizontalPadding: fn.toRem(12px);
+
+    padding-left: $horizontalPadding;
+    padding-right: $horizontalPadding;
+    margin-top: fn.toRem(8px);
+    margin-bottom: fn.toRem(20px);
+  }
 }
 
 .title {
-  $horizontalPadding: fn.toRem(12px);
-
-  padding-left: $horizontalPadding;
-  padding-right: $horizontalPadding;
   font-size: fn.toRem(42px);
   line-height: fn.toRem(44px);
-  margin-top: fn.toRem(8px);
-  margin-bottom: fn.toRem(20px);
   font-weight: 700;
   color: var.$mainTextColor;
   text-align: center;
