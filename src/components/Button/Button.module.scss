@@ -1,9 +1,6 @@
 .button {
-  border: 0;
   background: transparent;
   width: auto;
-  overflow: visible;
-  text-align: center;
   white-space: nowrap;
 
   display: flex;
@@ -16,12 +13,12 @@
   color: #fff;
   transition-duration: 0.4s;
 
-  & img {
+  img {
     display: flex;
     align-items: center;
   }
 
-  &:not(:hover):not(:active) {
+  svg {
     transition-duration: 0.4s;
   }
 }
@@ -85,11 +82,11 @@
   background-color: #312b45;
   border-color: #312b45;
 
-  & .mainText {
+  .mainText {
     margin-left: 6px;
   }
 
-  & .mainText {
+  .mainText {
     font-size: 15px;
     line-height: 20px;
     font-weight: 500;
@@ -101,7 +98,7 @@
 }
 
 .share {
-  & img {
+  img {
     transform: rotate(-90deg);
   }
 }
@@ -114,16 +111,23 @@
 }
 
 .signIn {
-  background-color: #100e19;
   width: 48px;
   height: 48px;
   border-radius: 8px;
   padding: 12px;
   border: solid 2px rgba(255, 255, 255, 0.48);
 
+  svg {
+    fill: rgba(255, 255, 255, 0.48);
+  }
+
   &:hover {
-    border: solid 2px rgba(255, 255, 255, 1);
-    transition-delay: 0.1s;
+    border: solid 2px #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+
+    svg {
+      fill: #fff;
+    }
   }
 }
 
@@ -137,30 +141,37 @@
   line-height: 20px;
   font-weight: 500;
 
-  & .icon {
+  .icon {
     margin-right: 8px;
+
+    svg {
+      fill: rgba(255, 255, 255, 0.48);
+    }
   }
 
-  & .mainText {
+  .mainText {
     font-size: 15px;
     line-height: 20px;
     font-weight: 500;
   }
 
   &:hover {
-    color: hsla(0, 0%, 100%, 1);
+    color: #fff;
+
+    svg {
+      fill: #fff;
+    }
   }
 }
 
 .rateSm,
 .rateMd {
-  border-width: 1px;
   border-radius: 6px;
   padding: 3px 7px;
 
   border: 1px solid rgba(255, 255, 255, 0.32);
 
-  & .mainText {
+  .mainText {
     font-size: 13px;
     line-height: 16px;
     font-weight: 500;
@@ -191,7 +202,7 @@
   line-height: 20px;
   font-weight: 500;
 
-  & .mainText {
+  .mainText {
     margin-left: 6px;
   }
 
@@ -200,7 +211,9 @@
   }
 }
 
-.language img {
-  height: 40px;
-  width: 40px;
+.language {
+  svg {
+    fill: rgba(255, 255, 255, 0.48);
+  }
 }
+
