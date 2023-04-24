@@ -6,7 +6,7 @@
   padding-left: 12px;
   padding-right: 12px;
   height: 66px;
-  z-index: 100;
+  z-index: 1;
 }
 
 .menu {
@@ -54,6 +54,15 @@
   display: flex;
   justify-content: center;
   width: 36px;
+
+  svg {
+    fill: rgba(255, 255, 255, 0.48);
+    transition-duration: 0.4s;
+
+    &:hover {
+      fill: #fff;
+    }
+  }
 }
 
 .headerAvatar {
@@ -66,10 +75,7 @@
 
 @media screen and (max-width: 1160px) {
   .menu,
-  .headerSearch {
-    display: none;
-  }
-
+  .headerSearch,
   .additionalButton {
     display: none;
   }

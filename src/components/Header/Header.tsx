@@ -3,10 +3,9 @@ import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
+import { HeaderSvg } from '@/ui/svg/HeaderSvg/HeaderSvg'
+
 import logo from '../../assets/images/common/ivi.svg'
-import notify from '../../assets/images/header/notifications.svg'
-import search from '../../assets/images/header/search.svg'
-import login from '../../assets/images/header/user.svg'
 import { Button } from '../Button'
 import { Language } from '../Language/Language'
 
@@ -42,7 +41,7 @@ export const Header: FC = () => {
       <nav className={styles.menu} onMouseOver={handleMouseOver}>
         {menu.map((item) => (
           <li className={styles.menuItem} key={item.id}>
-            <Link href={item.href} title={item.name}>
+            <Link href={item.href} title={t(item.name) as string}>
               <div className={styles.menuItemText}>{t(item.name)}</div>
             </Link>
           </li>
@@ -51,16 +50,16 @@ export const Header: FC = () => {
 
       <div className={styles.topWide}>
         <div className={styles.additionalButton}>
-          <Button mode="primary" text={'pay'} />
+          <Button mode="primary" text={t('header:pay') as string} />
         </div>
         <div className={styles.buttonMobile}>
           <Button mode="primaryMob" text={t('header:see') as string} />
         </div>
         <div className={styles.headerSearch}>
           <Button
-            iconSrc={search}
-            iconAlt={t('header:search') as string}
             mode="search"
+            iconSvg={<HeaderSvg icon="search" />}
+            iconAlt={t('header:search') as string}
             text={t('header:search') as string}
           />
         </div>
@@ -70,14 +69,14 @@ export const Header: FC = () => {
         className={styles.notifyLink}
         href="https://www.ivi.ru/profile/pull_notifications"
       >
-        <Image src={notify} alt="Уведомления"></Image>
+        <HeaderSvg icon="notify" />
       </Link>
 
       <div className={styles.headerAvatar}>
         <Button
-          iconSrc={login}
-          iconAlt={t('header:logIn') as string}
           mode="signIn"
+          iconSvg={<HeaderSvg icon="profile" />}
+          iconAlt={t('header:logIn') as string}
         />
       </div>
 
