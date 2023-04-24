@@ -1,0 +1,207 @@
+{
+  "genres": {
+    "title": "Жанры",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/movies/boeviki",
+        "title": "Смотреть боевики онлайн",
+        "text": "Боевики"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/voennye",
+        "title": "Смотреть военное кино онлайн",
+        "text": "Военные"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/detective",
+        "title": "Смотреть детективное кино онлайн",
+        "text": "Детективы"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/dlya_vsej_semi",
+        "title": "Смотреть семейные фильмы онлайн",
+        "text": "Для всей семьи"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/detskiy",
+        "title": "Смотреть детское кино онлайн",
+        "text": "Для детей"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/documentary",
+        "title": "Смотреть документальные фильмы онлайн",
+        "text": "Документальные"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/drama",
+        "title": "Смотреть кинодрамы онлайн",
+        "text": "Драмы"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/istoricheskie",
+        "title": "Смотреть исторические фильмы онлайн",
+        "text": "Исторические"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/disaster",
+        "title": "Смотреть фильмы катастрофы онлайн",
+        "text": "Катастрофы"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/comedy",
+        "title": "Смотреть комедии онлайн",
+        "text": "Комедии"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/crime",
+        "title": "Смотреть криминальные фильмы онлайн",
+        "text": "Криминальные"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/melodramy",
+        "title": "Смотреть мелодрамы онлайн",
+        "text": "Мелодрамы"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/misticheskie",
+        "title": "Смотреть мистические фильмы онлайн",
+        "text": "Мистические"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/comics",
+        "title": "Смотреть фильмы по комиксам онлайн",
+        "text": "По комиксам"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/adventures",
+        "title": "Смотреть приключенческое кино онлайн",
+        "text": "Приключения"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/sport",
+        "title": "Смотреть спортивные фильмы онлайн",
+        "text": "Спорт"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/thriller",
+        "title": "Смотреть триллеры онлайн",
+        "text": "Триллеры"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/horror",
+        "title": "Смотреть фильмы ужасов онлайн",
+        "text": "Ужасы"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fantastika",
+        "title": "Смотреть фантастику онлайн",
+        "text": "Фантастика"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Смотреть фильмы фэнтези онлайн",
+        "text": "Фэнтези"
+      }
+    ]
+  },
+  "countries": {
+    "title": "Страны",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/movies/ru",
+        "title": "Смотреть русские фильмы онлайн",
+        "text": "Русские"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/foreign",
+        "title": "Смотреть зарубежные фильмы онлайн",
+        "text": "Зарубежные"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/su",
+        "title": "Смотреть советское кино онлайн",
+        "text": "Советское кино"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/ru",
+        "title": "Смотреть американские фильмы онлайн",
+        "text": "Американские"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/foreign",
+        "title": "Смотреть корейские фильмы онлайн",
+        "text": "Корейские"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/su",
+        "title": "Смотреть турецкое кино онлайн",
+        "text": "Турецкие"
+      }
+    ]
+  },
+  "years": {
+    "title": "Годы",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/movies/2023",
+        "title": "Смотреть фильмы 2023 года онлайн",
+        "text": "Фильмы 2023 года"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/2022",
+        "title": "Смотреть фильмы 2022 года онлайн",
+        "text": "Фильмы 2022 года"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/2021",
+        "title": "Смотреть фильмы 2021 года онлайн",
+        "text": "Фильмы 2021 года"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/2020",
+        "title": "Смотреть фильмы 2020 года онлайн",
+        "text": "Фильмы 2020 года"
+      }
+    ]
+  },
+  "extra": {
+    "title": "Доп",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/new/movie-new",
+        "title": "Смотреть новинки",
+        "text": "Новинки"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/all?ivi_rating_10_gte=7&amp;sort=ivi&amp;rating_part=main&amp;rating_model=ready",
+        "title": "Иви.Рейтинг",
+        "text": "Иви.Рейтинг"
+      },
+      {
+        "href": "https://www.ivi.ru/collections/movies-hd",
+        "title": "Смотреть сериалы в HD онлайн",
+        "text": "Сериалы в HD"
+      },
+      {
+        "href": "https://www.ivi.ru/collections/vyibor-ivi",
+        "title": "Выбор Иви",
+        "text": "Выбор Иви"
+      },
+      {
+        "href": "https://www.ivi.ru/collections/very-new-svod?sort=priority_in_collection",
+        "title": "Новинки подписки",
+        "text": "Новинки подписки"
+      },
+      {
+        "href": "https://www.ivi.ru/collections/filmyi-amediateka",
+        "title": "Фильмы Amediateka",
+        "text": "Фильмы Amediateka"
+      },
+      {
+        "href": "https://www.ivi.ru/collections/best-movies",
+        "title": "Популярные фильмы",
+        "text": "Популярные фильмы"
+      }
+    ]
+  }
+}

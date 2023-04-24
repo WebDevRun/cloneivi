@@ -2,10 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #100e19;
+  background-color: transparent;
   padding-left: 12px;
   padding-right: 12px;
   height: 66px;
+  z-index: 1;
 }
 
 .menu {
@@ -75,7 +76,7 @@
 @media screen and (max-width: 1160px) {
   .menu,
   .headerSearch,
-  .additionalButton{
+  .additionalButton {
     display: none;
   }
 

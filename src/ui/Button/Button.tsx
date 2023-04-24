@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import Image from 'next/image'
-import { FC, ReactNode } from 'react'
+import React, { FC, MouseEventHandler, ReactNode } from 'react'
 
 import styles from './Button.module.scss'
 
@@ -26,7 +26,8 @@ interface ButtonProps {
   iconAlt?: string
   text?: string
   subText?: string
-  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  //onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
 export const Button: FC<ButtonProps> = ({

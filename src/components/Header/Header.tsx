@@ -1,28 +1,48 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
+import { FC } from 'react'
 
-import { IMenuItem } from '@/types/navigate'
-import logo from '@assets/images/common/ivi.svg'
-import { HeaderSvg } from '@ui/svg/HeaderSvg'
+import { HeaderSvg } from '@/ui/svg/HeaderSvg/HeaderSvg'
 
+import logo from '../../assets/images/common/ivi.svg'
 import { Button } from '../../ui/Button'
 import { Language } from '../../ui/Language'
-import { MENU } from '../../utils/consts'
 
 import styles from './Header.module.scss'
 
-export const Header = () => {
+const menu = [
+  { id: '1', name: 'header:myIvi', href: 'https://www.ivi.ru/' },
+  { id: '2', name: 'header:whatsNew', href: 'https://www.ivi.ru/new' },
+  { id: '3', name: 'header:movies', href: 'https://www.ivi.ru/movies' },
+  { id: '4', name: 'header:serials', href: 'https://www.ivi.ru/series' },
+  { id: '5', name: 'header:animations', href: 'https://www.ivi.ru/animation' },
+  { id: '6', name: 'header:tv', href: 'https://www.ivi.ru/tvplus' },
+]
+
+export const Header: FC = () => {
+  const { t } = useTranslation(['header'])
+
+  const handleMouseOver = (e: React.MouseEvent<HTMLLinkElement>) => {
+    const target = e.target as HTMLLinkElement
+    const event = new CustomEvent('myCustomEventName', {
+      detail: target.textContent,
+    })
+
+    window.dispatchEvent(event)
+  }
+
   return (
     <div className={styles.header}>
-      <Link href="https://www.ivi.ru/">
-        <Image src={logo} alt="logo" />
+      <Link className={styles.headerLogo} href="https://www.ivi.ru/">
+        <Image src={logo} alt={t('header:logo') as string}></Image>
       </Link>
 
-      <nav className={styles.menu}>
-        {MENU.map((item: IMenuItem) => (
+      <nav className={styles.menu} onMouseOver={handleMouseOver}>
+        {menu.map((item) => (
           <li className={styles.menuItem} key={item.id}>
-            <Link href={item.href} title={item.name}>
-              <div className={styles.menuItemText}>{item.name}</div>
+            <Link href={item.href} title={t(item.name) as string}>
+              <div className={styles.menuItemText}>{t(item.name)}</div>
             </Link>
           </li>
         ))}
@@ -30,17 +50,17 @@ export const Header = () => {
 
       <div className={styles.topWide}>
         <div className={styles.additionalButton}>
-          <Button mode="primary" text="Оплатить подписку" />
+          <Button mode="primary" text={t('header:pay') as string} />
         </div>
         <div className={styles.buttonMobile}>
-          <Button mode="primaryMob" text="Смотреть 30 дней за 1₽" />
+          <Button mode="primaryMob" text={t('header:see') as string} />
         </div>
         <div  className={styles.headerSearch}>
           <Button
-            iconSvg={<HeaderSvg size={16} icon="search" />}
-            iconAlt="Поиск"
             mode="search"
-            text="Поиск"
+            iconSvg={<HeaderSvg icon="search" />}
+            iconAlt={t('header:search') as string}
+            text={t('header:search') as string}
           />
         </div>
       </div>
@@ -49,14 +69,14 @@ export const Header = () => {
         className={styles.notifyLink}
         href="https://www.ivi.ru/profile/pull_notifications"
       >
-        <HeaderSvg size={16} icon="notify" />
+        <HeaderSvg icon="notify" />
       </Link>
 
       <div className={styles.headerAvatar}>
         <Button
-          iconSvg={<HeaderSvg size={20} icon="profile" />}
-          iconAlt="Воити в аккаунт"
           mode="signIn"
+          iconSvg={<HeaderSvg icon="profile" />}
+          iconAlt={t('header:logIn') as string}
         />
       </div>
 

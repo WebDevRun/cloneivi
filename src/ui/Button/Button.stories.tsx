@@ -7,9 +7,11 @@ const meta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
   tags: ['autodocs'],
+  args: {
+    mode: 'primary',
+  },
   argTypes: {
     mode: {
-      type: 'string',
       options: [
         'primary',
         'primaryMob',
@@ -26,6 +28,7 @@ const meta: Meta<typeof Button> = {
         'filter',
         'language',
       ],
+      control: { type: 'select' },
       description: 'Назначение кнопки',
     },
     text: {
@@ -68,11 +71,13 @@ export default meta
 type Story = StoryObj<typeof Button>
 
 export const Primary: Story = {
+  name: 'Для кнопки с модом primary',
   args: {
     mode: 'primary',
-    text: 'Оплатить подписку',
+    text: 'pay',
   },
 }
+
 
 export const PrimaryMob: Story = {
   args: {
@@ -82,10 +87,7 @@ export const PrimaryMob: Story = {
 }
 
 export const Secondary: Story = {
-  args: {
-    mode: 'secondary',
-    text: 'Смотреть по подписке',
-  },
+  render: () => <Button mode="secondary" text="Смотреть по подписке" />,
 }
 
 export const Language: Story = {
@@ -162,3 +164,4 @@ export const Filter: Story = {
     text: 'Фильтры',
   },
 }
+

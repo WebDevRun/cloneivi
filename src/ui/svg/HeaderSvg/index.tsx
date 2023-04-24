@@ -1,1 +1,1 @@
-export {HeaderSvg} from './HeaderSvg'
+export { HeaderSvg } from './HeaderSvg'

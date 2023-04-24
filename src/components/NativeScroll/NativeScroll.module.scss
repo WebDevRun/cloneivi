@@ -1,0 +1,13 @@
+.item {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+
+  &:not(:first-child) {
+    margin-top: 8px;
+  }
+
+  a {
+    color: hsla(0, 0%, 100%, 0.48);
+  }
+}
