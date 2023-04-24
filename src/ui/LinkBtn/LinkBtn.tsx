@@ -3,18 +3,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
-import styles from './FooterLink.module.scss'
+import styles from './LinkBtn.module.scss'
 
-interface FooterLinkProps {
+interface LinkProps {
   subText?: string
   text?: string
   type: 'square' | 'circle'
-  iconSrc?: string
+  iconSrc?: string | any
   iconAlt?: string
   href: string
 }
 
-export const FooterLink: FC<FooterLinkProps> = ({
+export const LinkBtn: FC<LinkProps> = ({
   subText,
   text,
   type,

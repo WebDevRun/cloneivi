@@ -2,12 +2,12 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import googlePlay from '../../assets/images/install/google-play.svg'
 
-import { FooterLink } from './FooterLink'
+import { LinkBtn } from './LinkBtn'
 import '../../styles/index.scss'
 
-const meta: Meta<typeof FooterLink> = {
+const meta: Meta<typeof LinkBtn> = {
   title: 'FooterLink',
-  component: FooterLink,
+  component: LinkBtn,
   tags: ['autodocs'],
   argTypes: {
     type: {
@@ -41,7 +41,7 @@ const meta: Meta<typeof FooterLink> = {
 }
 
 export default meta
-type Story = StoryObj<typeof FooterLink>
+type Story = StoryObj<typeof LinkBtn>
 
 export const WithoutIcon: Story = {
   args: {
@@ -80,4 +80,13 @@ export const WithAll: Story = {
     iconAlt: 'googlePlay',
     href: '#',
   },
+}
+
+export const WithImg: Story = {
+  args: {
+    href: '/',
+    type: 'square',
+    iconSrc: 'https://thumbs.dfs.ivi.ru/storage33/contents/f/f/06672be611ab9b9e54579c4f645460.jpg/44x44/?q=85',
+    iconAlt: 'Actor Image'
+  }
 }
