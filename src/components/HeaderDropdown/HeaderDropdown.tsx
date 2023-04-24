@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { useTranslation } from 'next-i18next'
 import { FC, useEffect, useState } from 'react'
 
 import { IDataForLinks } from '../../types'
@@ -12,6 +13,7 @@ import { SubscriptionWidget } from '../SubscriptionWidget/SubscriptionWidget'
 import styles from './HeaderDropdown.module.scss'
 
 export const HeaderDropdown: FC = () => {
+  const { t } = useTranslation(['header'])
   //const lists = data as IDataForLinks
   const [active, setActive] = useState('headerDropdown')
   const [lists, setLists] = useState(data)
@@ -19,10 +21,10 @@ export const HeaderDropdown: FC = () => {
   let mainCn = cn(styles[active])
 
   function eventHandler(e: CustomEventInit<any>) {
-    if (e.detail === 'Фильмы') {
+    if (e.detail === t('header:movies')) {
       setLists(data)
       setActive('headerDropdownActive')
-    } else if (e.detail === 'Сериалы') {
+    } else if (e.detail === t('header:serials')) {
       setLists(data2)
       setActive('headerDropdownActive')
     } else setActive('headerDropdown')
