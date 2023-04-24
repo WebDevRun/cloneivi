@@ -26,7 +26,6 @@ interface ButtonProps {
   iconAlt?: string
   text?: string
   subText?: string
-  //onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   onClick?: MouseEventHandler<HTMLButtonElement>
 }
 

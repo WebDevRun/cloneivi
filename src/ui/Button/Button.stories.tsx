@@ -87,7 +87,10 @@ export const PrimaryMob: Story = {
 }
 
 export const Secondary: Story = {
-  render: () => <Button mode="secondary" text="Смотреть по подписке" />,
+  args: {
+    mode: 'secondary',
+    text: 'Смотреть по подписке',
+  },
 }
 
 export const Language: Story = {
