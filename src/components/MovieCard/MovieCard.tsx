@@ -1,23 +1,23 @@
 import Link from 'next/link'
 import { FC, useState } from 'react'
 
+import styles from './MovieCard.module.scss'
+
 import DislikeIcon from '@/assets/images/common/DislikeIcon'
 import FavoriteIcon from '@/assets/images/common/FavoriteIcon'
 import FavoriteRemoveIcon from '@/assets/images/common/FavoriteRemoveIcon'
 import RatingIcon from '@/assets/images/common/RatingIcon'
 import SimilarIcon from '@/assets/images/common/SimilarIcon'
 
-import styles from './MovieCard.module.scss'
-
 export interface MovieCardProps {
   href: string
   imgSrc: string
   imgAlt: string
-  ageLimit: number
+  ageLimit: string
   movieName: string
   properties: {
-    rating: string
-    year: string
+    rating: number
+    year: number
     genre?: string
     seasons: number
   }
@@ -31,6 +31,8 @@ export const MovieCard: FC<MovieCardProps> = ({
   movieName,
   properties,
 }) => {
+  const ratings = ['40%', '20%', '70%', '50%']
+
   const [favoriteIconActive, setFavoriteIconActive] = useState<boolean>(false)
   const [dislike, setDislike] = useState<boolean>(false)
 
@@ -47,7 +49,7 @@ export const MovieCard: FC<MovieCardProps> = ({
       <div className={styles.movieCardImageCont}>
         <img className={styles.movieCardImage} src={imgSrc} alt={imgAlt} />
         <div className={styles.textBadge}>эксклюзив</div>
-        <div className={styles.ageBadge}>{ageLimit}+</div>
+        <div className={styles.ageBadge}>{ageLimit}</div>
 
         <div className={styles.movieInfo}>
           <div className={styles.hoards}>
@@ -68,30 +70,14 @@ export const MovieCard: FC<MovieCardProps> = ({
               <div className={styles.rating}>
                 <div className={styles.ratingValue}>{properties.rating}</div>
                 <div className={styles.ratingGraph}>
-                  <div className={styles.progress}>
-                    <div
-                      style={{ width: '50%' }}
-                      className={styles.progressBar}
-                    ></div>
-                  </div>
-                  <div className={styles.progress}>
-                    <div
-                      style={{ width: '30%' }}
-                      className={styles.progressBar}
-                    ></div>
-                  </div>
-                  <div className={styles.progress}>
-                    <div
-                      style={{ width: '70%' }}
-                      className={styles.progressBar}
-                    ></div>
-                  </div>
-                  <div className={styles.progress}>
-                    <div
-                      style={{ width: '40%' }}
-                      className={styles.progressBar}
-                    ></div>
-                  </div>
+                  {ratings.map((rating, index) => (
+                    <div key={index} className={styles.progress}>
+                      <div
+                        style={{ width: rating }}
+                        className={styles.progressBar}
+                      ></div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
