@@ -1,3 +1,4 @@
+import { Header } from '@components/Header'
 import { AppLayout } from '@layouts/AppLayout'
 import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
@@ -20,6 +21,7 @@ export default function Home() {
           iconSrc={img}
           iconAlt='png'
         />
+        <Header />
       </AppLayout>
     </main>
   )
