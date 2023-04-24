@@ -1,0 +1,59 @@
+@use '../../styles/functions' as fn;
+
+.moviePlayer {
+  position: relative;
+  max-width: fn.toRem(719px);
+}
+
+.player {
+  width: 100%;
+  height: 100%;
+
+  &::-webkit-media-controls {
+    display: none;
+  }
+}
+
+.playButton {
+  max-width: fn.toRem(88px);
+  width: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ea003d;
+  padding: fn.toRem(20px);
+  transition-duration: 80ms;
+
+  &:hover {
+    background-color: #ff0f4d;
+  }
+}
+
+.playImage {
+  width: 100%;
+  height: auto;
+}
+
+.fullscreenConatiner {
+  position: absolute;
+  bottom: fn.toRem(20px);
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.fullscreenCheckbox {
+  display: none;
+}
+
+.fullscreenImage {
+  width: 100%;
+  height: auto;
+}
