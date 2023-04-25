@@ -1,5 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react'
 
+import user from '../../assets/images/header/user.svg'
+import { HeaderSvg } from '../svg/HeaderSvg'
+
 import { Button } from './Button'
 import '@styles/index.scss'
 
@@ -7,48 +10,30 @@ const meta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
   tags: ['autodocs'],
-  args: {
-    mode: 'primary',
-  },
   argTypes: {
-    mode: {
-      options: [
-        'primary',
-        'primaryMob',
-        'secondary',
-        'player',
-        'trailer',
-        'share',
-        'signIn',
-        'search',
-        'defer',
-        'free',
-        'rateSm',
-        'rateMd',
-        'filter',
-        'language',
-      ],
+    size: {
       control: { type: 'select' },
-      description: 'Назначение кнопки',
+      description: 'Размер',
+    },
+    icon: {
+      control: { type: 'select' },
+      description: 'Название иконки',
+    },
+    background: {
+      control: { type: 'select' },
+      description: 'Фон',
+    },
+    withBorder: {
+      control: { type: 'select' },
+      description: 'Рамка',
     },
     text: {
-      type: 'string',
+      control: 'text',
       description: 'Основной текст на кнопке',
     },
     subText: {
       type: 'string',
       description: 'Дополнительный текст на кнопке',
-    },
-    iconSrc: {
-      type: 'string',
-      description: 'Иконка',
-    },
-    iconSvg: {
-      description: 'Компонент с иконкой svg',
-    },
-    iconAlt: {
-      type: 'string',
-      description: 'Alt текст',
     },
     onClick: {
       type: 'function',
@@ -70,101 +55,92 @@ const meta: Meta<typeof Button> = {
 export default meta
 type Story = StoryObj<typeof Button>
 
-export const Primary: Story = {
-  name: 'Для кнопки с модом primary',
-  args: {
-    mode: 'primary',
-    text: 'pay',
-  },
-}
-
-
-export const PrimaryMob: Story = {
-  args: {
-    mode: 'primaryMob',
-    text: 'Смотреть 30 дней за 1₽',
-  },
-}
-
-export const Secondary: Story = {
-  args: {
-    mode: 'secondary',
-    text: 'Смотреть по подписке',
-  },
-}
-
-export const Language: Story = {
-  args: {
-    mode: 'language',
-  },
-}
-
 export const Player: Story = {
+  name: 'С двойным текстом',
   args: {
-    mode: 'player',
+    size: 'big',
     text: 'Смотреть с рекламой',
     subText: 'серия 1 сезон 1',
   },
 }
 
-export const Trailer: Story = {
+export const PrimaryMob: Story = {
+  name: 'Для мобильных устройств',
   args: {
-    mode: 'trailer',
+    size: 'small',
+    background: 'gray',
+    text: 'Смотреть 30 дней за 1₽',
+  },
+}
+
+export const Primary: Story = {
+  args: {
+    background: 'primary',
+    text: 'Оплатить подписку',
+  },
+}
+
+export const Secondary: Story = {
+  args: {
+    size: 'middle',
+    text: 'Смотреть по подписке',
+  },
+}
+
+export const Trailer: Story = {
+  name: 'Серая с иконкой',
+  args: {
+    icon: 'search',
+    background: 'gray',
     text: 'Трейлер',
   },
 }
 
-export const Share: Story = {
-  args: {
-    mode: 'share',
-    text: 'Поделиться',
-  },
-}
-
-export const Sign_In: Story = {
-  args: {
-    mode: 'signIn',
-  },
-}
-
 export const Search: Story = {
+  name: 'Прозрачная с иконкой',
   args: {
-    mode: 'search',
+    background: 'transparent',
+    icon: 'search',
     text: 'Поиск',
   },
 }
 
-export const Defer: Story = {
+export const BorderSm: Story = {
+  name: 'Прозрачная с рамкой маленькая',
   args: {
-    mode: 'defer',
-  },
-}
-
-export const Free: Story = {
-  args: {
-    mode: 'defer',
-    text: 'Бесплатные мультфильмы',
-  },
-}
-
-export const RateSm: Story = {
-  args: {
-    mode: 'rateSm',
+    withBorder: 'borderSm',
     text: 'Оценить',
   },
 }
 
 export const RateMd: Story = {
+  name: 'Прозрачная с рамкой средняя',
   args: {
-    mode: 'rateMd',
+    withBorder: 'borderMd',
     text: 'Написать рецензию',
+  },
+}
+
+export const Sign_In: Story = {
+  name: 'Это не кнопка, а ссылка',
+  args: {
+    icon: 'profile',
+    background: 'transparent',
+    withBorder: 'borderBg',
   },
 }
 
 export const Filter: Story = {
   args: {
-    mode: 'filter',
+    background: 'transparent',
     text: 'Фильтры',
   },
 }
 
+export const Language: Story = {
+  args: {
+    icon: 'language',
+    background: 'transparent',
+    size: 'big',
+  },
+}

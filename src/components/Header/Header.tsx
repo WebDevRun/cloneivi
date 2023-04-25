@@ -34,7 +34,7 @@ export const Header: FC = () => {
 
   return (
     <div className={styles.header}>
-      <Link className={styles.headerLogo} href="https://www.ivi.ru/">
+      <Link className={styles.headerLogo} href='https://www.ivi.ru/'>
         <Image src={logo} alt={t('header:logo') as string}></Image>
       </Link>
 
@@ -50,16 +50,19 @@ export const Header: FC = () => {
 
       <div className={styles.topWide}>
         <div className={styles.additionalButton}>
-          <Button mode="primary" text={t('header:pay') as string} />
+          <Button
+            background='primary'
+            onClick={() => {}}
+            text={t('header:pay') as string}
+          />
         </div>
         <div className={styles.buttonMobile}>
-          <Button mode="primaryMob" text={t('header:see') as string} />
+          <Button text={t('header:see') as string} />
         </div>
-        <div  className={styles.headerSearch}>
+        <div className={styles.headerSearch}>
           <Button
-            mode="search"
-            iconSvg={<HeaderSvg icon="search" />}
-            iconAlt={t('header:search') as string}
+            background='transparent'
+            icon='search'
             text={t('header:search') as string}
           />
         </div>
@@ -67,18 +70,10 @@ export const Header: FC = () => {
 
       <Link
         className={styles.notifyLink}
-        href="https://www.ivi.ru/profile/pull_notifications"
+        href='https://www.ivi.ru/profile/pull_notifications'
       >
-        <HeaderSvg icon="notify" />
+        <HeaderSvg icon='notify' />
       </Link>
-
-      <div className={styles.headerAvatar}>
-        <Button
-          mode="signIn"
-          iconSvg={<HeaderSvg icon="profile" />}
-          iconAlt={t('header:logIn') as string}
-        />
-      </div>
 
       <div className={styles.language}>
         <Language />

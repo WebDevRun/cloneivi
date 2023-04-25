@@ -1,5 +1,4 @@
 .button {
-  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,15 +11,59 @@
     align-items: center;
   }
 
-  svg {
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
     transition-duration: 0.4s;
+
+    svg {
+      fill: rgba(255, 255, 255, 0.48);
+    }
+  }
+}
+
+.transparent {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.72);
+
+  &:hover {
+    color: #fff;
+    transition-duration: 0.4s;
+
+    svg {
+      fill: #fff;
+      transition-duration: 0.4s;
+    }
+  }
+}
+
+.red {
+  background-color: #ea003d;
+  color: #fff;
+
+  &:hover {
+    background-color: #ff0f4d;
+  }
+}
+
+.gray {
+  background-color: #3a3352;
+  color: #fff;
+
+  &:hover {
+    background-color: #494069;
   }
 }
 
 .primary {
+  background-image: linear-gradient(270deg, #ea003d 0, #c447ff 100%);
+}
+
+.small {
   height: 32px;
   padding: 7px 11px;
-  background-image: linear-gradient(270deg, #ea003d 0, #c447ff 100%);
 
   .mainText {
     font-size: 13px;
@@ -29,33 +72,15 @@
   }
 }
 
-.primaryMob {
-  background-color: #312b45;
-  border-color: #312b45;
-  height: 32px;
-  padding: 7px 11px;
-}
-
-.secondary {
+.middle {
   height: 40px;
-  background-color: #ea003d;
   padding: 9px 15px;
   font-size: 15px;
   line-height: 20px;
   font-weight: 500;
 }
 
-.secondary,
-.player {
-  &:hover {
-    background-color: #ff0f4d;
-  }
-}
-
-.player {
-  border-color: transparent;
-  background-color: rgba(234, 0, 61, 0.8);
-  color: #fff;
+.big {
   height: 48px;
   padding: 5px 15px;
 
@@ -67,53 +92,43 @@
   transition-property: border-color, background-color;
 }
 
-.free,
-.share,
-.defer,
-.trailer {
-  height: 40px;
-  padding: 9px 15px;
-  background-color: #312b45;
-  border-color: #312b45;
+.borderSm,
+.borderMd {
+  background: transparent;
+  border-radius: 6px;
+  padding: 3px 7px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
 
   .mainText {
-    margin-left: 6px;
-  }
-
-  .mainText {
-    font-size: 15px;
-    line-height: 20px;
+    font-size: 13px;
+    line-height: 16px;
     font-weight: 500;
   }
 
   &:hover {
-    background-color: #3a3352;
+    border: 1px solid rgba(255, 255, 255, 1);
+    background: transparent;
+  }
+
+  &:not(:hover) {
+    transition-duration: 0.4s;
+    transition-property: border;
   }
 }
 
-.share {
-  img {
-    transform: rotate(-90deg);
-  }
+.borderSm {
+  height: 24px;
 }
 
-.subText {
-  font-size: 13px;
-  line-height: 16px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.72);
+.borderMd {
+  height: 32px;
 }
 
-.signIn {
-  width: 48px;
+.borderBg {
   height: 48px;
   border-radius: 8px;
   padding: 12px;
   border: solid 2px rgba(255, 255, 255, 0.48);
-
-  svg {
-    fill: rgba(255, 255, 255, 0.48);
-  }
 
   &:hover {
     border: solid 2px #fff;
@@ -125,88 +140,12 @@
   }
 }
 
-.search {
-  height: 40px;
-  padding: 10px 0;
-  background-color: transparent;
-  color: rgba(255, 255, 255, 0.48);
-
-  font-size: 15px;
-  line-height: 20px;
-  font-weight: 500;
-
+.onlyIcon {
   .icon {
-    margin-right: 8px;
-
-    svg {
-      fill: rgba(255, 255, 255, 0.48);
-    }
+    margin-right: 0;
   }
 
-  .mainText {
-    font-size: 15px;
-    line-height: 20px;
-    font-weight: 500;
-  }
-
-  &:hover {
-    color: #fff;
-
-    svg {
-      fill: #fff;
-    }
-  }
-}
-
-.rateSm,
-.rateMd {
-  border-radius: 6px;
-  padding: 3px 7px;
-
-  border: 1px solid rgba(255, 255, 255, 0.32);
-
-  .mainText {
-    font-size: 13px;
-    line-height: 16px;
-    font-weight: 500;
-  }
-
-  &:hover {
-    border: 1px solid rgba(255, 255, 255, 1);
-  }
-
-  &:not(:hover) {
-    transition-duration: 0.4s;
-    transition-property: border;
-  }
-}
-
-.rateSm {
-  height: 24px;
-}
-
-.rateMd {
-  height: 32px;
-}
-
-.filter {
-  border-width: 0;
-  padding: 10px 0;
-  font-size: 15px;
-  line-height: 20px;
-  font-weight: 500;
-
-  .mainText {
-    margin-left: 6px;
-  }
-
-  &:hover {
-    color: #ea003d;
-  }
-}
-
-.language {
-  svg {
-    fill: rgba(255, 255, 255, 0.48);
+  &.big {
+    width: 48px;
   }
 }

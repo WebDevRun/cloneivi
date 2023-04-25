@@ -9,7 +9,7 @@ export const HeaderSvg: FC<HeaderSvgProps> = ({ size = 'md', icon }) => {
   const sz = {
     sm: 16,
     md: 20,
-    bg: 24,
+    bg: 32,
   }
 
   return (
