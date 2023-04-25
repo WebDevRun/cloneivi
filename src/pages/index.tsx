@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <main>
       <AppLayout>
-        <h1>{t('header:more')}</h1>
         <Header />
+        <h1>{t('header:more')}</h1>
       </AppLayout>
     </main>
   )

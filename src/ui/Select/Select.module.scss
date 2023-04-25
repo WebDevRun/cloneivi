@@ -1,0 +1,66 @@
+@use 'src/styles/functions' as fn;
+
+$textColor: #D9D7E0;
+$white: #fff;
+$checkboxIcon: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' width='16' fill='%23fff' height='16' viewBox='0 0 32 32'%3E%3Cpath d='M12.444 22.222l-8-8.444q-0.444-0.889-1.556-0.889t-2 0.889-0.889 1.778 0.889 1.778l9.778 9.778q0.889 0.889 2 0.889t2-0.889l16.444-16.889q0.444-0.889 0.444-1.778t-0.667-1.778-1.778-0.667-1.556 0.667z'%3E%3C/path%3E%3C/svg%3E");
+$transition: 0.4s;
+
+.select {
+  width: 100%;
+  font-weight: 500;
+  font-size: fn.toRem(13px);
+  color: rgba($textColor, 0.8);
+  transition: color $transition;
+
+  & > .input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  .text {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.disabled {
+  cursor: default;
+  color: rgba($textColor, 0.4);
+
+  &:hover {
+    color: rgba($textColor, 0.4) ;
+  }
+}
+
+.checkbox {
+  & > .text::after {
+    content: '';
+    width: fn.toRem(16px);
+    height: fn.toRem(16px);
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-image: $checkboxIcon;
+    opacity: 0;
+    transition: opacity $transition;
+  }
+
+  & > .input:not(:disabled):not(:checked) + .text:hover::after {
+    opacity: 0.4;
+  }
+
+  & > .input:checked + .text::after {
+    opacity: 1;
+  }
+
+  & > .input:checked + .text {
+    color: $white;
+  }
+}
