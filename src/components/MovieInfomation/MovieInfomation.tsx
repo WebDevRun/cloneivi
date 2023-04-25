@@ -1,5 +1,6 @@
-import { FC } from 'react'
+import { FC, MouseEventHandler, useEffect, useState } from 'react'
 
+import { WatchDescription } from '@/ui/WatchDescription'
 import { WatchParams } from '@/ui/WatchParams'
 
 import styles from './MovieInfomation.module.scss'
@@ -12,31 +13,58 @@ export interface MovieInfomationProps {
   ageRating: string
   countries: string[]
   genres: string[]
-  quality: string
+  qualities: string[]
+  description: string
+  languagesAudio: string[]
+}
+
+const movieInfomationStatus = {
+  open: 'Детали о фильме',
+  close: 'Свернуть детали',
 }
 
 export const MovieInfomation: FC<MovieInfomationProps> = ({
   title,
   productionYear,
-  season,
   duration,
   ageRating,
   countries,
   genres,
-  quality,
+  qualities,
+  description,
+  languagesAudio,
 }) => {
+  const [isClose, setIsClose] = useState(true)
+
+  const clickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
+    setIsClose((prev) => !prev)
+  }
+
   return (
     <div className={styles.movieInfomation}>
       <h1 className={styles.title}>{title}</h1>
+
       <WatchParams
         productionYear={productionYear}
         duration={duration}
         ageRating={ageRating}
         countries={countries}
-        season={season}
         genres={genres}
-        quality={quality}
+        quality={qualities[0]}
       />
+
+      <div className={styles.watchDescriptionContainer}>
+        <WatchDescription
+          isClose={isClose}
+          description={description}
+          languagesAudio={languagesAudio}
+          qualities={qualities}
+        />
+
+        <button className={styles.toggleStatus} onClick={clickHandler}>
+          {isClose ? movieInfomationStatus.open : movieInfomationStatus.close}
+        </button>
+      </div>
     </div>
   )
 }

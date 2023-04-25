@@ -16,9 +16,6 @@ const meta: Meta<typeof MovieInfomation> = {
     productionYear: {
       description: 'Год производства',
     },
-    season: {
-      description: 'ИНформация о сезонах',
-    },
     duration: {
       description: 'Продолжительность',
     },
@@ -31,8 +28,14 @@ const meta: Meta<typeof MovieInfomation> = {
     genres: {
       description: 'Жанры',
     },
-    quality: {
+    qualities: {
       description: 'Качество видео',
+    },
+    description: {
+      description: 'Описание',
+    },
+    languagesAudio: {
+      description: 'Языки, на которые переведен фильм',
     },
   },
 }
@@ -49,6 +52,8 @@ export const Default: Story = {
     ageRating: `${movies[0].age_limit}+`,
     countries: [movies[0].country],
     genres: movies[0].genres,
-    quality: movies[0].qualities[0],
+    qualities: movies[0].qualities,
+    description: movies[0].description,
+    languagesAudio: movies[0].languagesAudio,
   },
 }

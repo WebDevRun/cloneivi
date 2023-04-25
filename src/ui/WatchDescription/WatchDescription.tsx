@@ -2,21 +2,28 @@ import { FC } from 'react'
 
 import { capitaliseArr } from '@/utils/functions'
 
+import { MovieQuality } from '../MovieQuality'
+
 import styles from './WatchDescription.module.scss'
 
 export interface WatchDescriptionProps {
+  isClose: boolean
   description: string
   languagesAudio: string[]
   qualities: string[]
 }
 
 export const WatchDescription: FC<WatchDescriptionProps> = ({
+  isClose,
   description,
   languagesAudio,
   qualities,
 }) => {
   return (
-    <div className={styles.watchDescription}>
+    <div
+      style={{ height: isClose ? '88px' : undefined }}
+      className={styles.watchDescription}
+    >
       <p className={styles.description}>{description}</p>
 
       <div className={styles.options}>
@@ -35,6 +42,12 @@ export const WatchDescription: FC<WatchDescriptionProps> = ({
             правообладателя.
           </span>
         </p>
+
+        <div className={styles.qualitiesContainer}>
+          {qualities.map((quality) => {
+            return <MovieQuality key={quality} quality={quality} />
+          })}
+        </div>
       </div>
     </div>
   )

@@ -22,3 +22,15 @@
   color: var.$mainTextColor;
   text-align: center;
 }
+
+.toggleStatus {
+  margin-top: fn.toRem(8px);
+  font-size: fn.toRem(15px);
+  color: rgba(var.$mainTextColor, 0.48);
+  background-color: transparent;
+  transition-duration: 0.4s;
+
+  &:hover {
+    color: var.$mainTextColor;
+  }
+}

@@ -8,6 +8,7 @@ $transparentWite: rgba(
 
 .watchDescription {
   line-height: 22px;
+  overflow: hidden;
 }
 
 .description,
@@ -27,7 +28,8 @@ $transparentWite: rgba(
   margin-bottom: fn.toRem(8px);
   padding-top: fn.toRem(16px);
   padding-bottom: $top;
-  border-top: 1px solid rgba($color: var.$mainTextColor, $alpha: 0.16);
+  border-top: 1px solid rgba(var.$mainTextColor, 0.16);
+  border-bottom: 1px solid rgba(var.$mainTextColor, 0.16);
 }
 
 .languageText {
@@ -40,9 +42,16 @@ $transparentWite: rgba(
 
 .disclaimerContainer {
   margin-top: fn.toRem(16px);
-  color: var.$mainTextColor;
+  color: rgba(var.$mainTextColor, 0.72);
 }
 
 .disclaimer {
-  color: rgba($color: var.$mainTextColor, $alpha: 0.4);
+  color: rgba(var.$mainTextColor, 0.4);
+}
+
+.qualitiesContainer {
+  margin-top: fn.toRem(8px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: fn.toRem(8px);
 }

@@ -10,6 +10,9 @@ const meta: Meta<typeof WatchDescription> = {
   tags: ['autodocs'],
   component: WatchDescription,
   argTypes: {
+    isClose: {
+      description: 'Изменение высоты контейнера',
+    },
     description: {
       description: 'Описание',
     },
@@ -28,6 +31,15 @@ type Story = StoryObj<typeof WatchDescription>
 
 export const Default: Story = {
   args: {
+    description: movies[0].description,
+    languagesAudio: movies[0].languagesAudio,
+    qualities: movies[0].qualities,
+  },
+}
+
+export const Close: Story = {
+  args: {
+    isClose: true,
     description: movies[0].description,
     languagesAudio: movies[0].languagesAudio,
     qualities: movies[0].qualities,
