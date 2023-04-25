@@ -1,14 +1,13 @@
 import { FC } from 'react'
 
 interface HeaderSvgProps {
-  size?: 'middle' | 'small' | 'big'
+  size?: 'middle' | 'big'
   icon: 'language' | 'profile' | 'search' | 'notify'
 }
 
 
 export const HeaderSvg: FC<HeaderSvgProps> = ({ size = 'middle', icon }) => {
   const sz = {
-    small: 16,
     middle: 20,
     big: 32,
   }
