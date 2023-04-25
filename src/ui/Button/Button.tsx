@@ -1,52 +1,46 @@
 import cn from 'classnames'
-import Image from 'next/image'
-import { FC, ReactNode } from 'react'
+import React, { FC, MouseEventHandler } from 'react'
+
+import { HeaderSvg } from '../svg/HeaderSvg'
 
 import styles from './Button.module.scss'
 
-interface ButtonProps {
-  mode?:
-    | 'primary'
-    | 'primaryMob'
-    | 'secondary'
-    | 'player'
-    | 'trailer'
-    | 'share'
-    | 'signIn'
-    | 'search'
-    | 'defer'
-    | 'free'
-    | 'rateSm'
-    | 'rateMd'
-    | 'filter'
-    | 'language'
-
-  iconSrc?: string
-  iconSvg?: ReactNode
-  iconAlt?: string
+export interface ButtonProps {
+  icon?: 'search' | 'language' | 'profile' | 'notify'
+  background?: 'transparent' | 'red' | 'gray' | 'primary'
+  withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg'
+  size?: 'small' | 'middle' | 'big'
   text?: string
   subText?: string
-  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
 export const Button: FC<ButtonProps> = ({
-  mode = 'secondary',
+  icon,
+  background = 'red',
+  withBorder = 'borderNone',
+  size = 'middle',
   text,
   subText,
-  iconSrc,
-  iconSvg,
-  iconAlt,
   onClick,
 }) => {
-  const mainCn = cn(styles.button, styles[mode])
+  const mainCn = cn(
+    styles.button,
+    styles[background],
+    styles[withBorder],
+    styles[size],
+    !(text || subText) && styles.onlyIcon,
+  )
+
+  const iconSize = size === 'big' ? 'bg' : 'md'
+
   return (
-    <button type="button" className={mainCn} onClick={onClick}>
-      {iconSrc && iconAlt && (
+    <button type='button' className={mainCn} onClick={onClick}>
+      {icon && (
         <div className={styles.icon}>
-          <Image src={iconSrc} alt={iconAlt} />
+          {<HeaderSvg icon={icon} size={iconSize} />}
         </div>
       )}
-      {iconSvg && iconAlt && <div className={styles.icon}>{iconSvg}</div>}
       {text && (
         <div className={styles.mainText}>
           {text}
