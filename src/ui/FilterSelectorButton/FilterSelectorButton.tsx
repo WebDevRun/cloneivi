@@ -1,7 +1,8 @@
-import arrowDown from '@assets/images/selectors/arrow-down.svg'
 import cn from 'classnames'
 import Image from 'next/image'
 import { Dispatch, FC, MouseEventHandler, SetStateAction } from 'react'
+
+import arrowDown from '@assets/images/selectors/arrow-down.svg'
 
 import styles from './FilterSelectorButton.module.scss'
 
@@ -15,12 +16,6 @@ interface SelectorButtonProps {
 
 export const FilterSelectorButton: FC<SelectorButtonProps> = ({ name, active, setActive, disabled, selectedItems }) => {
 
-  const selectButtonStyles = cn(
-    styles.selectButton,
-    active && !disabled && styles.selectButtonActive,
-    disabled && styles.selectButtonDisabled
-  )
-
   const clickHandler: MouseEventHandler<HTMLInputElement> = () => {
     if (!disabled) {
       setActive(prevState => !prevState)
@@ -28,7 +23,11 @@ export const FilterSelectorButton: FC<SelectorButtonProps> = ({ name, active, se
   }
 
   return (
-    <label className={selectButtonStyles}>
+    <label className={cn(
+      styles.selectButton,
+      active && !disabled && styles.selectButtonActive,
+      disabled && styles.selectButtonDisabled
+    )}>
       <input type='checkbox'
              defaultChecked={active}
              onClick={clickHandler}

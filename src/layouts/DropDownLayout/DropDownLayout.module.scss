@@ -14,3 +14,16 @@
 .big {
   width: 630px;
 }
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.center {
+  left: 50%;
+  transform: translateX(-50%);
+}

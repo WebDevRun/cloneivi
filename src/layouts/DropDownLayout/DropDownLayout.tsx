@@ -10,7 +10,12 @@ export interface ModalLayoutProps {
   type: 'filter' | 'header'
 }
 
-export const DropDownLayout: FC<ModalLayoutProps> = ({ children, position, size, type }) => {
+export const DropDownLayout: FC<ModalLayoutProps> = ({
+  children,
+  position = 'center',
+  size = 'big',
+  type,
+}) => {
   return (
     <div className={cn(
       styles.dropDownLayout,

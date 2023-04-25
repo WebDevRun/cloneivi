@@ -1,5 +1,4 @@
 .selectButton {
-  max-width: 280px;
   background-color: #312B45;
   height: 56px;
   color: #fff;
@@ -11,6 +10,7 @@
   font-weight: 500;
   border-radius: 4px;
   user-select: none;
+  justify-content: space-between;
 
   & > input {
     position: absolute;
@@ -19,7 +19,7 @@
   }
 
   .content {
-    width: 90%;
+    //width: 90%;
     padding-right: 16px;
     box-sizing: border-box;
 
