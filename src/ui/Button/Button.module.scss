@@ -1,9 +1,14 @@
+@use '../../styles/functions' as fn;
+$white: #fff;
+$alpha48: 0.48;
+$alpha72: 0.72;
+
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  color: #ffffff;
+  border-radius: fn.toRem(8px);
+  color: $white;
   transition-duration: 0.4s;
 
   img {
@@ -15,25 +20,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 8px;
+    margin-right: fn.toRem(8px);
     transition-duration: 0.4s;
 
     svg {
-      fill: rgba(255, 255, 255, 0.48);
+      fill: rgba($white, $alpha48);
     }
   }
 }
 
 .transparent {
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba($white, $alpha72);
 
   &:hover {
-    color: #fff;
+    color: $white;
     transition-duration: 0.4s;
 
     svg {
-      fill: #fff;
+      fill: $white;
       transition-duration: 0.4s;
     }
   }
@@ -41,7 +46,7 @@
 
 .red {
   background-color: #ea003d;
-  color: #fff;
+  color: $white;
 
   &:hover {
     background-color: #ff0f4d;
@@ -50,7 +55,7 @@
 
 .gray {
   background-color: #3a3352;
-  color: #fff;
+  color: $white;
 
   &:hover {
     background-color: #494069;
@@ -62,32 +67,32 @@
 }
 
 .small {
-  height: 32px;
-  padding: 7px 11px;
+  height: fn.toRem(32px);
+  padding: fn.toRem(7px) fn.toRem(11px);
 
   .mainText {
-    font-size: 13px;
-    line-height: 16px;
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
     font-weight: 500;
   }
 }
 
 .middle {
-  height: 40px;
-  padding: 9px 15px;
-  font-size: 15px;
-  line-height: 20px;
+  height: fn.toRem(40px);
+  padding: fn.toRem(9px) fn.toRem(15px);
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(20px);
   font-weight: 500;
 }
 
 .big {
-  height: 48px;
-  padding: 5px 15px;
+  height: fn.toRem(48px);
+  padding: fn.toRem(5px) fn.toRem(15px);
 
-  font-size: 15px;
-  line-height: 20px;
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(20px);
   font-weight: 500;
-  width: 320px;
+  width: fn.toRem(320px);
 
   transition-property: border-color, background-color;
 }
@@ -95,18 +100,18 @@
 .borderSm,
 .borderMd {
   background: transparent;
-  border-radius: 6px;
-  padding: 3px 7px;
-  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: fn.toRem(6px);
+  padding: fn.toRem(3px) fn.toRem(7px);
+  border: 1px solid rgba($white, 0.32);
 
   .mainText {
-    font-size: 13px;
-    line-height: 16px;
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
     font-weight: 500;
   }
 
   &:hover {
-    border: 1px solid rgba(255, 255, 255, 1);
+    border: 1px solid rgba($white, 1);
     background: transparent;
   }
 
@@ -117,25 +122,25 @@
 }
 
 .borderSm {
-  height: 24px;
+  height: fn.toRem(24px);
 }
 
 .borderMd {
-  height: 32px;
+  height: fn.toRem(32px);
 }
 
 .borderBg {
-  height: 48px;
-  border-radius: 8px;
-  padding: 12px;
-  border: solid 2px rgba(255, 255, 255, 0.48);
+  height: fn.toRem(48px);
+  border-radius: fn.toRem(8px);
+  padding: fn.toRem(12px);
+  border: solid fn.toRem(2px) rgba($white, 0.48);
 
   &:hover {
-    border: solid 2px #fff;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    border: solid fn.toRem(2px) $white;
+    box-shadow: 0 0 fn.toRem(15px) rgba($white, 0.4);
 
     svg {
-      fill: #fff;
+      fill: $white;
     }
   }
 }
@@ -146,6 +151,6 @@
   }
 
   &.big {
-    width: 48px;
+    width: fn.toRem(48px);
   }
 }

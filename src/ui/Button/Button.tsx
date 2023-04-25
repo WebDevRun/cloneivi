@@ -32,7 +32,7 @@ export const Button: FC<ButtonProps> = ({
     !(text || subText) && styles.onlyIcon,
   )
 
-  const iconSize = size === 'big' ? 'bg' : 'md'
+  const iconSize = size === 'big' ? 'big' : 'middle'
 
   return (
     <button type='button' className={mainCn} onClick={onClick}>
