@@ -1,0 +1,9 @@
+@use '@styles/variables' as var;
+
+.movieQuality {
+  padding: 2px 6px;
+  background-color: rgba($color: var.$mainTextColor, $alpha: 0.16);
+  box-shadow: 0 4px 12px transparent;
+  border-radius: 4px;
+  color: var.$mainTextColor;
+}

@@ -6,6 +6,8 @@ import { FC } from 'react'
 import { formatTime, setDescriptions } from '@/utils/functions/formatTime'
 import volume from '@assets/images/player/volume-mid.svg'
 
+import { MovieQuality } from '../MovieQuality'
+
 import styles from './WatchParams.module.scss'
 
 const translations = ['Rus', 'Eng']
@@ -61,7 +63,7 @@ export const WatchParams: FC<WatchParamsProps> = ({
       </div>
 
       <div className={styles.paramList}>
-        <span className={styles.quality}>{quality}</span>
+        <MovieQuality quality={quality} />
         <div className={styles.volumeContainer}>
           <Image className={styles.volume} src={volume} alt='volume' />
         </div>
