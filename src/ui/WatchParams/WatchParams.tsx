@@ -12,7 +12,6 @@ const translations = ['Rus', 'Eng']
 
 export interface WatchParamsProps {
   productionYear: number
-  season?: string
   duration: number
   ageRating: string
   countries: string[]
@@ -22,7 +21,6 @@ export interface WatchParamsProps {
 
 export const WatchParams: FC<WatchParamsProps> = ({
   productionYear,
-  season,
   duration,
   ageRating,
   countries,
@@ -32,16 +30,12 @@ export const WatchParams: FC<WatchParamsProps> = ({
   return (
     <div className={styles.watchParams}>
       <div className={styles.paramList}>
-        <Link className={styles.date} href="#">
+        <Link className={styles.date} href='#'>
           {productionYear}
         </Link>
-        {season ? (
-          <span className={styles.season}>{season}</span>
-        ) : (
-          <span className={styles.duration}>
-            {setDescriptions(formatTime(duration, '00:00'), 'hh:mm', 'ru')}
-          </span>
-        )}
+        <span className={styles.duration}>
+          {setDescriptions(formatTime(duration, '00:00'), 'hh:mm', 'ru')}
+        </span>
         <span className={styles.ageRating}>{ageRating}</span>
       </div>
 
@@ -49,7 +43,7 @@ export const WatchParams: FC<WatchParamsProps> = ({
         {countries.map((country) => {
           return (
             <span key={country}>
-              <Link className={styles.country} href="#">
+              <Link className={styles.country} href='#'>
                 {country}
               </Link>
             </span>
@@ -58,7 +52,7 @@ export const WatchParams: FC<WatchParamsProps> = ({
         {genres.map((genre) => {
           return (
             <span key={genre}>
-              <Link className={styles.genre} href="#">
+              <Link className={styles.genre} href='#'>
                 {genre}
               </Link>
             </span>
@@ -69,7 +63,7 @@ export const WatchParams: FC<WatchParamsProps> = ({
       <div className={styles.paramList}>
         <span className={styles.quality}>{quality}</span>
         <div className={styles.volumeContainer}>
-          <Image className={styles.volume} src={volume} alt="volume" />
+          <Image className={styles.volume} src={volume} alt='volume' />
         </div>
         <div className={cn(styles.paramList, styles.withBetweenPoints)}>
           {translations.map((translation) => {

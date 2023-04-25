@@ -13,9 +13,6 @@ const meta: Meta<typeof WatchParams> = {
     productionYear: {
       description: 'Год производства',
     },
-    season: {
-      description: 'ИНформация о сезонах',
-    },
     duration: {
       description: 'Продолжительность',
     },
