@@ -4,13 +4,10 @@
   color: white;
   padding: 10px;
   transition-duration: 80ms;
+  transition: .3s;
 
   &_withSubText {
     padding: 5px 10px;
-  }
-
-  &:hover {
-    background-color: #2e2844;
   }
 }
 
@@ -20,6 +17,9 @@
   font-size: 14px;
   align-items: center;
   justify-content: center;
+  img{
+    border-radius: 8px;
+  }
 }
 
 .textContainer {
@@ -37,4 +37,31 @@
 
 .circle {
   border-radius: 50px;
+}
+
+.actorName{
+  color: rgba(255,255,255,.48);
+  font-size: 13px;
+  margin-top: 8px;
+  text-align: center;
+  display: inline;
+  transition-duration: 80ms;
+  transition: .3s;
+}
+
+.link{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  &:hover{
+    .btn{
+      background-color: #2e2844;
+    }
+    .actor{
+      background-color: rgba(255, 255, 255, .23) !important;
+    }
+    .actorName{
+      color: white;
+    }
+  }
 }

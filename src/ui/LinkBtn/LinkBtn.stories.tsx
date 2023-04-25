@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import googlePlay from '../../assets/images/install/google-play.svg'
+import img from '../../assets/img.jpg'
 
 import { LinkBtn } from './LinkBtn'
 import '../../styles/index.scss'
@@ -45,6 +46,7 @@ type Story = StoryObj<typeof LinkBtn>
 
 export const WithoutIcon: Story = {
   args: {
+    mode: 'footer',
     type: 'square',
     text: 'Play Store',
     subText: 'Загрузить в',
@@ -54,6 +56,7 @@ export const WithoutIcon: Story = {
 
 export const WithoutSutText: Story = {
   args: {
+    mode: 'footer',
     type: 'square',
     text: 'Click me',
     iconSrc: googlePlay,
@@ -64,6 +67,7 @@ export const WithoutSutText: Story = {
 
 export const WithoutText: Story = {
   args: {
+    mode: 'footer',
     type: 'circle',
     iconSrc: googlePlay,
     iconAlt: 'googlePlay',
@@ -73,6 +77,7 @@ export const WithoutText: Story = {
 
 export const WithAll: Story = {
   args: {
+    mode: 'footer',
     type: 'square',
     text: 'Play Store',
     subText: 'Загрузить в',
@@ -84,9 +89,11 @@ export const WithAll: Story = {
 
 export const WithImg: Story = {
   args: {
+    mode: 'actor',
     href: '/',
     type: 'square',
-    iconSrc: 'https://thumbs.dfs.ivi.ru/storage33/contents/f/f/06672be611ab9b9e54579c4f645460.jpg/44x44/?q=85',
-    iconAlt: 'Actor Image'
+    iconSrc: img,
+    iconAlt: 'Actor Image',
+    text: 'Франсуа Клюзе'
   }
 }

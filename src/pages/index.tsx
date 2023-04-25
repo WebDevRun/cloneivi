@@ -15,12 +15,6 @@ export default function Home() {
     <main>
       <AppLayout>
         <h1>{t('header:more')}</h1>
-        <LinkBtn
-          href="/"
-          type="square"
-          iconSrc={img}
-          iconAlt='png'
-        />
         <Header />
       </AppLayout>
     </main>

@@ -12,6 +12,8 @@ interface LinkProps {
   iconSrc?: string | any
   iconAlt?: string
   href: string
+  imgSize?: number
+  mode: 'footer' | 'actor'
 }
 
 export const LinkBtn: FC<LinkProps> = ({
@@ -21,26 +23,41 @@ export const LinkBtn: FC<LinkProps> = ({
   iconSrc,
   iconAlt,
   href,
+  imgSize,
+  mode,
 }) => {
   return (
-    <Link
-      className={cn(styles.btn, styles[type], {
-        [styles.btn_withSubText]: subText,
-      })}
-      href={href}
-    >
-      <div className={styles.btnContent}>
-        {iconSrc && iconAlt && (
-          <Image width={20} height={20} src={iconSrc} alt={iconAlt} />
-        )}
+    <Link className={styles.link} href={href}>
+      <div
+        style={mode === 'actor' ? { padding: '6px', backgroundColor: 'rgba(255,255,255,.16)' } : {}}
+        className={cn(styles.btn, styles[type], {
+          [styles.btn_withSubText]: subText,
+          [styles.actor]: mode === 'actor'
+        })}
+      >
+        <div className={styles.btnContent}>
+          {iconSrc && iconAlt && (
+            <Image
+              width={imgSize}
+              height={imgSize}
+              src={iconSrc}
+              alt={iconAlt}
+            />
+          )}
 
-        {(text || subText) && (
-          <div className={styles.textContainer}>
-            {subText && <p className={styles.subText}>{subText}</p>}
-            {text && <p className={styles.text}>{text}</p>}
-          </div>
-        )}
+          {((text || subText) && mode === 'footer') && (
+            <div className={styles.textContainer}>
+              {subText && <p className={styles.subText}>{subText}</p>}
+              {text && <p className={styles.text}>{text}</p>}
+            </div>
+          )}
+        </div>
       </div>
+      {mode === 'actor' && (
+        <>
+          {text && <p className={styles.actorName}>{text}</p>}
+        </>
+      )}
     </Link>
   )
 }
