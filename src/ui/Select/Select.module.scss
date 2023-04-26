@@ -36,7 +36,11 @@ $transition: 0.4s;
   color: rgba($textColor, 0.4);
 
   &:hover {
-    color: rgba($textColor, 0.4) ;
+    color: rgba($textColor, 0.4);
+  }
+
+  & > .input:checked + .text {
+    color: $white;
   }
 }
 
@@ -58,9 +62,5 @@ $transition: 0.4s;
 
   & > .input:checked + .text::after {
     opacity: 1;
-  }
-
-  & > .input:checked + .text {
-    color: $white;
   }
 }
