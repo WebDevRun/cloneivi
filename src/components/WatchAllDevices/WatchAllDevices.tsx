@@ -15,7 +15,7 @@ export interface WatchAllDevicesProps {
 export const WatchAllDevices: FC<WatchAllDevicesProps> = ({ name, poster }) => {
   return (
     <div className={styles.watchAllDevices}>
-      <div className={styles.appeal}>
+      <div>
         <h2 className={styles.title}>Cмотреть «{name}» на всех устройствах</h2>
         <p className={styles.subTitle}>
           Приложение доступно для скачивания на iOS, Android, SmartTV и
@@ -37,20 +37,10 @@ export const WatchAllDevices: FC<WatchAllDevicesProps> = ({ name, poster }) => {
           alt='Устройства для просмотра'
         />
         <div className={styles.tvPosterContainer}>
-          <Image
-            className={styles.tvPoster}
-            src={poster}
-            alt={`Постер ${name}`}
-            fill
-          />
+          <Image src={poster} alt={`Постер ${name}`} fill />
         </div>
         <div className={styles.ipadPosterContainer}>
-          <Image
-            className={styles.ipadPoster}
-            src={poster}
-            alt={`Постер ${name}`}
-            fill
-          />
+          <Image src={poster} alt={`Постер ${name}`} fill />
         </div>
       </div>
     </div>
