@@ -21,7 +21,7 @@ export const PlayButton: FC<PlayButtonProps> = ({
   setPlayStatus,
 }) => {
   const playButtonClickHandler: MouseEventHandler<HTMLButtonElement> = (
-    event
+    event,
   ) => {
     if (playStatus === 'pause' || playStatus === 'stop') {
       setPlayStatus('play')

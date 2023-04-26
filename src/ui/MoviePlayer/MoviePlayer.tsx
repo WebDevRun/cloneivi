@@ -63,7 +63,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
       <video
         ref={videoRef}
         className={styles.player}
-        preload="none"
+        preload='none'
         poster={posterSrc}
         onClick={playClickHandler}
         onLoadedMetadata={loadedMetadataHandler}
@@ -74,7 +74,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
 
       {!isLoadedMetadata && (
         <PlayButton
-          display="preview"
+          display='preview'
           playStatus={playStatus}
           setPlayStatus={setPlayStatus}
         />
@@ -82,7 +82,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
 
       {!isLoadedMetadata && (
         <FullscreenButton
-          display="preview"
+          display='preview'
           isFullscreen={isFullscreen}
           setIsFullscreen={setIsFullscreen}
         />
@@ -110,8 +110,8 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
                 setСoefficient={currentTimeSetter}
                 hoverСoefficient={hoverCurrentTime}
                 setHoverСoefficient={setHoverCurrentTime}
-                selectedRangeColor="red"
-                borderRadius="r8"
+                selectedRangeColor='red'
+                borderRadius='r8'
                 hasThumb={true}
               >
                 {hoverCurrentTime > 0 && (
@@ -130,7 +130,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
 
             <div className={styles.playButton}>
               <PlayButton
-                display="playing"
+                display='playing'
                 playStatus={playStatus}
                 setPlayStatus={setPlayStatus}
               />
@@ -143,7 +143,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
                 setСoefficient={setVolume}
                 hoverСoefficient={hoverVolume}
                 setHoverСoefficient={setHoverVolume}
-                borderRadius="r2"
+                borderRadius='r2'
               >
                 {hoverVolume > 0 && (
                   <div
@@ -158,16 +158,16 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
             </div>
 
             <div className={styles.setting}>
-              <Button image="setting" />
+              <Button image='setting' />
             </div>
 
             <div className={styles.subtitles}>
-              <Button image="subtitles" />
+              <Button image='subtitles' />
             </div>
 
             <div className={styles.fullscreen}>
               <FullscreenButton
-                display="playing"
+                display='playing'
                 isFullscreen={isFullscreen}
                 setIsFullscreen={setIsFullscreen}
               />

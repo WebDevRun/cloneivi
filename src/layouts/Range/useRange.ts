@@ -5,7 +5,7 @@ import { RangeProps } from './Range'
 export const useRange = (
   coefficient: RangeProps['coefficient'],
   setСoefficient: RangeProps['setСoefficient'],
-  setHoverСoefficient: RangeProps['setHoverСoefficient']
+  setHoverСoefficient: RangeProps['setHoverСoefficient'],
 ) => {
   const [selectedRange, setSelectedRange] = useState(coefficient)
   const [isMouseDown, setIsMouseDown] = useState(false)

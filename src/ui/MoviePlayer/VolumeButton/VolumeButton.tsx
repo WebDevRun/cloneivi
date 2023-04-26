@@ -38,7 +38,7 @@ export const VolumeButton: FC<VolumeButtonProps> = ({ volume, setVolume }) => {
       <Image
         className={styles.image}
         src={setVolumeImage(volume)}
-        alt="volume"
+        alt='volume'
       />
     </button>
   )

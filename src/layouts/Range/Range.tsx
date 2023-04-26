@@ -52,7 +52,7 @@ export const Range: FC<RangeProps> = ({
         className={cn(
           styles.selectedRange,
           styles[selectedRangeColor],
-          styles[borderRadius]
+          styles[borderRadius],
         )}
         style={{ width: `${selectedRange * 100}%` }}
       ></div>

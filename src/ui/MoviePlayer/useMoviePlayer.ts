@@ -96,7 +96,7 @@ export const useMoviePlayer = () => {
   }
 
   const loadedMetadataHandler: ReactEventHandler<HTMLVideoElement> = (
-    event
+    event,
   ) => {
     setIsLoadedMetadata(true)
   }
