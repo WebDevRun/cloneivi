@@ -151,8 +151,8 @@ export const Slider: FC<SliderProps> = ({
     }
 
     if (autoScroll) {
-      const interval = window.setInterval(nextClickHandler, INTERVAL)
-      return () => window.clearInterval(interval)
+      const interval = setInterval(nextClickHandler, INTERVAL)
+      return () => clearInterval(interval)
     }
   }, [position])
 
