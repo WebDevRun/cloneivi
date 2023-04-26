@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { FilterSelector } from './FilterSelector'
 
 const meta: Meta<typeof FilterSelector> = {
-  title: 'FilterSelector',
+  title: 'filter/FilterSelector',
   tags: ['autodocs'],
   component: FilterSelector,
   argTypes: {},

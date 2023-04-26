@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { Header } from '@components/Header'
 import { AppLayout } from '@layouts/AppLayout'
-import { FilterSelector } from '@components/FilterSelector'
+import { FilterSelector } from '@components/../ui/FilterSelector'
 
 export default function Home() {
   const { t } = useTranslation(['header'])

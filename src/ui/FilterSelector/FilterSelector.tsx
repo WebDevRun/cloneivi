@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 
-import { FilterDropDown } from '@ui/FilterDropDown'
-import { FilterSelectorButton } from '@ui/FilterSelectorButton'
+import { FilterDropDown } from '@ui/FilterSelector/FilterDropDown'
+import { FilterSelectorButton } from '@ui/FilterSelector/FilterSelectorButton'
 
 import styles from './FilterSelector.module.scss'
 
