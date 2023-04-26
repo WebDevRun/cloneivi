@@ -11,6 +11,11 @@ $transition: 0.4s;
   font-size: fn.toRem(13px);
   color: rgba($textColor, 0.8);
   transition: color $transition;
+  position: relative;
+
+  &:hover {
+    color: $white;
+  }
 
   & > .input {
     position: absolute;
@@ -18,16 +23,38 @@ $transition: 0.4s;
     opacity: 0;
   }
 
+  & > .input:checked + .text {
+    color: $white;
+  }
+
+  & > .text::before,
+  & > .text::after {
+    content: '';
+    opacity: 0;
+    transition: opacity $transition;
+    position: absolute;
+  }
+
+  & > .text::before {
+    width: fn.toRem(16px);
+    height: fn.toRem(16px);
+    background-repeat: no-repeat;
+    background-size: 16px;
+    right: 0;
+  }
+
+  & > .text::after {
+    content: '';
+    width: fn.toRem(4px);
+    height: fn.toRem(4px);
+    right: 6px;
+  }
+
   .text {
     display: inline-flex;
     align-items: center;
     user-select: none;
     width: 100%;
-    justify-content: space-between;
-  }
-
-  &:hover {
-    color: $white;
   }
 }
 
@@ -38,28 +65,38 @@ $transition: 0.4s;
   &:hover {
     color: rgba($textColor, 0.4);
   }
-
-  & > .input:checked + .text {
-    color: $white;
-  }
 }
 
 .checkbox {
-  & > .text::after {
-    content: '';
-    width: fn.toRem(16px);
-    height: fn.toRem(16px);
-    background-repeat: no-repeat;
-    background-size: 16px;
+  & > .text::before {
     background-image: $checkboxIcon;
-    opacity: 0;
-    transition: opacity $transition;
   }
 
-  & > .input:not(:disabled):not(:checked) + .text:hover::after {
+  & > .input:not(:disabled):not(:checked) + .text:hover::before {
     opacity: 0.4;
   }
 
+  & > .input:checked + .text::before {
+    opacity: 1;
+  }
+}
+
+.radio {
+  & > .text::before {
+    border: 2px solid $white;
+    border-radius: 50%;
+  }
+
+  & > .text::after {
+    background-color: $white;
+    border-radius: 50%;
+  }
+
+  & > .input:not(:disabled):not(:checked) + .text:hover::before {
+    opacity: 0.4;
+  }
+
+  & > .input:checked + .text::before,
   & > .input:checked + .text::after {
     opacity: 1;
   }

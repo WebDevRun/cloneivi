@@ -1,8 +1,7 @@
 import { useState } from 'react'
 
 import language from '@/assets/images/header/language.svg'
-
-import { Button } from '../../ui/Button/Button'
+import { Button } from '@/ui/Button/Button'
 
 import styles from './Language.module.scss'
 
