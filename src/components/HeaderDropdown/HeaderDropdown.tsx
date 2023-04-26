@@ -4,9 +4,9 @@ import { FC, useEffect, useState } from 'react'
 
 import { IDataForLinks } from '../../types'
 // Данные импортируются здесь, но можно передавать пропсом
-import data from '../header-dropdown.json'
-import data2 from '../header-dropdown2.json'
+import movies from '../movies.json'
 import { NativeScroll } from '../NativeScroll'
+import series from '../series.json'
 import { ShowList } from '../ShowList/ShowList'
 import { SubscriptionWidget } from '../SubscriptionWidget/SubscriptionWidget'
 
@@ -16,16 +16,16 @@ export const HeaderDropdown: FC = () => {
   const { t } = useTranslation(['header'])
   //const lists = data as IDataForLinks
   const [active, setActive] = useState('headerDropdown')
-  const [lists, setLists] = useState(data)
+  const [lists, setLists] = useState(movies)
 
   let mainCn = cn(styles[active])
 
   function eventHandler(e: CustomEventInit<any>) {
     if (e.detail === t('header:movies')) {
-      setLists(data)
+      setLists(movies)
       setActive('headerDropdownActive')
     } else if (e.detail === t('header:serials')) {
-      setLists(data2)
+      setLists(series)
       setActive('headerDropdownActive')
     } else setActive('headerDropdown')
   }

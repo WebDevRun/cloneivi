@@ -1,7 +1,6 @@
 .headerDropdown {
   display: none;
   flex-direction: column;
-  height: 460px;
   background: #1f1b2e;
   border-radius: 12px;
   box-shadow: 0 20px 96px #12101b;
@@ -10,7 +9,6 @@
 .headerDropdownActive {
   display: flex;
   flex-direction: column;
-  height: 460px;
   background: #1f1b2e;
   border-radius: 12px;
   box-shadow: 0 20px 96px #12101b;
@@ -43,7 +41,6 @@
 
 .dropdownContent {
   display: flex;
-  height: 328px;
 }
 
 .dropdownContent > * {
