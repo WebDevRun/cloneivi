@@ -50,14 +50,6 @@ export const WithSelectedItems: Story = {
   }
 }
 
-export const WithFullySelectedItems: Story = {
-  args: {
-    name: 'Жанры',
-    active: false,
-    selectedItems: ['Детектив', 'Артхаус', 'Мультфильм', 'Триллер', 'Военные'],
-  }
-}
-
 export const Active: Story = {
   args: {
     name: 'Жанры',

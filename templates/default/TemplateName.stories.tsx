@@ -1,5 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
+import '@styles/index.scss'
+
 import { TemplateName } from './TemplateName'
 
 const meta: Meta<typeof TemplateName> = {

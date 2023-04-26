@@ -14,11 +14,11 @@ interface SelectorButtonProps {
   selectedItems: string[]
 }
 
-export const FilterSelectorButton: FC<SelectorButtonProps> = ({ name, active, setActive, disabled, selectedItems }) => {
+export const FilterSelectorButton: FC<SelectorButtonProps> = ({name, active, setActive, disabled, selectedItems}) => {
 
   const clickHandler: MouseEventHandler<HTMLInputElement> = () => {
     if (!disabled) {
-      setActive(prevState => !prevState)
+      setActive((prevState) => !prevState)
     }
   }
 
@@ -26,12 +26,9 @@ export const FilterSelectorButton: FC<SelectorButtonProps> = ({ name, active, se
     <label className={cn(
       styles.selectButton,
       active && !disabled && styles.selectButtonActive,
-      disabled && styles.selectButtonDisabled
+      disabled && styles.selectButtonDisabled,
     )}>
-      <input type='checkbox'
-             defaultChecked={active}
-             onClick={clickHandler}
-      />
+      <input type='checkbox' defaultChecked={active} onClick={clickHandler} />
       <div className={styles.content}>
         <span className={styles.name}>{name}</span>
         <div className={styles.selected}>{selectedItems.join(', ')}</div>

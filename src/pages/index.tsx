@@ -2,6 +2,7 @@ import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+import { Header } from '@components/Header'
 import { AppLayout } from '@layouts/AppLayout'
 import { FilterSelector } from '@components/FilterSelector'
 
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main>
       <AppLayout>
+        <Header />
         <h1>{t('header:more')}</h1>
         <FilterSelector name={'Жанры'} selectedItems={[]} setSelectedItems={() => []} position={'left'}/>
       </AppLayout>
