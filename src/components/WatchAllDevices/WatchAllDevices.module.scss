@@ -1,0 +1,84 @@
+@use '@styles/functions' as fn;
+
+$textFontSize: fn.toRem(15px);
+$textLineHeight: fn.toRem(20px);
+
+.watchAllDevices {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: fn.toRem(24px);
+}
+
+.title {
+  font-size: fn.toRem(24px);
+  line-height: fn.toRem(28px);
+  font-weight: 700;
+  margin-bottom: fn.toRem(12px);
+}
+
+.subTitle {
+  font-size: $textFontSize;
+  line-height: $textLineHeight;
+  color: #a5a1b2;
+  margin-bottom: fn.toRem(24px);
+}
+
+.link {
+  background-color: #ea003d;
+  transition-duration: 0.4s;
+  border-radius: 8px;
+  padding: fn.toRem(9px) fn.toRem(15px);
+  color: inherit;
+  font-size: $textFontSize;
+  line-height: $textLineHeight;
+  font-weight: 500;
+  transition-duration: 0.4s;
+
+  &:hover {
+    background-color: #ff0f4d;
+  }
+}
+
+.images {
+  position: relative;
+}
+
+.tvWithoutPoster {
+  position: relative;
+  width: 536px;
+  height: 272px;
+  z-index: 1;
+}
+
+.ipadWithoutPoster {
+  position: absolute;
+  right: 42px;
+  bottom: 0;
+  width: 200px;
+  height: 136px;
+  z-index: 1;
+}
+
+.tvPosterContainer,
+.ipadPosterContainer {
+  position: absolute;
+  overflow: hidden;
+}
+
+.tvPosterContainer {
+  left: 100px;
+  top: 3px;
+  width: 337px;
+  height: 192px;
+  border-radius: 2px;
+}
+
+.ipadPosterContainer {
+  right: 48px;
+  bottom: 7px;
+  width: 188px;
+  height: 102px;
+  border-radius: 4px;
+  z-index: 1;
+}
