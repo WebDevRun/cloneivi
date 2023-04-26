@@ -22,7 +22,7 @@ export const FullscreenButton: FC<FullscreenButtonProps> = ({
 }) => {
   const fullscreenCheckboxChangeHandler: MouseEventHandler<
     HTMLButtonElement
-  > = (event) => {
+  > = () => {
     setIsFullscreen((prev) => !prev)
   }
 

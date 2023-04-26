@@ -79,12 +79,12 @@ export const useMoviePlayer = () => {
     setPlayStatus('pause')
   }
 
-  const mouseEnterHandler: MouseEventHandler<HTMLDivElement> = (event) => {
+  const mouseEnterHandler: MouseEventHandler<HTMLDivElement> = () => {
     setIsHover(true)
     clearTimeout(timer.current)
   }
 
-  const mouseLeaveHandler: MouseEventHandler<HTMLDivElement> = (event) => {
+  const mouseLeaveHandler: MouseEventHandler<HTMLDivElement> = () => {
     if (playStatus === 'play') {
       setIsHover(false)
       return
@@ -95,13 +95,11 @@ export const useMoviePlayer = () => {
     }, 20000)
   }
 
-  const loadedMetadataHandler: ReactEventHandler<HTMLVideoElement> = (
-    event,
-  ) => {
+  const loadedMetadataHandler: ReactEventHandler<HTMLVideoElement> = () => {
     setIsLoadedMetadata(true)
   }
 
-  const endedHandler: ReactEventHandler<HTMLVideoElement> = (event) => {
+  const endedHandler: ReactEventHandler<HTMLVideoElement> = () => {
     setPlayStatus('stop')
   }
 

@@ -1,10 +1,9 @@
 import cn from 'classnames'
-import { FC, ReactEventHandler } from 'react'
+import { FC } from 'react'
 
 import { formatTime } from '@/utils/functions/formatTime'
 import { Range } from '@layouts/Range'
 
-import { Button } from './Button'
 import { FullscreenButton } from './FullscreenButton'
 import styles from './MoviePlayer.module.scss'
 import { PlayButton } from './PlayButton'
@@ -128,13 +127,11 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
               {formatTime(duration, '00:00:00')}
             </div>
 
-            <div className={styles.playButton}>
-              <PlayButton
-                display='playing'
-                playStatus={playStatus}
-                setPlayStatus={setPlayStatus}
-              />
-            </div>
+            <PlayButton
+              display='playing'
+              playStatus={playStatus}
+              setPlayStatus={setPlayStatus}
+            />
 
             <div className={styles.volume}>
               <VolumeButton volume={volume} setVolume={setVolume} />
@@ -157,15 +154,7 @@ export const MoviePlayer: FC<MoviePlayerProps> = ({
               </Range>
             </div>
 
-            <div className={styles.setting}>
-              <Button image='setting' />
-            </div>
-
-            <div className={styles.subtitles}>
-              <Button image='subtitles' />
-            </div>
-
-            <div className={styles.fullscreen}>
+            <div className={styles.fullscreenButton}>
               <FullscreenButton
                 display='playing'
                 isFullscreen={isFullscreen}

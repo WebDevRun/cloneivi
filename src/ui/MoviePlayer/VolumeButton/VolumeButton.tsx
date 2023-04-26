@@ -16,7 +16,7 @@ export interface VolumeButtonProps {
 export const VolumeButton: FC<VolumeButtonProps> = ({ volume, setVolume }) => {
   const tempVolume = useRef(0)
 
-  const buttonClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
+  const buttonClickHandler: MouseEventHandler<HTMLButtonElement> = () => {
     if (volume === 0) {
       setVolume(tempVolume.current)
       return
