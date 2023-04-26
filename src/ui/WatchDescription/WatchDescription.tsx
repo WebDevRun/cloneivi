@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useRef } from 'react'
 
 import { capitaliseArr } from '@/utils/functions'
 
@@ -21,7 +21,9 @@ export const WatchDescription: FC<WatchDescriptionProps> = ({
 }) => {
   return (
     <div
-      style={{ height: isClose ? '88px' : undefined }}
+      style={{
+        height: isClose ? 88 : undefined,
+      }}
       className={styles.watchDescription}
     >
       <p className={styles.description}>{description}</p>

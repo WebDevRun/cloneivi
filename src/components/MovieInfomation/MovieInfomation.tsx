@@ -1,5 +1,6 @@
 import { FC, MouseEventHandler, useEffect, useState } from 'react'
 
+import { MovieRating } from '@/ui/MovieRating'
 import { WatchDescription } from '@/ui/WatchDescription'
 import { WatchParams } from '@/ui/WatchParams'
 
@@ -16,6 +17,7 @@ export interface MovieInfomationProps {
   qualities: string[]
   description: string
   languagesAudio: string[]
+  rating: number
 }
 
 const movieInfomationStatus = {
@@ -33,6 +35,7 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
   qualities,
   description,
   languagesAudio,
+  rating,
 }) => {
   const [isClose, setIsClose] = useState(true)
 
@@ -65,6 +68,8 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
           {isClose ? movieInfomationStatus.open : movieInfomationStatus.close}
         </button>
       </div>
+
+      <MovieRating rating={rating}></MovieRating>
     </div>
   )
 }

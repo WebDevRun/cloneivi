@@ -37,6 +37,9 @@ const meta: Meta<typeof MovieInfomation> = {
     languagesAudio: {
       description: 'Языки, на которые переведен фильм',
     },
+    rating: {
+      description: 'Рейтинг фильма',
+    },
   },
 }
 
@@ -55,5 +58,6 @@ export const Default: Story = {
     qualities: movies[0].qualities,
     description: movies[0].description,
     languagesAudio: movies[0].languagesAudio,
+    rating: movies[0].rating,
   },
 }

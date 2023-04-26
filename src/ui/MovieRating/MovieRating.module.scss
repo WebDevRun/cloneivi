@@ -1,0 +1,52 @@
+@use '@styles/functions' as fn;
+@use '@styles/variables' as var;
+
+.movieRating {
+  display: flex;
+  align-items: center;
+  background-color: rgba(var.$mainTextColor, 0.08);
+  border-radius: 12px;
+  padding: fn.toRem(10px);
+  cursor: pointer;
+}
+
+.valueContainer {
+  $size: fn.toRem(64px);
+
+  width: $size;
+  height: $size;
+  background-color: #7e798f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.value {
+  font-size: fn.toRem(24px);
+  font-weight: 700;
+}
+
+.text {
+  margin-left: fn.toRem(16px);
+  font-size: fn.toRem(15px);
+  font-weight: 500;
+}
+
+.button {
+  margin-left: auto;
+  margin-right: fn.toRem(10px);
+  border-radius: 6px;
+  padding: 3px 7px;
+  background-color: transparent;
+  border: 1px solid rgba(var.$mainTextColor, 0.32);
+  color: var.$mainTextColor;
+  font-size: fn.toRem(13px);
+  font-weight: 500;
+  cursor: pointer;
+  transition-duration: 0.4s;
+
+  &:hover {
+    border-color: rgba(var.$mainTextColor, 0.72);
+  }
+}
