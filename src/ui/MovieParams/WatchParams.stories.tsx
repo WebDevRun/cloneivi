@@ -3,12 +3,12 @@ import { Meta, StoryObj } from '@storybook/react'
 import movies from '@public/movies/movies.json'
 import '@styles/index.scss'
 
-import { WatchParams } from './WatchParams'
+import { MovieParams } from './MovieParams'
 
-const meta: Meta<typeof WatchParams> = {
-  title: 'WatchParams',
+const meta: Meta<typeof MovieParams> = {
+  title: 'MovieParams',
   tags: ['autodocs'],
-  component: WatchParams,
+  component: MovieParams,
   argTypes: {
     productionYear: {
       description: 'Год производства',
@@ -33,7 +33,7 @@ const meta: Meta<typeof WatchParams> = {
 
 export default meta
 
-type Story = StoryObj<typeof WatchParams>
+type Story = StoryObj<typeof MovieParams>
 
 export const Default: Story = {
   args: {

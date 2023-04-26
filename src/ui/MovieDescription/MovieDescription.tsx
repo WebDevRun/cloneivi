@@ -4,16 +4,16 @@ import { capitaliseArr } from '@/utils/functions'
 
 import { MovieQuality } from '../MovieQuality'
 
-import styles from './WatchDescription.module.scss'
+import styles from './MovieDescription.module.scss'
 
-export interface WatchDescriptionProps {
+export interface MovieDescriptionProps {
   isClose: boolean
   description: string
   languagesAudio: string[]
   qualities: string[]
 }
 
-export const WatchDescription: FC<WatchDescriptionProps> = ({
+export const MovieDescription: FC<MovieDescriptionProps> = ({
   isClose,
   description,
   languagesAudio,
@@ -24,7 +24,7 @@ export const WatchDescription: FC<WatchDescriptionProps> = ({
       style={{
         height: isClose ? 88 : undefined,
       }}
-      className={styles.watchDescription}
+      className={styles.movieDescription}
     >
       <p className={styles.description}>{description}</p>
 

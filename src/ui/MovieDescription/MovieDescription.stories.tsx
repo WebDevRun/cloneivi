@@ -3,12 +3,12 @@ import { Meta, StoryObj } from '@storybook/react'
 import movies from '@public/movies/movies.json'
 import '@styles/index.scss'
 
-import { WatchDescription } from './WatchDescription'
+import { MovieDescription } from './MovieDescription'
 
-const meta: Meta<typeof WatchDescription> = {
-  title: 'WatchDescription',
+const meta: Meta<typeof MovieDescription> = {
+  title: 'MovieDescription',
   tags: ['autodocs'],
-  component: WatchDescription,
+  component: MovieDescription,
   argTypes: {
     isClose: {
       description: 'Изменение высоты контейнера',
@@ -27,7 +27,7 @@ const meta: Meta<typeof WatchDescription> = {
 
 export default meta
 
-type Story = StoryObj<typeof WatchDescription>
+type Story = StoryObj<typeof MovieDescription>
 
 export const Default: Story = {
   args: {

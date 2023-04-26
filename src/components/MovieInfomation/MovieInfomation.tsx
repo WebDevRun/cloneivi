@@ -1,8 +1,8 @@
 import { FC, MouseEventHandler, useEffect, useState } from 'react'
 
+import { MovieDescription } from '@/ui/MovieDescription'
+import { MovieParams } from '@/ui/MovieParams'
 import { MovieRating } from '@/ui/MovieRating'
-import { WatchDescription } from '@/ui/WatchDescription'
-import { WatchParams } from '@/ui/WatchParams'
 
 import styles from './MovieInfomation.module.scss'
 
@@ -47,7 +47,7 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
     <div className={styles.movieInfomation}>
       <h1 className={styles.title}>{title}</h1>
 
-      <WatchParams
+      <MovieParams
         productionYear={productionYear}
         duration={duration}
         ageRating={ageRating}
@@ -57,7 +57,7 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
       />
 
       <div className={styles.watchDescriptionContainer}>
-        <WatchDescription
+        <MovieDescription
           isClose={isClose}
           description={description}
           languagesAudio={languagesAudio}

@@ -3,8 +3,6 @@
 @use '@styles/mixins' as mix;
 
 .movieInfomation {
-  max-width: 465px;
-
   & > * {
     $horizontalPadding: fn.toRem(12px);
 

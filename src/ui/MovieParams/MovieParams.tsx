@@ -8,11 +8,11 @@ import volume from '@assets/images/player/volume-mid.svg'
 
 import { MovieQuality } from '../MovieQuality'
 
-import styles from './WatchParams.module.scss'
+import styles from './MovieParams.module.scss'
 
 const translations = ['Rus', 'Eng']
 
-export interface WatchParamsProps {
+export interface MovieParamsProps {
   productionYear: number
   duration: number
   ageRating: string
@@ -21,7 +21,7 @@ export interface WatchParamsProps {
   quality: string
 }
 
-export const WatchParams: FC<WatchParamsProps> = ({
+export const MovieParams: FC<MovieParamsProps> = ({
   productionYear,
   duration,
   ageRating,
