@@ -3,15 +3,22 @@
 $borderRadius: 8px;
 $fontSize: fn.toRem(15px);
 $transitionDuration: 0.4s;
+$inputTransform: scale(0.87) translate(fn.toRem(-12px), fn.toRem(-24px));
+$errorColor: #ff542e;
 
 .commentForm {
   display: flex;
   gap: fn.toRem(12px);
 }
 
-.label {
-  position: relative;
+.inputContainer {
+  width: 100%;
   flex-grow: 1;
+}
+
+.label {
+  display: block;
+  position: relative;
   border-radius: $borderRadius;
   background-color: #d9d7e0;
 }
@@ -31,7 +38,7 @@ $transitionDuration: 0.4s;
   font-weight: 500;
 
   &:focus + .placeholder {
-    transform: scale(0.87) translate(fn.toRem(-8px), fn.toRem(-24px));
+    transform: $inputTransform;
   }
 }
 
@@ -42,6 +49,16 @@ $transitionDuration: 0.4s;
   color: #a5a1b2;
   transform: translateY(-50%);
   transition-duration: $transitionDuration;
+}
+
+.hasText {
+  transform: $inputTransform;
+}
+
+.caption {
+  margin-top: fn.toRem(4px);
+  color: $errorColor;
+  font-size: fn.toRem(13px);
 }
 
 .button {
@@ -56,4 +73,12 @@ $transitionDuration: 0.4s;
   &:hover {
     background-color: #ff0f4d;
   }
+}
+
+.disabled {
+  opacity: 0.32;
+}
+
+.error {
+  color: $errorColor;
 }
