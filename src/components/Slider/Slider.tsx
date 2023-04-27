@@ -154,7 +154,7 @@ export const Slider: FC<SliderProps> = ({
       const interval = setInterval(nextClickHandler, INTERVAL)
       return () => clearInterval(interval)
     }
-  }, [position])
+  }, [autoScroll, cloneCount, infinite, itemWidth, itemsGap, margin, position, sliderItems.length])
 
   useEffect(() => {
     let startPos = startPosition + cloneCount.head
@@ -182,7 +182,7 @@ export const Slider: FC<SliderProps> = ({
     if (type === 'oneItem') {
       setButtonPosition(margin - ONE_ITEM_BUTTON_GAP)
     }
-  }, [itemWidth, margin])
+  }, [arrowSize, itemWidth, margin, type])
 
   useEffect(() => {
     const clientWidth = container.current?.clientWidth || 0
