@@ -1,0 +1,69 @@
+@use '@styles/functions' as fn;
+
+$fontSize: fn.toRem(15px);
+
+.commentItem {
+  display: grid;
+  grid-template-columns: repeat(2, min-content) 1fr min-content;
+  column-gap: fn.toRem(12px);
+}
+
+.date {
+  grid-column: 2/4;
+  font-size: fn.toRem(13px);
+  color: #a5a1b2;
+}
+
+.text {
+  grid-column: 2/4;
+  grid-row: 2/3;
+  font-size: $fontSize;
+  line-height: 22px;
+  color: #d9d7e0;
+  word-wrap: break-word;
+}
+
+.voteContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button {
+  background-color: transparent;
+  transition-duration: 0.4s;
+  width: 16px;
+  height: 16px;
+
+  &:hover .buttonImage {
+    fill: #7e798f;
+  }
+}
+
+.buttonImage {
+  width: 100%;
+  height: auto;
+  fill: rgba(126, 121, 143, 0.72);
+  transition-duration: 0.4s;
+}
+
+.vote {
+  font-size: $fontSize;
+  font-weight: 700;
+  color: #73a32f;
+}
+
+.answerButton {
+  grid-column: 2/3;
+  margin-top: fn.toRem(4px);
+  padding: fn.toRem(3px) fn.toRem(8px);
+  font-size: fn.toRem(13px);
+  border-radius: 50px;
+  background-color: rgba(126, 121, 143, 0.72);
+  color: #d9d7e0;
+  transition-duration: 0.4s;
+
+  &:hover {
+    color: #ffffff;
+  }
+}

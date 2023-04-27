@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { FC } from 'react'
 
-import avatar from '@assets/images/commets/avatar.svg'
+import avatar from '@assets/images/comments/avatar.svg'
 
 import styles from './CommentAvatar.module.scss'
 

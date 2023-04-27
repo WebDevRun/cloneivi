@@ -1,2 +1,11 @@
-.comments {
+@use '@styles/functions' as fn;
+
+.commentForm {
+  margin-bottom: fn.toRem(32px);
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: fn.toRem(28px);
 }
