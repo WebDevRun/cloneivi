@@ -1,10 +1,9 @@
 import { FC, MouseEventHandler, useEffect, useState } from 'react'
 
-import { MovieDescription } from '@/ui/MovieDescription'
-import { MovieParams } from '@/ui/MovieParams'
-import { MovieRating } from '@/ui/MovieRating'
-
+import { MovieDescription } from './MovieDescription'
 import styles from './MovieInfomation.module.scss'
+import { MovieParams } from './MovieParams'
+import { MovieRating } from './MovieRating'
 
 export interface MovieInfomationProps {
   title: string
