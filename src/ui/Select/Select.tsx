@@ -6,10 +6,11 @@ import styles from './Select.module.scss'
 export interface SelectProps {
   type: 'radio' | 'checkbox',
   text: string,
-  disabled?: boolean
+  disabled?: boolean,
+  name?: string
 }
 
-export const Select: FC<SelectProps> = ({type, text, disabled = false}) => {
+export const Select: FC<SelectProps> = ({type, text, disabled = false, name}) => {
   return (
     <label
       className={cn(
@@ -19,7 +20,7 @@ export const Select: FC<SelectProps> = ({type, text, disabled = false}) => {
       )}
       style={{cursor: disabled ? 'default' : 'pointer'}}
     >
-      <input type={type} className={styles.input} disabled={disabled} />
+      <input type={type} className={styles.input} disabled={disabled} name={name} />
       <span className={styles.text}>{text}</span>
     </label>
   )

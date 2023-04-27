@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export type IGenresIcons = {
   id: number
   name: string
@@ -7,142 +6,130 @@ export type IGenresIcons = {
 export const GENRES_ICONS: IGenresIcons[] = [
   {
     id: 0,
-    name: 'anime'
+    name: 'anime',
   },
   {
     id: 1,
-    name: 'biography'
+    name: 'biography',
   },
   {
     id: 2,
-    name: 'action'
+    name: 'action',
   },
   {
     id: 3,
-    name: 'western'
+    name: 'western',
   },
   {
     id: 4,
-    name: 'military'
+    name: 'military',
   },
   {
     id: 5,
-    name: 'detective'
+    name: 'detective',
   },
   {
     id: 6,
-    name: 'children'
+    name: 'children',
   },
   {
     id: 7,
-    name: 'adults'
+    name: 'adults',
   },
   {
     id: 8,
-    name: 'documentary'
+    name: 'documentary',
   },
   {
     id: 9,
-    name: 'drama'
+    name: 'drama',
   },
   {
     id: 10,
-    name: 'game'
+    name: 'game',
   },
   {
     id: 11,
-    name: 'history'
+    name: 'history',
   },
   {
     id: 12,
-    name: 'comedy'
+    name: 'comedy',
   },
   {
     id: 13,
-    name: 'concert'
+    name: 'concert',
   },
   {
     id: 14,
-    name: 'shortFilm'
+    name: 'shortFilm',
   },
   {
     id: 15,
-    name: 'crime'
+    name: 'crime',
   },
   {
     id: 16,
-    name: 'melodrama'
+    name: 'melodrama',
   },
   {
     id: 17,
-    name: 'music'
+    name: 'music',
   },
   {
     id: 18,
-    name: 'cartoons'
+    name: 'cartoons',
   },
   {
     id: 19,
-    name: 'musical'
+    name: 'musical',
   },
   {
     id: 20,
-    name: 'news'
+    name: 'news',
   },
   {
     id: 21,
-    name: 'adventures'
+    name: 'adventures',
   },
   {
     id: 22,
-    name: 'realTV'
+    name: 'realTV',
   },
   {
     id: 23,
-    name: 'family'
+    name: 'family',
   },
   {
     id: 24,
-    name: 'sport'
+    name: 'sport',
   },
   {
     id: 25,
-    name: 'talkShow'
+    name: 'talkShow',
   },
   {
     id: 26,
-    name: 'thriller'
+    name: 'thriller',
   },
   {
     id: 27,
-    name: 'horror'
+    name: 'horror',
   },
   {
     id: 28,
-    name: 'fantastic'
+    name: 'fantastic',
   },
   {
     id: 29,
-    name: 'noirFilm'
+    name: 'noirFilm',
   },
   {
     id: 30,
-    name: 'fantasy'
+    name: 'fantasy',
   },
   {
     id: 31,
-    name: 'ceremony'
+    name: 'ceremony',
   },
-
-=======
-import { IMenuItem } from "@/types/navigate"
-
-export const MENU: IMenuItem[] = [
-  { id: '1', name: 'Мой Иви', href: 'https://www.ivi.ru/' },
-  { id: '2', name: 'Что нового', href: 'https://www.ivi.ru/new' },
-  { id: '3', name: 'Фильмы', href: 'https://www.ivi.ru/movies' },
-  { id: '4', name: 'Сериалы', href: 'https://www.ivi.ru/series' },
-  { id: '5', name: 'Мультфильмы', href: 'https://www.ivi.ru/animation' },
-  { id: '6', name: 'TV+', href: 'https://www.ivi.ru/tvplus' }
->>>>>>> b14ed30f39d37c5e193c7c77e17ab7d01e37d84f
 ]

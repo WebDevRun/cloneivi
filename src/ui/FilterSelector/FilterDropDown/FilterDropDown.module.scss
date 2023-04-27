@@ -1,2 +1,19 @@
-.filterDropDown {
+$white: '#fff';
+
+.underLine {
+  margin: 16px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  width: 100%;
+}
+
+.big {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 12px;
+}
+
+.middle,
+.small {
+
 }

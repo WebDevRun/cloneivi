@@ -2,6 +2,8 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { FilterDropDown } from './FilterDropDown'
 
+const GENRES = ['anime', 'biography', 'action', 'western', 'military', 'detective', 'children']
+
 const meta: Meta<typeof FilterDropDown> = {
   title: 'filter/FilterDropDown',
   tags: ['autodocs'],
@@ -21,6 +23,9 @@ const meta: Meta<typeof FilterDropDown> = {
     },
     slider: {
       description: 'Компонент слайдера'
+    },
+    items: {
+      description: 'Массив объектов для фильтра'
     }
   },
 }
@@ -32,8 +37,9 @@ type Story = StoryObj<typeof FilterDropDown>
 export const BigLeft: Story = {
   args: {
     size: 'big',
-    slider: <div style={{height: 88}}></div>,
-    position: 'left'
+    slider: <div style={{height: 88, background: '#000'}}></div>,
+    position: 'left',
+    items: GENRES
   },
   render: args => {
     return (
@@ -47,8 +53,9 @@ export const BigLeft: Story = {
 export const BigRight: Story = {
   args: {
     size: 'big',
-    slider: <div style={{height: 88}}></div>,
-    position: 'right'
+    slider: <div style={{height: 88, background: '#000'}}></div>,
+    position: 'right',
+    items: GENRES
   },
   render: args => {
     return (
@@ -62,8 +69,9 @@ export const BigRight: Story = {
 export const BigCenter: Story = {
   args: {
     size: 'big',
-    slider: <div style={{height: 88}}></div>,
-    position: 'center'
+    slider: <div style={{height: 88, background: '#000'}}></div>,
+    position: 'center',
+    items: GENRES
   },
   render: args => {
     return (
