@@ -16,7 +16,7 @@ export interface MovieCardProps {
   ageLimit: string
   movieName: string
   rating: number
-  year: string
+  year: number
   genre?: string[]
 }
 

@@ -37,7 +37,7 @@ const meta: Meta<typeof MovieCard> = {
       description: 'Рейтинг фильма',
     },
     year: {
-      type: 'string',
+      type: 'number',
       description: 'Год выпуска фильма',
     },
   },
@@ -56,7 +56,7 @@ export const Default: Story = {
     imgAlt: 'Movie Image',
     movieName: 'Ничто не случается',
     rating: 8.3,
-    year: '2019-2022',
+    year: 2019,
     genre: ['Мелодрамы'],
   },
 }
