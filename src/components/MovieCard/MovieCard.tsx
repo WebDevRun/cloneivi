@@ -15,12 +15,9 @@ export interface MovieCardProps {
   imgAlt: string
   ageLimit: string
   movieName: string
-  properties: {
-    rating: number
-    year: number
-    genre?: string
-    seasons: number
-  }
+  rating: number
+  year: string
+  genre?: string[]
 }
 
 export const MovieCard: FC<MovieCardProps> = ({
@@ -29,7 +26,9 @@ export const MovieCard: FC<MovieCardProps> = ({
   imgSrc,
   ageLimit,
   movieName,
-  properties,
+  rating,
+  year,
+  genre,
 }) => {
   const ratings = ['40%', '20%', '70%', '50%']
 
@@ -68,7 +67,7 @@ export const MovieCard: FC<MovieCardProps> = ({
           <div className={styles.movieProperties}>
             <div className={styles.propertiesRow}>
               <div className={styles.rating}>
-                <div className={styles.ratingValue}>{properties.rating}</div>
+                <div className={styles.ratingValue}>{rating}</div>
                 <div className={styles.ratingGraph}>
                   {ratings.map((rating, index) => (
                     <div key={index} className={styles.progress}>
@@ -94,10 +93,7 @@ export const MovieCard: FC<MovieCardProps> = ({
             </div>
             <div className={styles.propertiesInfo}>
               <div className={styles.propertiesRow}>
-                {properties.year}, {properties.genre}
-              </div>
-              <div className={styles.propertiesRow}>
-                {properties.seasons} сезон
+                {year}, {genre?.join(', ')}
               </div>
             </div>
           </div>
