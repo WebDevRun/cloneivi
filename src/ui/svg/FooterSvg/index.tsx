@@ -1,0 +1,1 @@
+export {FooterSvg} from './FooterSvg'

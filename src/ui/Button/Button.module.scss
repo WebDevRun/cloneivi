@@ -1,0 +1,156 @@
+@use '../../styles/functions' as fn;
+$white: #fff;
+$alpha48: 0.48;
+$alpha72: 0.72;
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: fn.toRem(8px);
+  color: $white;
+  transition-duration: 0.4s;
+
+  img {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: fn.toRem(8px);
+    transition-duration: 0.4s;
+
+    svg {
+      fill: rgba($white, $alpha48);
+    }
+  }
+}
+
+.transparent {
+  background-color: transparent;
+  color: rgba($white, $alpha72);
+
+  &:hover {
+    color: $white;
+    transition-duration: 0.4s;
+
+    svg {
+      fill: $white;
+      transition-duration: 0.4s;
+    }
+  }
+}
+
+.red {
+  background-color: #ea003d;
+  color: $white;
+
+  &:hover {
+    background-color: #ff0f4d;
+  }
+}
+
+.gray {
+  background-color: #3a3352;
+  color: $white;
+
+  &:hover {
+    background-color: #494069;
+  }
+}
+
+.primary {
+  background-image: linear-gradient(270deg, #ea003d 0, #c447ff 100%);
+}
+
+.small {
+  height: fn.toRem(32px);
+  padding: fn.toRem(7px) fn.toRem(11px);
+
+  .mainText {
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
+    font-weight: 500;
+  }
+}
+
+.middle {
+  height: fn.toRem(40px);
+  padding: fn.toRem(9px) fn.toRem(15px);
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(20px);
+  font-weight: 500;
+}
+
+.big {
+  height: fn.toRem(48px);
+  padding: fn.toRem(5px) fn.toRem(15px);
+
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(20px);
+  font-weight: 500;
+  width: fn.toRem(320px);
+
+  transition-property: border-color, background-color;
+}
+
+.borderSm,
+.borderMd {
+  background: transparent;
+  border-radius: fn.toRem(6px);
+  padding: fn.toRem(3px) fn.toRem(7px);
+  border: 1px solid rgba($white, 0.32);
+
+  .mainText {
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
+    font-weight: 500;
+  }
+
+  &:hover {
+    border: 1px solid rgba($white, 1);
+    background: transparent;
+  }
+
+  &:not(:hover) {
+    transition-duration: 0.4s;
+    transition-property: border;
+  }
+}
+
+.borderSm {
+  height: fn.toRem(24px);
+}
+
+.borderMd {
+  height: fn.toRem(32px);
+}
+
+.borderBg {
+  height: fn.toRem(48px);
+  border-radius: fn.toRem(8px);
+  padding: fn.toRem(12px);
+  border: solid fn.toRem(2px) rgba($white, 0.48);
+
+  &:hover {
+    border: solid fn.toRem(2px) $white;
+    box-shadow: 0 0 fn.toRem(15px) rgba($white, 0.4);
+
+    svg {
+      fill: $white;
+    }
+  }
+}
+
+.onlyIcon {
+  .icon {
+    margin-right: 0;
+  }
+
+  &.big {
+    width: fn.toRem(48px);
+  }
+}

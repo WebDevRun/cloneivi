@@ -2,45 +2,45 @@ import cn from 'classnames'
 import Link from 'next/link'
 import { useState } from 'react'
 
-import Svg from '@/assets/svg/Svg'
-
 import styles from './FooterMobile.module.scss'
+
+import { FooterSvg } from '@/ui/svg/FooterSvg'
 
 export const FooterMobile = () => {
   const footerButtons = [
     {
-      btnName: 'btn1',
+      btnName: 'btnOne',
       href: '/',
       icon: 'HomeIcon',
       btnText: 'Мой Иви',
     },
     {
-      btnName: 'btn2',
+      btnName: 'btnTwo',
       href: '/',
       icon: 'CatalogIcon',
       btnText: 'Каталог',
     },
     {
-      btnName: 'btn3',
+      btnName: 'btnThree',
       href: '/',
       icon: 'SearchIcon',
       btnText: 'Поиск',
     },
     {
-      btnName: 'btn4',
+      btnName: 'btnFour',
       href: '/',
       icon: 'AvatarIcon',
       btnText: 'Профиль',
     },
     {
-      btnName: 'btn5',
+      btnName: 'btnFive',
       href: '/',
       icon: 'MoreIcon',
       btnText: 'Ещё',
     },
   ]
 
-  const [activeButton, setActiveButton] = useState<string | null>('btn1')
+  const [activeButton, setActiveButton] = useState<string | null>('btnOne')
 
   const handleClick = (buttonName: string) => {
     setActiveButton(buttonName)
@@ -59,7 +59,7 @@ export const FooterMobile = () => {
           >
             <div className={styles.light}></div>
             <div className={styles.tabBarIcon}>
-              <Svg
+              <FooterSvg
                 icon={btn.icon}
                 fill={activeButton === btn.btnName ? 'white' : 'gray'}
               />
