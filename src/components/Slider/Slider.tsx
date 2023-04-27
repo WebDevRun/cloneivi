@@ -73,7 +73,7 @@ export const Slider: FC<SliderProps> = ({
     setTransitionDuration(0)
 
     if (type === 'list') {
-      const clientWidth = container.current?.clientWidth
+      const clientWidth = container.current?.clientWidth || 0
       const gap = slidesCount > 1 ? (clientWidth - slidesCount * itemWidth) / (slidesCount - 1) : clientWidth - slidesCount * itemWidth
       let scroll = scrollStep
 
@@ -185,8 +185,9 @@ export const Slider: FC<SliderProps> = ({
   }, [itemWidth, margin])
 
   useEffect(() => {
+    const clientWidth = container.current?.clientWidth || 0
     type === 'oneItem' &&
-    setMargin((container.current?.clientWidth - itemWidth) / 2)
+    setMargin((clientWidth - itemWidth) / 2)
   }, [itemWidth, container.current?.clientWidth])
 
   const setItemSettings = () => {
@@ -196,7 +197,8 @@ export const Slider: FC<SliderProps> = ({
     let slideCount = slidesCount
 
     if (type === 'list' && !slideCount) {
-      slideCount = Math.floor((container.current?.clientWidth + gap) / (itemClientWidth + gap))
+      const clientWidth = container.current?.clientWidth || 0
+      slideCount = Math.floor((clientWidth + gap) / (itemClientWidth + gap))
     }
 
     if (type === 'oneItem') {
