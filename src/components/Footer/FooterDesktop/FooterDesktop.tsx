@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import styles from './FooterDesktop.module.scss'
+
 import anyDevIcon from '@/assets/images/install/anyDev_20__0.svg'
 import appStoreIcon from '@/assets/images/install/app-store.svg'
 import playStoreIcon from '@/assets/images/install/google-play.svg'
@@ -13,8 +15,6 @@ import twitterIcon from '@/assets/images/social/twitter.svg'
 import viberIcon from '@/assets/images/social/viber.svg'
 import vkIcon from '@/assets/images/social/vkontakte.svg'
 import { FooterLink } from '@/ui/FooterLink'
-
-import styles from './FooterDesktop.module.scss'
 
 export const FooterDesktop = () => {
   const footerSocailMedias = [

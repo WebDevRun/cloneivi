@@ -158,7 +158,7 @@ $titleColor: rgba(255, 255, 255, 1);
 
     .footerComunity {
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
       gap: 12px;
 
       button {
