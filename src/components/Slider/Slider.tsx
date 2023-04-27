@@ -259,7 +259,7 @@ export const Slider: FC<SliderProps> = ({
       {
         (position - margin > -(sliderItems.length - slidesCount) * (itemWidth + itemsGap) || infinite) &&
         <button className={styles.button} onClick={nextClickHandler} style={{right: `${buttonPosition}px`}}>
-          <ArrowSvg color={'#BCBCBF'}
+          <ArrowSvg color='#BCBCBF'
                     size={arrowSize}
                     direction='right'
           />
