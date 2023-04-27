@@ -19,7 +19,7 @@ const meta: Meta<typeof FilterSelectorButton> = {
     selectedItems: {
       description: 'Массив выбранных объектов',
     },
-    name: {
+    title: {
       type: 'string',
       description: 'Имя селектора'
     },
@@ -36,7 +36,7 @@ type Story = StoryObj<typeof FilterSelectorButton>;
 
 export const Default: Story = {
   args: {
-    name: 'Жанры',
+    title: 'Жанры',
     active: false,
     selectedItems: [],
   }
@@ -44,7 +44,7 @@ export const Default: Story = {
 
 export const WithSelectedItems: Story = {
   args: {
-    name: 'Жанры',
+    title: 'Жанры',
     active: false,
     selectedItems: ['Детектив, Артхаус'],
   }
@@ -52,7 +52,7 @@ export const WithSelectedItems: Story = {
 
 export const Active: Story = {
   args: {
-    name: 'Жанры',
+    title: 'Жанры',
     active: true,
     selectedItems: [],
   }
@@ -60,7 +60,7 @@ export const Active: Story = {
 
 export const Disabled: Story = {
   args: {
-    name: 'Жанры',
+    title: 'Жанры',
     active: false,
     disabled: true,
     selectedItems: [],

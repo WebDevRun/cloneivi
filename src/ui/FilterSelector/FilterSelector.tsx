@@ -12,14 +12,15 @@ export interface FilterSelectorProps {
   position: 'left' | 'center' | 'right',
   items: string[]
   name?: string,
+  modalSize: 'big' | 'small'
 }
 
-export const FilterSelector: FC<FilterSelectorProps> = ({setSelectedItems, selectedItems, name, position, items, title}) => {
+export const FilterSelector: FC<FilterSelectorProps> = ({setSelectedItems, selectedItems, name, position, items, title, modalSize}) => {
   const [active, setActive] = useState(false)
   return (
     <div className={styles.filterSelector}>
-      {/*<FilterSelectorButton title={title} active={active} setActive={setActive} selectedItems={selectedItems} />*/}
-      {/*{active && <FilterDropDown size={'small'} position={position} slider={<div>asd</div>}  name={name || ''} items={items} type={'checkbox'}/> }*/}
+      <FilterSelectorButton title={title} active={active} setActive={setActive} selectedItems={selectedItems} />
+      {active && <FilterDropDown size={modalSize} position={position} slider={<div style={{height: 88, background: '#000'}}/>}  name={name || ''} items={items} /> }
     </div>
   )
 }

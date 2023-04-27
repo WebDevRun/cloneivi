@@ -43,7 +43,7 @@ type Story = StoryObj<typeof FilterDropDown>
 export const BigLeft: Story = {
   args: {
     size: 'big',
-    slider: <div style={{height: 88, background: '#000'}}></div>,
+    slider: <div style={{height: 88, background: '#000'}}/>,
     position: 'left',
     items: GENRES,
   },
@@ -59,7 +59,7 @@ export const BigLeft: Story = {
 export const BigRight: Story = {
   args: {
     size: 'big',
-    slider: <div style={{height: 88, background: '#000'}}></div>,
+    slider: <div style={{height: 88, background: '#000'}}/>,
     position: 'right',
     items: GENRES,
   },
@@ -75,7 +75,7 @@ export const BigRight: Story = {
 export const BigCenter: Story = {
   args: {
     size: 'big',
-    slider: <div style={{height: 88, background: '#000'}}></div>,
+    slider: <div style={{height: 88, background: '#000'}}/>,
     position: 'center',
     items: GENRES,
   },
@@ -91,7 +91,7 @@ export const BigCenter: Story = {
 export const Small: Story = {
   args: {
     size: 'small',
-    slider: <div style={{height: 88, background: '#000'}}></div>,
+    slider: <div style={{height: 88, background: '#000'}}/>,
     items: GENRES,
     name: 'genres',
   },
