@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-import language from '@/assets/images/header/language.svg'
-
 import { Button } from '../../ui/Button/Button'
 
 import styles from './Language.module.scss'
@@ -16,9 +14,9 @@ export const Language = () => {
   return (
     <div className={styles.toggleLang}>
       <Button
-        iconSrc={language}
-        iconAlt='Язык'
-        mode='language'
+        icon='language'
+        background='transparent'
+        size='big'
         onClick={handleClick}
       />
       <div className={styles.toggleLangText}>
