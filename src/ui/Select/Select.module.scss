@@ -1,4 +1,4 @@
-@use 'src/styles/functions' as fn;
+@use '../../styles/functions/pxToRem' as fn;
 
 $textColor: #D9D7E0;
 $white: #fff;
@@ -14,28 +14,30 @@ $transition: 0.4s;
   position: relative;
 
   &:hover {
-    color: $white;
+    .input:not(:disabled) + .text {
+      color: $white;
+    }
   }
 
-  & > .input {
+  .input {
     position: absolute;
     z-index: -1;
     opacity: 0;
   }
 
-  & > .input:checked + .text {
+  .input:checked + .text {
     color: $white;
   }
 
-  & > .text::before,
-  & > .text::after {
+  .text::before,
+  .text::after {
     content: '';
     opacity: 0;
     transition: opacity $transition;
     position: absolute;
   }
 
-  & > .text::before {
+  .text::before {
     width: fn.toRem(16px);
     height: fn.toRem(16px);
     background-repeat: no-repeat;
@@ -43,7 +45,7 @@ $transition: 0.4s;
     right: 0;
   }
 
-  & > .text::after {
+  .text::after {
     content: '';
     width: fn.toRem(4px);
     height: fn.toRem(4px);
@@ -61,43 +63,39 @@ $transition: 0.4s;
 .disabled {
   cursor: default;
   color: rgba($textColor, 0.4);
-
-  &:hover {
-    color: rgba($textColor, 0.4);
-  }
 }
 
 .checkbox {
-  & > .text::before {
+  .text::before {
     background-image: $checkboxIcon;
   }
 
-  & > .input:not(:disabled):not(:checked) + .text:hover::before {
+  .input:not(:disabled):not(:checked) + .text:hover::before {
     opacity: 0.4;
   }
 
-  & > .input:checked + .text::before {
+  .input:checked + .text::before {
     opacity: 1;
   }
 }
 
 .radio {
-  & > .text::before {
+  .text::before {
     border: 2px solid $white;
     border-radius: 50%;
   }
 
-  & > .text::after {
+  .text::after {
     background-color: $white;
     border-radius: 50%;
   }
 
-  & > .input:not(:disabled):not(:checked) + .text:hover::before {
+  .input:not(:disabled):not(:checked) + .text:hover::before {
     opacity: 0.4;
   }
 
-  & > .input:checked + .text::before,
-  & > .input:checked + .text::after {
+  .input:checked + .text::before,
+  .input:checked + .text::after {
     opacity: 1;
   }
 }
