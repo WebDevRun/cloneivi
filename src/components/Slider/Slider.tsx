@@ -6,7 +6,7 @@ import { ArrowSvg } from '@assets/svg/ArrowSvg'
 import styles from './Slider.module.scss'
 
 export interface SliderProps {
-  Component: FC
+  Component: FC<any>
   items: any[]
   arrowSize: 'small' | 'big'
   type: 'list' | 'oneItem'
@@ -52,7 +52,7 @@ export const Slider: FC<SliderProps> = ({
   const [itemWidth, setItemWidth] = useState<number>(0)
   const [slidesCount, setSlidesCount] = useState<number>(slidesToShow || 0)
   const [itemsGap, setItemsGap] = useState<number>(gap || 24)
-  const [position, setPosition] = useState<number>(startPosition || 0)
+  const [position, setPosition] = useState<number | null>(startPosition || 0)
   const [scrollStep, setScrollStep] = useState<number>(slidesToScroll || 0)
   const [transitionDuration, setTransitionDuration] = useState<number>(0)
   const [sliderItems, setSliderItems] = useState<typeof items>(items)
@@ -122,7 +122,7 @@ export const Slider: FC<SliderProps> = ({
     const currentPosition = Math.round(Math.abs(position - margin) / (itemWidth + itemsGap))
     setActiveItem(currentPosition)
 
-    if (!infinite) return
+    if (!infinite || !currentPosition) return
 
     if (currentPosition >= sliderItems.length - cloneCount.tail) {
       setTimeout(() => {
@@ -165,7 +165,7 @@ export const Slider: FC<SliderProps> = ({
     if (startPosition > items.length - slidesCount) {
       startPos = items.length - slidesCount - cloneCount.head
     }
-    setPosition(-startPos * (itemWidth + itemsGap) + margin || 0)
+    setPosition(-startPos * (itemWidth + itemsGap) + margin || null)
   }, [cloneCount, itemsGap, itemWidth, items, slidesCount, startPosition, margin])
 
   useEffect(() => {
