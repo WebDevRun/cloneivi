@@ -73,6 +73,19 @@
   }
 }
 
+.bottomFade {
+  position: absolute;
+  height: 48px;
+  left: 0;
+  right: 0;
+  top: -48px;
+  background-image: linear-gradient(
+    180deg,
+    rgba(49, 43, 69, 0),
+    rgba(49, 43, 69, 0.96)
+  );
+}
+
 .detailsBlock {
   display: flex;
   justify-content: center;

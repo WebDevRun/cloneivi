@@ -39,7 +39,6 @@
   justify-content: flex-end;
 }
 
-
 .buttonMobile {
   display: none;
 }
@@ -75,7 +74,7 @@
 @media screen and (max-width: 1160px) {
   .menu,
   .headerSearch,
-  .additionalButton{
+  .additionalButton {
     display: none;
   }
 

@@ -27,5 +27,6 @@ export const Widget: Story = {
     title: 'Подписка Иви',
     text: 'От 199 ₽ за месяц',
     textButton: 'Смотреть на SmartTV',
+    note: 'Отключить можно в любой момент',
   },
 }

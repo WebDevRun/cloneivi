@@ -6,7 +6,7 @@ import { HeaderSvg } from '../svg/HeaderSvg'
 import styles from './Button.module.scss'
 
 export interface ButtonProps {
-  icon?: 'search' | 'language' | 'profile' | 'notify'
+  icon?: 'search' | 'language' | 'profile' | 'notify' | 'smart'
   background?: 'transparent' | 'red' | 'gray' | 'primary'
   withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg'
   size?: 'small' | 'middle' | 'big'
