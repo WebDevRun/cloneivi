@@ -6,7 +6,7 @@ import '@styles/index.scss'
 import { MovieParams } from './MovieParams'
 
 const meta: Meta<typeof MovieParams> = {
-  title: 'MovieParams',
+  title: 'Movie/MovieParams',
   tags: ['autodocs'],
   component: MovieParams,
   argTypes: {
