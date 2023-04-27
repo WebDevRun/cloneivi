@@ -20,8 +20,8 @@ export const DropDownLayout: FC<ModalLayoutProps> = ({
     <div className={cn(
       styles.dropDownLayout,
       styles[type],
-      size && styles[size],
-      position && styles[position],
+      styles[size],
+      styles[position],
     )}>
       {children}
     </div>

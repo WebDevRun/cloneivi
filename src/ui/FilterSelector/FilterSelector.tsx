@@ -9,7 +9,7 @@ export interface FilterSelectorProps {
   title: string
   selectedItems: string[]
   setSelectedItems: () => void
-  position: 'left' | 'center' | 'right',
+  position?: 'left' | 'center' | 'right',
   items: string[]
   name?: string,
   modalSize: 'big' | 'small'

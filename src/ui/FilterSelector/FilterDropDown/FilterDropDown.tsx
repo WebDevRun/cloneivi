@@ -7,7 +7,7 @@ import styles from './FilterDropDown.module.scss'
 
 export interface FilterDropDownProps {
   size: 'big' | 'small'
-  position: 'left' | 'center' | 'right'
+  position?: 'left' | 'center' | 'right' | u
   slider: ReactNode
   items: string[]
   name?: string
