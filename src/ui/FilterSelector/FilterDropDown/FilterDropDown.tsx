@@ -8,12 +8,18 @@ import styles from './FilterDropDown.module.scss'
 export interface FilterDropDownProps {
   size: 'big' | 'small'
   position: 'left' | 'center' | 'right'
-  slider: ReactNode,
-  items: string[],
-  name?: 'string'
+  slider: ReactNode
+  items: string[]
+  name?: string
 }
 
-export const FilterDropDown: FC<FilterDropDownProps> = ({size, position, slider, items, name}) => {
+export const FilterDropDown: FC<FilterDropDownProps> = ({
+  size,
+  position,
+  slider,
+  items,
+  name,
+}) => {
   return (
     <DropDownLayout size={size} position={position} type={'filter'}>
       {
@@ -26,7 +32,7 @@ export const FilterDropDown: FC<FilterDropDownProps> = ({size, position, slider,
       <div className={styles[size]}>
         {
           items.map((item, index) => (
-            <Select type={size === 'big' ? 'checkbox' : 'radio'} text={item} key={index} name={name}/>
+            <Select type={size === 'big' ? 'checkbox' : 'radio'} text={item} key={index} name={name || ''} />
           ))
         }
       </div>

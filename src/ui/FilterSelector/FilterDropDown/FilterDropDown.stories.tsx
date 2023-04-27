@@ -2,6 +2,8 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { FilterDropDown } from './FilterDropDown'
 
+import '@styles/index.scss'
+
 const GENRES = ['anime', 'biography', 'action', 'western', 'military', 'detective', 'children']
 
 const meta: Meta<typeof FilterDropDown> = {
@@ -13,20 +15,24 @@ const meta: Meta<typeof FilterDropDown> = {
       type: 'string',
       description: 'Размер модального окна',
       options: ['big', 'small'],
-      control: { type: 'radio' },
+      control: {type: 'radio'},
     },
     position: {
       type: 'string',
       description: 'Положение относительно родительского блока',
       options: ['left', 'center', 'right'],
-      control: { type: 'radio' },
+      control: {type: 'radio'},
     },
     slider: {
-      description: 'Компонент слайдера'
+      description: 'Компонент слайдера',
     },
     items: {
-      description: 'Массив объектов для фильтра'
-    }
+      description: 'Массив объектов для фильтра',
+    },
+    name: {
+      type: 'string',
+      description: 'Имя для input',
+    },
   },
 }
 
@@ -39,11 +45,11 @@ export const BigLeft: Story = {
     size: 'big',
     slider: <div style={{height: 88, background: '#000'}}></div>,
     position: 'left',
-    items: GENRES
+    items: GENRES,
   },
   render: args => {
     return (
-      <div style={{width: 300, height: 20, background: '#fff', position: 'relative', marginLeft: '500px' }}>
+      <div style={{width: 300, height: 20, background: '#fff', position: 'relative', marginLeft: '500px'}}>
         <FilterDropDown {...args} />
       </div>
     )
@@ -55,11 +61,11 @@ export const BigRight: Story = {
     size: 'big',
     slider: <div style={{height: 88, background: '#000'}}></div>,
     position: 'right',
-    items: GENRES
+    items: GENRES,
   },
   render: args => {
     return (
-      <div style={{width: 300, height: 20, background: '#fff', position: 'relative', marginLeft: '500px' }}>
+      <div style={{width: 300, height: 20, background: '#fff', position: 'relative', marginLeft: '500px'}}>
         <FilterDropDown {...args} />
       </div>
     )
@@ -71,13 +77,31 @@ export const BigCenter: Story = {
     size: 'big',
     slider: <div style={{height: 88, background: '#000'}}></div>,
     position: 'center',
-    items: GENRES
+    items: GENRES,
   },
   render: args => {
     return (
-      <div style={{width: 300, height: 20, background: '#fff', position: 'relative', marginLeft: '500px' }}>
+      <div style={{width: 300, height: 20, background: '#fff', position: 'relative', marginLeft: '500px'}}>
         <FilterDropDown {...args} />
       </div>
     )
   },
 }
+
+export const Small: Story = {
+  args: {
+    size: 'small',
+    slider: <div style={{height: 88, background: '#000'}}></div>,
+    items: GENRES,
+    name: 'genres',
+  },
+  render: args => {
+    return (
+      <div style={{width: 300, height: 20, background: '#fff', position: 'relative', marginLeft: '500px'}}>
+        <FilterDropDown {...args} />
+      </div>
+    )
+  },
+}
+
+

@@ -7,14 +7,14 @@ import arrowDown from '@assets/images/selectors/arrow-down.svg'
 import styles from './FilterSelectorButton.module.scss'
 
 interface SelectorButtonProps {
-  name: string
+  title: string
   disabled?: boolean
   active: boolean
   setActive: Dispatch<SetStateAction<boolean>>
   selectedItems: string[]
 }
 
-export const FilterSelectorButton: FC<SelectorButtonProps> = ({name, active, setActive, disabled, selectedItems}) => {
+export const FilterSelectorButton: FC<SelectorButtonProps> = ({title, active, setActive, disabled, selectedItems}) => {
 
   const clickHandler: MouseEventHandler<HTMLInputElement> = () => {
     if (!disabled) {
@@ -30,7 +30,7 @@ export const FilterSelectorButton: FC<SelectorButtonProps> = ({name, active, set
     )}>
       <input type='checkbox' defaultChecked={active} onClick={clickHandler} />
       <div className={styles.content}>
-        <span className={styles.name}>{name}</span>
+        <span className={styles.name}>{title}</span>
         <div className={styles.selected}>{selectedItems.join(', ')}</div>
       </div>
       <Image src={arrowDown} alt='arrow-down' />

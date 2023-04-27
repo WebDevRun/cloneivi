@@ -13,7 +13,8 @@ $white: '#fff';
   grid-row-gap: 12px;
 }
 
-.middle,
 .small {
-
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
 }

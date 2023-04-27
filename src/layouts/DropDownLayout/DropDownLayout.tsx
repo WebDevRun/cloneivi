@@ -5,7 +5,7 @@ import styles from './DropDownLayout.module.scss'
 
 export interface ModalLayoutProps {
   children: ReactNode
-  size?: 'big' | 'small'
+  size?: 'big' | 'small' | 'middle'
   position?: 'left' | 'center' | 'right'
   type: 'filter' | 'header'
 }
