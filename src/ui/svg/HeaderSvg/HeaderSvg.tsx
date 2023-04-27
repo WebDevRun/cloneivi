@@ -1,13 +1,24 @@
 import { FC } from 'react'
 
 interface HeaderSvgProps {
-  size: number
+  size?: 'middle' | 'big'
   icon: 'language' | 'profile' | 'search' | 'notify'
 }
 
-export const HeaderSvg: FC<HeaderSvgProps> = ({ size, icon }) => {
+
+export const HeaderSvg: FC<HeaderSvgProps> = ({ size = 'middle', icon }) => {
+  const sz = {
+    middle: 20,
+    big: 32,
+  }
+
   return (
-    <svg version='1.1' xmlns='http://www.w3.org/2000/svg' width={size} height={size} viewBox='0 0 32 32'>
+    <svg 
+      version='1.1' 
+      xmlns='http://www.w3.org/2000/svg' 
+      width={sz[size]} 
+      height={sz[size]} 
+      viewBox='0 0 32 32'>
       {
         icon === 'language' &&
         <path

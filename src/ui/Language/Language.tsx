@@ -15,9 +15,9 @@ export const Language = () => {
   return (
     <div className={styles.toggleLang}>
       <Button
-        iconSrc={language}
-        iconAlt='Язык'
-        mode='language'
+        icon='language'
+        background='transparent'
+        size='big'
         onClick={handleClick}
       />
       <div className={styles.toggleLangText}>
