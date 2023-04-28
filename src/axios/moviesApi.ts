@@ -1,7 +1,7 @@
 import { $instance } from '@/axios/index'
-import { Movie } from '@/types/Movie'
+import { IMovie } from '@/types/Movie'
 
-export const getFilms = async (): Promise<Movie[]> => {
+export const getFilms = async (): Promise<IMovie[]> => {
   const { data } = await $instance.get('movies/movies.json')
 
   return data
