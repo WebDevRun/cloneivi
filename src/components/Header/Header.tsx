@@ -10,7 +10,9 @@ import { Button } from '../../ui/Button'
 import { Language } from '../../ui/Language'
 
 import styles from './Header.module.scss'
+import menu from './menu.json'
 
+/*
 const menu = [
   { id: '1', name: 'header:myIvi', href: 'https://www.ivi.ru/' },
   { id: '2', name: 'header:whatsNew', href: 'https://www.ivi.ru/new' },
@@ -19,6 +21,7 @@ const menu = [
   { id: '5', name: 'header:animations', href: 'https://www.ivi.ru/animation' },
   { id: '6', name: 'header:tv', href: 'https://www.ivi.ru/tvplus' },
 ]
+*/
 
 export const Header: FC = () => {
   const { t } = useTranslation(['header'])

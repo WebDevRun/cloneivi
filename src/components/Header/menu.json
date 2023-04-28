@@ -1,0 +1,8 @@
+[
+  { "id": "1", "name": "header:myIvi", "href": "https://www.ivi.ru/" },
+  { "id": "2", "name": "header:whatsNew", "href": "https://www.ivi.ru/new" },
+  { "id": "3", "name": "header:movies", "href": "https://www.ivi.ru/movies" },
+  { "id": "4", "name": "header:serials", "href": "https://www.ivi.ru/series" },
+  { "id": "5", "name": "header:animations", "href": "https://www.ivi.ru/animation" },
+  { "id": "6", "name": "header:tv", "href": "https://www.ivi.ru/tvplus" }
+]
