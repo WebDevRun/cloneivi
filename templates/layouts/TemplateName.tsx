@@ -6,6 +6,6 @@ export interface TemplateNameProps {
   children: ReactNode
 }
 
-export const TemplateName: FC<TemplateNameProps> = ({ children }) => (
-  <div className={styles.templateName}>{children}</div>
-)
+export const TemplateName: FC<TemplateNameProps> = ({ children }) => {
+  return <div className={styles.templateName}>{children}</div>
+}
