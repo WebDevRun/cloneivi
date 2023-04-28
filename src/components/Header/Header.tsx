@@ -30,16 +30,18 @@ export const Header = () => {
 
       <div className={styles.topWide}>
         <div className={styles.additionalButton}>
-          <Button mode="primary" text="Оплатить подписку" />
+          <Button
+            background='primary'
+            text="Оплатить подписку"
+          />
         </div>
         <div className={styles.buttonMobile}>
-          <Button mode="primaryMob" text="Смотреть 30 дней за 1₽" />
+          <Button text="Смотреть 30 дней за 1₽" />
         </div>
         <div  className={styles.headerSearch}>
           <Button
-            iconSvg={<HeaderSvg size={16} icon="search" />}
-            iconAlt="Поиск"
-            mode="search"
+            background='transparent'
+            icon='search'
             text="Поиск"
           />
         </div>
@@ -49,16 +51,8 @@ export const Header = () => {
         className={styles.notifyLink}
         href="https://www.ivi.ru/profile/pull_notifications"
       >
-        <HeaderSvg size={16} icon="notify" />
+        <HeaderSvg icon="notify" />
       </Link>
-
-      <div className={styles.headerAvatar}>
-        <Button
-          iconSvg={<HeaderSvg size={20} icon="profile" />}
-          iconAlt="Воити в аккаунт"
-          mode="signIn"
-        />
-      </div>
 
       <div className={styles.language}>
         <Language />

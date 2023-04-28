@@ -46,27 +46,27 @@ export const Range: FC<RangeProps> = ({
       onMouseUp={mouseUpHandler}
       onClick={rangeClickHandler}
     >
-      <div className={cn(styles.rangeTrack, styles[borderRadius])}></div>
+      <div className={cn(styles.rangeTrack, styles[borderRadius])} />
       <div
         ref={selectedRangeRef}
         className={cn(
           styles.selectedRange,
           styles[selectedRangeColor],
-          styles[borderRadius]
+          styles[borderRadius],
         )}
         style={{ width: `${selectedRange * 100}%` }}
-      ></div>
+      />
       <div
         ref={hoverRangeRef}
         className={cn(styles.hoverRange, styles[borderRadius])}
         style={{ width: `${hoverСoefficient * 100}%` }}
-      ></div>
+      />
       {hasThumb && (
         <div
           ref={thumbRef}
           style={{ left: `${selectedRange * 100}%` }}
           className={cn(styles.thumb, styles[selectedRangeColor])}
-        ></div>
+        />
       )}
       {children}
     </div>

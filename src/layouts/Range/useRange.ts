@@ -5,7 +5,7 @@ import { RangeProps } from './Range'
 export const useRange = (
   coefficient: RangeProps['coefficient'],
   setСoefficient: RangeProps['setСoefficient'],
-  setHoverСoefficient: RangeProps['setHoverСoefficient']
+  setHoverСoefficient: RangeProps['setHoverСoefficient'],
 ) => {
   const [selectedRange, setSelectedRange] = useState(coefficient)
   const [isMouseDown, setIsMouseDown] = useState(false)
@@ -27,15 +27,15 @@ export const useRange = (
     if (isMouseDown) setСoefficient(value)
   }
 
-  const rangeMouseOutHandler: MouseEventHandler<HTMLDivElement> = (event) => {
+  const rangeMouseOutHandler: MouseEventHandler<HTMLDivElement> = () => {
     setHoverСoefficient(0)
   }
 
-  const mouseDownHandler: MouseEventHandler<HTMLDivElement> = (event) => {
+  const mouseDownHandler: MouseEventHandler<HTMLDivElement> = () => {
     setIsMouseDown(true)
   }
 
-  const mouseUpHandler: MouseEventHandler<HTMLDivElement> = (event) => {
+  const mouseUpHandler: MouseEventHandler<HTMLDivElement> = () => {
     setIsMouseDown(false)
   }
 
