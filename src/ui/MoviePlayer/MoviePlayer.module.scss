@@ -1,0 +1,107 @@
+@use '@styles/functions' as fn;
+
+$white: #ffffff;
+
+.playerContainer {
+  position: relative;
+  max-width: fn.toRem(745px);
+  height: fn.toRem(405px);
+  overflow: hidden;
+}
+
+.player {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+
+  &::-webkit-media-controls {
+    display: none;
+  }
+}
+
+.controlsContainer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition-duration: 0.4s;
+
+  &_hover {
+    opacity: 1;
+  }
+}
+
+.controlsContainer {
+  display: flex;
+  align-items: end;
+  bottom: 0;
+  height: fn.toRem(160px);
+  background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.88));
+}
+
+.controlsInnerContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 40px) 1fr repeat(3, 40px);
+  row-gap: fn.toRem(8px);
+  align-items: center;
+  margin: 0 fn.toRem(32px) fn.toRem(14px);
+  transform: translateY(fn.toRem(160px));
+}
+
+.controlsInnerContainer {
+  transition-duration: 0.4s;
+
+  &_hover {
+    transform: translateY(0);
+  }
+}
+
+.timeRange {
+  grid-column: 3/-3;
+}
+
+.currentTime,
+.timeOnRange,
+.duration {
+  color: $white;
+  font-size: fn.toRem(13px);
+}
+
+.currentTime {
+  grid-column: 1/2;
+  margin-left: fn.toRem(12px);
+}
+
+.timeOnRange {
+  position: absolute;
+  top: fn.toRem(-20px);
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.duration {
+  grid-column: -3/-1;
+  margin-right: fn.toRem(12px);
+  justify-self: right;
+}
+
+.volume {
+  grid-column: 2/4;
+  margin-left: fn.toRem(5px);
+  display: flex;
+  align-items: center;
+}
+
+.hoverRangeVolume {
+  position: absolute;
+  top: fn.toRem(-8px);
+  font-weight: 600;
+  font-size: fn.toRem(10px);
+  color: $white;
+  z-index: -1;
+}
+
+.fullscreenButton {
+  grid-column: -2/-1;
+}
