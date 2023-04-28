@@ -1,15 +1,15 @@
 import { FC } from 'react'
 
 interface HeaderSvgProps {
-  size?: 'md' | 'sm' | 'bg'
+  size?: 'middle' | 'big'
   icon: 'language' | 'profile' | 'search' | 'notify'
 }
 
-export const HeaderSvg: FC<HeaderSvgProps> = ({ size = 'md', icon }) => {
+
+export const HeaderSvg: FC<HeaderSvgProps> = ({ size = 'middle', icon }) => {
   const sz = {
-    sm: 16,
-    md: 20,
-    bg: 32,
+    middle: 20,
+    big: 32,
   }
 
   return (

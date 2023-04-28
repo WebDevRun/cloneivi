@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import React, { FC, MouseEventHandler, ReactNode } from 'react'
+import React, { FC, MouseEventHandler } from 'react'
 
 import { HeaderSvg } from '../svg/HeaderSvg'
 
@@ -32,7 +32,7 @@ export const Button: FC<ButtonProps> = ({
     !(text || subText) && styles.onlyIcon,
   )
 
-  const iconSize = size === 'big' ? 'bg' : 'md'
+  const iconSize = size === 'big' ? 'big' : 'middle'
 
   return (
     <button type='button' className={mainCn} onClick={onClick}>
