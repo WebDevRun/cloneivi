@@ -1,35 +1,43 @@
-export interface IMovieReview {
-  total: number
-  positive: number
-  negative: number
-  neutral: number
-}
-
-export interface IMovieTitle {
-  ru: string
-  en: string
-}
-
-export interface IMovieGenre {
-  ru: string
-  en: string
-}
-
-export interface IMovieTime {
-
-}
-
-export interface IMovie  {
+export interface Film {
+  film_id: string
+  name_ru: string
+  name_en: string
+  description: string
+  year: number
+  country: string
   rating: number
-  ratingCount: number
-  reviews: IMovieReview
-  title: IMovieTitle
-  productionYear: number
-  countries: string[]
-  genre: IMovieGenre
-  director: string
-  ageRating: string
-  ratingMPAA: string
-  time: IMovieTime
-  actors: string[]
+  assessments: number
+  reviews: number
+  age_limit: number
+  duration: number
+  img: string
+  trailers: Trailer[]
+  genres: Genre[]
+  qualities: Quality[]
+  languagesAudio: Languages[]
+  languagesSubtitle: Languages[]
+}
+
+export interface Genre {
+  genre_id: string
+  genre_ru: string
+  genre_en: string
+  slug: string
+}
+
+export interface Languages {
+  language_id: string
+  language: string
+}
+
+export interface Quality {
+  quality_id: string
+  quality: string
+}
+
+export interface Trailer {
+  trailer_id: string
+  trailer: string
+  img: string
+  date: string
 }
