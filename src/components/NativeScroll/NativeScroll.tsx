@@ -15,6 +15,9 @@ export const NativeScroll: FC<INativeScroll> = ({ data }) => {
     <div className={styles.nativeScroll}>
       <div className={styles.nativeScrollInner}>
         <div className={styles.list}>
+          <div className={styles.gutter}>
+            <div className={styles.stripe}></div>
+          </div>
           {data.items.map((item) => (
             <div className={styles.item} key={item.href}>
               <Link href={item.href} title={item.title}>

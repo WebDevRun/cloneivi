@@ -1,7 +1,34 @@
+.list {
+  position: relative;
+}
+
+.gutter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  width: 1px;
+  background-color: hsla(0, 0%, 100%, 0.16);
+}
+
+.stripe {
+  height: 20px;
+  //transform: translateY(0px);
+  background-color: #fff;
+  width: 1px;
+  transition: transform 0.2s, width 0.4s, height 0.4s;
+  will-change: transform, width, height;
+}
+
 .item {
   font-size: 15px;
   font-weight: 400;
   line-height: 20px;
+  padding-left: 16px;
+
+  &:hover {
+    border-left: 1px solid #fff;
+  }
 
   &:not(:first-child) {
     margin-top: 8px;
