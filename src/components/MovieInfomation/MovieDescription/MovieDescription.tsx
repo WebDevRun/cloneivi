@@ -20,7 +20,7 @@ export const MovieDescription: FC<MovieDescriptionProps> = ({
   languagesAudio,
   qualities,
 }) => {
-  const { t } = useTranslation(['movieDetails'])
+  const { t } = useTranslation(['movieInfomation'])
 
   return (
     <div
@@ -33,16 +33,18 @@ export const MovieDescription: FC<MovieDescriptionProps> = ({
 
       <div className={styles.options}>
         <div className={styles.languageContainer}>
-          <p className={styles.languageText}>{t('movieDetails:languages')}</p>
+          <p className={styles.languageText}>
+            {t('movieInfomation:languages')}
+          </p>
           <p className={styles.languages}>
             {capitaliseArr(languagesAudio).join(', ')}
           </p>
         </div>
 
         <p className={styles.disclaimerContainer}>
-          {`${t('movieDetails:imageAndSound')}.`}
+          {`${t('movieInfomation:imageAndSound')}.`}
           <span className={styles.disclaimer}>
-            {` ${t('movieDetails:actualQuality')}.`}
+            {` ${t('movieInfomation:actualQuality')}.`}
           </span>
         </p>
 
