@@ -29,7 +29,6 @@ export const HeaderDropdown: FC = () => {
   let sideCn = cn(styles.sideContent, styles[sideFit])
 
   function eventHandler(e: CustomEventInit<string>) {
-    console.log(e.detail)
     setSideFit('')
     setIsTv(false)
     setIsNotify(false)
@@ -95,7 +94,8 @@ export const HeaderDropdown: FC = () => {
             {!(isNotify || isProfile) && (
               <div className={sideCn}>
                 <div className={styles.group}>
-                  <NativeScroll data={lists.extra} />
+                  {!isTv && <NativeScroll data={lists.extra} />}
+                  {isTv && <ShowList data={lists.extra} col='single' />}
                   {isTv && <Button text='Телепрограмма' background='gray' />}
                 </div>
                 {isTv && (

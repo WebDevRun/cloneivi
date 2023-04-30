@@ -13,22 +13,18 @@
 
 .stripe {
   height: 20px;
-  //transform: translateY(0px);
+  transform: translateY(0);
   background-color: #fff;
   width: 1px;
   transition: transform 0.2s, width 0.4s, height 0.4s;
   will-change: transform, width, height;
 }
 
-.item {
+.item{
   font-size: 15px;
   font-weight: 400;
   line-height: 20px;
   padding-left: 16px;
-
-  &:hover {
-    border-left: 1px solid #fff;
-  }
 
   &:not(:first-child) {
     margin-top: 8px;
