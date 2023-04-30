@@ -6,14 +6,16 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions'
+    '@storybook/addon-interactions',
+    'storybook-react-i18next',
   ],
+  staticDirs: ['../public'],
   framework: {
     name: '@storybook/nextjs',
-    options: {}
+    options: {},
   },
   docs: {
-    autodocs: 'tag'
+    autodocs: 'tag',
   },
   webpackFinal: async (config) => {
     if (config.resolve) {
@@ -26,11 +28,12 @@ const config: StorybookConfig = {
         '@layouts': path.resolve('src', 'layouts'),
         '@assets': path.resolve('src', 'assets'),
         '@styles': path.resolve('src', 'styles'),
-        '@public': path.resolve('public')
+        '@public': path.resolve('public'),
+        'next-i18next': 'react-i18next',
       }
     }
     return config
-  }
+  },
 }
 
 export default config
