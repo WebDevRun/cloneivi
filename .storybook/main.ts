@@ -7,7 +7,6 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    'storybook-react-i18next',
   ],
   staticDirs: ['../public'],
   framework: {
@@ -29,6 +28,7 @@ const config: StorybookConfig = {
         '@assets': path.resolve('src', 'assets'),
         '@styles': path.resolve('src', 'styles'),
         '@public': path.resolve('public'),
+        'next-i18next': 'react-i18next',
       }
     }
     return config
