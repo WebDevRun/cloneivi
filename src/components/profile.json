@@ -48,5 +48,20 @@
       "icon": "androidShare",
       "href": "https://www.ivi.ru/profile/referral"
     }
-  ]
+  ],
+  "extra": {
+    "title": "",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/",
+        "title": "Настройки",
+        "text": "Настройки"
+      },
+      {
+        "href": "https://www.ivi.ru/",
+        "title": "Помощь",
+        "text": "Помощь"
+      }
+    ]
+  }
 }

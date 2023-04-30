@@ -78,18 +78,20 @@ export const HeaderDropdown: FC = () => {
       <div>
         <div className={styles.headerDropdownBody}>
           <div className={styles.dropdownContent}>
-            {!!lists.genres.items.length && (
+            {!(isNotify || isProfile) && !!lists.genres.items.length && (
               <div className={styles.doubleColumn}>
                 <ShowList data={lists.genres} col='double' />
               </div>
             )}
 
-            {(!!lists.countries.items.length || !!lists.years.items.length) && (
-              <div className={styles.singleColumn}>
-                <ShowList data={lists.countries} col='single' />
-                <ShowList data={lists.years} col='single' />
-              </div>
-            )}
+            {!(isNotify || isProfile) &&
+              (!!lists.countries.items.length ||
+                !!lists.years.items.length) && (
+                <div className={styles.singleColumn}>
+                  <ShowList data={lists.countries} col='single' />
+                  <ShowList data={lists.years} col='single' />
+                </div>
+              )}
 
             {!(isNotify || isProfile) && (
               <div className={sideCn}>
@@ -172,19 +174,8 @@ export const HeaderDropdown: FC = () => {
                   ))}
                 </div>
                 <div className={styles.profileSide}>
-                  <Button text='Войти или зарегистрироваться'></Button>
-                  <div className={styles.list}>
-                    <div>
-                      <Link href='https://www.ivi.ru/' title='Настройки'>
-                        Настройки
-                      </Link>
-                    </div>
-                    <div>
-                      <Link href='https://www.ivi.ru/' title='Помощь'>
-                        Помощь
-                      </Link>
-                    </div>
-                  </div>
+                  <Button text='Войти или зарегистрироваться' />
+                  <ShowList data={profile.extra} col='single' />
                 </div>
               </div>
             )}
