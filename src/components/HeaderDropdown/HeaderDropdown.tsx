@@ -94,7 +94,11 @@ export const HeaderDropdown: FC = () => {
             {!(isNotify || isProfile) && (
               <div className={sideCn}>
                 <div className={styles.group}>
-                  {!isTv && <NativeScroll data={lists.extra} />}
+                  {!isTv && (
+                    <NativeScroll>
+                      <ShowList data={lists.extra} col='single' />
+                    </NativeScroll>
+                  )}
                   {isTv && <ShowList data={lists.extra} col='single' />}
                   {isTv && <Button text='Телепрограмма' background='gray' />}
                 </div>

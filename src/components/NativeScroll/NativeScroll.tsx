@@ -6,16 +6,17 @@ import { ILinkList } from '../../types'
 import styles from './NativeScroll.module.scss'
 
 export interface INativeScroll {
-  data: ILinkList
+  //data: ILinkList
+  children: any
 }
 
-export const NativeScroll: FC<INativeScroll> = ({ data }) => {
+export const NativeScroll: FC<INativeScroll> = ({ children }) => {
   const [heightStripe, setHeightStripe] = useState(20)
   const [offsetLine, setOffsetLine] = useState(0)
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const { height, marginTop, marginBottom } = getComputedStyle(
-      e.currentTarget.querySelector('a')?.closest('div') as HTMLElement,
+      e.currentTarget.querySelectorAll('a')[1].closest('div') as HTMLElement,
     )
 
     setHeightStripe(parseInt(height))
@@ -45,13 +46,7 @@ export const NativeScroll: FC<INativeScroll> = ({ data }) => {
               }}
             ></div>
           </div>
-          {data.items.map((item) => (
-            <div className={styles.item} key={item.href}>
-              <Link href={item.href} title={item.title}>
-                {item.text}
-              </Link>
-            </div>
-          ))}
+         {children}
         </div>
       </div>
     </div>
