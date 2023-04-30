@@ -1,22 +1,24 @@
+@use '../../styles/functions' as fn;
+
 .headerDropdown {
   display: none;
   flex-direction: column;
   background: #1f1b2e;
-  border-radius: 12px;
-  box-shadow: 0 20px 96px #12101b;
+  border-radius: fn.toRem(12px);
+  box-shadow: 0 fn.toRem(20px) fn.toRem(96px) #12101b;
 }
 
 .headerDropdownActive {
   display: flex;
   flex-direction: column;
   background: #1f1b2e;
-  border-radius: 12px;
-  box-shadow: 0 20px 96px #12101b;
+  border-radius: fn.toRem(12px);
+  box-shadow: 0 fn.toRem(20px) fn.toRem(96px) #12101b;
 }
 
 .headerDropdownBody {
-  margin-top: 68px;
-  padding: 32px 12px;
+  margin-top: fn.toRem(68px);
+  padding: fn.toRem(32px) fn.toRem(12px);
   background-color: transparent;
   color: #a5a1b2;
   position: relative;
@@ -25,10 +27,10 @@
     background-color: hsla(0, 0%, 100%, 0.16);
     content: '';
     height: 1px;
-    left: 8px;
+    left: fn.toRem(8px);
     pointer-events: none;
     position: absolute;
-    right: 8px;
+    right: fn.toRem(8px);
     top: 0;
     transition-duration: 80ms;
     transition-property: background-color;
@@ -46,8 +48,8 @@
 }
 
 .dropdownContent > * {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: fn.toRem(12px);
+  padding-right: fn.toRem(12px);
 }
 
 .singleColumn {
@@ -55,7 +57,7 @@
 }
 
 .singleColumn > *:not(:first-child) {
-  margin-top: 24px;
+  margin-top: fn.toRem(24px);
 }
 
 .sideContent {
@@ -72,8 +74,8 @@
 
 .sideContentFull > .group {
   width: 17.5%;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: fn.toRem(12px);
+  padding-right: fn.toRem(12px);
 }
 
 .group {
@@ -97,17 +99,17 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding-left: 32px;
-  margin-left: 12px;
+  padding-left: fn.toRem(32px);
+  margin-left: fn.toRem(12px);
   border-left: 1px solid hsla(0, 0%, 100%, 0.16);
-  min-height: 300px;
+  min-height: fn.toRem(300px);
 
   .title {
     color: #fff;
-    font-size: 15px;
+    font-size: fn.toRem(15px);
     font-weight: 700;
-    line-height: 20px;
-    margin-bottom: 16px;
+    line-height: fn.toRem(20px);
+    margin-bottom: fn.toRem(16px);
   }
 }
 
@@ -115,8 +117,8 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 244px;
-  margin-right: 12px;
+  width: fn.toRem(244px);
+  margin-right: fn.toRem(12px);
 
   background-color: rgb(85, 35, 0);
 }
@@ -129,7 +131,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  min-height: 250px;
+  min-height: fn.toRem(250px);
 }
 
 .notify {
@@ -156,21 +158,21 @@
 
 .notifyText {
   opacity: 0.32;
-  margin-top: 24px;
+  margin-top: fn.toRem(24px);
 }
 
 .profile {
   display: flex;
-  min-height: 224px;
+  min-height: fn.toRem(224px);
   width: 100%;
 }
 
 .profileMain {
-  grid-gap: 24px;
+  grid-gap: fn.toRem(24px);
   display: grid;
-  grid-template-columns: repeat(4, minmax(155px, 1fr));
+  grid-template-columns: repeat(4, minmax(fn.toRem(155px), 1fr));
   grid-template-rows: repeat(2, auto);
-  padding-right: 12px;
+  padding-right: fn.toRem(12px);
   width: 66.66666667%;
 }
 
@@ -179,19 +181,19 @@
   flex-direction: column;
   justify-content: space-between;
   border-left: 1px solid hsla(0, 0%, 100%, 0.16);
-  padding-left: 24px;
-  margin-left: 12px;
+  padding-left: fn.toRem(24px);
+  margin-left: fn.toRem(12px);
   width: 33.33333333%;
 }
 
 .list > *:not(:first-child) {
-  margin-top: 8px;
+  margin-top: fn.toRem(8px);
 }
 
 .list a {
-  font-size: 15px;
+  font-size: fn.toRem(15px);
   font-weight: 400;
-  line-height: 20px;
+  line-height: fn.toRem(20px);
   color: hsla(0, 0%, 100%, 0.48);
 }
 
@@ -200,26 +202,26 @@
 .profileItem {
   position: relative;
   background-color: #312b45;
-  border-radius: 8px;
-  min-height: 108px;
+  border-radius: fn.toRem(8px);
+  min-height: fn.toRem(108px);
 
-  font-size: 15px;
+  font-size: fn.toRem(15px);
   font-weight: 400;
-  line-height: 20px;
+  line-height: fn.toRem(20px);
   color: hsla(0, 0%, 100%, 0.48);
 }
 
 .profileItem > :first-child {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: fn.toRem(16px);
+  left: fn.toRem(16px);
 }
 
 .textBlock {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
+  bottom: fn.toRem(16px);
+  left: fn.toRem(16px);
+  right: fn.toRem(16px);
 }
 
 .textBlock > :first-child {
