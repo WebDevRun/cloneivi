@@ -1,11 +1,13 @@
+@use '../../styles/functions' as fn;
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
   background-color: transparent;
-  padding-left: 12px;
-  padding-right: 12px;
-  height: 66px;
+  padding-left: fn.toRem(12px);
+  padding-right: fn.toRem(12px);
+  height: fn.toRem(66px);
   z-index: 1;
 }
 
@@ -17,7 +19,7 @@
 .menu {
   display: flex;
   align-items: stretch;
-  margin-left: 32px;
+  margin-left: fn.toRem(32px);
 }
 
 .menuItem {
@@ -26,13 +28,13 @@
 }
 
 .menuItem:not(:first-child) {
-  padding-left: 16px;
+  padding-left: fn.toRem(16px);
 }
 
 .menuItemText {
-  font-size: 15px;
+  font-size: fn.toRem(15px);
   font-weight: 500;
-  line-height: 20px;
+  line-height: fn.toRem(20px);
   color: hsla(0, 0%, 100%, 0.48);
 
   &:hover {
@@ -64,15 +66,15 @@
 .headerSearch {
   display: flex;
   align-items: center;
-  margin-left: 20px;
+  margin-left: fn.toRem(20px);
 }
 
 .notifyLink {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 36px;
-  margin-left: 12px;
+  width: fn.toRem(36px);
+  margin-left: fn.toRem(12px);
 
   svg {
     fill: rgba(255, 255, 255, 0.48);
@@ -87,13 +89,13 @@
 .profile {
   display: flex;
   align-items: center;
-  margin-left: 12px;
+  margin-left: fn.toRem(12px);
 }
 
 .language {
   display: flex;
   align-items: center;
-  margin-left: 20px;
+  margin-left: fn.toRem(20px);
 }
 
 @media screen and (max-width: 1160px) {
