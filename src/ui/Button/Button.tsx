@@ -1,13 +1,16 @@
 import cn from 'classnames'
 import React, { FC, MouseEventHandler } from 'react'
 
+import { INameIcons } from '@/types/Icons'
+
 import { HeaderSvg } from '../svg/HeaderSvg'
 
 import styles from './Button.module.scss'
 
 export interface ButtonProps {
-  icon?: 'search' | 'language' | 'profile' | 'notify'
-  background?: 'transparent' | 'red' | 'gray' | 'primary'
+  icon?: INameIcons
+  background?: 'gray' | 'primary' | 'red' | 'transparent'
+  color?: 'active' | 'passive'
   withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg'
   size?: 'small' | 'middle' | 'big'
   text?: string
@@ -18,6 +21,7 @@ export interface ButtonProps {
 export const Button: FC<ButtonProps> = ({
   icon,
   background = 'red',
+  color = 'active',
   withBorder = 'borderNone',
   size = 'middle',
   text,
@@ -27,9 +31,10 @@ export const Button: FC<ButtonProps> = ({
   const mainCn = cn(
     styles.button,
     styles[background],
+    styles[color],
     styles[withBorder],
     styles[size],
-    !(text || subText) && styles.onlyIcon,
+    !text && styles.onlyIcon,
   )
 
   const iconSize = size === 'big' ? 'big' : 'middle'
