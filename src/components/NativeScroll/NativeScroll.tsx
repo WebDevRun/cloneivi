@@ -25,7 +25,8 @@ export const NativeScroll: FC<INativeScroll> = ({ children }) => {
 
     const offset = clientY - top
     if (offset !== offsetLine) {
-      setOffsetLine(Math.floor(offset / heightLine) * heightLine)
+      const num = Math.floor(offset / heightLine) * heightLine
+      setOffsetLine(num <= 0 ? 0 : num)
     }
   }
 
