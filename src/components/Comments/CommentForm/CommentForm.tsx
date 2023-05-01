@@ -1,5 +1,11 @@
 import cn from 'classnames'
-import { ChangeEventHandler, FC, useEffect, useState } from 'react'
+import {
+  ChangeEventHandler,
+  FC,
+  FormEventHandler,
+  useEffect,
+  useState,
+} from 'react'
 
 import { CommentAvatar } from '../CommentAvatar'
 
@@ -33,8 +39,18 @@ export const CommentForm: FC = () => {
     setText(event.currentTarget.value)
   }
 
+  const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault()
+
+    const formData = {
+      date: new Date(),
+      text,
+      vote: 2,
+    }
+  }
+
   return (
-    <form className={styles.commentForm}>
+    <form className={styles.commentForm} onSubmit={submitHandler}>
       <CommentAvatar />
 
       <div className={styles.inputContainer}>
