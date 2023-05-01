@@ -1,9 +1,9 @@
-import { FC, useState } from 'react'
+import { FC, ReactNode, useEffect, useState } from 'react'
 
 import styles from './NativeScroll.module.scss'
 
 export interface INativeScroll {
-  children: any
+  children: ReactNode
 }
 
 export const NativeScroll: FC<INativeScroll> = ({ children }) => {
@@ -12,7 +12,7 @@ export const NativeScroll: FC<INativeScroll> = ({ children }) => {
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const { height, marginTop, marginBottom } = getComputedStyle(
-      e.currentTarget.querySelectorAll('a')[1].closest('div') as HTMLElement,
+      e.currentTarget.querySelectorAll('a')[1].closest('li') as HTMLElement,
     )
 
     setHeightStripe(parseInt(height))
@@ -29,6 +29,10 @@ export const NativeScroll: FC<INativeScroll> = ({ children }) => {
     }
   }
 
+  useEffect(() => {
+    setOffsetLine(0)
+  }, [children])
+
   return (
     <div className={styles.nativeScroll}>
       <div className={styles.nativeScrollInner}>
@@ -42,7 +46,7 @@ export const NativeScroll: FC<INativeScroll> = ({ children }) => {
               }}
             ></div>
           </div>
-         {children}
+          {children}
         </div>
       </div>
     </div>

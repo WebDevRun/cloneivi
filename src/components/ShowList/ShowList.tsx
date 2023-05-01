@@ -8,22 +8,22 @@ import styles from './ShowList.module.scss'
 
 export interface IShowList {
   data: ILinkList
-  col: 'single' | 'double'
+  col?: 'single' | 'double'
 }
 
-export const ShowList: FC<IShowList> = ({ data, col }) => {
+export const ShowList: FC<IShowList> = ({ data, col = 'single' }) => {
   return (
     <div className={styles.linksList}>
       <div className={styles.title}>{data.title}</div>
-      <div className={cn(styles[col], styles.list)}>
+      <ul className={cn(styles[col], styles.list)}>
         {data.items.map((item, index) => (
-          <div className={styles.item} key={index}>
+          <li className={styles.item} key={index}>
             <Link href={item.href} title={item.title}>
               {item.text}
             </Link>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   )
 }

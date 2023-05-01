@@ -14,6 +14,10 @@
   background: #1f1b2e;
   border-radius: fn.toRem(12px);
   box-shadow: 0 fn.toRem(20px) fn.toRem(96px) #12101b;
+
+  @media (max-width: 1160px) {
+    display: none;
+  }
 }
 
 .headerDropdownBody {

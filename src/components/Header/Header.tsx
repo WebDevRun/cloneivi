@@ -21,7 +21,7 @@ export const Header: FC = () => {
       detail: target.closest('[data-test]')?.getAttribute('data-test'),
     })
 
-    window.dispatchEvent(event)
+    dispatchEvent(event)
   }
 
   return (
