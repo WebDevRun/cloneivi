@@ -1,12 +1,8 @@
-import Link from 'next/link'
 import { FC, useState } from 'react'
-
-import { ILinkList } from '../../types'
 
 import styles from './NativeScroll.module.scss'
 
 export interface INativeScroll {
-  //data: ILinkList
   children: any
 }
 
