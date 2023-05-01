@@ -17,7 +17,7 @@ const Movie = ({ movie }: MovieProps) => {
       <Header />
       <MoviePlayer
         name={movie.name_ru}
-        videoSrc={movie.trailers[0].trailer}
+        videoSrc='https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4'
         posterSrc={movie.trailers[0].img}
       />
     </AppLayout>
