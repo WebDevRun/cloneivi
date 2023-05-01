@@ -12,6 +12,7 @@ $transition: 0.4s;
   color: rgba($textColor, 0.8);
   transition: color $transition;
   position: relative;
+  text-transform: capitalize;
 
   &:hover {
     color: $white;

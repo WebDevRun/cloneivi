@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { Header } from '@components/Header'
 import { AppLayout } from '@layouts/AppLayout'
-import { FilterSelector } from '@components/../ui/FilterSelector'
+import { Filter } from '@components/Filter'
 
 export default function Home() {
   const { t } = useTranslation(['header'])
@@ -13,8 +13,7 @@ export default function Home() {
     <main>
       <AppLayout>
         <Header />
-        <h1>{t('header:more')}</h1>
-        <FilterSelector name={'Жанры'} selectedItems={[]} setSelectedItems={() => []} position={'left'}/>
+        <Filter />
       </AppLayout>
     </main>
   )

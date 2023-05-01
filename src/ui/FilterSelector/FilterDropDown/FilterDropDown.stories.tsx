@@ -29,10 +29,18 @@ const meta: Meta<typeof FilterDropDown> = {
     items: {
       description: 'Массив объектов для фильтра',
     },
-    name: {
+    category: {
       type: 'string',
-      description: 'Имя для input',
+      description: 'Тип селекторов в модальном окне',
+      options: ['genre', 'country', 'year', 'rating'],
+      control: {type: 'radio'}
     },
+    selectedItems: {
+      description: 'Массив выбранных фильтров'
+    },
+    setSelectedItems: {
+      description: 'Функция для установки выбранных фильтров'
+    }
   },
 }
 
@@ -46,6 +54,8 @@ export const BigLeft: Story = {
     slider: <div style={{height: 88, background: '#000'}}/>,
     position: 'left',
     items: GENRES,
+    category: 'genre',
+    selectedItems: ['anime', 'western']
   },
   render: args => {
     return (
@@ -62,6 +72,8 @@ export const BigRight: Story = {
     slider: <div style={{height: 88, background: '#000'}}/>,
     position: 'right',
     items: GENRES,
+    category: 'genre',
+    selectedItems: ['anime', 'western']
   },
   render: args => {
     return (
@@ -78,6 +90,8 @@ export const BigCenter: Story = {
     slider: <div style={{height: 88, background: '#000'}}/>,
     position: 'center',
     items: GENRES,
+    category: 'genre',
+    selectedItems: ['anime', 'western']
   },
   render: args => {
     return (
@@ -94,6 +108,8 @@ export const Small: Story = {
     slider: <div style={{height: 88, background: '#000'}}/>,
     items: GENRES,
     name: 'genres',
+    category: 'genre',
+    selectedItems: ['anime', 'western']
   },
   render: args => {
     return (

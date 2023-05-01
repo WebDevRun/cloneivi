@@ -18,3 +18,15 @@ $white: '#fff';
   display: flex;
   flex-direction: column;
 }
+
+@media screen and (max-width: 740px) {
+  .big {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .big {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

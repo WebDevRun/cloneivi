@@ -11,7 +11,7 @@ interface SelectorButtonProps {
   disabled?: boolean
   active: boolean
   setActive: Dispatch<SetStateAction<boolean>>
-  selectedItems: string[]
+  selectedItems: string[] | number
 }
 
 export const FilterSelectorButton: FC<SelectorButtonProps> = ({title, active, setActive, disabled, selectedItems}) => {
@@ -20,6 +20,18 @@ export const FilterSelectorButton: FC<SelectorButtonProps> = ({title, active, se
     if (!disabled) {
       setActive((prevState) => !prevState)
     }
+  }
+
+  const getSelected = () => {
+    if (typeof selectedItems === 'number' && selectedItems > 0) {
+      return selectedItems
+    }
+
+    if (typeof selectedItems === 'object') {
+      return selectedItems.join(', ')
+    }
+
+    return ''
   }
 
   return (
@@ -31,7 +43,7 @@ export const FilterSelectorButton: FC<SelectorButtonProps> = ({title, active, se
       <input type='checkbox' defaultChecked={active} onClick={clickHandler} />
       <div className={styles.content}>
         <span className={styles.name}>{title}</span>
-        <div className={styles.selected}>{selectedItems.join(', ')}</div>
+        <div className={styles.selected}>{getSelected()}</div>
       </div>
       <Image src={arrowDown} alt='arrow-down' />
     </label>

@@ -4,13 +4,16 @@ import { FC } from 'react'
 import styles from './Select.module.scss'
 
 export interface SelectProps {
-  type: 'radio' | 'checkbox',
-  text: string,
-  disabled?: boolean,
-  name?: string
+  type: 'radio' | 'checkbox'
+  name: string | number
+  disabled?: boolean
+  category: string
+  checked: boolean
+  onClickHandler: (item: string | number) => void
+  value?: string | number
 }
 
-export const Select: FC<SelectProps> = ({type, text, disabled = false, name}) => {
+export const Select: FC<SelectProps> = ({type, disabled = false, name, category, checked, onClickHandler, value}) => {
   return (
     <label
       className={cn(
@@ -20,8 +23,15 @@ export const Select: FC<SelectProps> = ({type, text, disabled = false, name}) =>
       )}
       style={{cursor: disabled ? 'default' : 'pointer'}}
     >
-      <input type={type} className={styles.input} disabled={disabled} name={name} />
-      <span className={styles.text}>{text}</span>
+      <input
+        type={type}
+        className={styles.input}
+        disabled={disabled}
+        name={category}
+        onClick={() => onClickHandler(value ? value : name)}
+        defaultChecked={checked}
+      />
+      <span className={styles.text}>{name}</span>
     </label>
   )
 }

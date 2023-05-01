@@ -11,6 +11,7 @@
   border-radius: 4px;
   user-select: none;
   justify-content: space-between;
+  overflow: hidden;
 
   & > input {
     position: absolute;
@@ -19,7 +20,7 @@
   }
 
   .content {
-    //width: 90%;
+    width: 90%;
     padding-right: 16px;
     box-sizing: border-box;
 
@@ -34,7 +35,8 @@
       line-height: 16px;
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap
+      white-space: nowrap;
+      text-transform: capitalize;
     }
   }
 
