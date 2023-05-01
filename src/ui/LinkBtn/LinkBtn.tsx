@@ -1,63 +1,69 @@
 import cn from 'classnames'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
 import styles from './LinkBtn.module.scss'
 
 interface LinkProps {
+  href: string
+  mode: 'footer' | 'actor' | 'genres' | 'account' | 'accountLinks'
+  type: 'square' | 'circle'
   subText?: string
   text?: string
-  type: 'square' | 'circle'
-  iconSrc?: string | any
+  iconSrc?: string | StaticImageData
   iconAlt?: string
-  href: string
-  imgSize?: number
-  mode: 'footer' | 'actor'
+  background?: string
+  color?: string
 }
 
 export const LinkBtn: FC<LinkProps> = ({
+  href,
+  mode,
+  type,
   subText,
   text,
-  type,
   iconSrc,
   iconAlt,
-  href,
-  imgSize,
-  mode,
+  background,
+  color
 }) => {
+  const style = {
+    background,
+    color,
+  }
   return (
     <Link className={styles.link} href={href}>
       <div
-        style={mode === 'actor' ? { padding: '6px', backgroundColor: 'rgba(255,255,255,.16)' } : {}}
-        className={cn(styles.btn, styles[type], {
+        style={style}
+        className={cn(styles.btn, styles[type], styles[mode], {
           [styles.btn_withSubText]: subText,
-          [styles.actor]: mode === 'actor'
         })}
       >
-        <div className={styles.btnContent}>
+        <div
+          className={cn(styles.btnContent, {
+            [styles.genres]: mode === 'genres',
+          })}
+        >
           {iconSrc && iconAlt && (
             <Image
-              width={imgSize}
-              height={imgSize}
+              className={styles.image}
+              width={mode === 'actor' ? 44 : undefined}
+              height={mode === 'actor' ? 44 : undefined}
               src={iconSrc}
               alt={iconAlt}
             />
           )}
 
-          {((text || subText) && mode === 'footer') && (
+          {(text || subText) && mode !== 'actor' && (
             <div className={styles.textContainer}>
               {subText && <p className={styles.subText}>{subText}</p>}
-              {text && <p className={styles.text}>{text}</p>}
+              {text && <p className={styles.mainText}>{text}</p>}
             </div>
           )}
         </div>
       </div>
-      {mode === 'actor' && (
-        <>
-          {text && <p className={styles.actorName}>{text}</p>}
-        </>
-      )}
+      {mode === 'actor' && text && <p className={styles.actorName}>{text}</p>}
     </Link>
   )
 }

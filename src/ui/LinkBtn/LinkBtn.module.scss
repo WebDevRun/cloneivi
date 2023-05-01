@@ -1,34 +1,39 @@
+@use '@styles/variables' as var;
+@use '../../styles/functions' as fn;
+
 .btn {
   display: inline-block;
   background: #1f1b2e;
-  color: white;
-  padding: 10px;
-  transition-duration: 80ms;
-  transition: .3s;
+  color: var.$white;
+  padding: fn.toRem(10px);
+  transition: 0.3s;
 
   &_withSubText {
-    padding: 5px 10px;
+    padding: fn.toRem(5px) fn.toRem(10px);
   }
 }
 
 .btnContent {
   display: flex;
   font-weight: 500;
-  font-size: 14px;
+  font-size: fn.toRem(14px);
   align-items: center;
   justify-content: center;
-  img{
-    border-radius: 8px;
+}
+
+.image {
+  border-radius: 8px;
+}
+
+.btnContent:has(img) {
+  .textContainer {
+    margin-left: fn.toRem(5px);
   }
 }
 
-.textContainer {
-  margin-left: 5px;
-}
-
 .subText {
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.72);
+  font-size: fn.toRem(10px);
+  color: rgba(var.$white, 0.72);
 }
 
 .square {
@@ -39,29 +44,115 @@
   border-radius: 50px;
 }
 
-.actorName{
-  color: rgba(255,255,255,.48);
-  font-size: 13px;
-  margin-top: 8px;
-  text-align: center;
-  display: inline;
-  transition-duration: 80ms;
-  transition: .3s;
+.actor {
+  padding: fn.toRem(6px);
+  background-color: rgba(var.$white, 0.16);
 }
 
-.link{
+.account {
+  background: transparent;
+  border: 2px solid rgba(var.$white, 0.48);
+  padding: fn.toRem(12px);
+}
+
+.link:has(.accountLinks) {
+  display: block;
+  .accountLinks {
+    background: #312b45;
+    display: block;
+    min-height: 108px;
+    padding: fn.toRem(16px);
+    .btnContent {
+      min-height: 76px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      .textContainer {
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 0;
+        .mainText {
+          font-size: fn.toRem(15px);
+          line-height: 20px;
+          font-weight: 500;
+          font-style: normal;
+        }
+        .subText {
+          font-size: fn.toRem(13px);
+          line-height: 16px;
+          font-weight: 500;
+          font-style: normal;
+          max-height: 16px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+}
+
+.actorName {
+  color: rgba(var.$white, 0.48);
+  font-size: fn.toRem(13px);
+  margin-top: fn.toRem(8px);
+  text-align: center;
+  display: inline;
+  transition: 0.3s;
+}
+
+.genres {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:has(.genres) {
+  background: transparent;
+  padding: fn.toRem(16px) fn.toRem(8px);
+  border: 1px solid rgba(var.$white, 0.32);
+  width: 108px;
+  .textContainer {
+    margin: 0;
+  }
+  .mainText {
+    margin-top: fn.toRem(8px);
+    font-size: fn.toRem(13px);
+    line-height: 16px;
+    font-weight: 500;
+    font-style: normal;
+    height: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.link {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  &:hover{
-    .btn{
+  &:hover {
+    .btn:has(.genres) {
+      background-color: #7e798f;
+    }
+    .btn.account {
+      border-color: var.$white;
+      box-shadow: 0 0 13px -5px var.$white;
+    }
+    .btn.footer {
       background-color: #2e2844;
     }
-    .actor{
-      background-color: rgba(255, 255, 255, .23) !important;
+    .btn.accountLinks{
+      background-color: #403764;
     }
-    .actorName{
-      color: white;
+    .actor {
+      background-color: rgba(var.$white, 0.23);
+    }
+    .actorName {
+      color: var.$white;
     }
   }
 }
