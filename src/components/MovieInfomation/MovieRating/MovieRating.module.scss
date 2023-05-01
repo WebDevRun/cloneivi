@@ -33,20 +33,7 @@
   font-weight: 500;
 }
 
-.button {
+.buttonContainer {
   margin-left: auto;
   margin-right: fn.toRem(10px);
-  border-radius: 6px;
-  padding: 3px 7px;
-  background-color: transparent;
-  border: 1px solid rgba(var.$mainTextColor, 0.32);
-  color: var.$mainTextColor;
-  font-size: fn.toRem(13px);
-  font-weight: 500;
-  cursor: pointer;
-  transition-duration: 0.4s;
-
-  &:hover {
-    border-color: rgba(var.$mainTextColor, 0.72);
-  }
 }

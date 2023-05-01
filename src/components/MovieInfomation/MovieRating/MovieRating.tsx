@@ -1,6 +1,8 @@
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
+import { Button } from '@/ui/Button'
+
 import styles from './MovieRating.module.scss'
 
 export interface MovieRatingProps {
@@ -16,7 +18,13 @@ export const MovieRating: FC<MovieRatingProps> = ({ rating }) => {
         <p className={styles.value}>{rating}</p>
       </div>
       <div className={styles.text}>{t('movieInfomation:kinopoiskRating')}</div>
-      <button className={styles.button}>{t('movieInfomation:estimate')}</button>
+      <div className={styles.buttonContainer}>
+        <Button
+          onClick={() => {}}
+          text={`${t('movieInfomation:estimate')}`}
+          withBorder='borderSm'
+        />
+      </div>
     </div>
   )
 }
