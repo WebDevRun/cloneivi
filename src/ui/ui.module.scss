@@ -1,0 +1,46 @@
+@use '../styles/functions' as fn;
+
+.superH1 {
+  font-size: fn.toRem(56px);
+  line-height: fn.toRem(56px);
+  font-weight: 700;
+}
+
+.titleH1 {
+  font-size: fn.toRem(40px);
+  line-height: fn.toRem(44px);
+  font-weight: 700;
+}
+
+.titleBig {
+  font-size: fn.toRem(32px);
+  line-height: fn.toRem(36px);
+  font-weight: 700;
+}
+
+.titleH2,
+.title {
+  font-size: fn.toRem(20px);
+  line-height: fn.toRem(24px);
+  font-weight: 700;
+}
+
+.bold {
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(22px);
+  font-weight: 500;
+}
+
+.normal {
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(22px);
+  font-weight: 400;
+  color: #a5a1b2;
+}
+
+.small {
+  font-size: fn.toRem(13px);
+  line-height: fn.toRem(16px);
+  font-weight: 400;
+  color: #d9d7e0;
+}
