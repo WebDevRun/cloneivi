@@ -1,2 +1,21 @@
 .personFilmography {
+  margin-top: 40px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin-right: 8px;
+  margin-bottom: 4px;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.extraTitle {
+  margin-bottom: 4px;
 }

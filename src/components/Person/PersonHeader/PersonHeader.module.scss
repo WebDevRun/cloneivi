@@ -1,2 +1,38 @@
 .personHeader {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.title {
+  font-size: 56px;
+  line-height: 56px;
+  font-weight: 700;
+}
+
+.alternate {
+  color: #a5a1b2;
+  margin: 16px 0;
+}
+
+.toggle {
+  margin-top: 6px;
+  color: #a5a1b2;
+  cursor: pointer;
+  transition-duration: 400ms;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.88);
+  }
+}
+
+.anchorLink {
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 400;
+  margin-top: 40px;
+}
+
+.anchorLink a {
+  color: rgba(255, 255, 255, 0.88);
 }

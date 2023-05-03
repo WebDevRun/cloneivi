@@ -1,0 +1,40 @@
+.personFilmographyItem {
+}
+
+.body {
+  display: flex;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 1 100%;
+  margin-left: 16px;
+
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.info {
+  margin-right: 16px;
+
+  & > *:not(:first-child) {
+    margin-top: 4px;
+  }
+}
+
+.rating {
+  color: #a5a1b2;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.ratingValue {
+  margin-left: 4px;
+  font-weight: 700;
+}

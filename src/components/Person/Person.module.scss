@@ -1,2 +1,14 @@
 .person {
+  width: 50%;
+  margin-left: 25%;
+  padding-top: 60px;
+}
+
+.person > *:not(:first-child) {
+  margin-top: 40px;
+}
+
+.breadCrumbs {
+  display: flex;
+  justify-content: center;
 }
