@@ -1,17 +1,7 @@
-import { useTranslation } from 'next-i18next'
-
-import { Person } from '@/components/Person'
-import { Header } from '@components/Header'
-import { AppLayout } from '@layouts/AppLayout'
-
-export default function PersonPage() {
-
+export default function Persons({ persons }) {
   return (
     <>
-      <AppLayout>
-        <Header />
-        <Person />
-      </AppLayout>
+      <div>Список персон</div>
     </>
   )
 }

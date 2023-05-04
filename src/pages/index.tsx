@@ -14,7 +14,6 @@ export default function Home() {
       <AppLayout>
         <h1>{t('header:more')}</h1>
         <Header />
-        <Person></Person>
       </AppLayout>
     </main>
   )
