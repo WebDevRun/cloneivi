@@ -62,7 +62,6 @@
   background-color: rgba(49, 43, 69, 0.96);
   transition-property: height;
   transition-duration: 0.3s;
-  pointer-events: auto;
 
   &:hover {
     height: fn.toRem(140px);
@@ -79,6 +78,7 @@
   left: 0;
   right: 0;
   top: fn.toRem(-48px);
+  pointer-events: none;
   background-image: linear-gradient(
     180deg,
     rgba(49, 43, 69, 0),
@@ -128,13 +128,15 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  justify-content: end;
   opacity: 0;
-  bottom: fn.toRem(12px);
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   transition-duration: 0.4s;
   transition-property: opacity;
   width: 100%;
+  height: 100%;
   padding: 0 fn.toRem(20px);
 
   &:hover {
@@ -149,6 +151,7 @@
 
 .note {
   margin-top: fn.toRem(12px);
+  margin-bottom: fn.toRem(12px);
   color: #a5a1b2;
   font-size: fn.toRem(10px);
   font-weight: 400;
@@ -157,10 +160,6 @@
   text-overflow: ellipsis;
   transition-property: opacity, transform;
   white-space: nowrap;
-
-  &:hover {
-    opacity: 1;
-  }
 }
 
 @keyframes horizontalScrolling {
