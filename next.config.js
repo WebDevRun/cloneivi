@@ -12,6 +12,11 @@ module.exports = nextConfig = {
         hostname: 'thumbs.dfs.ivi.ru',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'avatars.mds.yandex.net',
+        port: '',
+      },
     ],
   },
 }
