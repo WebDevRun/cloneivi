@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { FC } from 'react'
 
+import { getProportionalImgWidth } from '@/utils/functions/getProportionalImgWidth'
+
 import { IPerson } from '../Person'
 
 import styles from './PersonHeader.module.scss'
@@ -11,21 +13,22 @@ export const PersonHeader: FC<IPerson> = ({
   first_name_en,
   last_name_en,
   films,
-  img,
+  img = '//avatars.mds.yandex.net/get-kinopoisk-image/1599028/09a6ecb6-052b-41fb-8323-1b95a10cb33a/280x420',
 }) => {
   const filmsNumber = films?.length as number
 
   return (
     <div className={styles.personHeader}>
-      <div className='figure'>
-        <Image
-          className={styles.image}
-          //src={`https:${img}`}
-          src='https://thumbs.dfs.ivi.ru/storage5/contents/9/6/b7f9eef3eaeb3d500cd994fb130047.jpg/120x144/?q=85'
-          alt={''}
-          width='120'
-          height='144'
-        />
+      <div className={styles.figure}>
+        <div className={styles.imageWrapper}>
+          <Image
+            className={styles.image}
+            src={`https:${img}`}
+            alt={''}
+            width={getProportionalImgWidth(img, 120, 180)}
+            height='180'
+          />
+        </div>
       </div>
       <h1 className={styles.title}>{`${first_name_ru} ${last_name_ru}`}</h1>
       <div

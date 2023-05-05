@@ -1,21 +1,28 @@
+@use '../../../styles/functions' as fn;
+
 .personFilmography {
-  margin-top: 40px;
+  margin-top: fn.toRem(40px);
 }
 
 .header {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: fn.toRem(16px);
 }
 
 .title {
-  margin-right: 8px;
-  margin-bottom: 4px;
-  font-size: 24px;
-  line-height: 28px;
+  margin-right: fn.toRem(8px);
+  margin-bottom: fn.toRem(4px);
+  font-size: fn.toRem(24px);
+  line-height: fn.toRem(28px);
   font-weight: 700;
 }
 
 .extraTitle {
-  margin-bottom: 4px;
+  margin-bottom: fn.toRem(4px);
+}
+
+.list > *:not(:first-child) {
+  margin-top: fn.toRem(16px);
 }

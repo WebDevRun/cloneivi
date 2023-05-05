@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { FC, useEffect, useState } from 'react'
 
 import { Button } from '@/ui/Button'
+import { getProportionalImgWidth } from '@/utils/functions/getProportionalImgWidth'
 
 import styles from './PersonFilmographyItem.module.scss'
 
@@ -10,10 +11,34 @@ export interface PersonFilmographyItemProps {
   id: string
 }
 
+const defaultFilm = {
+  film_id: '984fdb2d-da0c-4e04-926a-f72f103c4ccb',
+  name_ru: 'Зеленая миля',
+  name_en: 'The Green Mile',
+  description:
+    'Пол Эджкомб — начальник блока смертников в тюрьме «Холодная гора», каждый из узников которого однажды проходит «зеленую милю» по пути к месту казни. Пол повидал много заключённых и надзирателей за время работы. Однако гигант Джон Коффи, обвинённый в страшном преступлении, стал одним из самых необычных обитателей блока.',
+  year: 1999,
+  country: 'США',
+  rating: 9.1,
+  assessments: 1328162,
+  reviews: 475,
+  age_limit: 16,
+  duration: 189,
+  img: '//avatars.mds.yandex.net/get-kinopoisk-image/1599028/4057c4b8-8208-4a04-b169-26b0661453e3/300x450',
+  trailers: [
+    {
+      trailer_id: 'fb853667-00a4-4b1a-bb7d-9fcea60cc1e1',
+      trailer: 'https://www.kinopoisk.ru/film/435/video/13494/',
+      img: '//avatars.mds.yandex.net/get-kino-vod-films-gallery/1668876/a345b127722243984f01ef6504c9a477/100x64_3',
+      date: '16 июня 2009',
+    },
+  ],
+}
+
 export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
   id,
 }) => {
-  const [films, setFilms] = useState({})
+  const [films, setFilms] = useState(defaultFilm)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,10 +55,10 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
         <div className={styles.figure}>
           <Image
             className={styles.image}
-            src='https://thumbs.dfs.ivi.ru/storage23/contents/e/5/083ebacbcddba0f89bb4e89d9f64ef.jpg/172x264/?q=85'
+            src={films.img ? `https:${films.img}` : 'https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/e840ca57-354a-44bf-a282-53add07fd18c/300x450'}
             alt={''}
-            width='120'
-            height='144'
+            width={getProportionalImgWidth(films.img, 75, 118)}
+            height='118'
           />
         </div>
         <div className={styles.main}>

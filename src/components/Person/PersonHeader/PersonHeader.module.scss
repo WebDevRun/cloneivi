@@ -1,22 +1,43 @@
+@use '../../../styles/functions' as fn;
+
 .personHeader {
-  font-size: 15px;
-  line-height: 22px;
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(22px);
   font-weight: 400;
 }
 
+.figure {
+  position: relative;
+  margin-bottom: fn.toRem(16px);
+  width: fn.toRem(120px);
+  height: fn.toRem(130px);
+}
+
+.imageWrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  border-radius: fn.toRem(16px);
+  object-fit: cover;
+  height: fn.toRem(130px);
+}
+
 .title {
-  font-size: 56px;
-  line-height: 56px;
+  font-size: fn.toRem(56px);
+  line-height: fn.toRem(56px);
   font-weight: 700;
 }
 
 .alternate {
   color: #a5a1b2;
-  margin: 16px 0;
+  margin: fn.toRem(16px) 0;
 }
 
 .toggle {
-  margin-top: 6px;
+  margin-top: fn.toRem(6px);
   color: #a5a1b2;
   cursor: pointer;
   transition-duration: 400ms;
@@ -27,10 +48,10 @@
 }
 
 .anchorLink {
-  font-size: 18px;
-  line-height: 21px;
+  font-size: fn.toRem(18px);
+  line-height: fn.toRem(21px);
   font-weight: 400;
-  margin-top: 40px;
+  margin-top: fn.toRem(40px);
 }
 
 .anchorLink a {

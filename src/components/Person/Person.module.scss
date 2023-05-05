@@ -1,11 +1,24 @@
+@use '../../styles/functions' as fn;
+
 .person {
   width: 50%;
   margin-left: 25%;
-  padding-top: 60px;
+  padding-top: fn.toRem(60px);
+
+  @media (max-width: 1160px) {
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  @media (max-width: 880px) {
+    width: auto;
+    margin-left: fn.toRem(20px);
+    margin-right: fn.toRem(20px);
+  }
 }
 
 .person > *:not(:first-child) {
-  margin-top: 40px;
+  margin-top: fn.toRem(40px);
 }
 
 .breadCrumbs {
