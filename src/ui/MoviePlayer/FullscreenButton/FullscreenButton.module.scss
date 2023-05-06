@@ -1,0 +1,21 @@
+@use '@styles/functions' as fn;
+@use '../general' as gn;
+
+.fullscreenButton {
+  @include gn.buttonStyles;
+}
+
+.preview {
+  position: absolute;
+  bottom: fn.toRem(20px);
+  right: 1rem;
+  background: transparent;
+}
+
+.playing {
+  @include gn.playingButtonStyles;
+}
+
+.fullscreenImage {
+  @include gn.buttonImageStyles;
+}
