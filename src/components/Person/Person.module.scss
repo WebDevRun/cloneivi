@@ -8,6 +8,7 @@
   @media (max-width: 1160px) {
     width: 70%;
     margin-left: 15%;
+    padding-top: fn.toRem(80px);
   }
 
   @media (max-width: 880px) {
@@ -19,9 +20,4 @@
 
 .person > *:not(:first-child) {
   margin-top: fn.toRem(40px);
-}
-
-.breadCrumbs {
-  display: flex;
-  justify-content: center;
 }

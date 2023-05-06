@@ -1,3 +1,6 @@
+import { FC, useEffect, useState } from 'react'
+
+import defaultData from './data_mock.json'
 import styles from './Person.module.scss'
 import { PersonFilmography } from './PersonFilmography'
 import { PersonHeader } from './PersonHeader'
@@ -7,7 +10,7 @@ export interface IFilmId {
 }
 
 export interface IPerson {
-  id: string
+  person_id: string
   first_name_ru: string
   last_name_ru: string
   first_name_en: string
@@ -16,19 +19,33 @@ export interface IPerson {
   films: IFilmId[]
 }
 
-export const Person = (props: IPerson) => {
+export interface PersonProps {
+  person_id: string
+  pathDataSrc: string
+}
+
+export const Person: FC<PersonProps> = ({ person_id, pathDataSrc }) => {
+  const [person, setPerson] = useState(defaultData as IPerson)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`${pathDataSrc}${person_id}`)
+      const data = await response.json()
+      setPerson(data)
+    }
+    fetchData()
+  }, [person_id, pathDataSrc])
+
   return (
     <div className={styles.person}>
       <section>
-        <PersonHeader {...props} />
+        <PersonHeader {...person} />
       </section>
       <section>
-        <PersonFilmography {...props} />
-      </section>
-      <section>
-        <div className={styles.breadCrumbs}>
-          Здесь будет компонент Хлебные крошки
-        </div>
+        <PersonFilmography
+          films={person.films}
+          pathDataSrc='http://localhost:4000/films/'
+        />
       </section>
     </div>
   )

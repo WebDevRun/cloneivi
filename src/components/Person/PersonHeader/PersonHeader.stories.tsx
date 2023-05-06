@@ -5,7 +5,7 @@ import '@styles/index.scss'
 import { PersonHeader } from './PersonHeader'
 
 const meta: Meta<typeof PersonHeader> = {
-  title: 'PersonPersonHeader',
+  title: 'Person/PersonHeader',
   tags: ['autodocs'],
   component: PersonHeader,
   argTypes: {},

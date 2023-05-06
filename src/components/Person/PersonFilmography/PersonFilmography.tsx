@@ -2,13 +2,22 @@ import { FC } from 'react'
 
 import { Button } from '@/ui/Button'
 
-import { IPerson } from '../Person'
+import { IFilmId } from '../Person'
 import { PersonFilmographyItem } from '../PersonFilmographyItem'
 
 import styles from './PersonFilmography.module.scss'
 
-export const PersonFilmography: FC<IPerson> = ({ films }) => {
+interface IPersonFilmography {
+  films: IFilmId[]
+  pathDataSrc: string
+}
+
+export const PersonFilmography: FC<IPersonFilmography> = ({
+  films,
+  pathDataSrc,
+}) => {
   const filmsNumber = films?.length as number
+
 
   return (
     <div className={styles.personFilmography}>
@@ -18,15 +27,19 @@ export const PersonFilmography: FC<IPerson> = ({ films }) => {
       </div>
 
       <div className={styles.list}>
-        {films && films.map((film) => (
-          <PersonFilmographyItem key={film.film_id} id={film.film_id} />
-        ))}
-        
+        {films &&
+          films.map((film) => (
+            <PersonFilmographyItem
+              key={film.film_id}
+              id={film.film_id}
+              pathDataSrc={pathDataSrc}
+            />
+          ))}
       </div>
 
       <div className={styles.more}>
         <Button
-          text={`Ещё ${filmsNumber - 8} фильмов`}
+          text={`Ещё ${filmsNumber - 8} фильм -а-ов`}
           background='transparent'
         />
       </div>

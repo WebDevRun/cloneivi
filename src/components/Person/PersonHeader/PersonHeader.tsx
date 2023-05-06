@@ -34,17 +34,6 @@ export const PersonHeader: FC<IPerson> = ({
       <div
         className={styles.alternate}
       >{`${first_name_en} ${last_name_en}`}</div>
-      <div className={styles.story}>
-        <div className={styles.clause}>
-          <div className={styles.text}>
-            <p>
-              Оскар Айзек (Oscar Isaak Hernandez) - американский актер, ставший
-              известным благодаря главной роли в картине братьев...
-            </p>
-            <span className={styles.toggle}>Развернуть</span>
-          </div>
-        </div>
-      </div>
       <div className={styles.anchorLink}>
         <a href='#filmography'>{`${filmsNumber} фильмов`}</a>
       </div>

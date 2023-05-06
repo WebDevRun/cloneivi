@@ -1,0 +1,19 @@
+{
+  "person_id": "44bd3a0c-0199-4b62-a567-5c435b9f4c18",
+  "first_name_ru": "Кейси",
+  "last_name_ru": "Аффлек",
+  "first_name_en": "Casey",
+  "last_name_en": "Affleck",
+  "img": "//avatars.mds.yandex.net/get-kinopoisk-image/1599028/09a6ecb6-052b-41fb-8323-1b95a10cb33a/280x420",
+  "films": [
+    {
+      "film_id": "984fdb2d-da0c-4e04-926a-f72f103c4ccb"
+    },
+    {
+      "film_id": "5e95cbb8-c19b-403a-ab3c-6ac11e6cc697"
+    },
+    {
+      "film_id": "50568d8f-3bbd-481d-9668-2ebc1e5852c3"
+    }
+  ]
+}

@@ -36,17 +36,6 @@
   margin: fn.toRem(16px) 0;
 }
 
-.toggle {
-  margin-top: fn.toRem(6px);
-  color: #a5a1b2;
-  cursor: pointer;
-  transition-duration: 400ms;
-
-  &:hover {
-    color: rgba(255, 255, 255, 0.88);
-  }
-}
-
 .anchorLink {
   font-size: fn.toRem(18px);
   line-height: fn.toRem(21px);
