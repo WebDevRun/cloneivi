@@ -12,12 +12,14 @@ const meta: Meta<typeof PersonFilmography> = {
   component: PersonFilmography,
   argTypes: {
     films: {
-      description:
-        'Массив с ИД фильмов',
+      description: 'Массив id фильмов',
     },
     pathDataSrc: {
       description:
         'Путь к источнику данных, например: http://localhost:4000/films/',
+    },
+    maxShowItems: {
+      description: 'Количество отображаемых элементов',
     },
   },
 }
@@ -28,6 +30,7 @@ type Story = StoryObj<typeof PersonFilmography>
 
 export const Default: Story = {
   args: {
-    films: person.films
+    films: person.films,
+    maxShowItems: 2,
   },
 }

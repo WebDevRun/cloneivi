@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { FC } from 'react'
 
+import { declOfNum } from '@/utils/functions/declinOfNum'
 import { getProportionalImgWidth } from '@/utils/functions/getProportionalImgWidth'
 
 import { IPerson } from '../Person'
@@ -16,6 +17,8 @@ export const PersonHeader: FC<IPerson> = ({
   img = '//avatars.mds.yandex.net/get-kinopoisk-image/1599028/09a6ecb6-052b-41fb-8323-1b95a10cb33a/280x420',
 }) => {
   const filmsNumber = films?.length as number
+
+  const declination = declOfNum(filmsNumber, ['фильм', 'фильма', 'фильмов'])
 
   return (
     <div className={styles.personHeader}>
@@ -35,7 +38,7 @@ export const PersonHeader: FC<IPerson> = ({
         className={styles.alternate}
       >{`${first_name_en} ${last_name_en}`}</div>
       <div className={styles.anchorLink}>
-        <a href='#filmography'>{`${filmsNumber} фильмов`}</a>
+        <a href='#filmography'>{`${filmsNumber} ${declination}`}</a>
       </div>
     </div>
   )

@@ -17,6 +17,10 @@ const meta: Meta<typeof Person> = {
       description:
         'Путь к источнику данных, например: http://localhost:4000/persons/',
     },
+    maxShowFilms: {
+      description:
+        'Количество открытых элементов из Полной фильмографии',
+    },
   },
 }
 
@@ -27,5 +31,6 @@ type Story = StoryObj<typeof Person>
 export const Default: Story = {
   args: {
     person_id: 'bb718ac3-fbab-4942-8cd4-1320f20ae263',
+    maxShowFilms: 2,
   },
 }

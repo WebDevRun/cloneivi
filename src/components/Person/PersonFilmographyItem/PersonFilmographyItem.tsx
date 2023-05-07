@@ -22,9 +22,11 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`${pathDataSrc}${id}`)
+
       const data = await response.json()
       setFilms(data)
     }
+
     fetchData()
   }, [id, pathDataSrc])
 

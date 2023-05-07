@@ -22,9 +22,14 @@ export interface IPerson {
 export interface PersonProps {
   person_id: string
   pathDataSrc: string
+  maxShowFilms: number
 }
 
-export const Person: FC<PersonProps> = ({ person_id, pathDataSrc }) => {
+export const Person: FC<PersonProps> = ({
+  person_id,
+  pathDataSrc,
+  maxShowFilms,
+}) => {
   const [person, setPerson] = useState(defaultData as IPerson)
 
   useEffect(() => {
@@ -45,6 +50,7 @@ export const Person: FC<PersonProps> = ({ person_id, pathDataSrc }) => {
         <PersonFilmography
           films={person.films}
           pathDataSrc='http://localhost:4000/films/'
+          maxShowItems={maxShowFilms}
         />
       </section>
     </div>

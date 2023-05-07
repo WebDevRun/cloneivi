@@ -22,6 +22,7 @@ export default function PersonPage() {
         <Person
           person_id={id as string}
           pathDataSrc='http://localhost:4000/persons/'
+          maxShowFilms={8}
         />
         <div className={styles.breadCrumbs}>Контейнер для BreadCrumbs</div>
       </AppLayout>
