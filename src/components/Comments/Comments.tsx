@@ -37,7 +37,7 @@ export const Comments: FC<CommentProps> = ({ comments }) => {
   return (
     <div className={styles.comments}>
       <div className={styles.commentForm}>
-        <CommentForm />
+        <CommentForm filmId={comments[0].film_id} />
       </div>
 
       {renderComments(comments)}

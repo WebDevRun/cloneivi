@@ -10,12 +10,9 @@ const $authInstance = axios.create({
 
 // const authInterceptor = async (config: AxiosRequestConfig) => {
 //   config.headers.Authorization = `Bearer ${( localStorage.getItem('token')}`
-  // return config
+// return config
 // }
 
 // $authInstance.interceptors.request.use(authInterceptor)
 
-export {
-  $instance,
-  $authInstance,
-}
+export { $instance, $authInstance }
