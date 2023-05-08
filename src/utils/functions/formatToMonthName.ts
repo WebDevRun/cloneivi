@@ -1,4 +1,4 @@
-export const formatToMonthName = (date: string, locale: 'ru' | 'en') => {
+export const formatToMonthName = (date: string, locale: string) => {
   const tempDate = new Date(date)
   const dateStr = tempDate.toLocaleString(locale, {
     day: 'numeric',

@@ -4,13 +4,25 @@ import { CommentForm } from './CommentForm'
 import { CommentItem } from './CommentItem'
 import styles from './Comments.module.scss'
 
-interface CommentProps {
+interface IProfile {
+  first_name: string
+  last_name: string
+}
+
+interface IUser {
+  profile: IProfile
+}
+
+export interface IComment {
+  comment_id: string
   text: string
-  date: string
   vote: number
+  createAt: string
+  user: IUser
+  sub_comments: IComment[]
 }
 export interface CommentsProps {
-  comments: CommentProps[]
+  comments: IComment[]
 }
 
 export const Comments: FC<CommentsProps> = ({ comments }) => {
@@ -23,11 +35,12 @@ export const Comments: FC<CommentsProps> = ({ comments }) => {
       <ul className={styles.commentList}>
         {comments.map((comment) => {
           return (
-            <li key={comment.date}>
+            <li key={comment.comment_id}>
               <CommentItem
                 vote={comment.vote}
-                date={comment.date}
+                date={comment.createAt}
                 text={comment.text}
+                user={comment.user}
               />
             </li>
           )
