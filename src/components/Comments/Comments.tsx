@@ -1,32 +1,16 @@
 import { FC } from 'react'
 
+import { IComment } from '@/types/Comments'
+
 import { CommentForm } from './CommentForm'
 import { CommentItem } from './CommentItem'
 import styles from './Comments.module.scss'
 
-interface IProfile {
-  first_name: string
-  last_name: string
-}
-
-interface IUser {
-  profile: IProfile
-}
-
-interface IComment {
-  comment_id: string
-  text: string
-  vote: number
-  createAt: string
-  user: IUser
-  sub_comments: IComment[]
-}
-
-export interface CommentsProps {
+export interface CommentProps {
   comments: IComment[]
 }
 
-export const Comments: FC<CommentsProps> = ({ comments }) => {
+export const Comments: FC<CommentProps> = ({ comments }) => {
   const renderComments = (comments: IComment[]) => {
     return (
       <ul className={styles.commentList}>
@@ -35,7 +19,7 @@ export const Comments: FC<CommentsProps> = ({ comments }) => {
             <li key={comment.comment_id}>
               <CommentItem
                 vote={comment.vote}
-                date={comment.createAt}
+                date={comment.createdAt}
                 text={comment.text}
                 firstName={comment.user.profile.first_name}
                 lastName={comment.user.profile.last_name}

@@ -43,9 +43,8 @@ export const CommentForm: FC = () => {
     event.preventDefault()
 
     const formData = {
-      date: new Date(),
       text,
-      vote: 2,
+      vote: 36,
     }
   }
 
