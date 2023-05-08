@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import { FC } from 'react'
 
 import { formatToMonthName } from '@/utils/functions/formatToMonthName'
@@ -8,39 +7,30 @@ import { CommentThumb } from '../CommentThumb'
 
 import styles from './CommentItem.module.scss'
 
-interface IProfile {
-  first_name: string
-  last_name: string
-}
-
-interface IUser {
-  profile: IProfile
-}
 export interface CommentItemProps {
   date: string
   text: string
   vote: number
-  user: IUser
+  firstName: string
+  lastName: string
 }
 
 export const CommentItem: FC<CommentItemProps> = ({
   date,
   text,
   vote,
-  user,
+  firstName,
+  lastName,
 }) => {
-  const router = useRouter()
-
   return (
     <div className={styles.commentItem}>
-      <CommentAvatar name={user.profile.first_name} />
+      <CommentAvatar firstName={firstName} />
 
-      <p
-        className={styles.name}
-      >{`${user.profile.first_name} ${user.profile.last_name}`}</p>
-      <p className={styles.date}>
-        {formatToMonthName(date, router.locale || 'ru')}
+      <p className={styles.title}>
+        {`${firstName} ${lastName}`}
+        <span className={styles.date}>{formatToMonthName(date, 'ru')}</span>
       </p>
+
       <p className={styles.text}>{text}</p>
 
       <div className={styles.voteContainer}>

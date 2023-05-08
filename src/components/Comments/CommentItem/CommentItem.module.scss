@@ -4,26 +4,24 @@ $fontSize: fn.toRem(15px);
 
 .commentItem {
   display: grid;
-  grid-template-columns: repeat(3, min-content) 1fr min-content;
+  grid-template-columns: repeat(2, min-content) 1fr min-content;
   column-gap: fn.toRem(12px);
 }
 
-.name {
+.title {
   grid-column: 2/4;
   font-weight: 700;
   font-size: fn.toRem(13px);
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 .date {
-  grid-column: 4/5;
-  font-size: fn.toRem(13px);
+  margin-left: fn.toRem(8px);
+  font-weight: 400;
   color: #a5a1b2;
 }
 
 .text {
-  grid-column: 2/5;
+  grid-column: 2/4;
   grid-row: 2/3;
   font-size: $fontSize;
   line-height: 22px;

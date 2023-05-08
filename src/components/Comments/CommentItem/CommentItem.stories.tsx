@@ -18,6 +18,12 @@ const meta: Meta<typeof CommentItem> = {
     vote: {
       description: 'Количество голосов',
     },
+    firstName: {
+      description: 'Имя пользователя',
+    },
+    lastName: {
+      description: 'Фамилия пользователя',
+    },
   },
 }
 
@@ -30,5 +36,7 @@ export const Default: Story = {
     date: '9 апреля 2023',
     text: 'Фильм просто *** редкостное, не тратьте своё время!',
     vote: 2,
+    firstName: 'Victor',
+    lastName: 'Barinov',
   },
 }

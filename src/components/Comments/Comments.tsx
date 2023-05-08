@@ -13,7 +13,7 @@ interface IUser {
   profile: IProfile
 }
 
-export interface IComment {
+interface IComment {
   comment_id: string
   text: string
   vote: number
@@ -21,17 +21,14 @@ export interface IComment {
   user: IUser
   sub_comments: IComment[]
 }
+
 export interface CommentsProps {
   comments: IComment[]
 }
 
 export const Comments: FC<CommentsProps> = ({ comments }) => {
-  return (
-    <div className={styles.comments}>
-      <div className={styles.commentForm}>
-        <CommentForm />
-      </div>
-
+  const renderComments = (comments: IComment[]) => {
+    return (
       <ul className={styles.commentList}>
         {comments.map((comment) => {
           return (
@@ -40,12 +37,26 @@ export const Comments: FC<CommentsProps> = ({ comments }) => {
                 vote={comment.vote}
                 date={comment.createAt}
                 text={comment.text}
-                user={comment.user}
+                firstName={comment.user.profile.first_name}
+                lastName={comment.user.profile.last_name}
               />
+
+              {comment.sub_comments.length > 0 &&
+                renderComments(comment.sub_comments)}
             </li>
           )
         })}
       </ul>
+    )
+  }
+
+  return (
+    <div className={styles.comments}>
+      <div className={styles.commentForm}>
+        <CommentForm />
+      </div>
+
+      {renderComments(comments)}
     </div>
   )
 }

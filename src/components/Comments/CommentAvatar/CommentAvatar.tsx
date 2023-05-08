@@ -6,14 +6,14 @@ import avatar from '@assets/images/comments/avatar.svg'
 import styles from './CommentAvatar.module.scss'
 
 interface CommentAvatarProps {
-  name?: string
+  firstName?: string
 }
 
-export const CommentAvatar: FC<CommentAvatarProps> = ({ name }) => {
+export const CommentAvatar: FC<CommentAvatarProps> = ({ firstName }) => {
   return (
     <div className={styles.commentAvatar}>
-      {name ? (
-        <div className={styles.firstLetter}>{name[0].toUpperCase()}</div>
+      {firstName ? (
+        <div className={styles.firstLetter}>{firstName[0].toUpperCase()}</div>
       ) : (
         <Image className={styles.avatar} src={avatar} alt='avatar' />
       )}

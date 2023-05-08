@@ -8,4 +8,9 @@
   display: flex;
   flex-direction: column;
   gap: fn.toRem(28px);
+
+  & ul {
+    margin-left: fn.toRem(28px);
+    margin-top: fn.toRem(28px);
+  }
 }
