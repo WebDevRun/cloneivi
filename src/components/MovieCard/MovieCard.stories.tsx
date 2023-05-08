@@ -58,5 +58,16 @@ export const Default: Story = {
     rating: 8.3,
     year: 2019,
     genre: ['Мелодрамы'],
+    mode: 'small'
   },
+}
+
+export const BigMovieCard: Story = {
+  args: {
+    imgSrc: 'https://thumbs.dfs.ivi.ru/storage6/contents/7/b/8771f2bdb2fcf548eec1b9d85d117e.jpg/1216x370/?q=85',
+    imgAlt: 'img',
+    mode: 'big',
+    href: '#',
+    ageLimit: '18+'
+  }
 }

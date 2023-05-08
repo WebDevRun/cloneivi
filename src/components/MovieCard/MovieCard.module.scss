@@ -1,11 +1,50 @@
-.movieCard {
+.movieCard.small {
   max-width: 154px;
   display: block;
+  .textBadge {
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    background-color: #ff542e;
+    box-shadow: 0 4px 12px rgba(255, 84, 46, 0.4);
+    padding: 3px 8px;
+    border-radius: 50px;
+    width: auto;
+    position: absolute;
+    top: 5px;
+    left: -5px;
+    z-index: 1;
+  }
+  .ageBadge {
+    bottom: 10px;
+    right: 5px;
+  }
+}
+
+.movieCard.big {
+  width: 100%;
+  display: block;
+  .ageBadge {
+    left: 24px;
+    top: 20px;
+  }
 }
 
 .movieCardImageCont {
   position: relative;
   transition: 0.2s ease-in-out;
+}
+
+.movieCardImage {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+.btnCont {
+  position: absolute;
+  left: 24px;
+  bottom: 20px;
 }
 
 .movieInfo {
@@ -108,27 +147,6 @@
   border-radius: 5px;
 }
 
-.movieCardImage {
-  width: 100%;
-  border-radius: 10px;
-  display: block;
-}
-
-.textBadge {
-  font-size: 13px;
-  font-weight: 700;
-  color: white;
-  background-color: #ff542e;
-  box-shadow: 0 4px 12px rgba(255, 84, 46, 0.4);
-  padding: 3px 8px;
-  border-radius: 50px;
-  width: auto;
-  position: absolute;
-  top: 5px;
-  left: -5px;
-  z-index: 1;
-}
-
 .ageBadge {
   width: 24px;
   height: 16px;
@@ -137,8 +155,6 @@
   font-size: 10.5px;
   color: rgba(211, 211, 211, 0.6);
   position: absolute;
-  bottom: 10px;
-  right: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,10 +179,9 @@
   font-weight: 400;
 }
 
-.movieCard:hover {
+.movieCard.small:hover {
   .movieCardImageCont {
     transform: scale(1.05);
-
     .movieInfo {
       opacity: 1;
     }
