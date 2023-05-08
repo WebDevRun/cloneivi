@@ -1,2 +1,11 @@
 .backLink {
+  display: flex;
+  height: 20px;
+}
+
+.text {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  margin-left: 8px;
 }

@@ -69,6 +69,7 @@ export const PersonFilmography: FC<IPersonFilmography> = ({
             text={`Ещё ${remainingQuantity} ${declinationRemainingQuantity}`}
             background='transparent'
             onClick={handleOnClick}
+            fields='noneFields'
           />
         </div>
       )}

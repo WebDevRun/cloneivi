@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
 
+import { BackLink } from '@/components/BackLink'
 import { Person } from '@/components/Person'
 import { Header } from '@components/Header'
 import { AppLayout } from '@layouts/AppLayout'
@@ -16,7 +16,9 @@ export default function PersonPage() {
       <AppLayout>
         <Header />
         <div className={styles.backLinkSection}>
-          <div className={styles.backLinkWrapper}>Контейнер для BackLink</div>
+          <div className={styles.backLinkWrapper}>
+            <BackLink text='Назад'></BackLink>
+          </div>
         </div>
         {/*<Person {...(person! as IPerson)} />*/}
         <Person

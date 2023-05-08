@@ -10,6 +10,7 @@ export interface ButtonProps {
   background?: 'transparent' | 'red' | 'gray' | 'primary'
   withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg'
   size?: 'small' | 'middle' | 'big'
+  fields?: 'noneFields' | 'widthFields'
   text?: string
   subText?: string
   onClick?: MouseEventHandler<HTMLButtonElement>
@@ -22,6 +23,7 @@ export const Button: FC<ButtonProps> = ({
   size = 'middle',
   text,
   subText,
+  fields = 'widthFields',
   onClick,
 }) => {
   const mainCn = cn(
@@ -29,6 +31,7 @@ export const Button: FC<ButtonProps> = ({
     styles[background],
     styles[withBorder],
     styles[size],
+    fields === 'noneFields' && styles[fields],
     !(text || subText) && styles.onlyIcon,
   )
 

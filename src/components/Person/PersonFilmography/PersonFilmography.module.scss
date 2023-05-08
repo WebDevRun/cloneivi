@@ -19,10 +19,10 @@
   font-weight: 700;
 }
 
-.extraTitle {
-  margin-bottom: fn.toRem(4px);
+.list > *:not(:first-child) {
+  margin-top: fn.toRem(16px);
 }
 
-.list > *:not(:first-child) {
+.more {
   margin-top: fn.toRem(16px);
 }
