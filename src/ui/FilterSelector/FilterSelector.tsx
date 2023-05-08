@@ -1,6 +1,6 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 
-import { IActiveFilterModal } from '@/types/filter'
+import { IActiveFilterModal, IFilterCategory, IFilterItems, IFilterSettings } from '@/types/filter'
 import { IGenre } from '@/types/Movie'
 import { FilterDropDown } from '@ui/FilterSelector/FilterDropDown'
 import { FilterSelectorButton } from '@ui/FilterSelector/FilterSelectorButton'
@@ -9,19 +9,16 @@ import styles from './FilterSelector.module.scss'
 
 export interface FilterSelectorProps {
   title: string
-  selectedItems: string[] | number
-  setSelectedItems: Dispatch<SetStateAction<string[] | number>>
   position?: 'left' | 'center' | 'right',
   items: IGenre[] | string[] | number[]
+  selectedItems: IFilterSettings | null
   modalSize: 'big' | 'small',
-  category: 'genre' | 'country' | 'year' | 'rating'
+  category: IFilterCategory
   activeModal: IActiveFilterModal
   setActiveModal: Dispatch<SetStateAction<IActiveFilterModal>>
 }
 
 export const FilterSelector: FC<FilterSelectorProps> = ({
-  setSelectedItems,
-  selectedItems,
   position,
   items,
   title,
@@ -29,25 +26,43 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
   category,
   activeModal,
   setActiveModal,
+  selectedItems,
 }) => {
 
-  const selectCheckbox = (item: string | number) => {
-    if ((category === 'year' || category === 'rating') && typeof item === 'number') {
-      setSelectedItems(item)
-    }
+  const setFilters = () => {
 
-    if ((category === 'genre' || category === 'country') && typeof selectedItems === 'object' && typeof item === 'string') {
-      const id = selectedItems.indexOf(item)
-
-      if (id === -1) {
-        selectedItems = [...selectedItems, item]
-      } else {
-        selectedItems.splice(id, 1)
-      }
-
-      setSelectedItems([...selectedItems])
-    }
   }
+
+  const getSelectedName = (): string[] => {
+    if (!selectedItems) return []
+    const selectedItem = selectedItems[category]
+
+    if (Array.isArray(selectedItem)) {
+      return selectedItem.map(item => item[`${category}_ru`])
+    }
+
+    return []
+  }
+
+
+  getSelectedName()
+  // const selectCheckbox = (item: string | number) => {
+  //   if ((category === 'year' || category === 'rating') && typeof item === 'number') {
+  //     setSelectedItems(item)
+  //   }
+  //
+  //   if ((category === 'genre' || category === 'country') && typeof selectedItems === 'object' && typeof item ===
+  // 'string') { const id = selectedItems.indexOf(item)  if (id === -1) { selectedItems = [...selectedItems, item] }
+  // else { selectedItems.splice(id, 1) }  setSelectedItems([...selectedItems]) } }
+
+  // const getSelectedName = () => {
+  //   if (typeof selectedItems === 'number') return
+  //
+  //   return selectedItems.map(selectedItem => {
+  //     const currentItem = items.filter(item => item.slug === selectedItem)[0]
+  //     return currentItem[`${category}_ru`]
+  //   })
+  // }
 
   return (
     <div className={styles.filterSelector}>
@@ -55,7 +70,7 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
         title={title}
         active={activeModal === category}
         setActive={() => setActiveModal(activeModal === category ? '' : category)}
-        selectedItems={selectedItems}
+        selectedItems={getSelectedName()}
       />
       {
         activeModal === category &&
@@ -65,8 +80,9 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
           slider={<div style={{height: 88, background: '#000'}} />}
           items={items}
           category={category}
-          selectedItems={selectedItems}
-          setSelectedItems={selectCheckbox}
+          selectedItems={selectedItems ? selectedItems[category] : []}
+          setSelectedItems={() => {
+          }}
         />
       }
     </div>

@@ -16,14 +16,14 @@
   }
 
   .clearButton {
+    width: auto;
     background-color: transparent;
     color: #fff;
     font-size: 15px;
     line-height: 20px;
     margin-top: 16px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
     padding: 8px;
     gap: 8px;
 

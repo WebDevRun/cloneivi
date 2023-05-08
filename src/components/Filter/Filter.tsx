@@ -1,34 +1,50 @@
-import { FC, useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { FC, useEffect, useState } from 'react'
 
+import { IActiveFilterModal, IFilterSettings } from '@/types/filter'
 import { COUNTRIES, GENRES, RATINGS, YEARS } from '@/utils/consts'
 import { FilterSvg } from '@assets/svg/FilterSvg/FilterSvg'
 import { FilterSelector } from '@ui/FilterSelector'
 
 import styles from './Filter.module.scss'
-import { IActiveFilterModal } from '@/types/filter'
 
 export const Filter: FC = () => {
-  const [selectedGenres, setSelectedGenres] = useState<string[]>([])
-  const [selectedCounties, setSelectedCountries] = useState<string[]>([])
-  const [selectedYear, setSelectedYear] = useState<number>(-1)
-  const [selectedRating, setSelectedRating] = useState<number>(-1)
+  const [filterSettings, setFilterSettings] = useState<IFilterSettings | null>(null)
   const [activeModal, setActiveModal] = useState<IActiveFilterModal>('')
+  const {query} = useRouter()
 
-  const clearFilters = () => {
-    setSelectedGenres([])
-    setSelectedCountries([])
-    setSelectedYear(-1)
-    setSelectedRating(-1)
-    setActiveModal('')
-  }
+  useEffect(() => {
+    const {params, rating} = query
+    const settings: IFilterSettings = {
+      genre: [],
+      country: [],
+      year: -1,
+      rating: -1,
+    }
+
+    if (params && Array.isArray(params)) {
+      params.forEach(parameter => {
+        const items = GENRES.filter((genre) => genre.slug === parameter)
+        if (items.length > 0) {
+          settings.genre = [...items]
+        }
+      })
+
+    }
+
+    setFilterSettings(settings)
+  }, [query])
+
 
   return (
     <div className={styles.filter}>
       <div className={styles.selectors}>
         <FilterSelector
           title='Жанры'
-          selectedItems={selectedGenres}
-          setSelectedItems={setSelectedGenres}
+          selectedItems={filterSettings}
+          setSelectedItems={() => {
+          }}
           position={'left'}
           items={GENRES}
           modalSize={'big'}
@@ -38,8 +54,9 @@ export const Filter: FC = () => {
         />
         <FilterSelector
           title='Страны'
-          selectedItems={selectedCounties}
-          setSelectedItems={setSelectedCountries}
+          selectedItems={filterSettings}
+          setSelectedItems={() => {
+          }}
           position={'center'}
           items={COUNTRIES}
           modalSize={'big'}
@@ -49,8 +66,9 @@ export const Filter: FC = () => {
         />
         <FilterSelector
           title='Годы'
-          selectedItems={selectedYear}
-          setSelectedItems={setSelectedYear}
+          selectedItems={filterSettings}
+          setSelectedItems={() => {
+          }}
           items={YEARS}
           modalSize={'small'}
           category={'year'}
@@ -59,8 +77,9 @@ export const Filter: FC = () => {
         />
         <FilterSelector
           title='Рейтинг Иви'
-          selectedItems={selectedRating}
-          setSelectedItems={setSelectedRating}
+          selectedItems={filterSettings}
+          setSelectedItems={() => {
+          }}
           items={RATINGS}
           modalSize={'small'}
           category={'rating'}
@@ -74,10 +93,10 @@ export const Filter: FC = () => {
         <div style={{height: 35, background: '#000', width: 130}}></div>
         <div style={{height: 35, background: '#000', width: 130}}></div>
       </div>
-      <button className={styles.clearButton} onClick={clearFilters}>
+      <Link href={''} className={styles.clearButton}>
         <FilterSvg icon={'close'} />
         <span>Сбросить фильтры</span>
-      </button>
+      </Link>
     </div>
   )
 }

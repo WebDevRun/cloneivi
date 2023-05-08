@@ -6,6 +6,7 @@ import { DropDownLayout } from '@layouts/DropDownLayout'
 import { Select } from '@ui/Select'
 
 import styles from './FilterDropDown.module.scss'
+import Link from 'next/link'
 
 export interface FilterDropDownProps {
   size: 'big' | 'small'
@@ -29,12 +30,12 @@ export const FilterDropDown: FC<FilterDropDownProps> = ({
   setSelectedItems,
 }) => {
 
-  const getName = (item: IItem) => {
+  const getName = (item: IItem, type: 'name' | 'slug') => {
     if (typeof item === 'string' || typeof item === 'number') {
       return item
     }
 
-    return item[`${category}_ru`]
+    return type === 'name' ? item[`${category}_ru`] :  item['slug']
   }
 
   const getChecked = (item: IItem) => {
@@ -47,7 +48,7 @@ export const FilterDropDown: FC<FilterDropDownProps> = ({
     }
 
     if (typeof selectedItems === 'object') {
-      return selectedItems.includes(item[`${category}_ru`])
+      return selectedItems.includes(item['slug'])
     }
     return false
   }
@@ -64,14 +65,16 @@ export const FilterDropDown: FC<FilterDropDownProps> = ({
       <div className={styles[size]}>
         {
           category === 'year' &&
-          <Select
-            type={size === 'big' ? 'checkbox' : 'radio'}
-            name={'Все годы'}
-            category={category}
-            checked={selectedItems === -1}
-            onClickHandler={setSelectedItems}
-            value={-1}
-          />
+          <Link href={'/'} as={'/filter'}>
+            <Select
+              type={size === 'big' ? 'checkbox' : 'radio'}
+              name={'Все годы'}
+              category={category}
+              checked={selectedItems === -1}
+              onClickHandler={setSelectedItems}
+              value={-1}
+            />
+          </Link>
         }
         {
           category === 'rating' &&
@@ -89,11 +92,11 @@ export const FilterDropDown: FC<FilterDropDownProps> = ({
             <div key={index}>
               <Select
                 type={size === 'big' ? 'checkbox' : 'radio'}
-                name={getName(item)}
+                name={getName(item, 'name')}
                 category={category}
                 checked={getChecked(item)}
                 onClickHandler={setSelectedItems}
-                value={getName(item)}
+                value={getName(item, 'slug')}
               />
             </div>
           ))
