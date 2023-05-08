@@ -33,7 +33,7 @@ export const CommentItem: FC<CommentItemProps> = ({
 
   return (
     <div className={styles.commentItem}>
-      <CommentAvatar />
+      <CommentAvatar name={user.profile.first_name} />
 
       <p
         className={styles.name}
