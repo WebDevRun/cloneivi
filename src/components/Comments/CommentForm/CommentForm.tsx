@@ -59,21 +59,23 @@ export const CommentForm: FC<CommentFormProps> = ({ filmId }) => {
       user_id: 'f7b2bc15-ea49-453e-a924-c0c32b21cee0', //Пока авторизации нет
     }
 
-    console.log(formData)
-    // try {
-    //   const response = await $instance.post('/comments', {
-    //     body: JSON.stringify(formData),
-    //     headers: {
-    //       Authorization: `Bearer ${token}`,
-    //       Accept: 'application/json',
-    //       'Content-Type': 'application/json',
-    //     },
-    //   })
+    try {
+      const response = await $instance.post(
+        'http://localhost:4000/comments',
+        JSON.stringify(formData),
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        },
+      )
 
-    //   console.log(response)
-    // } catch (error) {
-    //   console.log(error)
-    // }
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
