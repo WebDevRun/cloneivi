@@ -27,20 +27,20 @@ export interface ICloneCount {
 }
 
 export const Slider: FC<SliderProps> = ({
-                                          items,
-                                          Component,
-                                          componentSetting = {},
-                                          onItemClick,
-                                          slidesToShow = 0,
-                                          startPosition = 0,
-                                          slidesToScroll = 0,
-                                          arrowSize,
-                                          gap = 24,
-                                          infinite = false,
-                                          type,
-                                          autoScroll = false,
-                                          isCrop = true,
-                                        }) => {
+  items,
+  Component,
+  componentSetting = {},
+  onItemClick,
+  slidesToShow = 0,
+  startPosition = 0,
+  slidesToScroll = 0,
+  arrowSize,
+  gap = 24,
+  infinite = false,
+  type,
+  autoScroll = false,
+  isCrop = true,
+}) => {
   const TRANSITION = 600
   const INTERVAL = 10000
   const SMALL_BUTTON_GAP = 15
@@ -97,7 +97,7 @@ export const Slider: FC<SliderProps> = ({
     setTimeout(() => {
       setTransitionDuration(TRANSITION)
     }, TRANSITION)
-  }, [slidesCount, itemWidth, scrollStep, type])
+  }, [slidesCount, itemWidth, scrollStep, type, isCrop, container.current?.clientWidth])
 
   useEffect(() => {
     if (infinite) {
@@ -190,9 +190,10 @@ export const Slider: FC<SliderProps> = ({
 
   useEffect(() => {
     const clientWidth = container.current?.clientWidth || 0
+    
     type === 'oneItem' &&
     setMargin((clientWidth - itemWidth) / 2)
-  }, [itemWidth, container.current?.clientWidth])
+  }, [itemWidth, container.current?.clientWidth, type])
 
   const setItemSettings = () => {
     setTransitionDuration(0)
