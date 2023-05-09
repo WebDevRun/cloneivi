@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 
 import { IComment } from '@/types/Comments'
 
@@ -8,9 +8,10 @@ import styles from './Comments.module.scss'
 
 export interface CommentProps {
   comments: IComment[]
+  setComments: Dispatch<SetStateAction<IComment[]>>
 }
 
-export const Comments: FC<CommentProps> = ({ comments }) => {
+export const Comments: FC<CommentProps> = ({ comments, setComments }) => {
   const renderComments = (comments: IComment[]) => {
     return (
       <ul className={styles.commentList}>
@@ -37,7 +38,7 @@ export const Comments: FC<CommentProps> = ({ comments }) => {
   return (
     <div className={styles.comments}>
       <div className={styles.commentForm}>
-        <CommentForm filmId={comments[0].film_id} />
+        <CommentForm filmId={comments[0].film_id} setComments={setComments} />
       </div>
 
       {renderComments(comments)}

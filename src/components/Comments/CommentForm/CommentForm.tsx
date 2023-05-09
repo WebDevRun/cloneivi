@@ -1,13 +1,16 @@
 import cn from 'classnames'
 import {
   ChangeEventHandler,
+  Dispatch,
   FC,
   FormEventHandler,
+  SetStateAction,
   useEffect,
   useState,
 } from 'react'
 
 import { $instance } from '@/axios'
+import { IComment } from '@/types/Comments'
 
 import { CommentAvatar } from '../CommentAvatar'
 
@@ -15,11 +18,12 @@ import styles from './CommentForm.module.scss'
 
 interface CommentFormProps {
   filmId: string
+  setComments: Dispatch<SetStateAction<IComment[]>>
 }
 
 const textLengthLimit = 10
 
-export const CommentForm: FC<CommentFormProps> = ({ filmId }) => {
+export const CommentForm: FC<CommentFormProps> = ({ filmId, setComments }) => {
   const [text, setText] = useState('')
   const [isError, setIsError] = useState(false)
   const [isDisabled, setIsDisabled] = useState(true)
@@ -60,7 +64,7 @@ export const CommentForm: FC<CommentFormProps> = ({ filmId }) => {
     }
 
     try {
-      const response = await $instance.post(
+      const { data } = await $instance.post(
         'http://localhost:4000/comments',
         JSON.stringify(formData),
         {
@@ -72,7 +76,8 @@ export const CommentForm: FC<CommentFormProps> = ({ filmId }) => {
         },
       )
 
-      console.log(response)
+      console.log(data)
+      // setComments((prev) => [...prev, data])
     } catch (error) {
       console.log(error)
     }

@@ -1,26 +1,26 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 import { $instance } from '@/axios'
 import { Comments } from '@/components/Comments'
 import { IComment } from '@/types/Comments'
-import { IMovie } from '@/types/movie'
 import { AppLayout } from '@layouts/AppLayout'
 
 export interface CommentsProps {
-  comments: IComment[]
+  initialComments: IComment[]
 }
 
-const CommentPage: FC<CommentsProps> = ({ comments }) => {
+const CommentPage: FC<CommentsProps> = ({ initialComments }) => {
+  const [comments, setComments] = useState<IComment[]>(initialComments)
   const { t } = useTranslation(['header'])
 
   return (
     <main>
       <AppLayout>
-        <Comments comments={comments} />
+        <Comments comments={comments} setComments={setComments} />
       </AppLayout>
     </main>
   )
@@ -28,23 +28,7 @@ const CommentPage: FC<CommentsProps> = ({ comments }) => {
 
 export default CommentPage
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await $instance.get<
-    AxiosRequestConfig<undefined>,
-    AxiosResponse<IMovie[]>
-  >('/films')
-
-  const paths = data.map((film) => {
-    return { params: { id: film.film_id } }
-  })
-
-  return {
-    paths,
-    fallback: 'blocking',
-  }
-}
-
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const localeData = await serverSideTranslations(context.locale ?? 'ru', [
     'header',
   ])
@@ -56,7 +40,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      comments: data,
+      initialComments: data,
       ...localeData,
     },
   }
