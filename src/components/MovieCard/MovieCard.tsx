@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import Image from 'next/image'
 import Link from 'next/link'
 import { FC, useState } from 'react'
 
@@ -50,7 +51,12 @@ export const MovieCard: FC<MovieCardProps> = ({
   return (
     <Link href={href} className={cn(styles.movieCard, styles[mode])}>
       <div className={styles.movieCardImageCont}>
-        <img className={styles.movieCardImage} src={imgSrc} alt={imgAlt} />
+        <Image
+          fill={true}
+          className={styles.movieCardImage}
+          src={imgSrc}
+          alt={imgAlt}
+        />
         <div className={styles.ageBadge}>{ageLimit}</div>
         {mode === 'big' && (
           <div className={styles.btnCont}>

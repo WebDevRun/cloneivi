@@ -1,6 +1,6 @@
 {
   "extends": [
-    "next/core-web-vitals",
+    ["next/babel", "next/core-web-vitals"],
     "plugin:storybook/recommended",
     "prettier"
   ],
