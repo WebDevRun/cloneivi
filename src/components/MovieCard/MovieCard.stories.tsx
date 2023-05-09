@@ -45,7 +45,7 @@ type Story = StoryObj<typeof MovieCard>
 export const Default: Story = {
   args: {
     ageLimit: '18+',
-    href: '/',
+    href: '#',
     imgSrc:
       'https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/4057c4b8-8208-4a04-b169-26b0661453e3/300x450',
     imgAlt: 'Movie Image',
