@@ -48,8 +48,8 @@ export const Slider: FC<SliderProps> = ({
   const ONE_ITEM_BUTTON_GAP = 60
   const ONE_ITEM_MIN_CLONE_COUNT = 3
 
-  const container = useRef<HTMLDivElement | null>(null)
-  const track = useRef<HTMLDivElement | null>(null)
+  const container = useRef<HTMLDivElement>(null)
+  const track = useRef<HTMLDivElement>(null)
 
   const [itemWidth, setItemWidth] = useState<number>(0)
   const [slidesCount, setSlidesCount] = useState<number>(slidesToShow)
@@ -62,6 +62,8 @@ export const Slider: FC<SliderProps> = ({
   const [buttonPosition, setButtonPosition] = useState<number>(0)
   const [margin, setMargin] = useState<number>(0)
   const [activeItem, setActiveItem] = useState<number>(0)
+  const [isLeftArrowAnimate, setIsLeftArrowAnimate] = useState<boolean>(false)
+  const [isRightArrowAnimate, setIsRightArrowAnimate] = useState<boolean>(false)
 
   useEffect(() => {
     window.addEventListener('resize', setItemSettings)
@@ -190,7 +192,7 @@ export const Slider: FC<SliderProps> = ({
 
   useEffect(() => {
     const clientWidth = container.current?.clientWidth || 0
-    
+
     type === 'oneItem' &&
     setMargin((clientWidth - itemWidth) / 2)
   }, [itemWidth, container.current?.clientWidth, type])
@@ -223,6 +225,12 @@ export const Slider: FC<SliderProps> = ({
     const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + itemsGap) : itemsLeft * (itemWidth + itemsGap)
 
     setPosition(prevState => prevState - pos)
+
+    setIsRightArrowAnimate(true)
+
+    setTimeout(() => {
+      setIsRightArrowAnimate(false)
+    }, 50)
   }
 
   const prevClickHandler = () => {
@@ -230,13 +238,26 @@ export const Slider: FC<SliderProps> = ({
     const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + itemsGap) : itemsLeft * (itemWidth + itemsGap)
 
     setPosition(prevState => prevState + pos)
+
+    setIsLeftArrowAnimate(true)
+
+    setTimeout(() => {
+      setIsLeftArrowAnimate(false)
+    }, 50)
   }
 
   return (
     <div className={styles.slider}>
       {
         (position - margin !== 0) &&
-        <button className={styles.button} onClick={prevClickHandler} style={{ left: `${buttonPosition}px` }}>
+        <button
+          className={cn(
+            styles.button,
+            isLeftArrowAnimate && styles.arrowAnimate,
+          )}
+          onClick={prevClickHandler}
+          style={{ left: `${buttonPosition}px` }}
+        >
           <ArrowSvg color='#BCBCBF'
                     size={arrowSize}
                     direction='left'
@@ -266,7 +287,14 @@ export const Slider: FC<SliderProps> = ({
       {!isCrop && <div className={styles.overlay} />}
       {
         (position - margin > -(sliderItems.length - slidesCount) * (itemWidth + itemsGap)) &&
-        <button className={styles.button} onClick={nextClickHandler} style={{ right: `${buttonPosition}px` }}>
+        <button
+          className={cn(
+            styles.button,
+            isRightArrowAnimate && styles.arrowAnimate,
+          )}
+          onClick={nextClickHandler}
+          style={{ right: `${buttonPosition}px` }}
+        >
           <ArrowSvg color='#BCBCBF'
                     size={arrowSize}
                     direction='right'
