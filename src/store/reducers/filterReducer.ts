@@ -1,4 +1,4 @@
-import { FilterAction, FilterActionTypes, IFilterStore } from '@/store/types/filterStore'
+import { FilterAction, FilterActionTypes, IError, IFilterStore } from '@/store/types/filterStore'
 import { ICountry, IGenre } from '@/types/movie'
 
 const initialState: IFilterStore = {
@@ -7,6 +7,7 @@ const initialState: IFilterStore = {
   years: [],
   ratings: [],
   isFilterLoading: false,
+  filterError: null,
 }
 
 export const filterReducer = (state = initialState, action: FilterAction) => {
@@ -36,6 +37,11 @@ export const filterReducer = (state = initialState, action: FilterAction) => {
         ...state,
         isFilterLoading: action.isLoading,
       }
+    case FilterActionTypes.SET_FILTER_ERROR:
+      return {
+        ...state,
+        filterError: action.error,
+      }
     default:
       return state
   }
@@ -64,4 +70,9 @@ export const setFilterRatings = (ratings: number[]): FilterAction => ({
 export const setIsFilterLoading = (isLoading: boolean): FilterAction => ({
   type: FilterActionTypes.SET_FILTER_LOADING,
   isLoading,
+})
+
+export const setFilterError = (error: IError): FilterAction => ({
+  type: FilterActionTypes.SET_FILTER_ERROR,
+  error,
 })

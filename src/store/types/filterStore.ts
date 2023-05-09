@@ -6,6 +6,15 @@ export interface IFilterStore {
   years: number[]
   ratings: number[]
   isFilterLoading: boolean
+  filterError: IError | null
+}
+
+export interface IError {
+  statusCode: number
+  timestamp: string
+  path: string
+  message: string
+  error: string
 }
 
 export enum FilterActionTypes {
@@ -13,7 +22,8 @@ export enum FilterActionTypes {
   SET_COUNTRIES = 'SET_COUNTRIES',
   SET_YEARS = 'SET_YEARS',
   SET_RATINGS = 'SET_RATINGS',
-  SET_FILTER_LOADING = 'SET_FILTER_LOADING'
+  SET_FILTER_LOADING = 'SET_FILTER_LOADING',
+  SET_FILTER_ERROR = 'SET_FILTER_ERROR'
 }
 
 interface setGenres {
@@ -41,4 +51,9 @@ interface setIsFilterLoading {
   isLoading: boolean
 }
 
-export type FilterAction = setGenres | setCountries | setYears | setRatings | setIsFilterLoading
+interface setFilterError {
+  type: FilterActionTypes.SET_FILTER_ERROR
+  error: IError
+}
+
+export type FilterAction = setGenres | setCountries | setYears | setRatings | setIsFilterLoading | setFilterError
