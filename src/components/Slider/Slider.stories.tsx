@@ -60,6 +60,10 @@ const meta: Meta<typeof Slider> = {
       type: 'boolean',
       description: 'Автоматическая прокрутка слайдера',
     },
+    isCrop: {
+      type: 'boolean',
+      description: 'Подстройка контента слайдера под размеры окна'
+    }
   },
 }
 
@@ -196,5 +200,29 @@ export const GenresAutoScrollSlider: Story = {
     )
   },
 }
+
+export const GenresWithoutScrollSlider: Story = {
+  args: {
+    Component: SliderButton,
+    componentSetting: {type: 'square', style: 'fill'},
+    arrowSize: 'big',
+    onItemClick: () => {},
+    items: GENRES_ICONS,
+    infinite: true,
+    type: 'list',
+    isCrop: false,
+    gap: 50,
+  },
+  render: args => {
+    return (
+      <div style={{padding: 40}}>
+        <Slider {...args} />
+      </div>
+    )
+  },
+}
+
+
+
 
 
