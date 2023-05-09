@@ -1,9 +1,9 @@
 import { FC, useState } from 'react'
 
+import { IFilmId } from '@/types/Person'
 import { Button } from '@/ui/Button'
 import { declOfNum } from '@/utils/functions/declinOfNum'
 
-import { IFilmId } from '../Person'
 import { PersonFilmographyItem } from '../PersonFilmographyItem'
 
 import styles from './PersonFilmography.module.scss'
