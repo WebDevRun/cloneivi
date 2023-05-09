@@ -52,7 +52,8 @@ export const MovieCard: FC<MovieCardProps> = ({
     <Link href={href} className={cn(styles.movieCard, styles[mode])}>
       <div className={styles.movieCardImageCont}>
         <Image
-          fill={true}
+          width={234}
+          height={360}
           className={styles.movieCardImage}
           src={imgSrc}
           alt={imgAlt}

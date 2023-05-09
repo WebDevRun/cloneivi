@@ -9,36 +9,31 @@ const meta: Meta<typeof MovieCard> = {
   component: MovieCard,
   argTypes: {
     ageLimit: {
-      type: 'string',
       description: 'Возрастное ограничение',
     },
     genre: {
-      type: 'string',
       description: 'Жанры фильма',
     },
     href: {
-      type: 'string',
       description: 'URL ссылки',
     },
     imgSrc: {
-      type: 'string',
       description: 'URL картинки',
     },
     imgAlt: {
-      type: 'string',
       description: 'Альтернативный тект если не отображается картинка',
     },
     movieName: {
-      type: 'string',
       description: 'Название фильма',
     },
     rating: {
-      type: 'string',
       description: 'Рейтинг фильма',
     },
     year: {
-      type: 'number',
       description: 'Год выпуска фильма',
+    },
+    mode: {
+      description: 'Виды карточек',
     },
   },
 }
@@ -52,22 +47,23 @@ export const Default: Story = {
     ageLimit: '18+',
     href: '/',
     imgSrc:
-      'https://thumbs.dfs.ivi.ru/storage9/contents/4/7/4f5465145498592106dfdc9675fe0d.jpg/234x360//?q=85',
+      'https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/4057c4b8-8208-4a04-b169-26b0661453e3/300x450',
     imgAlt: 'Movie Image',
     movieName: 'Ничто не случается',
     rating: 8.3,
     year: 2019,
     genre: ['Мелодрамы'],
-    mode: 'small'
+    mode: 'small',
   },
 }
 
 export const BigMovieCard: Story = {
   args: {
-    imgSrc: 'https://thumbs.dfs.ivi.ru/storage6/contents/7/b/8771f2bdb2fcf548eec1b9d85d117e.jpg/1216x370/?q=85',
+    imgSrc:
+      'https://thumbs.dfs.ivi.ru/storage6/contents/7/b/8771f2bdb2fcf548eec1b9d85d117e.jpg/1216x370/',
     imgAlt: 'img',
     mode: 'big',
     href: '#',
-    ageLimit: '18+'
-  }
+    ageLimit: '18+',
+  },
 }
