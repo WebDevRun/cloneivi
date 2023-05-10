@@ -4,6 +4,7 @@ import {
   Dispatch,
   FC,
   FormEventHandler,
+  MouseEventHandler,
   SetStateAction,
   useEffect,
   useState,
@@ -17,13 +18,22 @@ import { CommentAvatar } from '../CommentAvatar'
 import styles from './CommentForm.module.scss'
 
 interface CommentFormProps {
+  type?: 'comment' | 'answer'
   filmId: string
+  parentFilmId?: string | null
   setComments: Dispatch<SetStateAction<IComment[]>>
+  setOpen?: Dispatch<SetStateAction<boolean>>
 }
 
 const textLengthLimit = 10
 
-export const CommentForm: FC<CommentFormProps> = ({ filmId, setComments }) => {
+export const CommentForm: FC<CommentFormProps> = ({
+  type = 'comment',
+  filmId,
+  parentFilmId = null,
+  setComments,
+  setOpen,
+}) => {
   const [text, setText] = useState('')
   const [isError, setIsError] = useState(false)
   const [isDisabled, setIsDisabled] = useState(true)
@@ -52,15 +62,14 @@ export const CommentForm: FC<CommentFormProps> = ({ filmId, setComments }) => {
   const submitHandler: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
     //Пока авторизации нет
-    const token =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjdiMmJjMTUtZWE0OS00NTNlLWE5MjQtYzBjMzJiMjFjZWUwIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6W3sicm9sZV9pZCI6ImFiMjBhYjU5LThhMjYtNDUwYy04MWYwLTliNWNiZTQ2YjNlNCIsInZhbHVlIjoiYWRtaW4iLCJkZXNjcmlwdGlvbiI6ItCQ0LTQvNC40L3QuNGB0YLRgNCw0YLQvtGAIn1dLCJpYXQiOjE2ODM1NDk5NTIsImV4cCI6MTY4MzYzNjM1Mn0.JpTAYtH3c808HxRte9DTCpOD6npMXnsrZzApNa1tTWo'
+    const token = process.env.NEXT_PUBLIC_TOKEN
 
     const formData = {
       text,
       vote: 36,
       film_id: filmId,
       parent_id: null,
-      user_id: 'f7b2bc15-ea49-453e-a924-c0c32b21cee0', //Пока авторизации нет
+      user_id: process.env.NEXT_PUBLIC_USER_ID, //Пока авторизации нет
     }
 
     try {
@@ -76,11 +85,15 @@ export const CommentForm: FC<CommentFormProps> = ({ filmId, setComments }) => {
         },
       )
 
-      console.log(data)
-      // setComments((prev) => [...prev, data])
+      setComments((prev) => [data, ...prev])
+      setText('')
     } catch (error) {
-      console.log(error)
+      console.log('error', error) // Временно, пока layout-a нет
     }
+  }
+
+  const openClickhandler: MouseEventHandler<HTMLButtonElement> = () => {
+    setOpen && setOpen(false)
   }
 
   return (
@@ -103,7 +116,7 @@ export const CommentForm: FC<CommentFormProps> = ({ filmId, setComments }) => {
               [styles.error]: isError,
             })}
           >
-            Написать отзыв
+            {type === 'comment' ? 'Написать отзыв' : 'Ответить'}
           </p>
         </label>
 
@@ -114,7 +127,7 @@ export const CommentForm: FC<CommentFormProps> = ({ filmId, setComments }) => {
         )}
       </div>
 
-      <div>
+      <div className={styles.buttonContainer}>
         <button
           className={cn(styles.button, {
             [styles.disabled]: isDisabled,
@@ -124,6 +137,15 @@ export const CommentForm: FC<CommentFormProps> = ({ filmId, setComments }) => {
         >
           Отправить
         </button>
+        {type === 'answer' && (
+          <button
+            className={cn(styles.button)}
+            type='button'
+            onClick={openClickhandler}
+          >
+            Закрыть
+          </button>
+        )}
       </div>
     </form>
   )

@@ -1,8 +1,16 @@
-import { FC } from 'react'
+import {
+  Dispatch,
+  FC,
+  MouseEventHandler,
+  SetStateAction,
+  useState,
+} from 'react'
 
+import { IComment } from '@/types/Comments'
 import { formatToMonthName } from '@/utils/functions/formatToMonthName'
 
 import { CommentAvatar } from '../CommentAvatar'
+import { CommentForm } from '../CommentForm'
 import { CommentThumb } from '../CommentThumb'
 
 import styles from './CommentItem.module.scss'
@@ -13,6 +21,9 @@ export interface CommentItemProps {
   vote: number
   firstName: string
   lastName: string
+  filmId: string
+  parentFilmId: string | null
+  setComments: Dispatch<SetStateAction<IComment[]>>
 }
 
 export const CommentItem: FC<CommentItemProps> = ({
@@ -21,7 +32,16 @@ export const CommentItem: FC<CommentItemProps> = ({
   vote,
   firstName,
   lastName,
+  filmId,
+  parentFilmId,
+  setComments,
 }) => {
+  const [open, setOpen] = useState(false)
+
+  const openCommentFormHandler: MouseEventHandler<HTMLButtonElement> = () => {
+    setOpen(true)
+  }
+
   return (
     <div className={styles.commentItem}>
       <CommentAvatar firstName={firstName} />
@@ -43,7 +63,21 @@ export const CommentItem: FC<CommentItemProps> = ({
         </button>
       </div>
 
-      <button className={styles.answerButton}>Ответить</button>
+      <button className={styles.answerButton} onClick={openCommentFormHandler}>
+        Ответить
+      </button>
+
+      {open && (
+        <div className={styles.answerForm}>
+          <CommentForm
+            type='answer'
+            filmId={filmId}
+            parentFilmId={parentFilmId}
+            setComments={setComments}
+            setOpen={setOpen}
+          />
+        </div>
+      )}
     </div>
   )
 }

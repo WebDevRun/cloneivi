@@ -61,6 +61,11 @@ $errorColor: #ff542e;
   font-size: fn.toRem(13px);
 }
 
+.buttonContainer {
+  display: flex;
+  gap: 8px;
+}
+
 .button {
   padding: fn.toRem(9px) fn.toRem(15px);
   border-radius: $borderRadius;

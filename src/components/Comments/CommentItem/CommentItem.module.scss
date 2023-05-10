@@ -73,3 +73,8 @@ $fontSize: fn.toRem(15px);
     color: #ffffff;
   }
 }
+
+.answerForm {
+  grid-column: 2/5;
+  margin-top: fn.toRem(15px);
+}

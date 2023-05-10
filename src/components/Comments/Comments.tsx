@@ -24,6 +24,9 @@ export const Comments: FC<CommentProps> = ({ comments, setComments }) => {
                 text={comment.text}
                 firstName={comment.user.profile.first_name}
                 lastName={comment.user.profile.last_name}
+                filmId={comment.film_id}
+                parentFilmId={comment.parent_id}
+                setComments={setComments}
               />
 
               {comment.sub_comments.length > 0 &&
