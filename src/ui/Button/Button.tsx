@@ -3,7 +3,7 @@ import React, { FC, MouseEventHandler } from 'react'
 
 import { INameIcons } from '@/types/Icons'
 
-import { HeaderSvg } from '../svg/HeaderSvg'
+import { Svg } from '../Svg'
 
 import styles from './Button.module.scss'
 
@@ -43,7 +43,7 @@ export const Button: FC<ButtonProps> = ({
     <button type='button' className={mainCn} onClick={onClick}>
       {icon && (
         <div className={styles.icon}>
-          {<HeaderSvg icon={icon} size={iconSize} />}
+          {<Svg icon={icon} size={iconSize} />}
         </div>
       )}
       {text && (
