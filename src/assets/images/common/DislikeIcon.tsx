@@ -1,8 +1,8 @@
-import { FC } from 'react'
+import { FC, MouseEventHandler } from 'react'
 
 export interface IconProps {
   fill: string
-  onClick?: any
+  onClick?: MouseEventHandler
 }
 
 const DislikeIcon: FC<IconProps> = ({ fill, ...props }) => {
