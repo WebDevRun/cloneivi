@@ -4,6 +4,8 @@ import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+import { MovieCard } from '@/components/MovieCard'
+
 export default function Home() {
   const { t } = useTranslation(['header'])
 

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { FC, useState } from 'react'
 
 import styles from './MovieCard.module.scss'
+import { MovieCardProperties } from './MovieCardProperties'
 
 import DislikeIcon from '@/assets/images/common/DislikeIcon'
 import FavoriteIcon from '@/assets/images/common/FavoriteIcon'
@@ -22,6 +23,8 @@ export interface MovieCardProps {
   year?: number
   genre?: string[]
   mode: string
+  seriesDescription?: string
+  seriesLength?: string
 }
 
 export const MovieCard: FC<MovieCardProps> = ({
@@ -34,9 +37,9 @@ export const MovieCard: FC<MovieCardProps> = ({
   year,
   genre,
   mode,
+  seriesDescription,
+  seriesLength
 }) => {
-  const ratings = ['40%', '20%', '70%', '50%']
-
   const [favoriteIconActive, setFavoriteIconActive] = useState<boolean>(false)
   const [dislike, setDislike] = useState<boolean>(false)
 
@@ -58,7 +61,7 @@ export const MovieCard: FC<MovieCardProps> = ({
           src={imgSrc}
           alt={imgAlt}
         />
-        <div className={styles.ageBadge}>{ageLimit}</div>
+        {ageLimit && <div className={styles.ageBadge}>{ageLimit}</div>}
         {mode === 'big' && (
           <div className={styles.btnCont}>
             <Button
@@ -74,51 +77,20 @@ export const MovieCard: FC<MovieCardProps> = ({
             <div className={styles.textBadge}>эксклюзив</div>
             <div className={styles.movieInfo}>
               <div className={styles.hoards}>
-                {favoriteIconActive ? (
-                  <FavoriteRemoveIcon onClick={addFavorite} fill='white' />
-                ) : (
-                  <FavoriteIcon onClick={addFavorite} fill='white' />
-                )}
+                <button className={styles.favoriteBtn} onClick={addFavorite}>
+                  {favoriteIconActive ? (
+                    <FavoriteRemoveIcon fill='white' />
+                  ) : (
+                    <FavoriteIcon fill='white' />
+                  )}
+                </button>
                 <SimilarIcon fill='white' />
                 <RatingIcon fill='white' />
-                <DislikeIcon
-                  onClick={addDislike}
-                  fill={dislike ? 'red' : 'white'}
-                />
+                <button className={styles.dislikeBtn} onClick={addDislike}>
+                  <DislikeIcon fill={dislike ? 'red' : 'white'} />
+                </button>
               </div>
-              <div className={styles.movieProperties}>
-                <div className={styles.propertiesRow}>
-                  <div className={styles.rating}>
-                    <div className={styles.ratingValue}>{rating}</div>
-                    <div className={styles.ratingGraph}>
-                      {ratings.map((rating, index) => (
-                        <div key={index} className={styles.progress}>
-                          <div
-                            style={{ width: rating }}
-                            className={styles.progressBar}
-                          ></div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.propertiesRow}>
-                  <div className={styles.barChart}>
-                    <div className={styles.barChartName}>Сюжет</div>
-                    <div className={styles.progress}>
-                      <div
-                        style={{ width: '23%' }}
-                        className={styles.progressBar}
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.propertiesInfo}>
-                  <div className={styles.propertiesRow}>
-                    {year}, {genre?.join(', ')}
-                  </div>
-                </div>
-              </div>
+              <MovieCardProperties rating={rating} year={year} genre={genre} />
             </div>
           </>
         )}
@@ -127,6 +99,13 @@ export const MovieCard: FC<MovieCardProps> = ({
         <div className={styles.movieCardInfo}>
           <p className={styles.movieCardName}>{movieName}</p>
           <p className={styles.movieCardType}>Подписка</p>
+        </div>
+      )}
+      {mode === 'series' && (
+        <div className={styles.seriesInfo}>
+          <p className={styles.seriesName}>{movieName}</p>
+          <p className={styles.seriesDescription}>{seriesDescription}</p>
+          <p className={styles.seriesLength}>{seriesLength}</p>
         </div>
       )}
     </Link>

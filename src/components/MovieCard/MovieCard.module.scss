@@ -25,9 +25,11 @@
   }
 }
 
-.movieCard.big {
+.movieCard.big,
+.movieCard.series {
   width: 100%;
   display: block;
+  transition: 1s;
 
   .ageBadge {
     left: fn.toRem(24px);
@@ -38,6 +40,12 @@
 .movieCardImageCont {
   position: relative;
   transition: 0.2s ease-in-out;
+}
+
+.movieCard.series {
+  .movieCardImageCont {
+    transition: 0.3s ease-out;
+  }
 }
 
 .movieCardImage {
@@ -75,85 +83,6 @@
   z-index: 1;
 }
 
-.movieProperties {
-  position: absolute;
-  left: fn.toRem(16px);
-  bottom: fn.toRem(16px);
-  right: fn.toRem(16px);
-  font-size: fn.toRem(13px);
-  color: #d9d7e0;
-}
-
-.propertiesRow {
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  margin-top: fn.toRem(4px);
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.rating {
-  display: flex;
-  gap: fn.toRem(3px);
-}
-
-.ratingValue {
-  align-self: center;
-  font-size: fn.toRem(24px);
-  font-weight: 700;
-  height: 28px;
-  line-height: fn.toRem(28px);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.ratingGraph {
-  align-self: center;
-  position: relative;
-  top: fn.toRem(1px);
-  width: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: fn.toRem(2px);
-
-  .progress {
-    width: 100%;
-    height: 2px;
-    background-color: hsla(254, 9%, 52%, 0.32);
-    border-radius: fn.toRem(5px);
-  }
-}
-
-.progressBar {
-  height: 100%;
-  background-color: #ea003d;
-  border-radius: fn.toRem(5px);
-  transition: width 0.5s ease;
-}
-
-.barChart {
-  max-width: 104px;
-  width: 100%;
-}
-
-.barChartName {
-  color: #a5a1b2;
-  font-size: fn.toRem(13px);
-  font-style: normal;
-  font-weight: 400;
-  line-height: fn.toRem(16px);
-  margin-bottom: fn.toRem(4px);
-}
-
-.progress {
-  width: 100%;
-  height: 4px;
-  background-color: hsla(254, 9%, 52%, 0.32);
-  border-radius: fn.toRem(5px);
-}
-
 .ageBadge {
   width: 24px;
   height: 16px;
@@ -165,6 +94,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.favoriteBtn,
+.dislikeBtn {
+  background: transparent;
 }
 
 .movieCardInfo {
@@ -187,7 +121,6 @@
 }
 
 .movieCard.small:hover {
-
   .movieCardImageCont {
     transform: scale(1.05);
 
@@ -195,4 +128,59 @@
       opacity: 1;
     }
   }
+}
+
+.movieCard.series:hover {
+  .movieCardImageCont {
+    transition: all 0.1s ease;
+    transform: scale(1.05);
+  }
+
+  .seriesName {
+    color: white;
+  }
+}
+
+.seriesInfo {
+  margin-top: fn.toRem(12px);
+}
+
+.seriesName {
+  color: #d9d7e0;
+  transition-duration: 0.4s;
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(20px);
+  font-weight: 500;
+  font-style: normal;
+}
+
+.seriesDescription {
+  font-size: fn.toRem(13px);
+  line-height: fn.toRem(16px);
+  font-weight: 400;
+  font-style: normal;
+  max-height: 64px;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  text-overflow: -o-ellipsis-lastline;
+  color: #a5a1b2;
+  margin-top: fn.toRem(4px);
+}
+
+.seriesLength {
+  margin-right: 10px;
+  color: #a5a1b2;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+  font-style: normal;
+  height: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 4px;
 }
