@@ -69,6 +69,13 @@ export const BigMovieCard: Story = {
 }
 
 export const SeriesMovieCard: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <Story />
+      </div>
+    ),
+  ],
   args: {
     imgSrc:
       'https://thumbs.dfs.ivi.ru/storage9/contents/9/a/f24be2f83f3403512c0e4736faf475.jpg/308x174/',
