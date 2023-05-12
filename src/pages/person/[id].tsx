@@ -3,6 +3,8 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { $instance } from '@/axios'
 import { BackLink } from '@/components/BackLink'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { CrumbItem } from '@/components/Breadcrumbs/Breadcrumbs'
 import { Person } from '@/components/Person'
 import { IPerson } from '@/types/Person'
 import { Header } from '@components/Header'
@@ -15,6 +17,21 @@ export interface IPersonPage {
 }
 
 export default function PersonPage({ person }: IPersonPage) {
+
+  const crumbHome: CrumbItem = {
+    text: 'Мой Иви',
+    path: '/',
+  }
+
+  const crumbCurrentPage: CrumbItem = {
+    text: `${person.first_name_ru} ${person.last_name_ru}`,
+    path: `/person/${person.person_id}`,
+  }
+
+  const breadCrumbsData = []
+  breadCrumbsData.push(crumbHome)
+  breadCrumbsData.push(crumbCurrentPage)
+
   return (
     <AppLayout>
       <Header />
@@ -24,7 +41,9 @@ export default function PersonPage({ person }: IPersonPage) {
         </div>
       </div>
       <Person person={person} maxShowFilms={8} />
-      <div className={styles.breadCrumbs}>Контейнер для BreadCrumbs</div>
+      <div className={styles.breadCrumbs}>
+        <Breadcrumbs items={breadCrumbsData}/>
+      </div>
     </AppLayout>
   )
 }

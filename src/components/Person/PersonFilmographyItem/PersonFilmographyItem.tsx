@@ -30,17 +30,35 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
     fetchData()
   }, [id, pathDataSrc])
 
+  const isSvg =
+    films.img.split('/').at(-1)?.split('.').at(-1) === 'svg' ? true : false
+
   return (
     <div className={styles.personFilmographyItem}>
       <Link href={`${pathDataSrc}${id}`} className={styles.body}>
         <div className={styles.figure}>
-          <Image
-            className={styles.image}
-            src={films.img ? `https:${films.img}` : `https:${defaultData.img}`}
-            alt={`Постер для фильма ${films.name_ru}`}
-            width={getProportionalImgWidth(films.img, 75, 118)}
-            height='118'
-          />
+          {!isSvg && (
+            <Image
+              className={styles.image}
+              src={
+                films.img ? `https:${films.img}` : `https:${defaultData.img}`
+              }
+              alt={`Постер для фильма ${films.name_ru}`}
+              width={getProportionalImgWidth(films.img, 75, 118)}
+              height={118}
+            />
+          )}
+          {isSvg && (
+            <Image
+              className={styles.image}
+              src={
+                films.img ? `https:${films.img}` : `https:${defaultData.img}`
+              }
+              alt={`Постер для фильма ${films.name_ru}`}
+              width={75}
+              height={118}
+            />
+          )}
         </div>
         <div className={styles.main}>
           <div className={styles.info}>

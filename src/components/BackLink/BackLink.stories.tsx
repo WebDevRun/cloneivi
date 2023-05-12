@@ -16,5 +16,7 @@ export default meta
 type Story = StoryObj<typeof BackLink>
 
 export const Default: Story = {
-  args: {},
+  args: {
+    text: 'Назад',
+  },
 }
