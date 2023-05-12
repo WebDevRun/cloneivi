@@ -1,15 +1,15 @@
-import Image from 'next/image'
-import Link from 'next/link'
-
-import { IMenuItem } from '@/types/navigate'
 import logo from '@assets/images/common/ivi.svg'
 import { HeaderSvg } from '@ui/svg/HeaderSvg'
+import Image from 'next/image'
+import Link from 'next/link'
 
 import { Button } from '../../ui/Button'
 import { Language } from '../../ui/Language'
 import { MENU } from '../../utils/consts'
 
 import styles from './Header.module.scss'
+
+import { IMenuItem } from '@/types/navigate'
 
 export const Header = () => {
   return (

@@ -88,3 +88,22 @@ export const SeriesMovieCard: Story = {
     seriesLength: '7 мин',
   },
 }
+
+export const TrailerCard: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  args: {
+    imgSrc:
+      'https://thumbs.dfs.ivi.ru/storage8/contents/4/2/32d907823a0a7224338579bd227244.jpg/784x440/',
+    imgAlt: 'Trailer',
+    mode: 'series',
+    href: '#',
+    movieName: 'Трейлер (дублированный)',
+    seriesLength: '2 мин',
+  },
+}
