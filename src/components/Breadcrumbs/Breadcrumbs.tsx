@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import Link from 'next/link'
 import { FC, ReactNode } from 'react'
 
@@ -10,30 +11,26 @@ export type CrumbItem = {
 
 export interface BreadcrumbsProps {
   items: CrumbItem[]
+  separator: 'slash' | 'dot'
 }
 
 export const Breadcrumbs: FC<BreadcrumbsProps> = ({
   items,
+  separator,
 }: BreadcrumbsProps) => {
-  
   return (
-    <div className={styles.breadcrumbs}>
-      {items.map((crumb, i) => {
-        const isLastItem = i === items.length - 1
-        if (!isLastItem) {
-          return (
-            <>
-              {/** Обернуть в компонент LinkBtn */}
-              <Link href={crumb.path} key={i} className={styles.link}>
-                {crumb.text}
-              </Link>
-              <span> / </span>
-            </>
-          )
-        } else {
-          return crumb.text
-        }
-      })}
-    </div>
+    <ul className={styles.breadcrumbs}>
+      {items.map((crumb, i) => (
+        <li key={i} className={cn(styles.item, styles[separator])}>
+          {/** Обернуть в компонент LinkBtn */}
+          {i !== items.length - 1 && (
+            <Link href={crumb.path} className={styles.link}>
+              {crumb.text}
+            </Link>
+          )}
+          {i === items.length - 1 && crumb.text}
+        </li>
+      ))}
+    </ul>
   )
 }

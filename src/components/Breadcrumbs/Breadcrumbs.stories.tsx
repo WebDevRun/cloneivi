@@ -16,8 +16,16 @@ export default meta
 
 type Story = StoryObj<typeof Breadcrumbs>
 
-export const Default: Story = {
+export const SlashDefault: Story = {
   args: {
-    items: crumbsData
+    items: crumbsData,
+    separator: 'slash',
+  },
+}
+
+export const Dot: Story = {
+  args: {
+    items: crumbsData,
+    separator: 'dot',
   },
 }
