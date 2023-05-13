@@ -4,7 +4,7 @@ import { FC } from 'react'
 import { declOfNum } from '@/utils/functions/declinOfNum'
 import { getProportionalImgWidth } from '@/utils/functions/getProportionalImgWidth'
 
-import { IPerson } from '../Person'
+import { IPerson } from '../../../types/Person'
 
 import styles from './PersonHeader.module.scss'
 
@@ -19,6 +19,8 @@ export const PersonHeader: FC<IPerson> = ({
   const filmsNumber = films?.length as number
 
   const declination = declOfNum(filmsNumber, ['фильм', 'фильма', 'фильмов'])
+  const isSvg =
+    img.split('/').at(-1)?.split('.').at(-1) === 'svg' ? true : false
 
   return (
     <div className={styles.personHeader}>
@@ -26,9 +28,9 @@ export const PersonHeader: FC<IPerson> = ({
         <div className={styles.imageWrapper}>
           <Image
             className={styles.image}
-            src={`https:${img}`}
+            src={img.indexOf('https://') === -1 ? `https:${img}` : img}
             alt={''}
-            width={getProportionalImgWidth(img, 120, 180)}
+            width={isSvg ? 120 : getProportionalImgWidth(img, 120, 180)}
             height='180'
           />
         </div>

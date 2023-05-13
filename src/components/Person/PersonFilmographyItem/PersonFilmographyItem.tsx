@@ -2,10 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC, useEffect, useState } from 'react'
 
+import { IFilm } from '@/types/Person'
 import { Button } from '@/ui/Button'
 import { getProportionalImgWidth } from '@/utils/functions/getProportionalImgWidth'
 
-import defaultData from './data_mock.json'
+import noImage from '../../../assets/images/no_image.jpg'
+
+import initData from './data_mock.json'
 import styles from './PersonFilmographyItem.module.scss'
 
 export interface PersonFilmographyItemProps {
@@ -15,9 +18,9 @@ export interface PersonFilmographyItemProps {
 
 export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
   id,
-  pathDataSrc = defaultData,
+  pathDataSrc,
 }) => {
-  const [films, setFilms] = useState(defaultData)
+  const [films, setFilms] = useState<IFilm>(initData)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,9 +43,7 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
           {!isSvg && (
             <Image
               className={styles.image}
-              src={
-                films.img ? `https:${films.img}` : `https:${defaultData.img}`
-              }
+              src={films.img ? `https:${films.img}` : noImage}
               alt={`Постер для фильма ${films.name_ru}`}
               width={getProportionalImgWidth(films.img, 75, 118)}
               height={118}
@@ -51,9 +52,7 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
           {isSvg && (
             <Image
               className={styles.image}
-              src={
-                films.img ? `https:${films.img}` : `https:${defaultData.img}`
-              }
+              src={films.img ? `${films.img}` : noImage}
               alt={`Постер для фильма ${films.name_ru}`}
               width={75}
               height={118}

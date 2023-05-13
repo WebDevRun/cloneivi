@@ -11,3 +11,12 @@ export interface IPerson {
 export interface IFilmId {
   film_id: string
 }
+
+export interface IFilm {
+  film_id: string
+  name_ru: string
+  name_en: string
+  year: number
+  rating: number
+  img: string
+}

@@ -17,7 +17,6 @@ export interface IPersonPage {
 }
 
 export default function PersonPage({ person }: IPersonPage) {
-
   const crumbHome: CrumbItem = {
     text: 'Мой Иви',
     path: '/',
@@ -42,7 +41,7 @@ export default function PersonPage({ person }: IPersonPage) {
       </div>
       <Person person={person} maxShowFilms={8} />
       <div className={styles.breadCrumbs}>
-        <Breadcrumbs items={breadCrumbsData}/>
+        <Breadcrumbs items={breadCrumbsData} separator='slash' />
       </div>
     </AppLayout>
   )

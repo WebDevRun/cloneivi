@@ -9,7 +9,14 @@ const meta: Meta<typeof Breadcrumbs> = {
   title: 'Breadcrumbs',
   tags: ['autodocs'],
   component: Breadcrumbs,
-  argTypes: {},
+  argTypes: {
+    items: {
+      description: 'Данные в виде массива объектов'
+    },
+    separator: {
+      description: 'Разделитель между элементами'
+    }
+  },
 }
 
 export default meta
