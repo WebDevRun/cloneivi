@@ -13,8 +13,7 @@ interface LinkProps {
   text?: string
   iconSrc?: string | StaticImageData
   iconAlt?: string
-  background?: string
-  color?: string
+  background: 'lightgray' | 'default'
 }
 
 export const LinkBtn: FC<LinkProps> = ({
@@ -26,17 +25,11 @@ export const LinkBtn: FC<LinkProps> = ({
   iconSrc,
   iconAlt,
   background,
-  color
 }) => {
-  const style = {
-    background,
-    color,
-  }
   return (
     <Link className={styles.link} href={href}>
       <div
-        style={style}
-        className={cn(styles.btn, styles[type], styles[mode], {
+        className={cn(styles.btn, styles[type], styles[mode], styles[background], {
           [styles.btn_withSubText]: subText,
         })}
       >
