@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import '@styles/index.scss'
-
+import person from './data_mock.json'
 import { Person } from './Person'
 
 const meta: Meta<typeof Person> = {
@@ -9,17 +9,13 @@ const meta: Meta<typeof Person> = {
   tags: ['autodocs'],
   component: Person,
   argTypes: {
-    person_id: {
+    person: {
       description:
-        'ИД персоны в источнике данных, например: bb718ac3-fbab-4942-8cd4-1320f20ae263',
-    },
-    pathDataSrc: {
-      description:
-        'Путь к источнику данных, например: http://localhost:4000/persons/',
+        'Данные о персоне в виде объекта',
     },
     maxShowFilms: {
       description:
-        'Количество открытых элементов из Полной фильмографии',
+        'Количество открытых элементов в секции Полная фильмография',
     },
   },
 }
@@ -30,7 +26,7 @@ type Story = StoryObj<typeof Person>
 
 export const Default: Story = {
   args: {
-    person_id: 'bb718ac3-fbab-4942-8cd4-1320f20ae263',
+    person: person,
     maxShowFilms: 2,
   },
 }

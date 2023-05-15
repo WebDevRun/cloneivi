@@ -19,8 +19,11 @@ export const PersonHeader: FC<IPerson> = ({
   const filmsNumber = films?.length as number
 
   const declination = declOfNum(filmsNumber, ['фильм', 'фильма', 'фильмов'])
-  const isSvg =
-    img.split('/').at(-1)?.split('.').at(-1) === 'svg' ? true : false
+  const isSvg = img
+    ? img.split('/').at(-1)?.split('.').at(-1) === 'svg'
+      ? true
+      : false
+    : false
 
   return (
     <div className={styles.personHeader}>

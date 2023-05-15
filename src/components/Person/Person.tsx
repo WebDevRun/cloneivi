@@ -1,11 +1,13 @@
 import { FC } from 'react'
 
+import { IPerson } from '@/types/Person'
+
 import styles from './Person.module.scss'
 import { PersonFilmography } from './PersonFilmography'
 import { PersonHeader } from './PersonHeader'
 
 export interface PersonProps {
-  person: any
+  person: IPerson
   maxShowFilms: number
 }
 

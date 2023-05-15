@@ -33,8 +33,11 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
     fetchData()
   }, [id, pathDataSrc])
 
-  const isSvg =
-    films.img.split('/').at(-1)?.split('.').at(-1) === 'svg' ? true : false
+  const isSvg = films.img
+    ? films.img.split('/').at(-1)?.split('.').at(-1) === 'svg'
+      ? true
+      : false
+    : false
 
   return (
     <div className={styles.personFilmographyItem}>
