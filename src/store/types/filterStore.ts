@@ -56,4 +56,10 @@ interface setFilterError {
   error: IError
 }
 
-export type FilterAction = setGenres | setCountries | setYears | setRatings | setIsFilterLoading | setFilterError
+export type FilterAction =
+  setGenres
+  | setCountries
+  | setYears
+  | setRatings
+  | setIsFilterLoading
+  | setFilterError

@@ -1,4 +1,9 @@
-import { FilterAction, FilterActionTypes, IError, IFilterStore } from '@/store/types/filterStore'
+import {
+  FilterAction,
+  FilterActionTypes,
+  IError,
+  IFilterStore
+} from '@/store/types/filterStore'
 import { ICountry, IGenre } from '@/types/movie'
 
 const initialState: IFilterStore = {

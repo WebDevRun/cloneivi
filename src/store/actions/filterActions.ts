@@ -1,7 +1,11 @@
 import { Dispatch } from 'react'
 
 import { getGenres } from '@/axios/filterApi'
-import { setFilterError, setFilterGenres, setIsFilterLoading } from '@/store/reducers/filterReducer'
+import {
+  setFilterError,
+  setFilterGenres,
+  setIsFilterLoading
+} from '@/store/reducers/filterReducer'
 import { FilterAction } from '@/store/types/filterStore'
 
 export const fetchGenres = () => {
