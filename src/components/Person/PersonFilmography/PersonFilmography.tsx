@@ -41,7 +41,7 @@ export const PersonFilmography: FC<IPersonFilmography> = ({
   }
 
   return (
-    <div className={styles.personFilmography}>
+    <div id='filmography' className={styles.personFilmography}>
       <div className={styles.header}>
         <div className={styles.title}>Полная фильмография</div>
         <div
