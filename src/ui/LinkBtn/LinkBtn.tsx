@@ -13,18 +13,18 @@ interface LinkProps {
   text?: string
   iconSrc?: string | StaticImageData
   iconAlt?: string
-  background: 'lightgray' | 'default'
+  background?: 'lightgray' | 'default'
 }
 
 export const LinkBtn: FC<LinkProps> = ({
   href,
-  mode,
-  type,
+  mode='footer',
+  type='square',
   subText,
   text,
   iconSrc,
   iconAlt,
-  background,
+  background='default',
 }) => {
   return (
     <Link className={styles.link} href={href}>

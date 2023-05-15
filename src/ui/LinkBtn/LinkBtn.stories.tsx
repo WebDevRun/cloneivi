@@ -59,7 +59,6 @@ export const WithoutIcon: Story = {
     text: 'Play Store',
     subText: 'Загрузить в',
     href: '#',
-    background: 'default',
   },
 }
 
@@ -71,7 +70,6 @@ export const WithoutSutText: Story = {
     iconSrc: googlePlay,
     iconAlt: 'googlePlay',
     href: '#',
-    background: 'default',
   },
 }
 
@@ -82,7 +80,6 @@ export const WithoutText: Story = {
     iconSrc: googlePlay,
     iconAlt: 'googlePlay',
     href: '#',
-    background: 'default',
   },
 }
 
@@ -95,7 +92,6 @@ export const WithAll: Story = {
     iconSrc: googlePlay,
     iconAlt: 'googlePlay',
     href: '#',
-    background: 'default',
   },
 }
 
@@ -108,7 +104,6 @@ export const ActorLink: Story = {
       'https://thumbs.dfs.ivi.ru/storage15/contents/2/b/ae10860096fcbe6411a51eb085098b.jpg',
     iconAlt: 'Actor Image',
     text: 'Франсуа Клюзе',
-    background: 'default',
   },
 }
 
@@ -120,7 +115,6 @@ export const GenreLink: Story = {
     iconSrc: SadGenre,
     iconAlt: 'Actor Image',
     text: 'Драмы',
-    background: 'default',
   },
 }
 
@@ -141,7 +135,6 @@ export const AccountLink: Story = {
     iconAlt: 'Account',
     type: 'square',
     href: '#',
-    background: 'default',
   },
 }
 
@@ -166,6 +159,5 @@ export const AccountFunctionLink: Story = {
     href: '#',
     text: 'История просмотров',
     type: 'square',
-    background: 'default',
   },
 }
