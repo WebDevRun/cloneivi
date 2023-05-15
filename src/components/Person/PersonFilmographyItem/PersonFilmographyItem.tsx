@@ -48,7 +48,7 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
               className={styles.image}
               src={films.img ? `https:${films.img}` : noImage}
               alt={`Постер для фильма ${films.name_ru}`}
-              width={getProportionalImgWidth(films.img, 75, 118)}
+              width={75}
               height={118}
             />
           )}
