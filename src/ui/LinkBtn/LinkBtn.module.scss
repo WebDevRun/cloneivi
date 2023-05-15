@@ -13,7 +13,7 @@
   }
 }
 
-.btn.footer.lightgray{
+.btn.footer.lightgray {
   color: #a5a1b2;
   background: #312b45;
 }
@@ -31,7 +31,6 @@
 }
 
 .btnContent:has(img) {
-
   .textContainer {
     margin-left: fn.toRem(5px);
   }
@@ -65,42 +64,42 @@
   display: block;
 
   .accountLinks {
-    background: #312B45;
+    background: #312b45;
     display: block;
     min-height: 108px;
     padding: fn.toRem(16px);
+  }
 
-    .btnContent {
-      min-height: 76px;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
+  .btnContent {
+    min-height: 76px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
 
-      .textContainer {
-        display: flex;
-        flex-direction: column-reverse;
-        margin: 0;
-        
-        .mainText {
-          font-size: fn.toRem(15px);
-          line-height: 20px;
-          font-weight: 500;
-          font-style: normal;
-        }
+  .textContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0;
+  }
+  
+  .mainText {
+    font-size: fn.toRem(15px);
+    line-height: 20px;
+    font-weight: 500;
+    font-style: normal;
+  }
 
-        .subText {
-          font-size: fn.toRem(13px);
-          line-height: 16px;
-          font-weight: 500;
-          font-style: normal;
-          max-height: 16px;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          margin-top: fn.toRem(4px);
-        }
-      }
-    }
+  .subText {
+    font-size: fn.toRem(13px);
+    line-height: 16px;
+    font-weight: 500;
+    font-style: normal;
+    max-height: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: fn.toRem(4px);
   }
 }
 
@@ -149,7 +148,6 @@
   align-items: center;
 
   &:hover {
-
     .btn:has(.genres) {
       background-color: #7e798f;
     }
@@ -163,7 +161,7 @@
       background-color: #2e2844;
     }
 
-    .btn.accountLinks{
+    .btn.accountLinks {
       background-color: #403764;
     }
 
