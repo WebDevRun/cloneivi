@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import movies from '@public/movies/movies.json'
 import '@styles/index.scss'
 
 import { WatchAllDevices } from './WatchAllDevices'
@@ -25,7 +24,8 @@ type Story = StoryObj<typeof WatchAllDevices>
 
 export const Default: Story = {
   args: {
-    name: movies[0].name_ru,
-    poster: movies[0].img,
+    name: 'Зеленая миля',
+    poster:
+      'https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/4057c4b8-8208-4a04-b169-26b0661453e3/300x450',
   },
 }

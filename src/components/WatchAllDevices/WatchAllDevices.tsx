@@ -30,17 +30,33 @@ export const WatchAllDevices: FC<WatchAllDevicesProps> = ({ name, poster }) => {
           className={styles.tvWithoutPoster}
           src={tvWithoutPoster}
           alt='Устройства для просмотра'
+          placeholder='empty'
+          priority={true}
         />
         <Image
           className={styles.ipadWithoutPoster}
           src={ipadWithoutPoster}
           alt='Устройства для просмотра'
+          placeholder='empty'
+          priority={true}
         />
         <div className={styles.tvPosterContainer}>
-          <Image src={poster} alt={`Постер ${name}`} fill />
+          <Image
+            src={poster}
+            alt={`Постер ${name}`}
+            fill
+            sizes='100%'
+            priority={true}
+          />
         </div>
         <div className={styles.ipadPosterContainer}>
-          <Image src={poster} alt={`Постер ${name}`} fill />
+          <Image
+            src={poster}
+            alt={`Постер ${name}`}
+            fill
+            sizes='100%'
+            priority={true}
+          />
         </div>
       </div>
     </div>
