@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next'
 import { FC, useState } from 'react'
 
 import { IFilmId } from '@/types/Person'
@@ -19,14 +20,20 @@ export const PersonFilmography: FC<IPersonFilmography> = ({
   pathDataSrc,
   maxShowItems,
 }) => {
-  const filmsNumber = films?.length as number
+  const { t } = useTranslation()
 
+  const filmsNumber = films?.length as number
   const remainingQuantity = filmsNumber - maxShowItems
 
   const [showedItems, setShowedItems] = useState(maxShowItems)
   const [showButton, setShowButton] = useState(true)
 
-  const words = ['фильм', 'фильма', 'фильмов']
+  const words = [
+    t('common:films'),
+    t('filmsA'),
+    t('filmsOV'),
+    t('common:film'),
+  ]
 
   const declinationFilmsNumber = declOfNum(filmsNumber, words)
 
@@ -43,7 +50,7 @@ export const PersonFilmography: FC<IPersonFilmography> = ({
   return (
     <div id='filmography' className={styles.personFilmography}>
       <div className={styles.header}>
-        <div className={styles.title}>Полная фильмография</div>
+        <div className={styles.title}>{t('fullFilmography')}</div>
         <div
           className={styles.extraTitle}
         >{`${filmsNumber} ${declinationFilmsNumber}`}</div>
@@ -66,7 +73,8 @@ export const PersonFilmography: FC<IPersonFilmography> = ({
       {showButton && remainingQuantity > 0 && (
         <div className={styles.more}>
           <Button
-            text={`Ещё ${remainingQuantity} ${declinationRemainingQuantity}`}
+            text={`${t('header:more')} 
+            ${remainingQuantity} ${declinationRemainingQuantity}`}
             background='transparent'
             onClick={handleOnClick}
             fields='noneFields'

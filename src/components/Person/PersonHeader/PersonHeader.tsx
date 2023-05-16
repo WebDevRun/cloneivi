@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
 import { declOfNum } from '@/utils/functions/declinOfNum'
@@ -16,9 +17,19 @@ export const PersonHeader: FC<IPerson> = ({
   films,
   img = '//avatars.mds.yandex.net/get-kinopoisk-image/1599028/09a6ecb6-052b-41fb-8323-1b95a10cb33a/280x420',
 }) => {
+  const { t } = useTranslation()
+
   const filmsNumber = films?.length as number
 
-  const declination = declOfNum(filmsNumber, ['фильм', 'фильма', 'фильмов'])
+  const words = [
+    t('common:films'),
+    t('filmsA'),
+    t('filmsOV'),
+    t('common:film'),
+  ]
+
+  const declination = declOfNum(filmsNumber, words)
+
   const isSvg = img
     ? img.split('/').at(-1)?.split('.').at(-1) === 'svg'
       ? true

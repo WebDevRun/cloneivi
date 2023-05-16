@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 import { FC, useEffect, useState } from 'react'
 
 import { IFilm } from '@/types/Person'
 import { Button } from '@/ui/Button'
-import { getProportionalImgWidth } from '@/utils/functions/getProportionalImgWidth'
 
 import noImage from '../../../assets/images/no_image.jpg'
 
@@ -20,6 +20,8 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
   id,
   pathDataSrc,
 }) => {
+  const { t } = useTranslation()
+
   const [films, setFilms] = useState<IFilm>(initData)
 
   useEffect(() => {
@@ -47,7 +49,7 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
             <Image
               className={styles.image}
               src={films.img ? `https:${films.img}` : noImage}
-              alt={`Постер для фильма ${films.name_ru}`}
+              alt={`${t('posterForTheMovie')} ${films.name_ru}`}
               width={75}
               height={118}
             />
@@ -56,7 +58,7 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
             <Image
               className={styles.image}
               src={films.img ? `${films.img}` : noImage}
-              alt={`Постер для фильма ${films.name_ru}`}
+              alt={`${t('posterForTheMovie')} ${films.name_ru}`}
               width={75}
               height={118}
             />
@@ -69,7 +71,7 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
               {films.name_ru}
             </div>
             <div className={styles.rating}>
-              <span className={styles.ratingLabel}>Рейтинг Иви:</span>
+              <span className={styles.ratingLabel}>{t('IviRating')}:</span>
               <span className={styles.ratingValue}>
                 <span className={styles.ratingValueInteger}>
                   {films.rating}
@@ -78,7 +80,7 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
             </div>
           </div>
           <div className={styles.action}>
-            <Button text='Подробнее' background='gray' />
+            <Button text={`${t('seeMore')}`} background='gray' />
           </div>
         </div>
       </Link>

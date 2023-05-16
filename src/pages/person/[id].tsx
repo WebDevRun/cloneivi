@@ -1,5 +1,7 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { $instance } from '@/axios'
 import { BackLink } from '@/components/BackLink'
@@ -17,8 +19,10 @@ export interface IPersonPage {
 }
 
 export default function PersonPage({ person }: IPersonPage) {
+  const { t } = useTranslation()
+
   const crumbHome: CrumbItem = {
-    text: 'Мой Иви',
+    text: t('myIvi'),
     path: '/',
   }
 
@@ -36,7 +40,7 @@ export default function PersonPage({ person }: IPersonPage) {
       <Header />
       <div className={styles.backLinkSection}>
         <div className={styles.backLinkWrapper}>
-          <BackLink text='Назад'></BackLink>
+          <BackLink text={t('back')}></BackLink>
         </div>
       </div>
       <Person person={person} maxShowFilms={8} />
@@ -63,14 +67,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
+  const localeData = await serverSideTranslations(locale ?? 'ru')
   const { data } = await $instance.get<
     AxiosRequestConfig<undefined>,
     AxiosResponse<IPerson>
-  >(`persons/${context.params?.id}`)
+  >(`persons/${params?.id}`)
 
   return {
     props: {
+      ...localeData,
       person: data,
     },
   }
