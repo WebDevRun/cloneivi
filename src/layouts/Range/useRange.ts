@@ -20,8 +20,9 @@ export const useRange = (
   const rangeMouseMoveHandler: MouseEventHandler<HTMLDivElement> = (event) => {
     const offsetWidth = event.currentTarget.offsetWidth
     const offsetX = event.nativeEvent.offsetX
-    const value = Math.round((offsetX / offsetWidth) * 100) / 100
+    let value = Math.round((offsetX / offsetWidth) * 100) / 100
 
+    value = value < 0 ? 0 : value
     setHoverСoefficient(value)
 
     if (isMouseDown) setСoefficient(value)
@@ -42,8 +43,9 @@ export const useRange = (
   const rangeClickHandler: MouseEventHandler<HTMLDivElement> = (event) => {
     const offsetWidth = event.currentTarget.offsetWidth
     const offsetX = event.nativeEvent.offsetX
-    const value = Math.round((offsetX / offsetWidth) * 100) / 100
+    let value = Math.round((offsetX / offsetWidth) * 100) / 100
 
+    value = value < 0 ? 0 : value
     setСoefficient(value)
   }
 

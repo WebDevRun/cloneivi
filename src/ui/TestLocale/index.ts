@@ -1,0 +1,1 @@
+export { TestLocale } from './TestLocale'
