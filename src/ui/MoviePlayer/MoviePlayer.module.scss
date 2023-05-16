@@ -33,7 +33,7 @@ $white: #ffffff;
 
 .controlsContainer {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   bottom: 0;
   height: fn.toRem(160px);
   background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.88));
