@@ -1,5 +1,7 @@
 import cn from 'classnames'
-import { FC } from 'react'
+import { FC, useState } from 'react'
+
+import { CommonSvg } from '../svg/CommonSvg'
 
 import styles from './ModalWindow.module.scss'
 
@@ -14,19 +16,21 @@ export const ModalWindow: FC<ModalWindowProps> = ({
   setActive,
   children,
 }) => {
+  const [fillColor, setFillColor] = useState<string>('gray')
   return (
-    <div
-      className={cn(
-        active ? (styles.modalWindowActive) : styles.modalWindow
-      )}
-    >
+    <div className={cn(active ? styles.modalWindowActive : styles.modalWindow)}>
       <div
-        className={cn(
-          active ? (styles.modalContentActive) : styles.modalContent
-        )}
+        className={cn(active ? styles.modalContentActive : styles.modalContent)}
         onClick={(e) => e.stopPropagation()}
       >
-        <label className={styles.closeBtn} onClick={() => setActive(false)}>X</label>
+        <button
+          className={styles.closeBtn}
+          onClick={() => setActive(false)}
+          onMouseEnter={() => setFillColor('white')}
+          onMouseLeave={() => setFillColor('gray')}
+        >
+          <CommonSvg fill={fillColor} icon='close' size={20} />
+        </button>
         {children}
       </div>
     </div>
