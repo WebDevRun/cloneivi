@@ -10,7 +10,7 @@ import styles from './Button.module.scss'
 export interface ButtonProps {
   icon?: INameIcons
   background?: 'gray' | 'primary' | 'red' | 'transparent'
-  color?: 'active' | 'passive'
+  theme?: 'active' | 'passive'
   withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg'
   size?: 'small' | 'middle' | 'big'
   text?: string
@@ -21,7 +21,7 @@ export interface ButtonProps {
 export const Button: FC<ButtonProps> = ({
   icon,
   background = 'red',
-  color = 'active',
+  theme = 'active',
   withBorder = 'borderNone',
   size = 'middle',
   text,
@@ -31,7 +31,7 @@ export const Button: FC<ButtonProps> = ({
   const mainCn = cn(
     styles.button,
     styles[background],
-    styles[color],
+    styles[theme],
     styles[withBorder],
     styles[size],
     !text && styles.onlyIcon,
