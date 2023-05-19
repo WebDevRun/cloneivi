@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import { ReactNode } from 'react'
 
 import styles from './ui.module.scss'
 
@@ -63,22 +62,4 @@ export function H1({ ...props }) {
 
 export function H2({ ...props }) {
   return <Text as='h2' variant='titleH2' {...props} />
-}
-
-interface AddIconProps extends BaseProps {
-  icon: string | ReactNode
-  orderIcon: 'after' | 'before'
-}
-
-export function AddIcon({
-  icon,
-  orderIcon = 'before',
-  ...props
-}: WithChildren<AddIconProps>) {
-  return (
-    <div className={cn(styles.addIcon, styles[orderIcon])}>
-      <Text variant='titleBg' {...props} />
-      <div className={styles.addIconIcon}>{icon}</div>
-    </div>
-  )
 }

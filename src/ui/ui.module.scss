@@ -57,26 +57,3 @@
   font-weight: 400;
   color: #d9d7e0;
 }
-
-.addIcon {
-  display: flex;
-}
-
-.addIconIcon {
-  margin-left: fn.toRem(8px);
-}
-
-.addIcon svg {
-  fill: #ffffff;
-}
-
-.addIconIcon {
-  display: flex;
-  align-items: center;
-}
-
-.after > .addIconIcon {
-  order: -1;
-  margin-left: 0;
-  margin-right: fn.toRem(8px);
-}

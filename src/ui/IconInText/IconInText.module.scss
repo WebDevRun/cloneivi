@@ -1,2 +1,27 @@
+@use '../../styles/functions' as fn;
+
 .iconInText {
+  display: flex;
+  align-items: stretch;
+}
+
+.iconInText svg {
+  fill: #ffffff;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-left: fn.toRem(8px);
+}
+
+.text {
+  display: flex;
+  align-items: center;
+}
+
+.after > .icon {
+  order: -1;
+  margin-left: 0;
+  margin-right: fn.toRem(8px);
 }

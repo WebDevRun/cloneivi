@@ -16,5 +16,18 @@ export default meta
 type Story = StoryObj<typeof IconInText>
 
 export const Default: Story = {
-  args: {},
+  args: {
+    text: 'Современные мультфильмы',
+    icon: 'arrowRight',
+    sizeIcon: 'small',
+  },
+}
+
+export const IconAfter: Story = {
+  args: {
+    text: 'за неделю',
+    icon: 'top10',
+    orderIcon: 'after',
+    ext: true,
+  },
 }
