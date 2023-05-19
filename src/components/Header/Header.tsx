@@ -2,8 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { IMenuItem } from '@/types/navigate'
+import { Svg } from '@/ui/Svg'
 import logo from '@assets/images/common/ivi.svg'
-import { HeaderSvg } from '@ui/svg/HeaderSvg'
 
 import { Button } from '../../ui/Button'
 import { Language } from '../../ui/Language'
@@ -51,7 +51,7 @@ export const Header = () => {
         className={styles.notifyLink}
         href="https://www.ivi.ru/profile/pull_notifications"
       >
-        <HeaderSvg icon="notify" />
+        <Svg icon="notify" />
       </Link>
 
       <div className={styles.language}>
