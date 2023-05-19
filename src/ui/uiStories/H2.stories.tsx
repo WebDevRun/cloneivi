@@ -13,6 +13,7 @@ export default meta
 type Story = StoryObj<typeof H2>
 
 export const Default: Story = {
+  name: 'Заголовок h2 (20px)',
   args: {
     children: 'Тайна пропавшей деревни',
   },
