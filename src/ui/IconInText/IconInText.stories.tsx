@@ -49,7 +49,7 @@ export const IconAfter: Story = {
   args: {
     text: 'за неделю',
     icon: 'top10',
-    orderIcon: 'after',
+    orderIcon: 'before',
     extIcon: true,
   },
 }

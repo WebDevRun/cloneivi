@@ -10,7 +10,7 @@ import styles from './IconInText.module.scss'
 
 export interface IconInTextProps {
   icon?: INameIcons | INameIconsExt
-  orderIcon?: 'after' | 'before'
+  orderIcon?: 'before' | 'after'
   sizeIcon?: 'small' | 'middle' | 'big' | 'large'
   extIcon?: boolean
   text: string
@@ -19,7 +19,7 @@ export interface IconInTextProps {
 
 export const IconInText: FC<IconInTextProps> = ({
   icon,
-  orderIcon = 'before',
+  orderIcon = 'after',
   sizeIcon = 'small',
   text,
   textVariant = 'titleBg',
