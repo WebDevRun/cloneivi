@@ -71,7 +71,7 @@ export const HeaderDropdown: FC = () => {
     return () => {
       removeEventListener('myCustomEventName', eventHandler)
     }
-  })
+  }, [])
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
     setActive('headerDropdown')
@@ -83,7 +83,7 @@ export const HeaderDropdown: FC = () => {
         <div className={styles.dropdownContent}>
           {!(isNotify || isProfile) && !!lists.genres.items.length && (
             <div className={styles.doubleColumn}>
-              <ShowList data={lists.genres} col='double' />
+              <ShowList data={lists.genres} column='double' />
             </div>
           )}
 
@@ -161,7 +161,7 @@ export const HeaderDropdown: FC = () => {
               <div className={styles.profileMain}>
                 {profile.items.map((item, index) => (
                   <div key={index}>
-                    {/* -------------------------------- */}
+                    {/* ------ Это заменить на компонент -------- */}
                     <Link href={item.href}>
                       <div className={styles.profileItem}>
                         <div>{item.icon}</div>
@@ -171,7 +171,7 @@ export const HeaderDropdown: FC = () => {
                         </div>
                       </div>
                     </Link>
-                    {/* -------------------------------- */}
+                    {/* ------------------------------------------ */}
                   </div>
                 ))}
               </div>

@@ -43,7 +43,7 @@
 }
 
 .doubleColumn {
-  width: 33.33333333%;
+  width: 33.3%;
 }
 
 .dropdownContent {
@@ -57,7 +57,7 @@
 }
 
 .singleColumn {
-  width: 16.66666667%;
+  width: 16.7%;
 }
 
 .singleColumn > *:not(:first-child) {
@@ -177,7 +177,7 @@
   grid-template-columns: repeat(4, minmax(fn.toRem(155px), 1fr));
   grid-template-rows: repeat(2, auto);
   padding-right: fn.toRem(12px);
-  width: 66.66666667%;
+  width: 66.7%;
 }
 
 .profileSide {
@@ -187,7 +187,7 @@
   border-left: 1px solid hsla(0, 0%, 100%, 0.16);
   padding-left: fn.toRem(24px);
   margin-left: fn.toRem(12px);
-  width: 33.33333333%;
+  width: 33.3%;
 }
 
 .list > *:not(:first-child) {
