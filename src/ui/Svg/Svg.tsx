@@ -15,7 +15,7 @@ export const Svg: FC<SvgProps> = ({ size = 'middle', icon, ext = false }) => {
     small: 16,
     middle: 20,
     big: 32,
-    large: 64,
+    large: 56,
   }
 
   return (

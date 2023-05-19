@@ -8,7 +8,30 @@ const meta: Meta<typeof IconInText> = {
   title: 'IconInText',
   tags: ['autodocs'],
   component: IconInText,
-  argTypes: {},
+  argTypes: {
+    text: {
+      description: 'Текст',
+    },
+    icon: {
+      control: { type: 'select' },
+      description: 'Название иконки',
+    },
+    sizeIcon: {
+      control: { type: 'select' },
+      description: 'Размер иконки "16px | 20px | 32px | 56px"',
+    },
+    orderIcon: {
+      control: { type: 'select' },
+      description: 'Расположение иконки "перед | после" текста',
+    },
+    extIcon: {
+      description: 'Если в параметре icon иконка выбрана, но не отображается, то переключите здесь',
+    },
+    textVariant: {
+      control: { type: 'select' },
+      description: 'Варианты текста',
+    },
+  },
 }
 
 export default meta
@@ -19,7 +42,6 @@ export const Default: Story = {
   args: {
     text: 'Современные мультфильмы',
     icon: 'arrowRight',
-    sizeIcon: 'small',
   },
 }
 
@@ -28,6 +50,6 @@ export const IconAfter: Story = {
     text: 'за неделю',
     icon: 'top10',
     orderIcon: 'after',
-    ext: true,
+    extIcon: true,
   },
 }

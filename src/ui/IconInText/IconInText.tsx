@@ -12,18 +12,18 @@ export interface IconInTextProps {
   icon?: INameIcons | INameIconsExt
   orderIcon?: 'after' | 'before'
   sizeIcon?: 'small' | 'middle' | 'big' | 'large'
+  extIcon?: boolean
   text: string
   textVariant?: TextVariants
-  ext?: boolean
 }
 
 export const IconInText: FC<IconInTextProps> = ({
   icon,
   orderIcon = 'before',
-  sizeIcon,
+  sizeIcon = 'small',
   text,
   textVariant = 'titleBg',
-  ext,
+  extIcon = false,
 }) => {
   return (
     <div className={cn(styles.iconInText, styles[orderIcon])}>
@@ -32,7 +32,7 @@ export const IconInText: FC<IconInTextProps> = ({
       </Text>
       {icon && (
         <div className={styles.icon}>
-          <Svg icon={icon} size={sizeIcon} ext={ext} />
+          <Svg icon={icon} size={sizeIcon} ext={extIcon} />
         </div>
       )}
     </div>
