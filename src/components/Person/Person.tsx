@@ -11,11 +11,7 @@ export interface PersonProps {
   maxShowFilms: number
 }
 
-export const Person: FC<PersonProps> = ({
-  person,
-  maxShowFilms,
-}) => {
-
+export const Person: FC<PersonProps> = ({ person, maxShowFilms }) => {
   return (
     <div className={styles.person}>
       <section>

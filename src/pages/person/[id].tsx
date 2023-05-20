@@ -9,7 +9,6 @@ import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { CrumbItem } from '@/components/Breadcrumbs/Breadcrumbs'
 import { Person } from '@/components/Person'
 import { IPerson } from '@/types/Person'
-import { Header } from '@components/Header'
 import { AppLayout } from '@layouts/AppLayout'
 
 import styles from './PersonPage.module.scss'
@@ -37,7 +36,6 @@ export default function PersonPage({ person }: IPersonPage) {
 
   return (
     <AppLayout>
-      <Header />
       <div className={styles.backLinkSection}>
         <div className={styles.backLinkWrapper}>
           <BackLink text={t('back')}></BackLink>
