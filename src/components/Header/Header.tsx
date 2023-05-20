@@ -3,9 +3,9 @@ import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
-import { HeaderSvg } from '@/ui/svg/HeaderSvg/HeaderSvg'
+import { Svg } from '@/ui/Svg'
+import logo from '@assets/images/common/ivi.svg'
 
-import logo from '../../assets/images/common/ivi.svg'
 import { Button } from '../../ui/Button'
 import { Language } from '../../ui/Language'
 
@@ -67,11 +67,12 @@ export const Header: FC = () => {
         </div>
       </div>
 
-      <div data-test='header-notify' className={styles.notifyLink}>
-        <Link href='https://www.ivi.ru/profile/pull_notifications'>
-          <HeaderSvg icon='notify' />
-        </Link>
-      </div>
+      <Link
+        className={styles.notifyLink}
+        href="https://www.ivi.ru/profile/pull_notifications"
+      >
+        <Svg icon="notify" />
+      </Link>
 
       <div data-test='header-profile' className={styles.profile}>
         <Button
