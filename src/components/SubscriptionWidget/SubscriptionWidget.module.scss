@@ -31,9 +31,6 @@
   animation-timing-function: linear;
   animation-play-state: running;
   animation-iteration-count: infinite;
-  animation-fill-mode: none; //
-  will-change: transform; //
-  animation-delay: 0s; //
 
   & > * {
     margin-left: fn.toRem(8px);

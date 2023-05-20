@@ -9,3 +9,4 @@ export type INameIcons =
   | 'profile'
   | 'search'
   | 'share'
+  | 'smart'
