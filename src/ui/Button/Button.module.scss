@@ -22,14 +22,7 @@ $alpha72: 0.72;
     justify-content: center;
     align-items: center;
     margin-right: fn.toRem(8px);
-<<<<<<< HEAD
-
-    svg {
-      fill: $white;
-    }
-=======
     transition-duration: 0.4s;
->>>>>>> main
   }
 }
 
@@ -53,11 +46,7 @@ $alpha72: 0.72;
   background-color: transparent;
   color: rgba($white, $alpha72);
 
-<<<<<<< HEAD
-  .icon svg {
-=======
   svg {
->>>>>>> main
     fill: rgba($white, $alpha72);
   }
 
