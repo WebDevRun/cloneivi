@@ -15,7 +15,7 @@ export const PersonHeader: FC<IPerson> = ({
   first_name_en,
   last_name_en,
   films,
-  img = '//avatars.mds.yandex.net/get-kinopoisk-image/1599028/09a6ecb6-052b-41fb-8323-1b95a10cb33a/280x420',
+  img = 'https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/09a6ecb6-052b-41fb-8323-1b95a10cb33a/280x420',
 }) => {
   const { t } = useTranslation()
 

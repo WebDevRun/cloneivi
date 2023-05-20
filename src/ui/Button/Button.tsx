@@ -1,13 +1,16 @@
 import cn from 'classnames'
 import React, { FC, MouseEventHandler } from 'react'
 
-import { HeaderSvg } from '../svg/HeaderSvg'
+import { INameIcons } from '@/types/Icons'
+
+import { Svg } from '../Svg'
 
 import styles from './Button.module.scss'
 
 export interface ButtonProps {
-  icon?: 'search' | 'language' | 'profile' | 'notify'
-  background?: 'transparent' | 'red' | 'gray' | 'primary'
+  icon?: INameIcons
+  background?: 'gray' | 'primary' | 'red' | 'transparent'
+  theme?: 'active' | 'passive'
   withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg'
   size?: 'small' | 'middle' | 'big'
   fields?: 'noneFields' | 'widthFields'
@@ -19,6 +22,7 @@ export interface ButtonProps {
 export const Button: FC<ButtonProps> = ({
   icon,
   background = 'red',
+  theme = 'active',
   withBorder = 'borderNone',
   size = 'middle',
   text,
@@ -29,6 +33,7 @@ export const Button: FC<ButtonProps> = ({
   const mainCn = cn(
     styles.button,
     styles[background],
+    styles[theme],
     styles[withBorder],
     styles[size],
     fields === 'noneFields' && styles[fields],
@@ -41,7 +46,7 @@ export const Button: FC<ButtonProps> = ({
     <button type='button' className={mainCn} onClick={onClick}>
       {icon && (
         <div className={styles.icon}>
-          {<HeaderSvg icon={icon} size={iconSize} />}
+          {<Svg icon={icon} size={iconSize} />}
         </div>
       )}
       {text && (

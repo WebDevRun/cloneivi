@@ -48,7 +48,13 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
           {!isSvg && (
             <Image
               className={styles.image}
-              src={films.img ? `https:${films.img}` : noImage}
+              src={
+                films.img
+                  ? films.img.indexOf('https://') === -1
+                    ? `https:${films.img}`
+                    : films.img
+                  : noImage
+              }
               alt={`${t('posterForTheMovie')} ${films.name_ru}`}
               width={75}
               height={118}

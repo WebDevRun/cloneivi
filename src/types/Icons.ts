@@ -1,0 +1,12 @@
+export type INameIcons =
+  | 'arrowLeft'
+  | 'call'
+  | 'copy'
+  | 'favoriteAdd'
+  | 'favoriteRemove'
+  | 'language'
+  | 'notify'
+  | 'playOutline'
+  | 'profile'
+  | 'search'
+  | 'share'
