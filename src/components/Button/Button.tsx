@@ -1,11 +1,20 @@
 import React, { ReactNode } from 'react'
+import cn from 'classnames'
 import styles from './Button.module.scss'
+import Image, { ImageProps, StaticImageData } from 'next/image'
+import logout from './logout.svg'
+import playArrow from './play_arrow.svg'
+
+const icon = {
+  share: logout,
+  trailer: playArrow,
+}
 
 interface ButtonProps {
   /**
    * Назначение кнопки
    */
-  mode?: 'primary' | 'secondary' | 'makoto'
+  mode: 'primary' | 'secondary' | 'makoto' | 'player' | 'trailer' | 'share'
   /**
    * Цвет фона
    */
@@ -13,11 +22,12 @@ interface ButtonProps {
   /**
    * Размер кнопки
    */
-  size?: 'small' | 'medium' | 'large'
+  size: 'small' | 'medium' | 'large'
   /**
    * Текст на кнопке
    */
-  label?: string
+  text?: string
+  subText?: string
   /**
    * Обработчик нажатия
    */
@@ -36,37 +46,29 @@ export const Button = ({
   mode = 'secondary',
   size = 'medium',
   backgroundColor,
-  label,
+  text,
+  subText,
   children,
   ...props
 }: ButtonProps) => {
-  const stylesMode =
-    mode === 'primary'
-      ? styles.button_primary
-      : mode === 'secondary'
-      ? styles.button_secondary
-      : styles.button_makoto
+  const mainCn = cn(styles.button, styles[mode], styles[size])
 
-  const stylesSize =
-    size === 'small'
-      ? styles.button_small
-      : size === 'medium'
-      ? styles.button_medium
-      : styles.button_large
-
-  const withIcon =
-    label && children ? styles.button_with_icon : styles.button_only_icon
+  const iconSrc = icon[mode]
+  const iconAlt = 'slkdflskdfk'
 
   return (
-    <button
-      type="button"
-      className={[styles.button, stylesSize, stylesMode].join(' ')}
-      {...props}
-    >
-      <div className={withIcon}>
-        {children}
-        {label}
-      </div>
+    <button type="button" className={mainCn} {...props}>
+      {iconSrc && iconAlt && (
+        <div className="icon_button">
+          <Image width={16} height={16} src={iconSrc} alt={iconAlt} />
+        </div>
+      )}
+      {text && (
+        <div className={styles.main_text}>
+          {text}
+          <div className={styles.sub_text}>{subText}</div>
+        </div>
+      )}
     </button>
   )
 }
