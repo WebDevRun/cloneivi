@@ -9,7 +9,6 @@ $alpha72: 0.72;
   justify-content: center;
   align-items: center;
   border-radius: fn.toRem(8px);
-  color: $white;
   transition-duration: 0.4s;
   transition-property: color, fill, border-color, background-color;
 
@@ -23,18 +22,42 @@ $alpha72: 0.72;
     justify-content: center;
     align-items: center;
     margin-right: fn.toRem(8px);
+<<<<<<< HEAD
 
     svg {
       fill: $white;
     }
+=======
+    transition-duration: 0.4s;
+>>>>>>> main
   }
+}
+
+.active svg {
+  fill: $white;
+}
+
+.passive svg {
+  fill: rgba($white, $alpha72);
+}
+
+.active {
+  color: $white;
+}
+
+.passive {
+  color: rgba($white, $alpha72);
 }
 
 .transparent {
   background-color: transparent;
   color: rgba($white, $alpha72);
 
+<<<<<<< HEAD
   .icon svg {
+=======
+  svg {
+>>>>>>> main
     fill: rgba($white, $alpha72);
   }
 
@@ -149,6 +172,14 @@ $alpha72: 0.72;
 .onlyIcon {
   .icon {
     margin-right: 0;
+  }
+
+  &.small {
+    width: fn.toRem(32px);
+  }
+
+  &.middle {
+    width: fn.toRem(40px);
   }
 
   &.big {
