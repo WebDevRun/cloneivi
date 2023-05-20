@@ -7,7 +7,18 @@ const meta: Meta<typeof ModalWindow> = {
   title: 'ModalWindow',
   tags: ['autodocs'],
   component: ModalWindow,
-  argTypes: {},
+  argTypes: {
+    active: {
+      description:
+        'Здесь мы передаем булево значение состояния, которое указывает, открыто ли модальное окно или нет.',
+    },
+    children: {
+      description: 'Само модальное окно',
+    },
+    setActive: {
+      description: 'Функция которая меняет state active',
+    },
+  },
 }
 
 export default meta

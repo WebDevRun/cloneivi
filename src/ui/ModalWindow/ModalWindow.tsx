@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { FC, useState } from 'react'
+import { Dispatch, FC, ReactNode, SetStateAction, useState } from 'react'
 
 import { CommonSvg } from '../svg/CommonSvg'
 
@@ -7,8 +7,8 @@ import styles from './ModalWindow.module.scss'
 
 export interface ModalWindowProps {
   active: boolean
-  setActive: any
-  children: any
+  setActive: Dispatch<SetStateAction<boolean>>
+  children: ReactNode
 }
 
 export const ModalWindow: FC<ModalWindowProps> = ({
