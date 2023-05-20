@@ -7,12 +7,11 @@
   .textBadge {
     font-size: fn.toRem(13px);
     font-weight: 700;
-    color: white;
-    background-color: #ff542e;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 84, 46);
     box-shadow: 0 4px 12px rgba(255, 84, 46, 0.4);
     padding: fn.toRem(3px) fn.toRem(8px);
     border-radius: fn.toRem(50px);
-    width: auto;
     position: absolute;
     top: fn.toRem(5px);
     left: fn.toRem(-5px);
@@ -105,7 +104,7 @@
 }
 
 .movieCardName {
-  color: #d9d7e0;
+  color: rgb(217, 215, 224);
   font-size: fn.toRem(15px);
   font-weight: 500;
   text-overflow: ellipsis;
@@ -114,7 +113,7 @@
 }
 
 .movieCardType {
-  color: #ea003d;
+  color: rgb(234, 0, 61);
   font-size: fn.toRem(13px);
   font-weight: 400;
 }
@@ -136,7 +135,7 @@
   }
 
   .seriesName {
-    color: white;
+    color: rgb(255, 255, 255);
   }
 }
 
@@ -145,7 +144,7 @@
 }
 
 .seriesName {
-  color: #d9d7e0;
+  color: rgb(217, 215, 224);
   transition-duration: 0.4s;
   font-size: fn.toRem(15px);
   line-height: fn.toRem(20px);
@@ -166,13 +165,13 @@
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   text-overflow: -o-ellipsis-lastline;
-  color: #a5a1b2;
+  color: rgb(165, 161, 178);
   margin-top: fn.toRem(4px);
 }
 
 .seriesLength {
   margin-right: 10px;
-  color: #a5a1b2;
+  color: rgb(165, 161, 178);
   font-size: 13px;
   line-height: 16px;
   font-weight: 400;
