@@ -26,7 +26,7 @@ export const TextCollapse: FC<TextCollapseProps> = (props) => {
   } = props
 
   const [isExpanded, setIsExpanded] = useState(false)
-  const toggleExpand = () => setIsExpanded(!isExpanded)
+  const toggleExpand = () => setIsExpanded((isExpanded) => !isExpanded)
 
   const stringNode = renderToString(children)
 
