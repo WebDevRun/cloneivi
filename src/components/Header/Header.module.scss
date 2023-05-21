@@ -1,26 +1,40 @@
+@use '../../styles/functions' as fn;
+
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: stretch;
+  background-color: transparent;
+  padding-left: fn.toRem(12px);
+  padding-right: fn.toRem(12px);
+  height: fn.toRem(66px);
+  z-index: 2;
+}
+
+.headerLogo {
+  display: flex;
   align-items: center;
-  background-color: #100e19;
-  padding-left: 12px;
-  padding-right: 12px;
-  height: 66px;
 }
 
 .menu {
   display: flex;
-  margin-left: 32px;
+  align-items: stretch;
+  margin-left: fn.toRem(32px);
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
 }
 
 .menuItem:not(:first-child) {
-  padding-left: 16px;
+  padding-left: fn.toRem(16px);
 }
 
 .menuItemText {
-  font-size: 15px;
+  font-size: fn.toRem(15px);
   font-weight: 500;
-  line-height: 20px;
+  line-height: fn.toRem(20px);
   color: hsla(0, 0%, 100%, 0.48);
 
   &:hover {
@@ -34,25 +48,33 @@
 
 .topWide {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   flex-grow: 1;
   justify-content: flex-end;
 }
 
+.additionalButton {
+  display: flex;
+  align-items: center;
+}
 
 .buttonMobile {
   display: none;
+  align-items: center;
 }
 
 .headerSearch {
-  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: fn.toRem(20px);
 }
 
 .notifyLink {
   display: flex;
   justify-content: center;
-  width: 36px;
-  margin-left: 12px;
+  align-items: center;
+  width: fn.toRem(36px);
+  margin-left: fn.toRem(12px);
 
   svg {
     fill: rgba(255, 255, 255, 0.48);
@@ -64,23 +86,27 @@
   }
 }
 
-.headerAvatar {
-  margin-left: 12px;
+.profile {
+  display: flex;
+  align-items: center;
+  margin-left: fn.toRem(12px);
 }
 
 .language {
-  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: fn.toRem(20px);
 }
 
 @media screen and (max-width: 1160px) {
   .menu,
   .headerSearch,
-  .additionalButton{
+  .additionalButton {
     display: none;
   }
 
   .buttonMobile {
-    display: block;
+    display: flex;
   }
 }
 
