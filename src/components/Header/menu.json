@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "dataTest": "header-myIvi",
+    "name": "header:myIvi",
+    "href": "https://www.ivi.ru/"
+  },
+  {
+    "id": "2",
+    "dataTest": "header-whatsNew",
+    "name": "header:whatsNew",
+    "href": "https://www.ivi.ru/new"
+  },
+  {
+    "id": "3",
+    "dataTest": "header-movies",
+    "name": "header:movies",
+    "href": "https://www.ivi.ru/movies"
+  },
+  {
+    "id": "4",
+    "dataTest": "header-serials",
+    "name": "header:serials",
+    "href": "https://www.ivi.ru/series"
+  },
+  {
+    "id": "5",
+    "dataTest": "header-animations",
+    "name": "header:animations",
+    "href": "https://www.ivi.ru/animation"
+  },
+  {
+    "id": "6",
+    "dataTest": "header-tv",
+    "name": "header:tv",
+    "href": "https://www.ivi.ru/tvplus"
+  }
+]
