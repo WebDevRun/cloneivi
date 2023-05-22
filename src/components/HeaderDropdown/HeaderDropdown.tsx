@@ -5,6 +5,7 @@ import { FC, useEffect, useState } from 'react'
 
 import { Button } from '@/ui/Button'
 
+import addButton from '../addButton.json'
 import cartoons from '../cartoons.json'
 import movies from '../movies.json'
 import { NativeScroll } from '../NativeScroll'
@@ -23,6 +24,7 @@ export const HeaderDropdown: FC = () => {
   const [lists, setLists] = useState(movies)
   const [isTv, setIsTv] = useState(false)
   const [isNotify, setIsNotify] = useState(false)
+  const [isAddButton, setIsAddButton] = useState(false)
   const [isProfile, setIsProfile] = useState(false)
   const [sideFit, setSideFit] = useState('')
 
@@ -32,6 +34,7 @@ export const HeaderDropdown: FC = () => {
   function eventHandler(e: CustomEventInit<string>) {
     setSideFit('')
     setIsTv(false)
+    setIsAddButton(false)
     setIsNotify(false)
     setIsProfile(false)
     switch (e.detail) {
@@ -52,6 +55,10 @@ export const HeaderDropdown: FC = () => {
         setLists(tv)
         setActive('headerDropdownActive')
         setSideFit('sideContentFull')
+        break
+      case 'header-addButton':
+        setIsAddButton(true)
+        setActive('headerDropdownActive')
         break
       case 'header-notify':
         setIsNotify(true)
@@ -82,13 +89,14 @@ export const HeaderDropdown: FC = () => {
     <div className={mainCn} onMouseLeave={handleMouseLeave}>
       <div className={styles.headerDropdownBody}>
         <div className={styles.dropdownContent}>
-          {!(isNotify || isProfile) && !!lists.genres.items.length && (
-            <div className={styles.doubleColumn}>
-              <ShowList data={lists.genres} column='double' />
-            </div>
-          )}
+          {!(isNotify || isProfile || isAddButton) &&
+            !!lists.genres.items.length && (
+              <div className={styles.doubleColumn}>
+                <ShowList data={lists.genres} column='double' />
+              </div>
+            )}
 
-          {!(isNotify || isProfile) &&
+          {!(isNotify || isProfile || isAddButton) &&
             (!!lists.countries.items.length || !!lists.years.items.length) && (
               <div className={styles.singleColumn}>
                 <ShowList data={lists.countries} />
@@ -96,7 +104,7 @@ export const HeaderDropdown: FC = () => {
               </div>
             )}
 
-          {!(isNotify || isProfile) && (
+          {!(isNotify || isProfile || isAddButton) && (
             <div className={sideCn}>
               <div className={styles.group}>
                 {!isTv && (
@@ -125,6 +133,50 @@ export const HeaderDropdown: FC = () => {
                   />
                 </div>
               )}
+            </div>
+          )}
+
+          {isAddButton && (
+            <div className={styles.subscriptionAdd}>
+              <div className={styles.mainContent}>
+                <div className={styles.title}>Подписка Иви</div>
+                <div className={styles.subtitle}>
+                  Стоимость 399 ₽ в месяц, продление автоматическое
+                </div>
+
+                <div className={styles.tilesList}>
+                  {addButton.items.map((item, index) => (
+                    <div className={styles.tileItem} key={index}>
+                      {/* ------ Это заменить на компонент -------- */}
+                      <Link href={item.href}>
+                        <div className={styles.profileItem}>
+                          <div>{item.icon}</div>
+                          <div className={styles.textBlock}>
+                            <div>{item.title}</div>
+                            <div>{item.extra}</div>
+                          </div>
+                        </div>
+                      </Link>
+                      {/* ------------------------------------------ */}
+                    </div>
+                  ))}
+                </div>
+                <div className={styles.footer}>
+                  <div className={styles.action}>
+                    <Button text='Смотреть 30 дней за 1₽' size='middle' />
+                  </div>
+                  <div className={styles.info}>
+                    Отключить можно в любой момент
+                  </div>
+                </div>
+              </div>
+              <div className={styles.widgetContent}>
+                <SubscriptionWidget
+                  posters={posters.subscription}
+                  size='big'
+                  textButton='Смотреть на SmartTV'
+                />
+              </div>
             </div>
           )}
 

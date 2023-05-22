@@ -129,6 +129,48 @@
   overflow: hidden;
 }
 
+//----- Это изменить -----
+.subscriptionAdd {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.mainContent {
+  width: 50%;
+}
+
+.subtitle {
+  margin-top: fn.toRem(8px);
+}
+
+.tilesList {
+  grid-gap: fn.toRem(24px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(fn.toRem(155px), 1fr));
+  grid-template-rows: auto;
+  margin-top: fn.toRem(32px);
+}
+
+.tileItem:nth-child(2) {
+  grid-column: span 2;
+}
+
+.footer {
+  display: flex;
+  margin-top: 32px;
+}
+
+.action {
+  padding-right: 24px;
+  width: 66.7%;
+}
+
+.info {
+  width: 33.3%;
+}
+//-------------------------------
+
 .notifyWrap {
   display: flex;
   justify-content: center;
@@ -205,7 +247,7 @@
   position: relative;
   background-color: #312b45;
   border-radius: fn.toRem(8px);
-  min-height: fn.toRem(108px);
+  min-height: fn.toRem(128px);
 
   font-size: fn.toRem(15px);
   font-weight: 400;
@@ -229,5 +271,3 @@
 .textBlock > :first-child {
   color: #fff;
 }
-
-

@@ -47,7 +47,10 @@ export const Header: FC = () => {
       </nav>
 
       <div className={styles.topWide}>
-        <div className={styles.additionalButton}>
+        <div
+          data-test='header-addButton'
+          className={styles.additionalButton}
+        >
           <Button
             size='small'
             background='primary'
@@ -68,10 +71,11 @@ export const Header: FC = () => {
       </div>
 
       <Link
+        data-test='header-notify'
         className={styles.notifyLink}
-        href="https://www.ivi.ru/profile/pull_notifications"
+        href='https://www.ivi.ru/profile/pull_notifications'
       >
-        <Svg icon="notify" />
+        <Svg icon='notify' />
       </Link>
 
       <div data-test='header-profile' className={styles.profile}>
