@@ -1,0 +1,49 @@
+{
+  "genres": {
+    "title": "",
+    "items": []
+  },
+  "countries": {
+    "title": "",
+    "items": []
+  },
+  "years": {
+    "title": "",
+    "items": []
+  },
+  "extra": {
+    "title": "",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/new/movie-new",
+        "title": "ТВ онлайн",
+        "text": "ТВ онлайн"
+      },
+      {
+        "href": "https://www.ivi.ru/collections",
+        "title": "ТВ-каналы",
+        "text": "ТВ-каналы"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/all?ivi_rating_10_gte=7&amp;sort=ivi&amp;rating_part=main&amp;rating_model=ready",
+        "title": "Развлекательное",
+        "text": "Развлекательное"
+      },
+      {
+        "href": "https://www.ivi.ru/new/soon-ivi",
+        "title": "Дети",
+        "text": "Дети"
+      },
+      {
+        "href": "https://www.ivi.ru/trailers",
+        "title": "Спортивное ТВ",
+        "text": "Спортивное ТВ"
+      },
+      {
+        "href": "https://www.ivi.ru/goodmovies",
+        "title": "Документальное",
+        "text": "Документальное"
+      }
+    ]
+  }
+}

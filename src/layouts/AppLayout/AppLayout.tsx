@@ -1,6 +1,9 @@
 import { FC, ReactNode } from 'react'
 
-import { Header } from '@components/Header'
+import { Header } from '@/components/Header'
+import { HeaderDropdown } from '@/components/HeaderDropdown'
+
+import { DropDownLayout } from '../DropDownLayout'
 
 import styles from './AppLayout.module.scss'
 
@@ -11,12 +14,10 @@ export interface AppLayoutProps {
 export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   return (
     <div className={styles.appLayout}>
-      <header>
-        <Header />
-        {/*<DropDownLayout position='center' size='small' type='header'>
-          <HeaderDropdown />
-        </DropDownLayout>*/}
-      </header>
+      <Header />
+      <DropDownLayout position='center' size='small' type='header'>
+        <HeaderDropdown />
+      </DropDownLayout>
       <main>{children}</main>
       {/** <Footer /> */}
     </div>

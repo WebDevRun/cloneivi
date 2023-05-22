@@ -1,0 +1,182 @@
+{
+  "genres": {
+    "title": "Жанры",
+    "items": [
+      {
+        
+        "href": "https://www.ivi.ru/movies/boeviki",
+        "title": "Смотреть фильмы аниме онлайн",
+        "text": "Аниме"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/western",
+        "title": "Смотреть боевик онлайн",
+        "text": "Боевик"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/dlya_vsej_semi",
+        "title": "Смотреть детектив онлайн",
+        "text": "Детектив"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/detskiy",
+        "title": "Смотреть детский фильм онлайн",
+        "text": "Детский"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/documentary",
+        "title": "Смотреть фильм для взрослых онлайн",
+        "text": "Для взрослых"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/istoricheskie",
+        "title": "Смотреть драму онлайн",
+        "text": "Драма"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/comedy",
+        "title": "Смотреть историю онлайн",
+        "text": "История"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/crime",
+        "title": "Смотреть комедию онлайн",
+        "text": "Комедия"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/comics",
+        "title": "Смотреть криминал онлайн",
+        "text": "Криминал"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/horror",
+        "title": "Смотреть мюзикл онлайн",
+        "text": "Мюзикл"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fantastika",
+        "title": "Смотреть новости онлайн",
+        "text": "Полнометражные"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Смотреть приключения онлайн",
+        "text": "Приключения"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Смотреть реальное ТВ онлайн",
+        "text": "Развивающие"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Смотреть семейные фильмы онлайн",
+        "text": "Сериалы"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Смотреть спорт онлайн",
+        "text": "Спорт"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Смотреть триллеры онлайн",
+        "text": "Триллеры"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Смотреть ужасы онлайн",
+        "text": "Ужасы"
+      },      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Смотреть фантастику онлайн",
+        "text": "Фантастика"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Смотреть фэнтези онлайн",
+        "text": "Фэнтези"
+      }
+    ]
+  },
+  "countries": {
+    "title": "Страны",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/movies/ru",
+        "title": "Смотреть русские фильмы онлайн",
+        "text": "Русские"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/foreign",
+        "title": "Смотреть зарубежные фильмы онлайн",
+        "text": "Зарубежные"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/su",
+        "title": "Смотреть советское кино онлайн",
+        "text": "Советское кино"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/su",
+        "title": "Смотреть советское кино онлайн",
+        "text": "Американские"
+      }
+    ]
+  },
+  "years": {
+    "title": "Годы",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/movies/2023",
+        "title": "Смотреть фильмы 2023 года онлайн",
+        "text": "Фильмы 2023 года"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/2022",
+        "title": "Смотреть фильмы 2022 года онлайн",
+        "text": "Фильмы 2022 года"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/2021",
+        "title": "Смотреть фильмы 2021 года онлайн",
+        "text": "Фильмы 2021 года"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/2020",
+        "title": "Смотреть фильмы 2020 года онлайн",
+        "text": "Фильмы 2020 года"
+      }
+    ]
+  },
+  "extra": {
+    "title": "",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/new/movie-new",
+        "title": "Смотреть новинки",
+        "text": "Новинки"
+      },
+      {
+        "href": "https://www.ivi.ru/collections",
+        "title": "Подборки",
+        "text": "Мультики в HD"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/all?ivi_rating_10_gte=7&amp;sort=ivi&amp;rating_part=main&amp;rating_model=ready",
+        "title": "Иви.Рейтинг",
+        "text": "Мультфильмы Paramount Play / Nickelodeon"
+      },
+      {
+        "href": "https://www.ivi.ru/new/soon-ivi",
+        "title": "Смотреть скоро на Иви",
+        "text": "Мультфильмы Dreamworks"
+      },
+      {
+        "href": "https://www.ivi.ru/trailers",
+        "title": "Смотреть трейлеры",
+        "text": "Мультфильмы СТС Kids"
+      }
+    ]
+  }
+}
