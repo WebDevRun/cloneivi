@@ -5,7 +5,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { AppLayout } from '@layouts/AppLayout'
 
 export default function Home() {
-  const { t } = useTranslation(['header'])
+  const { t } = useTranslation()
 
   return (
     <AppLayout>
@@ -15,7 +15,7 @@ export default function Home() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const localeData = await serverSideTranslations(locale ?? 'ru', ['header'])
+  const localeData = await serverSideTranslations(locale ?? 'ru', ['header', 'common'])
   return {
     props: {
       ...localeData,

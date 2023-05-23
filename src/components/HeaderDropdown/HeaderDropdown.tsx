@@ -5,6 +5,7 @@ import { FC, useEffect, useState } from 'react'
 
 import { Button } from '@/ui/Button'
 
+import { Text } from '../../ui/ui'
 import addButton from '../addButton.json'
 import cartoons from '../cartoons.json'
 import movies from '../movies.json'
@@ -19,7 +20,7 @@ import tv from '../tv.json'
 import styles from './HeaderDropdown.module.scss'
 
 export const HeaderDropdown: FC = () => {
-  const { t } = useTranslation(['header'])
+  const { t } = useTranslation()
   const [active, setActive] = useState('headerDropdown')
   const [lists, setLists] = useState(movies)
   const [isTv, setIsTv] = useState(false)
@@ -113,23 +114,29 @@ export const HeaderDropdown: FC = () => {
                   </NativeScroll>
                 )}
                 {isTv && <ShowList data={lists.extra} />}
-                {isTv && <Button text='Телепрограмма' background='gray' />}
+                {isTv && (
+                  <Button text={`${t('TVProgram')}`} background='gray' />
+                )}
               </div>
               {isTv && (
                 <div className={styles.mainContentTv}>
-                  <div className={styles.title}>Федеральные каналы</div>
-                  <div className={styles.title}>Спортивные каналы</div>
-                  <div className={styles.title}>Популярные трансляции</div>
+                  <div className={styles.title}>{`${t(
+                    'federalChannels',
+                  )}`}</div>
+                  <div className={styles.title}>{`${t('sportsChannels')}`}</div>
+                  <div className={styles.title}>{`${t(
+                    'popularBroadcasts',
+                  )}`}</div>
                 </div>
               )}
               {!(isNotify || isProfile) && (
                 <div className={styles.sideContentWidget}>
                   <SubscriptionWidget
                     posters={posters.movies}
-                    title='Подписка Иви'
-                    text='От 199 ₽ за месяц'
-                    textButton='Смотреть на SmartTV'
-                    note='Отключить можно в любой момент'
+                    title={`${t('subscriptionIvi')}`}
+                    text={`${t('From199perMonth')}`}
+                    textButton={`${t('WatchOnSmartTV')}`}
+                    note={`${t('YouCanDisableAnyTime')}`}
                   />
                 </div>
               )}
@@ -139,10 +146,10 @@ export const HeaderDropdown: FC = () => {
           {isAddButton && (
             <div className={styles.subscriptionAdd}>
               <div className={styles.mainContent}>
-                <div className={styles.title}>Подписка Иви</div>
-                <div className={styles.subtitle}>
-                  Стоимость 399 ₽ в месяц, продление автоматическое
-                </div>
+                <Text variant='titleLg'>{`${t('subscriptionIvi')}`}</Text>
+                <Text className={styles.subtitle}>
+                  {`${t('Cost399PerMonthExtensionAutomatic')}`}
+                </Text>
 
                 <div className={styles.tilesList}>
                   {addButton.items.map((item, index) => (
@@ -163,10 +170,10 @@ export const HeaderDropdown: FC = () => {
                 </div>
                 <div className={styles.footer}>
                   <div className={styles.action}>
-                    <Button text='Смотреть 30 дней за 1₽' size='middle' />
+                    <Button text={`${t('Watch30DaysFor1')}`} size='middle' />
                   </div>
                   <div className={styles.info}>
-                    Отключить можно в любой момент
+                    {`${t('YouCanDisableAnyTime')}`}
                   </div>
                 </div>
               </div>
@@ -174,7 +181,7 @@ export const HeaderDropdown: FC = () => {
                 <SubscriptionWidget
                   posters={posters.subscription}
                   size='big'
-                  textButton='Смотреть на SmartTV'
+                  textButton={`${t('WatchOnSmartTV')}`}
                 />
               </div>
             </div>
@@ -210,7 +217,7 @@ export const HeaderDropdown: FC = () => {
                   </div>
                 </div>
                 <div className={styles.notifyText}>
-                  Здесь появляются только важные сообщения
+                  {`${t('OnlyImportantMessagesAppearHere')}`}
                 </div>
               </div>
             </div>
@@ -235,7 +242,7 @@ export const HeaderDropdown: FC = () => {
                 ))}
               </div>
               <div className={styles.profileSide}>
-                <Button text='Войти или зарегистрироваться' />
+                <Button text={`${t('LogInOrRegister')}`} />
                 <ShowList data={profile.extra} />
               </div>
             </div>

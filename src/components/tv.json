@@ -16,33 +16,33 @@
     "items": [
       {
         "href": "https://www.ivi.ru/new/movie-new",
-        "title": "ТВ онлайн",
-        "text": "ТВ онлайн"
+        "title": "TVOnline",
+        "text": "TVOnline"
       },
       {
         "href": "https://www.ivi.ru/collections",
-        "title": "ТВ-каналы",
-        "text": "ТВ-каналы"
+        "title": "TVChannels",
+        "text": "TVChannels"
       },
       {
         "href": "https://www.ivi.ru/movies/all?ivi_rating_10_gte=7&amp;sort=ivi&amp;rating_part=main&amp;rating_model=ready",
-        "title": "Развлекательное",
-        "text": "Развлекательное"
+        "title": "entertainment",
+        "text": "entertainment"
       },
       {
         "href": "https://www.ivi.ru/new/soon-ivi",
-        "title": "Дети",
-        "text": "Дети"
+        "title": "children",
+        "text": "children"
       },
       {
         "href": "https://www.ivi.ru/trailers",
-        "title": "Спортивное ТВ",
-        "text": "Спортивное ТВ"
+        "title": "TVSport",
+        "text": "TVSport"
       },
       {
         "href": "https://www.ivi.ru/goodmovies",
-        "title": "Документальное",
-        "text": "Документальное"
+        "title": "Documentary",
+        "text": "Documentary"
       }
     ]
   }

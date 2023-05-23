@@ -54,13 +54,13 @@
     "items": [
       {
         "href": "https://www.ivi.ru/",
-        "title": "Настройки",
-        "text": "Настройки"
+        "title": "Settings",
+        "text": "Settings"
       },
       {
         "href": "https://www.ivi.ru/",
-        "title": "Помощь",
-        "text": "Помощь"
+        "title": "Help",
+        "text": "Help"
       }
     ]
   }
