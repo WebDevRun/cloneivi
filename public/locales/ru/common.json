@@ -110,5 +110,7 @@
   "OnlyImportantMessagesAppearHere": "Здесь появляются только важные сообщения",
   "LogInOrRegister": "Войти или зарегистрироваться",
   "Settings": "Настройки",
-  "Help": "Помощь"
+  "Help": "Помощь",
+  "collapse": "Свернуть",
+  "expand": "Развернуть"
 }

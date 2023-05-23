@@ -111,5 +111,7 @@
   "OnlyImportantMessagesAppearHere": "Only important messages appear here",
   "LogInOrRegister": "Log in or register",
   "Settings": "Settings",
-  "Help": "Help"
+  "Help": "Help",
+  "collapse": "Collapse",
+  "expand": "Expand"
 }
