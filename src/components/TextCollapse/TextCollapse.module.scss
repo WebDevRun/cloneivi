@@ -1,0 +1,5 @@
+@use '../../styles/functions' as fn;
+
+.textCollapse > :last-child {
+  margin-top: fn.toRem(8px);
+}
