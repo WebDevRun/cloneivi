@@ -1,5 +1,6 @@
 export type INameIcons =
   | 'arrowLeft'
+  | 'arrowRight'
   | 'call'
   | 'copy'
   | 'favoriteAdd'
@@ -10,3 +11,5 @@ export type INameIcons =
   | 'profile'
   | 'search'
   | 'share'
+
+export type INameIconsExt = 'top10' | '18plus'
