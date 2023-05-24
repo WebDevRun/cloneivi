@@ -20,7 +20,7 @@ import tv from '../tv.json'
 import styles from './HeaderDropdown.module.scss'
 
 export const HeaderDropdown: FC = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['common'])
   const [active, setActive] = useState('headerDropdown')
   const [lists, setLists] = useState(movies)
   const [isTv, setIsTv] = useState(false)
@@ -159,8 +159,7 @@ export const HeaderDropdown: FC = () => {
                         <div className={styles.profileItem}>
                           <div>{item.icon}</div>
                           <div className={styles.textBlock}>
-                            <div>{item.title}</div>
-                            <div>{item.extra}</div>
+                            <Text variant='titleSm'>{`${t(item.title)}`}</Text>
                           </div>
                         </div>
                       </Link>
@@ -232,8 +231,8 @@ export const HeaderDropdown: FC = () => {
                       <div className={styles.profileItem}>
                         <div>{item.icon}</div>
                         <div className={styles.textBlock}>
-                          <div>{item.title}</div>
-                          <div>{item.extra}</div>
+                          <Text variant='titleSm'>{`${t(item.title)}`}</Text>
+                          <Text variant='small'>{`${t(item.extra)}`}</Text>
                         </div>
                       </div>
                     </Link>

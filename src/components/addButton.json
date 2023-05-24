@@ -1,49 +1,34 @@
 {
   "items": [
     {
-      "title": "Новинки сериалов и фильмов",
+      "title": "NewTVSeriesAndMovies",
       "extra": "",
       "icon": "films",
       "href": "https://www.ivi.ru/profile/purchases"
     },
     {
-      "title": "Еженедельное пополнение каталога фильмами и сериалами со всего мира",
+      "title": "WeeklyReplenishmentCatalog",
       "extra": "",
       "icon": "catalogAdd",
       "href": "https://www.ivi.ru/profile/favorites"
     },
     {
-      "title": "Фильмы и сериалы без рекламы",
+      "title": "MoviesAndSeriesWithoutAds",
       "extra": "",
       "icon": "noAds",
       "href": "https://www.ivi.ru/profile/watched"
     },
     {
-      "title": "Семейный аккаунт на 5 устройствах",
+      "title": "FamilyAccount5Devices",
       "extra": "",
       "icon": "anyDev",
       "href": "https://www.ivi.ru/profile/subscriptions"
     },
     {
-      "title": "Загрузка на мобильные устройства",
+      "title": "UploadingToMobileDevices",
       "extra": "",
       "icon": "download",
       "href": ""
     }
-  ],
-  "extra": {
-    "title": "",
-    "items": [
-      {
-        "href": "https://www.ivi.ru/",
-        "title": "Настройки",
-        "text": "Настройки"
-      },
-      {
-        "href": "https://www.ivi.ru/",
-        "title": "Помощь",
-        "text": "Помощь"
-      }
-    ]
-  }
+  ]
 }

@@ -13,7 +13,7 @@ import styles from './Header.module.scss'
 import menu from './menu.json'
 
 export const Header: FC = () => {
-  const { t } = useTranslation(['header'])
+  const { t } = useTranslation(['common'])
 
   const handleMouseOver = (e: React.MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLElement
@@ -28,7 +28,7 @@ export const Header: FC = () => {
     <div className={styles.header} onMouseOver={handleMouseOver}>
       <div className={styles.headerLogo}>
         <Link href='https://www.ivi.ru/'>
-          <Image src={logo} alt={t('header:logo') as string}></Image>
+          <Image src={logo} alt={t('common:logo') as string}></Image>
         </Link>
       </div>
 
@@ -55,17 +55,17 @@ export const Header: FC = () => {
             size='small'
             background='primary'
             onClick={() => {}}
-            text={t('header:pay') as string}
+            text={t('common:pay') as string}
           />
         </div>
         <div className={styles.buttonMobile}>
-          <Button size='small' text={t('header:see') as string} />
+          <Button size='small' text={t('common:see') as string} />
         </div>
         <div className={styles.headerSearch}>
           <Button
             background='transparent'
             icon='search'
-            text={t('header:search') as string}
+            text={t('common:search') as string}
           />
         </div>
       </div>
