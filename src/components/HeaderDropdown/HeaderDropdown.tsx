@@ -20,7 +20,7 @@ import tv from '../tv.json'
 import styles from './HeaderDropdown.module.scss'
 
 export const HeaderDropdown: FC = () => {
-  const { t } = useTranslation(['common'])
+  const { t } = useTranslation()
   const [active, setActive] = useState('headerDropdown')
   const [lists, setLists] = useState(movies)
   const [isTv, setIsTv] = useState(false)

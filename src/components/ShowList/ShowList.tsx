@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
-import { useTranslation } from 'react-i18next'
 
 import { ILinkList } from '../../types/dataLinks'
 import { Text } from '../../ui/ui'
@@ -14,16 +14,16 @@ export interface IShowList {
 }
 
 export const ShowList: FC<IShowList> = ({ data, column = 'single' }) => {
-  const { t } = useTranslation(['common'])
+  const { t } = useTranslation()
 
   return (
     <div className={styles.linksList}>
-      <Text variant='titleSm'>{data.title}</Text>
+      <Text variant='titleSm'>{t(data.title)}</Text>
       <ul className={cn(styles[column], styles.list)}>
         {data.items.map((item, index) => (
           <li className={styles.item} key={index}>
-            <Link href={item.href} title={item.title}>
-              {item.text}
+            <Link href={item.href} title={`${t(item.title)}`}>
+              {t(item.text)}
             </Link>
           </li>
         ))}
