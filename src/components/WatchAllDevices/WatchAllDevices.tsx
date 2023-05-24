@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
 import ipadWithoutPoster from '@assets/images/devices/ipad-without-poster.png'
@@ -13,50 +14,39 @@ export interface WatchAllDevicesProps {
 }
 
 export const WatchAllDevices: FC<WatchAllDevicesProps> = ({ name, poster }) => {
+  const { t } = useTranslation(['moviePage'])
+
   return (
     <div className={styles.watchAllDevices}>
       <div>
-        <h2 className={styles.title}>Cмотреть «{name}» на всех устройствах</h2>
-        <p className={styles.subTitle}>
-          Приложение доступно для скачивания на iOS, Android, SmartTV и
-          приставках
-        </p>
+        <h2 className={styles.title}>
+          {t('moviePage:watchOnAllDevices', { name })}
+        </h2>
+        <p className={styles.subTitle}>{t('moviePage:appAvailable')}</p>
         <Link className={styles.link} href='https://www.ivi.ru/devices'>
-          Подключить устройства
+          {t('moviePage:connectDevices')}
         </Link>
       </div>
       <div className={styles.images}>
         <Image
           className={styles.tvWithoutPoster}
           src={tvWithoutPoster}
-          alt='Устройства для просмотра'
+          alt={t('moviePage:viewingDevices')}
           placeholder='empty'
           priority={true}
         />
         <Image
           className={styles.ipadWithoutPoster}
           src={ipadWithoutPoster}
-          alt='Устройства для просмотра'
+          alt={t('moviePage:viewingDevices')}
           placeholder='empty'
           priority={true}
         />
         <div className={styles.tvPosterContainer}>
-          <Image
-            src={poster}
-            alt={`Постер ${name}`}
-            fill
-            sizes='100%'
-            priority={true}
-          />
+          <Image src={poster} alt={name} fill sizes='100%' priority={true} />
         </div>
         <div className={styles.ipadPosterContainer}>
-          <Image
-            src={poster}
-            alt={`Постер ${name}`}
-            fill
-            sizes='100%'
-            priority={true}
-          />
+          <Image src={poster} alt={name} fill sizes='100%' priority={true} />
         </div>
       </div>
     </div>
