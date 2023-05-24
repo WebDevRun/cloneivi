@@ -13,6 +13,7 @@ export interface ButtonProps {
   theme?: 'active' | 'passive'
   withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg'
   size?: 'small' | 'middle' | 'big'
+  width?: 'full' | 'fitContent'
   text?: string
   subText?: string
   onClick?: MouseEventHandler<HTMLButtonElement>
@@ -24,6 +25,7 @@ export const Button: FC<ButtonProps> = ({
   theme = 'active',
   withBorder = 'borderNone',
   size = 'middle',
+  width = 'fitContent',
   text,
   subText,
   onClick,
@@ -34,6 +36,7 @@ export const Button: FC<ButtonProps> = ({
     styles[theme],
     styles[withBorder],
     styles[size],
+    styles[width],
     !text && styles.onlyIcon,
   )
 
