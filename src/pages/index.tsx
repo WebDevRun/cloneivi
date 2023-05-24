@@ -15,7 +15,7 @@ export default function Home() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const localeData = await serverSideTranslations(locale ?? 'ru', ['header'])
+  const localeData = await serverSideTranslations(locale ?? 'ru', ['header', 'common'])
   return {
     props: {
       ...localeData,
