@@ -1,52 +1,51 @@
 import cn from 'classnames'
-import Image from 'next/image'
-import { FC, ReactNode } from 'react'
+import React, { FC, MouseEventHandler } from 'react'
+
+import { INameIcons } from '@/types/Icons'
+
+import { Svg } from '../Svg'
 
 import styles from './Button.module.scss'
 
-interface ButtonProps {
-  mode?:
-    | 'primary'
-    | 'primaryMob'
-    | 'secondary'
-    | 'player'
-    | 'trailer'
-    | 'share'
-    | 'signIn'
-    | 'search'
-    | 'defer'
-    | 'free'
-    | 'rateSm'
-    | 'rateMd'
-    | 'filter'
-    | 'language'
-
-  iconSrc?: string
-  iconSvg?: ReactNode
-  iconAlt?: string
+export interface ButtonProps {
+  icon?: INameIcons
+  background?: 'gray' | 'primary' | 'red' | 'transparent'
+  theme?: 'active' | 'passive'
+  withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg'
+  size?: 'small' | 'middle' | 'big'
   text?: string
   subText?: string
-  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
 export const Button: FC<ButtonProps> = ({
-  mode = 'secondary',
+  icon,
+  background = 'red',
+  theme = 'active',
+  withBorder = 'borderNone',
+  size = 'middle',
   text,
   subText,
-  iconSrc,
-  iconSvg,
-  iconAlt,
   onClick,
 }) => {
-  const mainCn = cn(styles.button, styles[mode])
+  const mainCn = cn(
+    styles.button,
+    styles[background],
+    styles[theme],
+    styles[withBorder],
+    styles[size],
+    !text && styles.onlyIcon,
+  )
+
+  const iconSize = size === 'big' ? 'big' : 'middle'
+
   return (
-    <button type="button" className={mainCn} onClick={onClick}>
-      {iconSrc && iconAlt && (
+    <button type='button' className={mainCn} onClick={onClick}>
+      {icon && (
         <div className={styles.icon}>
-          <Image src={iconSrc} alt={iconAlt} />
+          {<Svg icon={icon} size={iconSize} />}
         </div>
       )}
-      {iconSvg && iconAlt && <div className={styles.icon}>{iconSvg}</div>}
       {text && (
         <div className={styles.mainText}>
           {text}
