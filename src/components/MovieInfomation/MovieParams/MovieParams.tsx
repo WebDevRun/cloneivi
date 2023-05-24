@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { FC } from 'react'
 
 import { formatTime, setDescriptions } from '@/utils/functions/formatTime'
@@ -29,6 +30,8 @@ export const MovieParams: FC<MovieParamsProps> = ({
   genres,
   quality,
 }) => {
+  const router = useRouter()
+
   return (
     <div className={styles.watchParams}>
       <div className={styles.paramList}>
@@ -36,7 +39,11 @@ export const MovieParams: FC<MovieParamsProps> = ({
           {productionYear}
         </Link>
         <span className={styles.duration}>
-          {setDescriptions(formatTime(duration, '00:00'), 'hh:mm', 'ru')}
+          {setDescriptions(
+            formatTime(duration, '00:00'),
+            'hh:mm',
+            router.locale || 'ru',
+          )}
         </span>
         <span className={styles.ageRating}>{ageRating}</span>
       </div>
