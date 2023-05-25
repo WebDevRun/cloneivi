@@ -1,10 +1,13 @@
+@use '../../styles/functions' as fn;
+$white: #fff;
+$alpha48: 0.48;
+$alpha72: 0.72;
+
 .button {
-  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  color: #ffffff;
+  border-radius: fn.toRem(8px);
   transition-duration: 0.4s;
 
   img {
@@ -12,167 +15,119 @@
     align-items: center;
   }
 
-  svg {
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: fn.toRem(8px);
     transition-duration: 0.4s;
   }
 }
 
-.primary {
-  height: 32px;
-  padding: 7px 11px;
-  background-image: linear-gradient(270deg, #ea003d 0, #c447ff 100%);
+.active svg {
+  fill: $white;
+}
 
-  .mainText {
-    font-size: 13px;
-    line-height: 16px;
-    font-weight: 500;
+.passive svg {
+  fill: rgba($white, $alpha72);
+}
+
+.active {
+  color: $white;
+}
+
+.passive {
+  color: rgba($white, $alpha72);
+}
+
+.transparent {
+  background-color: transparent;
+  color: rgba($white, $alpha72);
+
+  svg {
+    fill: rgba($white, $alpha72);
+  }
+
+  &:hover {
+    color: $white;
+    transition-duration: 0.4s;
+
+    svg {
+      fill: $white;
+      transition-duration: 0.4s;
+    }
   }
 }
 
-.primaryMob {
-  background-color: #312b45;
-  border-color: #312b45;
-  height: 32px;
-  padding: 7px 11px;
-}
-
-.secondary {
-  height: 40px;
+.red {
   background-color: #ea003d;
-  padding: 9px 15px;
-  font-size: 15px;
-  line-height: 20px;
-  font-weight: 500;
-}
+  color: $white;
 
-.secondary,
-.player {
   &:hover {
     background-color: #ff0f4d;
   }
 }
 
-.player {
-  border-color: transparent;
-  background-color: rgba(234, 0, 61, 0.8);
-  color: #fff;
-  height: 48px;
-  padding: 5px 15px;
+.gray {
+  background-color: #3a3352;
+  color: $white;
 
-  font-size: 15px;
-  line-height: 20px;
+  &:hover {
+    background-color: #494069;
+  }
+}
+
+.primary {
+  background-image: linear-gradient(270deg, #ea003d 0, #c447ff 100%);
+}
+
+.small {
+  height: fn.toRem(32px);
+  padding: fn.toRem(7px) fn.toRem(11px);
+
+  .mainText {
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
+    font-weight: 500;
+  }
+}
+
+.middle {
+  height: fn.toRem(40px);
+  padding: fn.toRem(9px) fn.toRem(15px);
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(20px);
   font-weight: 500;
-  width: 320px;
+}
+
+.big {
+  height: fn.toRem(48px);
+  padding: fn.toRem(5px) fn.toRem(15px);
+
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(20px);
+  font-weight: 500;
+  width: fn.toRem(320px);
 
   transition-property: border-color, background-color;
 }
 
-.free,
-.share,
-.defer,
-.trailer {
-  height: 40px;
-  padding: 9px 15px;
-  background-color: #312b45;
-  border-color: #312b45;
+.borderSm,
+.borderMd {
+  background: transparent;
+  border-radius: fn.toRem(6px);
+  padding: fn.toRem(3px) fn.toRem(7px);
+  border: 1px solid rgba($white, 0.32);
 
   .mainText {
-    margin-left: 6px;
-  }
-
-  .mainText {
-    font-size: 15px;
-    line-height: 20px;
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
     font-weight: 500;
   }
 
   &:hover {
-    background-color: #3a3352;
-  }
-}
-
-.share {
-  img {
-    transform: rotate(-90deg);
-  }
-}
-
-.subText {
-  font-size: 13px;
-  line-height: 16px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.signIn {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  padding: 12px;
-  border: solid 2px rgba(255, 255, 255, 0.48);
-
-  svg {
-    fill: rgba(255, 255, 255, 0.48);
-  }
-
-  &:hover {
-    border: solid 2px #fff;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-
-    svg {
-      fill: #fff;
-    }
-  }
-}
-
-.search {
-  height: 40px;
-  padding: 10px 0;
-  background-color: #100e19;
-  color: rgba(255, 255, 255, 0.48);
-
-  font-size: 15px;
-  line-height: 20px;
-  font-weight: 500;
-
-  .icon {
-    margin-right: 8px;
-
-    svg {
-      fill: rgba(255, 255, 255, 0.48);
-    }
-  }
-
-  .mainText {
-    font-size: 15px;
-    line-height: 20px;
-    font-weight: 500;
-  }
-
-  &:hover {
-    color: #fff;
-
-    svg {
-      fill: #fff;
-    }
-  }
-}
-
-.rateSm,
-.rateMd {
-  border-radius: 6px;
-  padding: 3px 7px;
-
-  border: 1px solid rgba(255, 255, 255, 0.32);
-
-  .mainText {
-    font-size: 13px;
-    line-height: 16px;
-    font-weight: 500;
-  }
-
-  &:hover {
-    border: 1px solid rgba(255, 255, 255, 1);
+    border: 1px solid rgba($white, 1);
+    background: transparent;
   }
 
   &:not(:hover) {
@@ -181,32 +136,44 @@
   }
 }
 
-.rateSm {
-  height: 24px;
+.borderSm {
+  height: fn.toRem(24px);
 }
 
-.rateMd {
-  height: 32px;
+.borderMd {
+  height: fn.toRem(32px);
 }
 
-.filter {
-  border-width: 0;
-  padding: 10px 0;
-  font-size: 15px;
-  line-height: 20px;
-  font-weight: 500;
-
-  .mainText {
-    margin-left: 6px;
-  }
+.borderBg {
+  height: fn.toRem(48px);
+  border-radius: fn.toRem(8px);
+  padding: fn.toRem(12px);
+  border: solid fn.toRem(2px) rgba($white, 0.48);
 
   &:hover {
-    color: #ea003d;
+    border: solid fn.toRem(2px) $white;
+    box-shadow: 0 0 fn.toRem(15px) rgba($white, 0.4);
+
+    svg {
+      fill: $white;
+    }
   }
 }
 
-.language {
-  svg {
-    fill: rgba(255, 255, 255, 0.48);
+.onlyIcon {
+  .icon {
+    margin-right: 0;
+  }
+
+  &.small {
+    width: fn.toRem(32px);
+  }
+
+  &.middle {
+    width: fn.toRem(40px);
+  }
+
+  &.big {
+    width: fn.toRem(48px);
   }
 }

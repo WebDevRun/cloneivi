@@ -1,0 +1,40 @@
+@use '@styles/functions' as fn;
+
+$smallSize: fn.toRem(40px);
+$white: #ffffff;
+
+#button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 80ms;
+}
+
+#playingButton {
+  width: $smallSize;
+  height: $smallSize;
+  border-radius: fn.toRem(8px);
+  background-color: rgba($color: $white, $alpha: 0.008);
+  padding: fn.toRem(10px);
+
+  &:hover {
+    background-color: rgba($color: $white, $alpha: 0.16);
+  }
+}
+
+#buttonImage {
+  width: 100%;
+  height: auto;
+}
+
+@mixin buttonStyles {
+  @extend #button;
+}
+
+@mixin playingButtonStyles {
+  @extend #playingButton;
+}
+
+@mixin buttonImageStyles {
+  @extend #buttonImage;
+}

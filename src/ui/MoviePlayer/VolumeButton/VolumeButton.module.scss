@@ -1,0 +1,18 @@
+@use '@styles/functions' as fn;
+
+$buttonSize: fn.toRem(40px);
+$imageSize: fn.toRem(20px);
+
+.volumeButton {
+  width: $buttonSize;
+  height: $buttonSize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.image {
+  width: $imageSize;
+  height: $imageSize;
+}
