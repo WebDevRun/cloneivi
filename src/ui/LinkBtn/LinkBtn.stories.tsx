@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import SadGenre from '../../assets/images/genres/genre_drama_24__0.svg'
-import googlePlay from '../../assets/images/install/google-play.svg'
+import { Svg } from '../Svg'
 
 import { LinkBtn } from './LinkBtn'
 import '@styles/index.scss'
@@ -18,13 +17,6 @@ const meta: Meta<typeof LinkBtn> = {
     },
     href: {
       description: 'URL ссылки',
-    },
-    iconSrc: {
-      description: 'URL картинки',
-      defaultValue: '',
-    },
-    iconAlt: {
-      description: 'Альтернативный тект если не отображается картинка',
     },
     text: {
       description: 'Основной текст',
@@ -67,8 +59,7 @@ export const WithoutSutText: Story = {
     mode: 'footer',
     type: 'square',
     text: 'Click me',
-    iconSrc: googlePlay,
-    iconAlt: 'googlePlay',
+    icon: <Svg icon='googlePlay'/>,
     href: '#',
   },
 }
@@ -77,8 +68,7 @@ export const WithoutText: Story = {
   args: {
     mode: 'footer',
     type: 'circle',
-    iconSrc: googlePlay,
-    iconAlt: 'googlePlay',
+    icon: <Svg icon='googlePlay'/>,
     href: '#',
   },
 }
@@ -89,31 +79,29 @@ export const WithAll: Story = {
     type: 'square',
     text: 'Play Store',
     subText: 'Загрузить в',
-    iconSrc: googlePlay,
-    iconAlt: 'googlePlay',
+    icon: <Svg icon='googlePlay'/>,
     href: '#',
   },
 }
 
-export const ActorLink: Story = {
-  args: {
-    mode: 'actor',
-    href: '#',
-    type: 'square',
-    iconSrc:
-      'https://thumbs.dfs.ivi.ru/storage15/contents/2/b/ae10860096fcbe6411a51eb085098b.jpg',
-    iconAlt: 'Actor Image',
-    text: 'Франсуа Клюзе',
-  },
-}
+// export const ActorLink: Story = {
+//   args: {
+//     mode: 'actor',
+//     href: '#',
+//     type: 'square',
+//     iconSrc:
+//       'https://thumbs.dfs.ivi.ru/storage15/contents/2/b/ae10860096fcbe6411a51eb085098b.jpg',
+//     iconAlt: 'Actor Image',
+//     text: 'Франсуа Клюзе',
+//   },
+// }
 
 export const GenreLink: Story = {
   args: {
     mode: 'genres',
     href: '#',
     type: 'square',
-    iconSrc: SadGenre,
-    iconAlt: 'Actor Image',
+    icon: <Svg icon='googlePlay'/>,
     text: 'Драмы',
   },
 }
@@ -131,8 +119,7 @@ export const FeatureLink: Story = {
 export const AccountLink: Story = {
   args: {
     mode: 'account',
-    iconSrc: googlePlay,
-    iconAlt: 'Account',
+    icon: <Svg icon='googlePlay'/>,
     type: 'square',
     href: '#',
   },
@@ -154,8 +141,7 @@ export const AccountFunctionLink: Story = {
   ],
   args: {
     mode: 'accountLinks',
-    iconSrc: googlePlay,
-    iconAlt: 'Icon',
+    icon: <Svg icon='googlePlay'/>,
     href: '#',
     text: 'История просмотров',
     type: 'square',

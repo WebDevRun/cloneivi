@@ -24,10 +24,15 @@
   font-size: fn.toRem(14px);
   align-items: center;
   justify-content: center;
+  gap: 5px;
 }
 
 .image {
   border-radius: fn.toRem(8px);
+}
+
+.iconBox > * {
+  display: block;
 }
 
 .btnContent:has(img) {
@@ -56,7 +61,7 @@
 
 .account {
   background: transparent;
-  border: 2px solid rgba(var.$white, 0.48);
+  border: fn.toRem(2px) solid rgba(var.$white, 0.48);
   padding: fn.toRem(12px);
 }
 
@@ -66,12 +71,12 @@
   .accountLinks {
     background: #312b45;
     display: block;
-    min-height: 108px;
+    min-height: fn.toRem(108px);
     padding: fn.toRem(16px);
   }
 
   .btnContent {
-    min-height: 76px;
+    min-height: fn.toRem(76px);
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
@@ -82,20 +87,20 @@
     flex-direction: column-reverse;
     margin: 0;
   }
-  
+
   .mainText {
     font-size: fn.toRem(15px);
-    line-height: 20px;
+    line-height: fn.toRem(20px);
     font-weight: 500;
     font-style: normal;
   }
 
   .subText {
     font-size: fn.toRem(13px);
-    line-height: 16px;
+    line-height: fn.toRem(16px);
     font-weight: 500;
     font-style: normal;
-    max-height: 16px;
+    max-height: fn.toRem(16px);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -122,8 +127,8 @@
 .btn:has(.genres) {
   background: transparent;
   padding: fn.toRem(16px) fn.toRem(8px);
-  border: 1px solid rgba(var.$white, 0.32);
-  width: 108px;
+  border: fn.toRem(1px) solid rgba(var.$white, 0.32);
+  width: fn.toRem(108px);
 
   .textContainer {
     margin: 0;
@@ -132,10 +137,10 @@
   .mainText {
     margin-top: fn.toRem(8px);
     font-size: fn.toRem(13px);
-    line-height: 16px;
+    line-height: fn.toRem(16px);
     font-weight: 500;
     font-style: normal;
-    height: 16px;
+    height: fn.toRem(16px);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -154,7 +159,7 @@
 
     .btn.account {
       border-color: var.$white;
-      box-shadow: 0 0 13px -5px var.$white;
+      box-shadow: 0 0 fn.toRem(13px) fn.toRem(-5px) var.$white;
     }
 
     .btn.footer {

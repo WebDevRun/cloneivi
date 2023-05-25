@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, ReactElement } from 'react'
 
 import styles from './LinkBtn.module.scss'
 
@@ -11,42 +11,38 @@ interface LinkProps {
   type: 'square' | 'circle'
   subText?: string
   text?: string
-  iconSrc?: string | StaticImageData
-  iconAlt?: string
+  icon?: ReactElement
   background?: 'lightgray' | 'default'
 }
 
 export const LinkBtn: FC<LinkProps> = ({
   href,
-  mode='footer',
-  type='square',
+  mode = 'footer',
+  type = 'square',
   subText,
   text,
-  iconSrc,
-  iconAlt,
-  background='default',
+  background = 'default',
+  icon,
 }) => {
   return (
     <Link className={styles.link} href={href}>
       <div
-        className={cn(styles.btn, styles[type], styles[mode], styles[background], {
-          [styles.btn_withSubText]: subText,
-        })}
+        className={cn(
+          styles.btn,
+          styles[type],
+          styles[mode],
+          styles[background],
+          {
+            [styles.btn_withSubText]: subText,
+          },
+        )}
       >
         <div
           className={cn(styles.btnContent, {
             [styles.genres]: mode === 'genres',
           })}
         >
-          {iconSrc && iconAlt && (
-            <Image
-              className={styles.image}
-              width={mode === 'actor' ? 44 : undefined}
-              height={mode === 'actor' ? 44 : undefined}
-              src={iconSrc}
-              alt={iconAlt}
-            />
-          )}
+          {mode !== 'actor' && icon && <div className={styles.iconBox}>{icon}</div>}
 
           {(text || subText) && mode !== 'actor' && (
             <div className={styles.textContainer}>

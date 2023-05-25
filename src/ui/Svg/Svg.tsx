@@ -1,8 +1,8 @@
 import { FC } from 'react'
 
-import { INameIcons, INameIconsExt } from '@/types/Icons'
-
 import { names } from './icons'
+
+import { INameIcons, INameIconsExt } from '@/types/Icons'
 
 interface SvgProps {
   size?: 'small' | 'middle' | 'big' | 'large'
@@ -26,7 +26,7 @@ export const Svg: FC<SvgProps> = ({ size = 'middle', icon, ext = false }) => {
           xmlns='http://www.w3.org/2000/svg'
           width={sz[size]}
           height={sz[size]}
-          viewBox='0 0 32 32'
+          viewBox={`0 0 ${sz[size]} ${sz[size]}`}
         >
           {names[icon as INameIcons]}
         </svg>
