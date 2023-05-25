@@ -1,3 +1,5 @@
+@use '../../styles/functions' as fn;
+
 $border: 1px solid rgba(255, 255, 255, 0.32);
 $activeColor: #7E798F;
 
@@ -22,16 +24,16 @@ $activeColor: #7E798F;
   .fill,
   .outline {
     flex-direction: column;
-    border-radius: 8px;
+    border-radius: fn.toRem(8px);
     gap: 8px;
   }
 
   .fill {
-    width: 153px;
-    height: 108px;
+    width: fn.toRem(153px);
+    height: fn.toRem(108px);
     background-color: #1F1B2E;
-    font-size: 15px;
-    line-height: 20px;
+    font-size: fn.toRem(15px);
+    line-height: fn.toRem(20px);
 
     &:hover {
       background-color: #27223a;
@@ -39,12 +41,12 @@ $activeColor: #7E798F;
   }
 
   .outline {
-    width: 108px;
-    height: 88px;
+    width: fn.toRem(108px);
+    height: fn.toRem(88px);
     background: transparent;
     border: $border;
-    font-size: 13px;
-    line-height: 16px;
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
 
     &:hover {
       background-color: $activeColor;
@@ -53,26 +55,26 @@ $activeColor: #7E798F;
 }
 
 .circle {
-  width: 150px;
-  height: 34px;
+  width: fn.toRem(150px);
+  height: fn.toRem(34px);
 
   .outline,
   .active,
   .fill {
     height: 100%;
-    border-radius: 32px;
-    padding: 8px 16px;
-    gap: 8px;
+    border-radius: fn.toRem(32px);
+    padding: fn.toRem(8px) fn.toRem(16px);
+    gap: fn.toRem(8px);
 
     .image {
-      margin-right: 8px;
+      margin-right: fn.toRem(8px);
     }
   }
 
   .outline,
   .active {
-    font-size: 13px;
-    line-height: 16px;
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
   }
 
   .active {

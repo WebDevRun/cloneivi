@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { FC } from 'react'
 
-import { IGenres } from '@/utils/consts/genres'
+import { IGenres } from '@/types/genres'
 
 import styles from './GenresSvg.module.scss'
 

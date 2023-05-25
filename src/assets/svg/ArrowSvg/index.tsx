@@ -1,1 +1,1 @@
-export {ArrowSvg} from './ArrowSvg'
+export { ArrowSvg } from './ArrowSvg'

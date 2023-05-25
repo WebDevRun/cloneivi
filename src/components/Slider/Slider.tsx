@@ -1,5 +1,10 @@
 import cn from 'classnames'
-import { FC, useEffect, useRef, useState } from 'react'
+import {
+  FC,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
 
 import { ArrowSvg } from '@assets/svg/ArrowSvg'
 
