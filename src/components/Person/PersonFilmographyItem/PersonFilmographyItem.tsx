@@ -5,6 +5,7 @@ import { FC, useEffect, useState } from 'react'
 
 import { IFilm } from '@/types/Person'
 import { Button } from '@/ui/Button'
+import { isSvg } from '@/utils/functions/isSvg'
 
 import noImage from '../../../assets/images/no_image.jpg'
 
@@ -35,17 +36,11 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
     fetchData()
   }, [id, pathDataSrc])
 
-  const isSvg = films.img
-    ? films.img.split('/').at(-1)?.split('.').at(-1) === 'svg'
-      ? true
-      : false
-    : false
-
   return (
     <div className={styles.personFilmographyItem}>
       <Link href={`${pathDataSrc}${id}`} className={styles.body}>
         <div className={styles.figure}>
-          {!isSvg && (
+          {!isSvg(films.img) && (
             <Image
               className={styles.image}
               src={
@@ -60,7 +55,7 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
               height={118}
             />
           )}
-          {isSvg && (
+          {isSvg(films.img) && (
             <Image
               className={styles.image}
               src={films.img ? `${films.img}` : noImage}

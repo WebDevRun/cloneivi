@@ -8,7 +8,17 @@ const meta: Meta<typeof BackLink> = {
   title: 'BackLink',
   tags: ['autodocs'],
   component: BackLink,
-  argTypes: {},
+  argTypes: {
+    text: {
+      description: 'Текст, отображаемый на обратной ссылке'
+    },
+    iconName: {
+      description: 'Название иконки'
+    },
+    iconSize: {
+      description: 'Размер иконки'
+    }
+  },
 }
 
 export default meta
