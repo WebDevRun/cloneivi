@@ -7,4 +7,24 @@ module.exports = nextConfig = {
   },
   reactStrictMode: true,
   i18n,
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'thumbs.dfs.ivi.ru',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.mds.yandex.net',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'yastatic.net',
+        port: '',
+      },
+    ],
+  },
 }

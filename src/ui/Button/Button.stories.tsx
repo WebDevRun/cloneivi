@@ -1,8 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import user from '../../assets/images/header/user.svg'
-import { HeaderSvg } from '../svg/HeaderSvg'
-
 import { Button } from './Button'
 import '@styles/index.scss'
 

@@ -4,10 +4,10 @@ import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
 import { Svg } from '@/ui/Svg'
+import { SwitchLanguage } from '@/ui/SwitchLanguage'
 import logo from '@assets/images/common/ivi.svg'
 
 import { Button } from '../../ui/Button'
-import { Language } from '../../ui/Language'
 
 import styles from './Header.module.scss'
 import menu from './menu.json'
@@ -88,7 +88,7 @@ export const Header: FC = () => {
       </div>
 
       <div className={styles.language}>
-        <Language />
+        <SwitchLanguage />
       </div>
     </div>
   )
