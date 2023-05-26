@@ -10,5 +10,7 @@
   "IviRating": "Ivi Rating",
   "posterForTheMovie": "Poster for the movie",
   "collapse": "Collapse",
-  "expand": "Expand"
+  "expand": "Expand",
+  "Error": "Error",
+  "PageNotFound": "The requested page does not exist"
 }
