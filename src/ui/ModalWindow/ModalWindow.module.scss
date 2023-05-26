@@ -35,26 +35,35 @@
 
 .closeBtn {
   font-size: 30px;
-  color: gray;
+  color: rgb(128, 128, 128);
   position: absolute;
   top: 20px;
   right: 20px;
   background: none;
 }
 
-.closeBtn:hover{
+.closeBtn{
+
   *:first-child{
-    animation-name: hoverBtn;
-    animation-duration: .4s;
+    transition: .4s transform;
+  }
+  
+  &:hover{
+
+    *:first-child{
+      transform: scale(1.1);
+    }
   }
 }
 
 @keyframes hoverBtn {
-  0%{
+  0% {
     transform: scale(1.1);
-  } 50%{
+  }
+  50% {
     transform: scale(0.9);
-  } 100%{
+  }
+  100% {
     transform: scale(1);
   }
 }
