@@ -57,7 +57,7 @@ interface setFilterError {
 }
 
 export type FilterAction =
-  setGenres
+  | setGenres
   | setCountries
   | setYears
   | setRatings
