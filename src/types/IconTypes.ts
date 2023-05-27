@@ -11,5 +11,6 @@ export type INameIcons =
   | 'profile'
   | 'search'
   | 'share'
+  | 'close'
 
-export type INameIconsExt = 'top10' | '18plus' | 'close'
+export type INameIconsExt = 'top10' | '18plus'

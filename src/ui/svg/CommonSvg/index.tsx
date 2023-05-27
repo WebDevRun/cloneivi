@@ -1,1 +1,0 @@
-export {CommonSvg} from './CommonSvg'

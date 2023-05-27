@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { Dispatch, FC, ReactNode, SetStateAction, useState } from 'react'
 
-import { Svg } from '../svg/Svg'
+import { Svg } from '../Svg' 
 
 import styles from './ModalWindow.module.scss'
 
