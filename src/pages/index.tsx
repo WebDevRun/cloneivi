@@ -8,17 +8,14 @@ export default function Home() {
   const { t } = useTranslation(['header'])
 
   return (
-    <main>
-      <AppLayout>
-        <h1>{t('header:more')}</h1>
-        <Header />
-      </AppLayout>
-    </main>
+    <AppLayout>
+      <h1>{t('header:more')}</h1>
+    </AppLayout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const localeData = await serverSideTranslations(locale ?? 'ru', ['header'])
+  const localeData = await serverSideTranslations(locale ?? 'ru', ['header', 'common'])
   return {
     props: {
       ...localeData,

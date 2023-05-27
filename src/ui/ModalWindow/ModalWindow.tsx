@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { Dispatch, FC, ReactNode, SetStateAction, useState } from 'react'
 
-import { CommonSvg } from '../svg/CommonSvg'
+import { Svg } from '../svg/Svg'
 
 import styles from './ModalWindow.module.scss'
 
@@ -29,7 +29,7 @@ export const ModalWindow: FC<ModalWindowProps> = ({
           onMouseEnter={() => setFillColor('white')}
           onMouseLeave={() => setFillColor('gray')}
         >
-          <CommonSvg fill={fillColor} icon='close' size={20} />
+          <Svg fill={fillColor} icon='close' />
         </button>
         {children}
       </div>
