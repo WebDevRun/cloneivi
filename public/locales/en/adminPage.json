@@ -1,5 +1,7 @@
 {
   "films": "Films",
   "genres": "Genres",
-  "title": "Admin panel"
+  "title": "Admin panel",
+  "save": "Save",
+  "cancel": "Cancel"
 }

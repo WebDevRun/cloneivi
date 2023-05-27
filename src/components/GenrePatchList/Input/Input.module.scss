@@ -1,0 +1,12 @@
+@use '@styles/functions' as fn;
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: fn.toRem(8px);
+}
+
+.input {
+  padding: fn.toRem(5px);
+  border-radius: fn.toRem(8px);
+}
