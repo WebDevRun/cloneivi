@@ -1,4 +1,6 @@
-import { FC, MouseEventHandler, useEffect, useState } from 'react'
+import { FC, MouseEventHandler, useState } from 'react'
+
+import { Button } from '@/ui/Button'
 
 import { MovieDescription } from './MovieDescription'
 import styles from './MovieInfomation.module.scss'
@@ -63,9 +65,14 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
           qualities={qualities}
         />
 
-        <button className={styles.toggleStatus} onClick={clickHandler}>
-          {isClose ? movieInfomationStatus.open : movieInfomationStatus.close}
-        </button>
+        <Button
+          background='transparent'
+          fields='noneFields'
+          text={
+            isClose ? movieInfomationStatus.open : movieInfomationStatus.close
+          }
+          onClick={clickHandler}
+        />
       </div>
 
       <MovieRating rating={rating}></MovieRating>
