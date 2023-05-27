@@ -3,10 +3,10 @@
 
 .movieQuality {
   font-size: fn.toRem(13px);
-  padding: 2px 6px;
+  padding: fn.toRem(2px) fn.toRem(6px);
   background-color: rgba($color: var.$mainTextColor, $alpha: 0.16);
-  box-shadow: 0 4px 12px transparent;
-  border-radius: 4px;
+  box-shadow: 0 fn.toRem(4px) fn.toRem(12px) transparent;
+  border-radius: fn.toRem(4px);
   font-weight: 500;
   color: var.$mainTextColor;
 }

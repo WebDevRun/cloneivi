@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: fn.toRem(8px);
 }
 
 .value {

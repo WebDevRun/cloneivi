@@ -7,7 +7,7 @@ $transparentWite: rgba(
 );
 
 .movieDescription {
-  line-height: 22px;
+  line-height: fn.toRem(22px);
   overflow: hidden;
 }
 
