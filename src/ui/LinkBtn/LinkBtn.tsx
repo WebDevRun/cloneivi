@@ -3,11 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
+import { INameIcons, INameIconsExt } from '@/types/Icons'
+
 import { Svg } from '../Svg'
 
 import styles from './LinkBtn.module.scss'
-
-import { INameIcons, INameIconsExt } from '@/types/Icons'
 
 interface LinkProps {
   href: string

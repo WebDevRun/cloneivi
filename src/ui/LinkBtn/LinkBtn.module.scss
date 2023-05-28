@@ -24,7 +24,7 @@
   font-size: fn.toRem(14px);
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: fn.toRem(5px);
 }
 
 .image {

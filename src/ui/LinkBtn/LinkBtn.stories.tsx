@@ -26,8 +26,7 @@ const meta: Meta<typeof LinkBtn> = {
     },
     mode: {
       description: 'Изменение мода кнопки',
-      options: ['actor', 'footer'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
     icon: {
       description: 'Название иконки',
@@ -145,7 +144,7 @@ export const AccountFunctionLink: Story = {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4,minmax(155px,1fr))',
-          width: '66.6666666%',
+          width: '66.7%',
         }}
       >
         <Story />

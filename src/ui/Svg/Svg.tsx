@@ -1,8 +1,8 @@
 import { FC, cloneElement } from 'react'
 
-import { names } from './icons'
-
 import { INameIcons, INameIconsExt } from '@/types/Icons'
+
+import { names } from './icons'
 
 interface SvgProps {
   size?: 'small' | 'middle' | 'big' | 'large'
