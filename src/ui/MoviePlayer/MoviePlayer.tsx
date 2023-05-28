@@ -1,8 +1,6 @@
+import { Range } from '@layouts/Range'
 import cn from 'classnames'
 import { FC } from 'react'
-
-import { formatTime } from '@/utils/functions/formatTime'
-import { Range } from '@layouts/Range'
 
 import { FullscreenButton } from './FullscreenButton'
 import styles from './MoviePlayer.module.scss'
@@ -10,6 +8,8 @@ import { PlayButton } from './PlayButton'
 import { TopBar } from './TopBar'
 import { useMoviePlayer } from './useMoviePlayer'
 import { VolumeButton } from './VolumeButton'
+
+import { formatTime } from '@/utils/functions/formatTime'
 
 export type playStatusTypes = 'play' | 'pause' | 'stop'
 export type isFullscreenTypes = boolean | undefined
