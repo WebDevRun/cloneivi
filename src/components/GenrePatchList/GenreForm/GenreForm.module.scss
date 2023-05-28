@@ -5,32 +5,3 @@
   align-items: center;
   gap: fn.toRem(15px);
 }
-
-.saveButton,
-.cancelButton {
-  padding: fn.toRem(5px) fn.toRem(11px);
-  border-radius: fn.toRem(8px);
-  color: #ffffff;
-  transition: 0.4s;
-
-  &:disabled,
-  &:disabled:hover {
-    background-color: rgb(65, 65, 65);
-  }
-}
-
-.saveButton {
-  background-color: #009207;
-
-  &:hover {
-    background-color: #008207;
-  }
-}
-
-.cancelButton {
-  background-color: #ea003d;
-
-  &:hover {
-    background-color: #ff0f4d;
-  }
-}

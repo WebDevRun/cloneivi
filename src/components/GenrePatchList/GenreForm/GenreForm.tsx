@@ -1,6 +1,8 @@
 import { useTranslation } from 'next-i18next'
 import { ChangeEventHandler, FC, useState } from 'react'
 
+import { Button } from '@/ui/Button'
+
 import { Input } from '../Input'
 
 import styles from './GenreForm.module.scss'
@@ -34,18 +36,18 @@ export const GenreForm: FC<GenreFormProps> = ({
     <form className={styles.genreForm}>
       <Input description='Ru' text={ruText} setText={inputRuChangeHandler} />
       <Input description='En' text={enText} setText={inputEnChangeHandler} />
-      <button
-        className={styles.saveButton}
+      <Button
         disabled={ruText === initialRuText && enText === initialEnText}
-      >
-        {t('adminPage:save')}
-      </button>
-      <button
-        className={styles.cancelButton}
+        text={`${t('adminPage:save')}`}
+        size='small'
+        background='gray'
+      />
+      <Button
         disabled={ruText === initialRuText && enText === initialEnText}
-      >
-        {t('adminPage:cancel')}
-      </button>
+        text={`${t('adminPage:cancel')}`}
+        size='small'
+        background='gray'
+      />
     </form>
   )
 }
