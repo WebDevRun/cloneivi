@@ -10,5 +10,10 @@
   "IviRating": "Ivi Rating",
   "posterForTheMovie": "Poster for the movie",
   "collapse": "Collapse",
-  "expand": "Expand"
+  "expand": "Expand",
+  "Save": "Save",
+  "Reset": "Reset",
+  "MovieTitle": "Movie title",
+  "MovieGenre": "Movie genre",
+  "FilmEditing": "Film Editing"
 }

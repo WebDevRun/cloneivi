@@ -10,5 +10,10 @@
   "IviRating": "Рейтинг Иви",
   "posterForTheMovie": "Постер для фильма",
   "collapse": "Свернуть",
-  "expand": "Развернуть"
+  "expand": "Развернуть",
+  "Save": "Сохранить",
+  "Reset": "Сброс",
+  "MovieTitle": "Название фильма",
+  "MovieGenre": "Жанр фильма",
+  "FilmEditing": "Редактирование фильма"
 }
