@@ -35,11 +35,20 @@
   display: block;
 }
 
-.iconBox svg{
-  transition: 0.3s;
+.link:not(:has(.account)) {
+  .iconBox svg {
+    fill: white;
+  }
 }
 
-.link:hover svg{
+.link:has(.account) {
+  .iconBox svg {
+    transition: 0.3s;
+    fill: gray;
+  }
+}
+
+.link:has(.account):hover svg {
   fill: white;
 }
 

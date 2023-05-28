@@ -30,7 +30,7 @@ const meta: Meta<typeof LinkBtn> = {
       control: { type: 'radio' },
     },
     icon: {
-      description: 'svg иконка',
+      description: 'Название иконки',
     },
     imgAlt: {
       description: 'Ссылка на картинку',
@@ -110,7 +110,8 @@ export const GenreLink: Story = {
     mode: 'genres',
     href: '#',
     type: 'square',
-    icon: 'googlePlay',
+    icon: 'drama',
+    iconSize: 'big',
     text: 'Драмы',
   },
 }
@@ -128,7 +129,7 @@ export const FeatureLink: Story = {
 export const AccountLink: Story = {
   args: {
     mode: 'account',
-    icon: 'user',
+    icon: 'profile',
     type: 'square',
     href: '#',
   },
@@ -150,7 +151,7 @@ export const AccountFunctionLink: Story = {
   ],
   args: {
     mode: 'accountLinks',
-    icon: 'googlePlay',
+    icon: 'quality',
     href: '#',
     text: 'История просмотров',
     type: 'square',

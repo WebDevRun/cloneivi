@@ -26,7 +26,7 @@ export const Svg: FC<SvgProps> = ({ size = 'middle', icon, ext = false }) => {
           xmlns='http://www.w3.org/2000/svg'
           width={sz[size]}
           height={sz[size]}
-          viewBox={`0 0 ${sz[size]} ${sz[size]}`}
+          viewBox={`0 0 32 32`}
         >
           {names[icon as INameIcons]}
         </svg>
