@@ -69,6 +69,7 @@ export const WithoutSutText: Story = {
     type: 'square',
     text: 'Click me',
     icon: 'googlePlay',
+    iconExt: true,
     href: '#',
   },
 }
@@ -78,6 +79,7 @@ export const WithoutText: Story = {
     mode: 'footer',
     type: 'circle',
     icon: 'googlePlay',
+    iconExt: true,
     href: '#',
   },
 }
@@ -89,6 +91,7 @@ export const WithAll: Story = {
     text: 'Play Store',
     subText: 'Загрузить в',
     icon: 'googlePlay',
+    iconExt: true,
     href: '#',
   },
 }

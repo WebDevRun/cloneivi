@@ -41,10 +41,11 @@
   }
 }
 
-.link:has(.account) {
+.link:has(.account),
+.link:has(.accountLinks) {
   .iconBox svg {
     transition: 0.3s;
-    fill: gray;
+    fill: rgba(var.$white, 0.48);;
   }
 }
 

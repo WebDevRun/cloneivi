@@ -16,6 +16,7 @@ interface LinkProps {
   subText?: string
   text?: string
   icon?: INameIcons | INameIconsExt
+  iconExt?: boolean
   background?: 'lightgray' | 'default'
   imgSrc?: string
   imgAlt?: string
@@ -30,6 +31,7 @@ export const LinkBtn: FC<LinkProps> = ({
   text,
   background = 'default',
   icon,
+  iconExt = false,
   imgSrc = '',
   imgAlt = '',
   iconSize = 'middle',
@@ -54,7 +56,7 @@ export const LinkBtn: FC<LinkProps> = ({
         >
           {mode !== 'actor' && icon && (
             <div className={styles.iconBox}>
-              <Svg icon={icon} size={iconSize} />
+              <Svg icon={icon} size={iconSize} ext={iconExt} />
             </div>
           )}
           {mode === 'actor' && (
