@@ -20,22 +20,10 @@ export const GenreForm: FC<GenreFormProps> = ({
   const [ruText, setRuText] = useState(initialRuText)
   const [enText, setEnText] = useState(initialEnText)
 
-  const inputRuChangeHandler: ChangeEventHandler<HTMLInputElement> = (
-    event,
-  ) => {
-    setRuText(event.target.value)
-  }
-
-  const inputEnChangeHandler: ChangeEventHandler<HTMLInputElement> = (
-    event,
-  ) => {
-    setEnText(event.target.value)
-  }
-
   return (
     <form className={styles.genreForm}>
-      <Input description='Ru' text={ruText} setText={inputRuChangeHandler} />
-      <Input description='En' text={enText} setText={inputEnChangeHandler} />
+      <Input description='Ru' text={ruText} setText={setRuText} />
+      <Input description='En' text={enText} setText={setEnText} />
       <Button
         disabled={ruText === initialRuText && enText === initialEnText}
         text={`${t('adminPage:save')}`}
