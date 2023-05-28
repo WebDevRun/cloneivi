@@ -1,7 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { useState } from 'react'
-
-import { Svg } from '../Svg'
 
 import { LinkBtn } from './LinkBtn'
 
@@ -71,7 +68,7 @@ export const WithoutSutText: Story = {
     mode: 'footer',
     type: 'square',
     text: 'Click me',
-    icon: <Svg icon='googlePlay' />,
+    icon: 'googlePlay',
     href: '#',
   },
 }
@@ -80,7 +77,7 @@ export const WithoutText: Story = {
   args: {
     mode: 'footer',
     type: 'circle',
-    icon: <Svg icon='googlePlay' />,
+    icon: 'googlePlay',
     href: '#',
   },
 }
@@ -91,7 +88,7 @@ export const WithAll: Story = {
     type: 'square',
     text: 'Play Store',
     subText: 'Загрузить в',
-    icon: <Svg icon='googlePlay' />,
+    icon: 'googlePlay',
     href: '#',
   },
 }
@@ -113,7 +110,7 @@ export const GenreLink: Story = {
     mode: 'genres',
     href: '#',
     type: 'square',
-    icon: <Svg icon='googlePlay' />,
+    icon: 'googlePlay',
     text: 'Драмы',
   },
 }
@@ -131,23 +128,10 @@ export const FeatureLink: Story = {
 export const AccountLink: Story = {
   args: {
     mode: 'account',
-    icon: <Svg icon='user' ext={true} fill='gray' />,
+    icon: 'user',
     type: 'square',
     href: '#',
   },
-}
-
-export const Playground = () => {
-  const [fillColor, setFillColor] = useState<string>('gray')
-  return (
-    <LinkBtn
-      href='#'
-      icon={<Svg icon='user' ext={true} fill={fillColor} />}
-      mode='account'
-      type='square'
-      onMouseEnter={() => setFillColor('white')} onMouseLeave={() => setFillColor('gray')} 
-    />
-  )
 }
 
 export const AccountFunctionLink: Story = {
@@ -166,7 +150,7 @@ export const AccountFunctionLink: Story = {
   ],
   args: {
     mode: 'accountLinks',
-    icon: <Svg icon='googlePlay' />,
+    icon: 'googlePlay',
     href: '#',
     text: 'История просмотров',
     type: 'square',

@@ -1,22 +1,25 @@
 import cn from 'classnames'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import Link from 'next/link'
-import { FC, MouseEventHandler, ReactElement } from 'react'
+import { FC } from 'react'
+
+import { Svg } from '../Svg'
 
 import styles from './LinkBtn.module.scss'
 
+import { INameIcons, INameIconsExt } from '@/types/Icons'
+
 interface LinkProps {
-  onMouseEnter?: MouseEventHandler<HTMLAnchorElement>
-  onMouseLeave?: MouseEventHandler<HTMLAnchorElement>
   href: string
   mode: 'footer' | 'actor' | 'genres' | 'account' | 'accountLinks'
   type: 'square' | 'circle'
   subText?: string
   text?: string
-  icon?: ReactElement
+  icon?: INameIcons | INameIconsExt
   background?: 'lightgray' | 'default'
   imgSrc?: string
   imgAlt?: string
+  iconSize?: 'small' | 'middle' | 'big' | 'large'
 }
 
 export const LinkBtn: FC<LinkProps> = ({
@@ -29,10 +32,10 @@ export const LinkBtn: FC<LinkProps> = ({
   icon,
   imgSrc = '',
   imgAlt = '',
-  ...props
+  iconSize = 'middle',
 }) => {
   return (
-    <Link {...props} className={styles.link} href={href}>
+    <Link className={styles.link} href={href}>
       <div
         className={cn(
           styles.btn,
@@ -50,7 +53,9 @@ export const LinkBtn: FC<LinkProps> = ({
           })}
         >
           {mode !== 'actor' && icon && (
-            <div className={styles.iconBox}>{icon}</div>
+            <div className={styles.iconBox}>
+              <Svg icon={icon} size={iconSize} />
+            </div>
           )}
           {mode === 'actor' && (
             <Image width={44} height={44} src={imgSrc} alt={imgAlt} />
