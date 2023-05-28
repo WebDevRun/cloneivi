@@ -1,0 +1,22 @@
+@use '@styles/functions' as fn;
+
+$gap: fn.toRem(10px);
+
+.movieItem {
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  align-items: center;
+  column-gap: fn.toRem(15px);
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  font-weight: 500;
+}
+
+.controls {
+  display: flex;
+  gap: $gap;
+}

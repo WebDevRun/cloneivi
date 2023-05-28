@@ -1,13 +1,21 @@
-import { GetStaticProps } from 'next'
+import { AxiosRequestConfig, AxiosResponse } from 'axios'
+import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ReactElement } from 'react'
 
+import { $instance } from '@/axios'
+import { MoviePatchList } from '@/components/MoviePatchList'
 import { AdminLayout } from '@/layouts/AdminLayout'
 import { AppLayout } from '@/layouts/AppLayout'
 import { NextPageWithLayout } from '@/pages/_app'
+import { IMovie } from '@/types/Movie'
 
-const Films: NextPageWithLayout = () => {
-  return <h3>Films</h3>
+interface FilmsProps {
+  initialMovies: IMovie[]
+}
+
+const Films: NextPageWithLayout<FilmsProps> = ({ initialMovies }) => {
+  return <MoviePatchList initialMovies={initialMovies} />
 }
 
 Films.getLayout = (page: ReactElement) => {
@@ -20,13 +28,20 @@ Films.getLayout = (page: ReactElement) => {
 
 export default Films
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   const localeData = await serverSideTranslations(locale ?? 'ru', [
     'header',
     'adminPage',
   ])
+
+  const { data: initialMovies } = await $instance.get<
+    AxiosRequestConfig<undefined>,
+    AxiosResponse<IMovie[]>
+  >('/films?limit=30')
+
   return {
     props: {
+      initialMovies,
       ...localeData,
     },
   }

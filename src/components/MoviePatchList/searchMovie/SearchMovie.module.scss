@@ -1,0 +1,12 @@
+@use '@styles/functions' as fn;
+
+.searchMovie {
+  display: flex;
+  align-items: center;
+  gap: fn.toRem(10px);
+}
+
+.input {
+  padding: fn.toRem(7px);
+  border-radius: fn.toRem(8px);
+}

@@ -3,5 +3,10 @@
   "genres": "Genres",
   "title": "Admin panel",
   "save": "Save",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "findMovie": "Find movie",
+  "find": "Find",
+  "notFound": "Not found",
+  "edit": "Edit",
+  "delete": "Delete"
 }
