@@ -1,0 +1,19 @@
+{
+  "person_id": "bb718ac3-fbab-4942-8cd4-1320f20ae263",
+  "first_name_ru": "Аллен",
+  "last_name_ru": "Хэмилтон",
+  "first_name_en": "Allen",
+  "last_name_en": "Hamilton",
+  "img": "https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/1aa59f72-f49a-40fa-b68d-fdd2c6442b66/280x420",
+  "films": [
+    {
+      "film_id": "8cac87ad-26db-4d71-adf6-816c93f58fce"
+    },
+    {
+      "film_id": "8cac87ad-26db-4d71-adf6-816c93f58fce"
+    },
+    {
+      "film_id": "8cac87ad-26db-4d71-adf6-816c93f58fce"
+    }
+  ]
+}

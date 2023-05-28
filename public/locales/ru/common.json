@@ -1,1 +1,14 @@
-{}
+{
+  "back": "Назад",
+  "myIvi": "Мой Иви",
+  "films": "фильм",
+  "filmsA": "фильма",
+  "filmsOV": "фильмов",
+  "film": "фильм",
+  "fullFilmography": "Полная фильмография",
+  "seeMore": "Подробнее",
+  "IviRating": "Рейтинг Иви",
+  "posterForTheMovie": "Постер для фильма",
+  "collapse": "Свернуть",
+  "expand": "Развернуть"
+}
