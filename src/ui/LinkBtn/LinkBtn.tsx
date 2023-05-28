@@ -1,11 +1,13 @@
 import cn from 'classnames'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
-import { FC, ReactElement } from 'react'
+import { FC, MouseEventHandler, ReactElement } from 'react'
 
 import styles from './LinkBtn.module.scss'
 
 interface LinkProps {
+  onMouseEnter?: MouseEventHandler<HTMLAnchorElement>
+  onMouseLeave?: MouseEventHandler<HTMLAnchorElement>
   href: string
   mode: 'footer' | 'actor' | 'genres' | 'account' | 'accountLinks'
   type: 'square' | 'circle'
@@ -13,6 +15,8 @@ interface LinkProps {
   text?: string
   icon?: ReactElement
   background?: 'lightgray' | 'default'
+  imgSrc?: string
+  imgAlt?: string
 }
 
 export const LinkBtn: FC<LinkProps> = ({
@@ -23,9 +27,12 @@ export const LinkBtn: FC<LinkProps> = ({
   text,
   background = 'default',
   icon,
+  imgSrc = '',
+  imgAlt = '',
+  ...props
 }) => {
   return (
-    <Link className={styles.link} href={href}>
+    <Link {...props} className={styles.link} href={href}>
       <div
         className={cn(
           styles.btn,
@@ -42,7 +49,12 @@ export const LinkBtn: FC<LinkProps> = ({
             [styles.genres]: mode === 'genres',
           })}
         >
-          {mode !== 'actor' && icon && <div className={styles.iconBox}>{icon}</div>}
+          {mode !== 'actor' && icon && (
+            <div className={styles.iconBox}>{icon}</div>
+          )}
+          {mode === 'actor' && (
+            <Image width={44} height={44} src={imgSrc} alt={imgAlt} />
+          )}
 
           {(text || subText) && mode !== 'actor' && (
             <div className={styles.textContainer}>

@@ -14,4 +14,4 @@ export type INameIcons =
   | 'googlePlay'
   | 'appStore'
 
-export type INameIconsExt = 'top10' | '18plus'
+export type INameIconsExt = 'top10' | '18plus' | 'user'

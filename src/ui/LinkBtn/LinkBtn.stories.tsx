@@ -1,9 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react'
+import { useState } from 'react'
 
 import { Svg } from '../Svg'
 
 import { LinkBtn } from './LinkBtn'
+
 import '@styles/index.scss'
+
 
 const meta: Meta<typeof LinkBtn> = {
   title: 'LinkBtn',
@@ -28,6 +31,15 @@ const meta: Meta<typeof LinkBtn> = {
       description: 'Изменение мода кнопки',
       options: ['actor', 'footer'],
       control: { type: 'radio' },
+    },
+    icon: {
+      description: 'svg иконка',
+    },
+    imgAlt: {
+      description: 'Ссылка на картинку',
+    },
+    imgSrc: {
+      description: 'Если картинка не подгрузилась',
     },
   },
   parameters: {
@@ -59,7 +71,7 @@ export const WithoutSutText: Story = {
     mode: 'footer',
     type: 'square',
     text: 'Click me',
-    icon: <Svg icon='googlePlay'/>,
+    icon: <Svg icon='googlePlay' />,
     href: '#',
   },
 }
@@ -68,7 +80,7 @@ export const WithoutText: Story = {
   args: {
     mode: 'footer',
     type: 'circle',
-    icon: <Svg icon='googlePlay'/>,
+    icon: <Svg icon='googlePlay' />,
     href: '#',
   },
 }
@@ -79,29 +91,29 @@ export const WithAll: Story = {
     type: 'square',
     text: 'Play Store',
     subText: 'Загрузить в',
-    icon: <Svg icon='googlePlay'/>,
+    icon: <Svg icon='googlePlay' />,
     href: '#',
   },
 }
 
-// export const ActorLink: Story = {
-//   args: {
-//     mode: 'actor',
-//     href: '#',
-//     type: 'square',
-//     iconSrc:
-//       'https://thumbs.dfs.ivi.ru/storage15/contents/2/b/ae10860096fcbe6411a51eb085098b.jpg',
-//     iconAlt: 'Actor Image',
-//     text: 'Франсуа Клюзе',
-//   },
-// }
+export const ActorLink: Story = {
+  args: {
+    mode: 'actor',
+    href: '#',
+    type: 'square',
+    imgSrc:
+      'https://thumbs.dfs.ivi.ru/storage15/contents/2/b/ae10860096fcbe6411a51eb085098b.jpg',
+    imgAlt: 'Actor Image',
+    text: 'Франсуа Клюзе',
+  },
+}
 
 export const GenreLink: Story = {
   args: {
     mode: 'genres',
     href: '#',
     type: 'square',
-    icon: <Svg icon='googlePlay'/>,
+    icon: <Svg icon='googlePlay' />,
     text: 'Драмы',
   },
 }
@@ -119,10 +131,23 @@ export const FeatureLink: Story = {
 export const AccountLink: Story = {
   args: {
     mode: 'account',
-    icon: <Svg icon='googlePlay'/>,
+    icon: <Svg icon='user' ext={true} fill='gray' />,
     type: 'square',
     href: '#',
   },
+}
+
+export const Playground = () => {
+  const [fillColor, setFillColor] = useState<string>('gray')
+  return (
+    <LinkBtn
+      href='#'
+      icon={<Svg icon='user' ext={true} fill={fillColor} />}
+      mode='account'
+      type='square'
+      onMouseEnter={() => setFillColor('white')} onMouseLeave={() => setFillColor('gray')} 
+    />
+  )
 }
 
 export const AccountFunctionLink: Story = {
@@ -141,7 +166,7 @@ export const AccountFunctionLink: Story = {
   ],
   args: {
     mode: 'accountLinks',
-    icon: <Svg icon='googlePlay'/>,
+    icon: <Svg icon='googlePlay' />,
     href: '#',
     text: 'История просмотров',
     type: 'square',
