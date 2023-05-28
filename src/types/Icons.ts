@@ -11,6 +11,7 @@ export type INameIcons =
   | 'profile'
   | 'search'
   | 'share'
+  | 'smart'
   | 'quality'
   | 'drama'
 
