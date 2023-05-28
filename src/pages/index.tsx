@@ -2,6 +2,7 @@ import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+import { Header } from '@components/Header'
 import { AppLayout } from '@layouts/AppLayout'
 
 export default function Home() {
