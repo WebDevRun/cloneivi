@@ -3,16 +3,18 @@ import { ChangeEventHandler, FC } from 'react'
 import styles from './Input.module.scss'
 
 export interface InputProps {
+  type?: 'text' | 'search'
   description?: string
   placeholder?: string
-  text: string
+  text?: string
   setText: (str: string) => void
 }
 
 export const Input: FC<InputProps> = ({
   description = '',
   placeholder = '',
-  text,
+  type = 'text',
+  text = '',
   setText,
 }) => {
   const inputChangeHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -21,9 +23,9 @@ export const Input: FC<InputProps> = ({
 
   return (
     <label className={styles.label}>
-      <span>{description}:</span>
+      <span>{description}</span>
       <input
-        type='text'
+        type={type}
         className={styles.input}
         value={text}
         onChange={inputChangeHandler}

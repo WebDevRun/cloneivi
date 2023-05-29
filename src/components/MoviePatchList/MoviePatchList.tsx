@@ -19,7 +19,8 @@ export const MoviePatchList: FC<MoviePatchListProps> = ({ initialMovies }) => {
   return (
     <div className={styles.moviePatchList}>
       <Input
-        description={`${t('adminPage:findMovie')}`}
+        type='search'
+        description={`${t('adminPage:findMovie')}:`}
         text={searchText}
         setText={setSearchText}
         placeholder={`${t('adminPage:find')}...`}

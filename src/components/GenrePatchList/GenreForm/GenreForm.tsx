@@ -21,8 +21,8 @@ export const GenreForm: FC<GenreFormProps> = ({
 
   return (
     <form className={styles.genreForm}>
-      <Input description='Ru' text={ruText} setText={setRuText} />
-      <Input description='En' text={enText} setText={setEnText} />
+      <Input description='Ru:' text={ruText} setText={setRuText} type='text' />
+      <Input description='En:' text={enText} setText={setEnText} type='text' />
       <Button
         disabled={ruText === initialRuText && enText === initialEnText}
         text={`${t('adminPage:save')}`}
