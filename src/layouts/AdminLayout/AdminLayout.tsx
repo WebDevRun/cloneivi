@@ -1,4 +1,6 @@
+import cn from 'classnames'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { FC, ReactNode } from 'react'
 
@@ -11,6 +13,7 @@ export interface AdminLayoutProps {
 }
 
 export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
+  const router = useRouter()
   const { t } = useTranslation(['adminPage'])
   const links = ['films', 'genres']
 
@@ -19,7 +22,12 @@ export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
       <nav className={styles.navigationBar}>
         {links.map((link, index) => {
           return (
-            <li key={index}>
+            <li
+              key={index}
+              className={cn(styles.listItem, {
+                [styles.listItem_active]: router.pathname === `/admin/${link}`,
+              })}
+            >
               <Link className={styles.navigationItem} href={`/admin/${link}`}>
                 {t(`adminPage:${link}`)}
               </Link>

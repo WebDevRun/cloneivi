@@ -1,5 +1,7 @@
 @use '@styles/functions' as fn;
 
+$white: #ffffff;
+
 .adminLayout {
   display: flex;
   gap: fn.toRem(20px);
@@ -8,20 +10,26 @@
 .navigationBar {
   display: flex;
   flex-direction: column;
-  gap: fn.toRem(10px);
-  padding: 0 fn.toRem(20px) fn.toRem(10px) fn.toRem(10px);
-  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  border-right: 1px solid rgba($white, 0.16);
+}
+
+.listItem {
+  padding: fn.toRem(5px) fn.toRem(20px) fn.toRem(5px) fn.toRem(10px);
+
+  &_active {
+    background-color: rgba($white, 0.16);
+  }
 }
 
 .navigationItem {
   font-size: fn.toRem(15px);
   font-weight: 500;
   line-height: fn.toRem(20px);
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba($white, 0.48);
   transition-duration: 0.4s;
 
   &:hover {
-    color: rgb(255, 255, 255);
+    color: $white;
   }
 }
 
