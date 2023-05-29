@@ -1,9 +1,8 @@
 import { useTranslation } from 'next-i18next'
-import { ChangeEventHandler, FC, useState } from 'react'
+import { FC, useState } from 'react'
 
 import { Button } from '@/ui/Button'
-
-import { Input } from '../Input'
+import { Input } from '@/ui/Input'
 
 import styles from './GenreForm.module.scss'
 

@@ -1,1 +1,0 @@
-export { SearchMovie } from './SearchMovie'
