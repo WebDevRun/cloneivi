@@ -23,7 +23,7 @@ export const Input: FC<InputProps> = ({
 
   return (
     <label className={styles.label}>
-      <span>{description}</span>
+      <span className={styles.description}>{description}</span>
       <input
         type={type}
         className={styles.input}

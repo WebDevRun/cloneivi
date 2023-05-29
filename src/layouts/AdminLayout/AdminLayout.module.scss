@@ -4,6 +4,12 @@ $white: #ffffff;
 
 .adminLayout {
   display: flex;
+  flex-direction: column;
+  gap: fn.toRem(20px);
+}
+
+.pageContainer {
+  display: flex;
   gap: fn.toRem(20px);
 }
 
@@ -39,6 +45,13 @@ $white: #ffffff;
   flex-direction: column;
 }
 
-.title {
-  margin-bottom: fn.toRem(16px);
+@media (max-width: 600px) {
+  .pageContainer {
+    flex-direction: column;
+  }
+
+  .navigationBar {
+    flex-direction: row;
+    border-right: none;
+  }
 }

@@ -5,10 +5,7 @@
   flex-direction: column;
   position: relative;
   max-width: 1216px;
-  margin: 0 auto;
-
-  @media (max-width: 1160px) {
-    padding-left: fn.toRem(20px);
-    padding-right: fn.toRem(20px);
-  }
+  margin-inline: auto;
+  padding-left: fn.toRem(20px);
+  padding-right: fn.toRem(20px);
 }

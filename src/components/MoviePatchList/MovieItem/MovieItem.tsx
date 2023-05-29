@@ -21,8 +21,8 @@ export const MovieItem: FC<MovieItemProps> = ({ imgSrc, name_en, name_ru }) => {
   return (
     <div className={styles.movieItem}>
       <Image
-        width={50}
-        height={80}
+        width={65}
+        height={100}
         src={imgSrc || noImage}
         alt={`poster ${router.locale === 'en' ? name_en : name_ru}`}
         priority

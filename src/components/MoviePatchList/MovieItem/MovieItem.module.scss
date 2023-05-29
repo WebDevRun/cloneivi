@@ -20,3 +20,23 @@ $gap: fn.toRem(10px);
   display: flex;
   gap: $gap;
 }
+
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 380px) {
+  .movieItem {
+    grid-template-columns: min-content 1fr;
+    row-gap: fn.toRem(10px);
+  }
+
+  .controls {
+    flex-direction: row;
+    justify-self: center;
+    grid-row: 2/3;
+    grid-column: 1/3;
+  }
+}

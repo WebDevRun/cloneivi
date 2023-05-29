@@ -1,7 +1,25 @@
 @use '@styles/functions' as fn;
 
 .genreForm {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) repeat(2, min-content);
   align-items: center;
-  gap: fn.toRem(15px);
+  column-gap: fn.toRem(15px);
+}
+
+@media (max-width: 800px) {
+  .genreForm {
+    grid-template-columns: 1fr min-content;
+    row-gap: fn.toRem(10px);
+
+    > *:nth-child(2) {
+      grid-row: 2/3;
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .genreForm {
+    grid-template-columns: 1fr;
+  }
 }

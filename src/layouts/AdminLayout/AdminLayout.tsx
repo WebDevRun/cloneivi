@@ -19,27 +19,28 @@ export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
 
   return (
     <div className={styles.adminLayout}>
-      <nav className={styles.navigationBar}>
-        {links.map((link, index) => {
-          return (
-            <li
-              key={index}
-              className={cn(styles.listItem, {
-                [styles.listItem_active]: router.pathname === `/admin/${link}`,
-              })}
-            >
-              <Link className={styles.navigationItem} href={`/admin/${link}`}>
-                {t(`adminPage:${link}`)}
-              </Link>
-            </li>
-          )
-        })}
-      </nav>
-      <div className={styles.contentContainer}>
-        <Text as='h2' variant='titleH2' className={styles.title}>
-          {t('adminPage:title')}
-        </Text>
-        {children}
+      <Text as='h2' variant='titleH2' className={styles.title}>
+        {t('adminPage:title')}
+      </Text>
+      <div className={styles.pageContainer}>
+        <nav className={styles.navigationBar}>
+          {links.map((link, index) => {
+            return (
+              <li
+                key={index}
+                className={cn(styles.listItem, {
+                  [styles.listItem_active]:
+                    router.pathname === `/admin/${link}`,
+                })}
+              >
+                <Link className={styles.navigationItem} href={`/admin/${link}`}>
+                  {t(`adminPage:${link}`)}
+                </Link>
+              </li>
+            )
+          })}
+        </nav>
+        <div className={styles.contentContainer}>{children}</div>
       </div>
     </div>
   )
