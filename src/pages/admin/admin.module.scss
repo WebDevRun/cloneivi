@@ -1,5 +1,5 @@
-.form {
-  & > *:not(:first-child) {
-    margin-top: 16px;
-  }
+@use '../../styles/functions/' as fn;
+
+.editFilmsPage {
+  padding: fn.toRem(40px) 0;
 }
