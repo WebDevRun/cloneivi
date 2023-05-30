@@ -7,7 +7,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { FormEvent, ReactElement } from 'react'
 
 import { $instance } from '@/axios'
-import { IMovie } from '@/types/Movie'
+import { IMovie } from '@/types/movie'
 import { Button } from '@/ui/Button'
 import { Input } from '@/ui/Input'
 import { AppLayout } from '@layouts/AppLayout'
@@ -18,12 +18,14 @@ import { Text } from '../../../ui/ui'
 import { NextPageWithLayout } from '../../_app'
 import styles from '../admin.module.scss'
 
+
 const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjdiMmJjMTUtZWE0OS00NTNlLWE5MjQtYzBjMzJiMjFjZWUwIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6W3sicm9sZV9pZCI6ImFiMjBhYjU5LThhMjYtNDUwYy04MWYwLTliNWNiZTQ2YjNlNCIsInZhbHVlIjoiYWRtaW4iLCJkZXNjcmlwdGlvbiI6ItCQ0LTQvNC40L3QuNGB0YLRgNCw0YLQvtGAIn1dLCJpYXQiOjE2ODUzMDQyNjMsImV4cCI6MTY4NTMwNjA2M30.UCuVj_Monhu4Fw-w5Gkk2J7oj-MBlDL7BPSSu2PLeKE'
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjdiMmJjMTUtZWE0OS00NTNlLWE5MjQtYzBjMzJiMjFjZWUwIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6W3sicm9sZV9pZCI6ImFiMjBhYjU5LThhMjYtNDUwYy04MWYwLTliNWNiZTQ2YjNlNCIsInZhbHVlIjoiYWRtaW4iLCJkZXNjcmlwdGlvbiI6ItCQ0LTQvNC40L3QuNGB0YLRgNCw0YLQvtGAIn1dLCJpYXQiOjE2ODU0MTMxNjMsImV4cCI6MTY4NTQxNDk2M30.lMY7bEBKUMLvqTJE9m38mWhXJCWgcInPrFCNSsFmikA'
 
 export interface IMoviePage {
   film: IMovie
 }
+
 
 const Edit: NextPageWithLayout<IMoviePage> = ({ film }) => {
   const { t } = useTranslation()
@@ -103,7 +105,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   const { data } = await $instance.get<
     AxiosRequestConfig<undefined>,
     AxiosResponse<IMovie>
-  >(`films/${params?.id}`)
+  >(`http://localhost:4000/films/${params?.id}`)
 
   return {
     props: {

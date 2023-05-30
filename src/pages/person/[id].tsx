@@ -62,7 +62,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await $instance.get<
     AxiosRequestConfig<undefined>,
     AxiosResponse<IPerson[]>
-  >('persons')
+  >('http://localhost:4000/persons')
 
   const paths = data.map((person) => {
     return { params: { id: person.person_id } }
@@ -79,7 +79,7 @@ export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
   const { data } = await $instance.get<
     AxiosRequestConfig<undefined>,
     AxiosResponse<IPerson>
-  >(`persons/${params?.id}`)
+  >(`http://localhost:4000/persons/${params?.id}`)
 
   return {
     props: {
