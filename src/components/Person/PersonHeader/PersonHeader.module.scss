@@ -1,0 +1,48 @@
+@use '../../../styles/functions' as fn;
+
+.personHeader {
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(22px);
+  font-weight: 400;
+}
+
+.figure {
+  position: relative;
+  margin-bottom: fn.toRem(16px);
+  width: fn.toRem(120px);
+  height: fn.toRem(130px);
+}
+
+.imageWrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  border-radius: fn.toRem(16px);
+  object-fit: cover;
+  height: fn.toRem(130px);
+}
+
+.title {
+  font-size: fn.toRem(56px);
+  line-height: fn.toRem(56px);
+  font-weight: 700;
+}
+
+.alternate {
+  color: #a5a1b2;
+  margin: fn.toRem(16px) 0;
+}
+
+.anchorLink {
+  font-size: fn.toRem(18px);
+  line-height: fn.toRem(21px);
+  font-weight: 400;
+  margin-top: fn.toRem(40px);
+}
+
+.anchorLink a {
+  color: rgba(255, 255, 255, 0.88);
+}

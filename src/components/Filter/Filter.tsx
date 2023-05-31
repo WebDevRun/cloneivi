@@ -43,8 +43,8 @@ export const Filter: FC = () => {
         <FilterSelector
           title='Жанры'
           selectedItems={filterSettings}
-          setSelectedItems={() => {
-          }}
+          // setSelectedItems={() => {
+          // }}
           position={'left'}
           items={GENRES}
           modalSize={'big'}
@@ -55,8 +55,8 @@ export const Filter: FC = () => {
         <FilterSelector
           title='Страны'
           selectedItems={filterSettings}
-          setSelectedItems={() => {
-          }}
+          // setSelectedItems={() => {
+          // }}
           position={'center'}
           items={COUNTRIES}
           modalSize={'big'}
@@ -67,8 +67,8 @@ export const Filter: FC = () => {
         <FilterSelector
           title='Годы'
           selectedItems={filterSettings}
-          setSelectedItems={() => {
-          }}
+          // setSelectedItems={() => {
+          // }}
           items={YEARS}
           modalSize={'small'}
           category={'year'}
@@ -78,8 +78,8 @@ export const Filter: FC = () => {
         <FilterSelector
           title='Рейтинг Иви'
           selectedItems={filterSettings}
-          setSelectedItems={() => {
-          }}
+          // setSelectedItems={() => {
+          // }}
           items={RATINGS}
           modalSize={'small'}
           category={'rating'}

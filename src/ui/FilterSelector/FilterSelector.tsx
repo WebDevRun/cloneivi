@@ -38,7 +38,7 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
     const selectedItem = selectedItems[category]
 
     if (Array.isArray(selectedItem)) {
-      return selectedItem.map(item => item[`${category}_ru`])
+      // return selectedItem.map(item => item[`${category}_ru`])
     }
 
     return []
@@ -73,17 +73,17 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
         selectedItems={getSelectedName()}
       />
       {
-        activeModal === category &&
-        <FilterDropDown
-          size={modalSize}
-          position={position || 'left'}
-          slider={<div style={{height: 88, background: '#000'}} />}
-          items={items}
-          category={category}
-          selectedItems={selectedItems ? selectedItems[category] : []}
-          setSelectedItems={() => {
-          }}
-        />
+        // activeModal === category &&
+        // <FilterDropDown
+        //   size={modalSize}
+        //   position={position || 'left'}
+        //   slider={<div style={{height: 88, background: '#000'}} />}
+        //   items={items}
+        //   category={category}
+        //   selectedItems={selectedItems ? selectedItems[category] : []}
+        //   setSelectedItems={() => {
+        //   }}
+        // />
       }
     </div>
   )

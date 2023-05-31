@@ -1,0 +1,23 @@
+export type INameIcons =
+  | 'arrowLeft'
+  | 'arrowRight'
+  | 'call'
+  | 'copy'
+  | 'favoriteAdd'
+  | 'favoriteRemove'
+  | 'language'
+  | 'notify'
+  | 'playOutline'
+  | 'profile'
+  | 'search'
+  | 'share'
+  | 'smart'
+  | 'quality'
+  | 'drama'
+
+export type INameIconsExt =
+  | 'top10'
+  | '18plus'
+  | 'user'
+  | 'googlePlay'
+  | 'appStore'

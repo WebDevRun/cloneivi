@@ -1,67 +1,94 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
+import { FC } from 'react'
 
-import { IMenuItem } from '@/types/navigate'
+import { Svg } from '@/ui/Svg'
+import { SwitchLanguage } from '@/ui/SwitchLanguage'
 import logo from '@assets/images/common/ivi.svg'
-import { HeaderSvg } from '@ui/svg/HeaderSvg'
 
 import { Button } from '../../ui/Button'
-import { Language } from '../../ui/Language'
-import { MENU } from '../../utils/consts'
 
 import styles from './Header.module.scss'
+import menu from './menu.json'
 
-export const Header = () => {
+export const Header: FC = () => {
+  const { t } = useTranslation(['common'])
+
+  const handleMouseOver = (e: React.MouseEvent<HTMLElement>) => {
+    const target = e.target as HTMLElement
+    const event = new CustomEvent('myCustomEventName', {
+      detail: target.closest('[data-test]')?.getAttribute('data-test'),
+    })
+
+    dispatchEvent(event)
+  }
+
   return (
-    <div className={styles.header}>
-      <Link href="https://www.ivi.ru/">
-        <Image src={logo} alt="logo" />
-      </Link>
+    <div className={styles.header} onMouseOver={handleMouseOver}>
+      <div className={styles.headerLogo}>
+        <Link href='https://www.ivi.ru/'>
+          <Image src={logo} alt={t('common:logo') as string}></Image>
+        </Link>
+      </div>
 
       <nav className={styles.menu}>
-        {MENU.map((item: IMenuItem) => (
-          <li className={styles.menuItem} key={item.id}>
-            <Link href={item.href} title={item.name}>
-              <div className={styles.menuItemText}>{item.name}</div>
+        {menu.map((item) => (
+          <li
+            className={styles.menuItem}
+            key={item.id}
+            data-test={item.dataTest}
+          >
+            <Link href={item.href} title={t(item.name) as string}>
+              <div className={styles.menuItemText}>{t(item.name)}</div>
             </Link>
           </li>
         ))}
       </nav>
 
       <div className={styles.topWide}>
-        <div className={styles.additionalButton}>
-          <Button mode="primary" text="Оплатить подписку" />
+        <div
+          data-test='header-addButton'
+          className={styles.additionalButton}
+        >
+          <Button
+            size='small'
+            background='primary'
+            onClick={() => {}}
+            text={t('common:pay') as string}
+          />
         </div>
         <div className={styles.buttonMobile}>
-          <Button mode="primaryMob" text="Смотреть 30 дней за 1₽" />
+          <Button size='small' text={t('common:see') as string} />
         </div>
-        <div  className={styles.headerSearch}>
+        <div className={styles.headerSearch}>
           <Button
-            iconSvg={<HeaderSvg size={16} icon="search" />}
-            iconAlt="Поиск"
-            mode="search"
-            text="Поиск"
+            background='transparent'
+            icon='search'
+            text={t('common:search') as string}
           />
         </div>
       </div>
 
       <Link
+        data-test='header-notify'
         className={styles.notifyLink}
-        href="https://www.ivi.ru/profile/pull_notifications"
+        href='https://www.ivi.ru/profile/pull_notifications'
       >
-        <HeaderSvg size={16} icon="notify" />
+        <Svg icon='notify' />
       </Link>
 
-      <div className={styles.headerAvatar}>
+      <div data-test='header-profile' className={styles.profile}>
         <Button
-          iconSvg={<HeaderSvg size={20} icon="profile" />}
-          iconAlt="Воити в аккаунт"
-          mode="signIn"
+          background='transparent'
+          icon='profile'
+          onClick={() => {}}
+          withBorder='borderBg'
         />
       </div>
 
       <div className={styles.language}>
-        <Language />
+        <SwitchLanguage />
       </div>
     </div>
   )

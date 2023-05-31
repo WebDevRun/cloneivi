@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .dropDownLayout {
   position: absolute;
   top: 100%;
@@ -45,4 +46,26 @@
   .big {
     width: 100%
   }
+=======
+.dropDownLayout {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.filter {
+  padding: 16px;
+  margin-top: 4px;
+  background-color: #312B45;
+  border-radius: 4px;
+}
+
+.big {
+  width: 630px;
+}
+
+.header {
+  top: 0;
+>>>>>>> 70112db8366b4d0ff8109547858b93c6e6e07ded
 }

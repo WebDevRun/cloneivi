@@ -1,0 +1,173 @@
+{
+  "genres": {
+    "title": "Genres",
+    "items": [
+      {
+        
+        "href": "https://www.ivi.ru/movies/boeviki",
+        "title": "Anime",
+        "text": "Anime"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/western",
+        "title": "Action",
+        "text": "Action"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/dlya_vsej_semi",
+        "title": "Detective",
+        "text": "Detective"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/detskiy",
+        "title": "Children",
+        "text": "Children"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/documentary",
+        "title": "Adults",
+        "text": "Adults"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/istoricheskie",
+        "title": "Drama",
+        "text": "Drama"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/comedy",
+        "title": "History",
+        "text": "History"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/crime",
+        "title": "Comedy",
+        "text": "Comedy"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/comics",
+        "title": "Crime",
+        "text": "Crime"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/horror",
+        "title": "Musical",
+        "text": "Musical"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Adventures",
+        "text": "Adventures"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Family",
+        "text": "Family"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Serials",
+        "text": "Serials"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Sport",
+        "text": "Sport"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Thriller",
+        "text": "Thriller"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Horror",
+        "text": "Horror"
+      },      
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Fantastic",
+        "text": "Fantastic"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Fantasy",
+        "text": "Fantasy"
+      }
+    ]
+  },
+  "countries": {
+    "title": "Countries",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/movies/ru",
+        "title": "Russians",
+        "text": "Russians"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/foreign",
+        "title": "Foreign",
+        "text": "Foreign"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/su",
+        "title": "American",
+        "text": "American"
+      }
+    ]
+  },
+  "years": {
+    "title": "Years",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/movies/2023",
+        "title": "FilmsOf2023",
+        "text": "FilmsOf2023"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/2022",
+        "title": "FilmsOf2022",
+        "text": "FilmsOf2022"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/2021",
+        "title": "FilmsOf2021",
+        "text": "FilmsOf2021"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/2020",
+        "title": "FilmsOf2020",
+        "text": "FilmsOf2020"
+      }
+    ]
+  },
+  "extra": {
+    "title": "",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/new/movie-new",
+        "title": "NewProducts",
+        "text": "NewProducts"
+      },
+      {
+        "href": "https://www.ivi.ru/collections",
+        "title": "Collections",
+        "text": "Collections"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/all?ivi_rating_10_gte=7&amp;sort=ivi&amp;rating_part=main&amp;rating_model=ready",
+        "title": "CartoonsNickelodeon",
+        "text": "CartoonsNickelodeon"
+      },
+      {
+        "href": "https://www.ivi.ru/new/soon-ivi",
+        "title": "DreamworksCartoons",
+        "text": "DreamworksCartoons"
+      },
+      {
+        "href": "https://www.ivi.ru/trailers",
+        "title": "STSKidsCartoons",
+        "text": "STSKidsCartoons"
+      }
+    ]
+  }
+}

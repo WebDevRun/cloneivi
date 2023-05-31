@@ -49,5 +49,9 @@ export const smallLeftFilter: Story = {
     position: 'left',
     size: 'small'
   },
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> 70112db8366b4d0ff8109547858b93c6e6e07ded
