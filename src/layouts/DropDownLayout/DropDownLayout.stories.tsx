@@ -28,30 +28,26 @@ const meta: Meta<typeof DropDownLayout> = {
       description: 'Изменение размера drop-down menu',
       options: ['big', 'small'],
       control: { type: 'radio' },
-    }
+    },
   },
 }
 
 export default meta
 type Story = StoryObj<typeof DropDownLayout>
 
-export const bigCenterFilter: Story = {
+export const BigCenterFilter: Story = {
   args: {
     type: 'filter',
     position: 'center',
-    size: 'big'
+    size: 'big',
   },
 }
 
-export const smallLeftFilter: Story = {
+export const SmallLeftFilter: Story = {
   args: {
     type: 'filter',
     position: 'left',
-    size: 'small'
+    size: 'small',
   },
-<<<<<<< HEAD
 }
 
-=======
-}
->>>>>>> 70112db8366b4d0ff8109547858b93c6e6e07ded

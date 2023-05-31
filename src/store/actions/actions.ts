@@ -1,5 +1,1 @@
-import * as filterActions from './filterActions'
-
-export default {
-  ...filterActions,
-}
+export { fetchGenres } from './filterActions'
