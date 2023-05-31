@@ -2,7 +2,7 @@ import {
   FilterAction,
   FilterActionTypes,
   IError,
-  IFilterStore
+  IFilterStore,
 } from '@/store/types/filterStore'
 import { ICountry, IGenre } from '@/types/movie'
 
