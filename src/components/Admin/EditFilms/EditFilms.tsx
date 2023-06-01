@@ -1,13 +1,13 @@
 import { useTranslation } from 'next-i18next'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { FormEvent } from 'react'
 
-import { IMovie } from '@/types/movie'
+import { IMovie, IMovieName } from '@/types/movie'
 import { Button } from '@/ui/Button'
 import { Input } from '@/ui/Input'
 
 import { Text } from '../../../ui/ui'
-import { crud } from '../../../utils/functions/crud'
+import { changeFilmName } from '../../../utils/functions/crud'
 
 import styles from './EditFilms.module.scss'
 
@@ -16,6 +16,7 @@ export interface EditFilmsProps {
 }
 
 export const EditFilms: FC<EditFilmsProps> = ({ film }) => {
+  const [isChange, setIsChange] = useState(false)
   const { t } = useTranslation()
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -23,15 +24,17 @@ export const EditFilms: FC<EditFilmsProps> = ({ film }) => {
 
     const target = event.target as HTMLFormElement
 
-    const data = {
+    const data: IMovieName = {
       name_ru: target.movieTitleRu.value,
       name_en: target.movieTitleEn.value,
     }
 
-    const url = `/films/${film.film_id}`
-
-    crud(url, data)
+    changeFilmName(film.film_id, data)
   }
+
+  useEffect(() => {
+    alert('slkdfksdflkdf')
+  }, [film])
 
   return (
     <>
