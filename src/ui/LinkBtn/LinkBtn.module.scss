@@ -4,7 +4,7 @@
 .btn {
   display: inline-block;
   background: #1f1b2e;
-  color: var.$white;
+  color: var.$mainTextColor;
   padding: fn.toRem(10px);
   transition: 0.3s;
 
@@ -45,7 +45,7 @@
 .link:has(.accountLinks) {
   .iconBox svg {
     transition: 0.3s;
-    fill: rgba(var.$white, 0.48);;
+    fill: rgba(var.$mainTextColor, 0.48);
   }
 }
 
@@ -61,7 +61,7 @@
 
 .subText {
   font-size: fn.toRem(10px);
-  color: rgba(var.$white, 0.72);
+  color: rgba(var.$mainTextColor, 0.72);
 }
 
 .square {
@@ -74,12 +74,12 @@
 
 .actor {
   padding: fn.toRem(6px);
-  background-color: rgba(var.$white, 0.16);
+  background-color: rgba(var.$mainTextColor, 0.16);
 }
 
 .account {
   background: transparent;
-  border: fn.toRem(2px) solid rgba(var.$white, 0.48);
+  border: fn.toRem(2px) solid rgba(var.$mainTextColor, 0.48);
   padding: fn.toRem(12px);
 }
 
@@ -127,7 +127,7 @@
 }
 
 .actorName {
-  color: rgba(var.$white, 0.48);
+  color: rgba(var.$mainTextColor, 0.48);
   font-size: fn.toRem(13px);
   margin-top: fn.toRem(8px);
   text-align: center;
@@ -145,7 +145,7 @@
 .btn:has(.genres) {
   background: transparent;
   padding: fn.toRem(16px) fn.toRem(8px);
-  border: fn.toRem(1px) solid rgba(var.$white, 0.32);
+  border: fn.toRem(1px) solid rgba(var.$mainTextColor, 0.32);
   width: fn.toRem(108px);
 
   .textContainer {
@@ -176,8 +176,8 @@
     }
 
     .btn.account {
-      border-color: var.$white;
-      box-shadow: 0 0 fn.toRem(13px) fn.toRem(-5px) var.$white;
+      border-color: var.$mainTextColor;
+      box-shadow: 0 0 fn.toRem(13px) fn.toRem(-5px) var.$mainTextColor;
     }
 
     .btn.footer {
@@ -189,11 +189,11 @@
     }
 
     .actor {
-      background-color: rgba(var.$white, 0.23);
+      background-color: rgba(var.$mainTextColor, 0.23);
     }
 
     .actorName {
-      color: var.$white;
+      color: var.$mainTextColor;
     }
   }
 }

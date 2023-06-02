@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next'
 import { FC, MouseEventHandler, useState } from 'react'
 
 import { Button } from '@/ui/Button'
@@ -39,6 +40,7 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
   rating,
 }) => {
   const [isClose, setIsClose] = useState(true)
+  const { t } = useTranslation(['common'])
 
   const clickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
     setIsClose((prev) => !prev)
@@ -69,7 +71,9 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
           background='transparent'
           fields='noneFields'
           text={
-            isClose ? movieInfomationStatus.open : movieInfomationStatus.close
+            isClose
+              ? `${t('common:filmDetails')}`
+              : `${t('common:collapseDetails')}`
           }
           onClick={clickHandler}
         />
