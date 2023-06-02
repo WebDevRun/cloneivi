@@ -41,4 +41,17 @@ export const Default: Story = {
     name: 'Большой самоуверенный кролик',
     text: 'Ролик',
   },
+  decorators: [
+    (Story) => {
+      return (
+        <div
+          style={{
+            width: 745,
+          }}
+        >
+          <Story />
+        </div>
+      )
+    },
+  ],
 }
