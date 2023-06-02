@@ -2,6 +2,7 @@ import { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { ReactElement } from 'react'
 
 import { $instance } from '@/axios'
 import { BackLink } from '@/components/BackLink'
@@ -11,13 +12,15 @@ import { Person } from '@/components/Person'
 import { IPerson } from '@/types/Person'
 import { AppLayout } from '@layouts/AppLayout'
 
+import { NextPageWithLayout } from '../_app'
+
 import styles from './PersonPage.module.scss'
 
 export interface IPersonPage {
   person: IPerson
 }
 
-export default function PersonPage({ person }: IPersonPage) {
+const PersonPage: NextPageWithLayout<IPersonPage> = ({ person }) => {
   const { t } = useTranslation()
 
   const crumbHome: CrumbItem = {
@@ -35,7 +38,7 @@ export default function PersonPage({ person }: IPersonPage) {
   breadCrumbsData.push(crumbCurrentPage)
 
   return (
-    <AppLayout>
+    <>
       <div className={styles.backLinkSection}>
         <div className={styles.backLinkWrapper}>
           <BackLink text={t('back')}></BackLink>
@@ -45,9 +48,15 @@ export default function PersonPage({ person }: IPersonPage) {
       <div className={styles.breadCrumbs}>
         <Breadcrumbs items={breadCrumbsData} separator='slash' />
       </div>
-    </AppLayout>
+    </>
   )
 }
+
+PersonPage.getLayout = function getLayout(page: ReactElement) {
+  return <AppLayout>{page}</AppLayout>
+}
+
+export default PersonPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await $instance.get<

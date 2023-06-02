@@ -70,9 +70,15 @@
   font-weight: 700;
 }
 
-.titleLg {
+.titleXL {
   font-size: fn.toRem(32px);
   line-height: fn.toRem(36px);
+  font-weight: 700;
+}
+
+.titleLg {
+  font-size: fn.toRem(28px);
+  line-height: fn.toRem(32px);
   font-weight: 700;
 }
 
