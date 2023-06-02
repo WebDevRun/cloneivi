@@ -7,11 +7,10 @@ import { wrapper } from '@/store/store'
 
 function App({ Component, ...rest }: AppProps) {
   const { store, props } = wrapper.useWrappedStore(rest)
-  const { pageProps } = props
 
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <Component {...props.pageProps} />
     </Provider>
   )
 }

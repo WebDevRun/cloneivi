@@ -1,9 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { HYDRATE } from 'next-redux-wrapper'
 
+import { IMovie } from '@/types/movie'
+
 const url = process.env.NEXT_PUBLIC_API_URL
 
-export const pokemonApi = createApi({
+export const filmsApi = createApi({
+  reducerPath: 'filmsApi',
   baseQuery: fetchBaseQuery({
     baseUrl: url,
   }),
@@ -12,25 +15,16 @@ export const pokemonApi = createApi({
       return action.payload[reducerPath]
     }
   },
-  tagTypes: [],
-  endpoints: (builder) => ({}),
-  // endpoints: (builder) => ({
-  //   getPokemonByName: builder.query<
-  //     { species: { name: string }; sprites: { front_shiny: string } },
-  //     string
-  //   >({
-  //     query: (name) => `pokemon/${name}`,
-  //   }),
-  //   getPokemonList: builder.query<{ results: Array<{ name: string }> }, void>({
-  //     query: () => `pokemon/`,
-  //   }),
-  // }),
+  endpoints: (builder) => ({
+    getFilms: builder.query<IMovie[], void>({
+      query: () => '/films',
+    }),
+  }),
 })
 
-// export const {
-//   useGetPokemonByNameQuery,
-//   useGetPokemonListQuery,
-//   util: { getRunningQueriesThunk },
-// } = pokemonApi
+export const {
+  useGetFilmsQuery,
+  util: { getRunningQueriesThunk },
+} = filmsApi
 
-// export const { getPokemonByName, getPokemonList } = pokemonApi.endpoints
+export const { getFilms } = filmsApi.endpoints

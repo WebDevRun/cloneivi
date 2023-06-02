@@ -1,18 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { createWrapper } from 'next-redux-wrapper'
 
-import { pokemonApi } from './endpoints/films'
+import { filmsApi } from './endpoints/films'
 
 export const makeStore = () =>
   configureStore({
     reducer: {
-      [pokemonApi.reducerPath]: pokemonApi.reducer,
+      [filmsApi.reducerPath]: filmsApi.reducer,
     },
-    middleware: (gDM) => gDM().concat(pokemonApi.middleware),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(filmsApi.middleware),
   })
 
 export type AppStore = ReturnType<typeof makeStore>
 export type RootState = ReturnType<AppStore['getState']>
 export type AppDispatch = AppStore['dispatch']
 
-export const wrapper = createWrapper<AppStore>(makeStore, { debug: true })
+export const wrapper = createWrapper<AppStore>(makeStore)
