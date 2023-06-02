@@ -14,6 +14,7 @@ export type INameIcons =
   | 'smart'
   | 'quality'
   | 'drama'
+  | 'dislike'
 
 export type INameIconsExt =
   | 'top10'

@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import logo from '@assets/images/common/ivi.svg'
-import { HeaderSvg } from '@ui/svg/HeaderSvg'
-import Image from 'next/image'
-import Link from 'next/link'
-=======
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
@@ -12,7 +6,6 @@ import { FC } from 'react'
 import { Svg } from '@/ui/Svg'
 import { SwitchLanguage } from '@/ui/SwitchLanguage'
 import logo from '@assets/images/common/ivi.svg'
->>>>>>> 86a82710f14a418092547e132b8361816dbfc604
 
 import { Button } from '../../ui/Button'
 
@@ -30,13 +23,6 @@ export const Header: FC = () => {
 
     dispatchEvent(event)
   }
-
-<<<<<<< HEAD
-import { IMenuItem } from '@/types/navigate'
-
-export const Header = () => {
-=======
->>>>>>> 86a82710f14a418092547e132b8361816dbfc604
   return (
     <div className={styles.header} onMouseOver={handleMouseOver}>
       <div className={styles.headerLogo}>

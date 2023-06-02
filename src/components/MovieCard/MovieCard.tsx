@@ -12,6 +12,7 @@ import FavoriteRemoveIcon from '@/assets/images/common/FavoriteRemoveIcon'
 import RatingIcon from '@/assets/images/common/RatingIcon'
 import SimilarIcon from '@/assets/images/common/SimilarIcon'
 import { Button } from '@/ui/Button'
+import { Svg } from '@/ui/Svg'
 
 export interface MovieCardProps {
   href: string
@@ -87,7 +88,7 @@ export const MovieCard: FC<MovieCardProps> = ({
                 <SimilarIcon fill='white' />
                 <RatingIcon fill='white' />
                 <button className={styles.dislikeBtn} onClick={addDislike}>
-                  <DislikeIcon fill={dislike ? 'red' : 'white'} />
+                  <Svg icon='dislike' fill={dislike ? 'red' : 'white'}/>
                 </button>
               </div>
               <MovieCardProperties rating={rating} year={year} genre={genre} />
