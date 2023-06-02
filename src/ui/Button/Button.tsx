@@ -10,7 +10,7 @@ import styles from './Button.module.scss'
 export interface ButtonProps {
   icon?: INameIcons
   background?: 'gray' | 'primary' | 'red' | 'transparent'
-  theme?: 'active' | 'passive'
+  theme?: 'active' | 'passive' | 'rating'
   withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg'
   size?: 'small' | 'middle' | 'big'
   width?: 'full' | 'fitContent'
