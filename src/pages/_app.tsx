@@ -21,7 +21,7 @@ function App({ Component, ...rest }: AppPropsWithLayout) {
 
   return (
     <Provider store={store}>
-      <Component {...props.pageProps} />
+      {getLayout(<Component {...props.pageProps} />)}
     </Provider>
   )
 }
