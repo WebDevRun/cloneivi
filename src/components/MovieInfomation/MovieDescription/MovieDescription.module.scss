@@ -11,6 +11,11 @@ $transparentWite: rgba(
   overflow: hidden;
 }
 
+.medallions {
+  display: flex;
+  justify-content: center;
+}
+
 .description,
 .languageContainer,
 .disclaimer {

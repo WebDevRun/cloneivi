@@ -127,8 +127,10 @@
 }
 
 .actorName {
+  max-width: fn.toRem(90px);
   color: rgba(var.$mainTextColor, 0.48);
   font-size: fn.toRem(13px);
+  line-height: fn.toRem(16px);
   margin-top: fn.toRem(8px);
   text-align: center;
   display: inline;

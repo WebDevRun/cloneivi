@@ -3,6 +3,7 @@ import { FC } from 'react'
 
 import { capitaliseArr } from '@/utils/functions'
 
+import { Medallions, IPerson } from '../Medallions'
 import { MovieQuality } from '../MovieQuality'
 
 import styles from './MovieDescription.module.scss'
@@ -12,6 +13,8 @@ export interface MovieDescriptionProps {
   description: string
   languagesAudio: string[]
   qualities: string[]
+  persons: IPerson[]
+  rating: number
 }
 
 export const MovieDescription: FC<MovieDescriptionProps> = ({
@@ -19,16 +22,22 @@ export const MovieDescription: FC<MovieDescriptionProps> = ({
   description,
   languagesAudio,
   qualities,
+  persons,
+  rating,
 }) => {
   const { t } = useTranslation(['movieInfomation'])
 
   return (
     <div
       style={{
-        height: isClose ? 88 : undefined,
+        height: isClose ? 184 : undefined,
       }}
       className={styles.movieDescription}
     >
+      <div className={styles.medallions}>
+        <Medallions rating={rating} persons={persons} />
+      </div>
+
       <p className={styles.description}>{description}</p>
 
       <div className={styles.options}>

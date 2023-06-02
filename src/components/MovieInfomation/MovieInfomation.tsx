@@ -3,6 +3,7 @@ import { FC, MouseEventHandler, useState } from 'react'
 
 import { Button } from '@/ui/Button'
 
+import { IPerson } from './Medallions'
 import { MovieDescription } from './MovieDescription'
 import styles from './MovieInfomation.module.scss'
 import { MovieParams } from './MovieParams'
@@ -11,7 +12,6 @@ import { MovieRating } from './MovieRating'
 export interface MovieInfomationProps {
   title: string
   productionYear: number
-  season?: string
   duration: number
   ageRating: string
   countries: string[]
@@ -20,11 +20,7 @@ export interface MovieInfomationProps {
   description: string
   languagesAudio: string[]
   rating: number
-}
-
-const movieInfomationStatus = {
-  open: 'Детали о фильме',
-  close: 'Свернуть детали',
+  persons: IPerson[]
 }
 
 export const MovieInfomation: FC<MovieInfomationProps> = ({
@@ -38,6 +34,7 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
   description,
   languagesAudio,
   rating,
+  persons,
 }) => {
   const [isClose, setIsClose] = useState(true)
   const { t } = useTranslation(['common'])
@@ -65,6 +62,8 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
           description={description}
           languagesAudio={languagesAudio}
           qualities={qualities}
+          persons={persons.slice(0, 4)}
+          rating={rating}
         />
 
         <Button
