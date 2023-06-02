@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
+import { LinkBtn } from '@/ui/LinkBtn'
 import { Svg } from '@/ui/Svg'
 import { SwitchLanguage } from '@/ui/SwitchLanguage'
 import logo from '@assets/images/common/ivi.svg'
@@ -11,7 +12,6 @@ import { Button } from '../../ui/Button'
 
 import styles from './Header.module.scss'
 import menu from './menu.json'
-import { LinkBtn } from '@/ui/LinkBtn'
 
 export const Header: FC = () => {
   const { t } = useTranslation(['common'])
