@@ -10,12 +10,12 @@ import { wrapper } from '@/store/store'
 import { AppLayout } from '@layouts/AppLayout'
 
 export default function Movies() {
-  const { t } = useTranslation(['header'])
+  const { t } = useTranslation(['common'])
   const { data } = useGetFilmsQuery()
 
   return (
     <AppLayout>
-      <h1>{t('header:more')}</h1>
+      <h1>{t('common:subscriptionTitle')}</h1>
       {data?.map((movie) => {
         return <p key={movie.film_id}>{movie.name_ru}</p>
       })}
@@ -26,7 +26,7 @@ export default function Movies() {
 export const getStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     store.dispatch(getFilms.initiate())
-    await Promise.all(store.dispatch(getRunningQueriesThunk()))
+    store.dispatch(getRunningQueriesThunk())
 
     const localeData = await serverSideTranslations(context.locale ?? 'ru', [
       'header',
