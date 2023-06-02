@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import movies from '@public/movies/movies.json'
 import '@styles/index.scss'
 
 import { MovieInfomation } from './MovieInfomation'
@@ -49,15 +48,16 @@ type Story = StoryObj<typeof MovieInfomation>
 
 export const Default: Story = {
   args: {
-    title: `${movies[0].name_ru} (Фильм ${movies[0].year})`,
-    productionYear: movies[0].year,
-    duration: movies[0].duration,
-    ageRating: `${movies[0].age_limit}+`,
-    countries: [movies[0].country],
-    genres: movies[0].genres,
-    qualities: movies[0].qualities,
-    description: movies[0].description,
-    languagesAudio: movies[0].languagesAudio,
-    rating: movies[0].rating,
+    title: 'Один дома (Фильм 1990)',
+    productionYear: 1990,
+    duration: 103,
+    ageRating: '0+',
+    countries: ['США'],
+    genres: ['комедия', 'семейный'],
+    qualities: ['4K', 'FullHD', 'HD', '1080', '720', '5.1'],
+    description:
+      'Американское семейство отправляется из Чикаго в Европу, но в спешке сборов бестолковые родители забывают дома... одного из своих детей. Юное создание, однако, не теряется и демонстрирует чудеса изобретательности. И когда в дом залезают грабители, им приходится не раз пожалеть о встрече с милым крошкой.',
+    languagesAudio: ['русский', 'английский'],
+    rating: 7.4,
   },
 }

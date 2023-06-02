@@ -10,5 +10,7 @@
   "IviRating": "Рейтинг Иви",
   "posterForTheMovie": "Постер для фильма",
   "collapse": "Свернуть",
-  "expand": "Развернуть"
+  "expand": "Развернуть",
+  "filmDetails": "Детали о фильме",
+  "collapseDetails": "Свернуть детали"
 }
