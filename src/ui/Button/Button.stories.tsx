@@ -30,7 +30,7 @@ const meta: Meta<typeof Button> = {
     },
     subText: {
       type: 'string',
-      description: 'Дополнительный текст на кнопке',
+      description: 'Дополнительный текст на кнопке. Не работает без основного текста',
     },
     onClick: {
       type: 'function',
@@ -124,6 +124,7 @@ export const Sign_In: Story = {
     icon: 'profile',
     background: 'transparent',
     withBorder: 'borderBg',
+    size: 'big',
   },
 }
 

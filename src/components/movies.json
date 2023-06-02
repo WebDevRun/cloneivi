@@ -1,0 +1,273 @@
+{
+  "genres": {
+    "title": "Genres",
+    "items": [
+      {
+        
+        "href": "https://www.ivi.ru/movies/boeviki",
+        "title": "Anime",
+        "text": "Anime"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/boeviki",
+        "title": "Biography",
+        "text": "Biography"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/western",
+        "title": "Action",
+        "text": "Action"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/voennye",
+        "title": "Western",
+        "text": "Western"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/detective",
+        "title": "Military",
+        "text": "Military"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/dlya_vsej_semi",
+        "title": "Detective",
+        "text": "Detective"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/detskiy",
+        "title": "Children",
+        "text": "Children"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/documentary",
+        "title": "Adults",
+        "text": "Adults"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/drama",
+        "title": "Documentary",
+        "text": "Documentary"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/istoricheskie",
+        "title": "Drama",
+        "text": "Drama"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/disaster",
+        "title": "Game",
+        "text": "Game"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/comedy",
+        "title": "History",
+        "text": "History"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/crime",
+        "title": "Comedy",
+        "text": "Comedy"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/melodramy",
+        "title": "Concert",
+        "text": "Concert"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/misticheskie",
+        "title": "ShortFilm",
+        "text": "ShortFilm"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/comics",
+        "title": "Crime",
+        "text": "Crime"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/adventures",
+        "title": "Melodrama",
+        "text": "Melodrama"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/sport",
+        "title": "Music",
+        "text": "Music"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/thriller",
+        "title": "Cartoons",
+        "text": "Cartoons"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/horror",
+        "title": "Musical",
+        "text": "Musical"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fantastika",
+        "title": "News",
+        "text": "News"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Adventures",
+        "text": "Adventures"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "RealTV",
+        "text": "RealTV"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Family",
+        "text": "Family"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Sport",
+        "text": "Sport"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "TalkShow",
+        "text": "TalkShow"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Thriller",
+        "text": "Thriller"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Horror",
+        "text": "Horror"
+      },      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Fantastic",
+        "text": "Fantastic"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "NoirFilm",
+        "text": "NoirFilm"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Fantasy",
+        "text": "Fantasy"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/fentezi",
+        "title": "Ceremony",
+        "text": "Ceremony"
+      }
+    ]
+  },
+  "countries": {
+    "title": "Countries",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/movies/ru",
+        "title": "Russians",
+        "text": "Russians"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/foreign",
+        "title": "Foreign",
+        "text": "Foreign"
+      }
+    ]
+  },
+  "years": {
+    "title": "Years",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/movies/2023",
+        "title": "FilmsOf2023",
+        "text": "FilmsOf2023"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/2022",
+        "title": "FilmsOf2022",
+        "text": "FilmsOf2022"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/2021",
+        "title": "FilmsOf2021",
+        "text": "FilmsOf2021"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/2020",
+        "title": "FilmsOf2020",
+        "text": "FilmsOf2020"
+      }
+    ]
+  },
+  "extra": {
+    "title": "",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/new/movie-new",
+        "title": "NewProducts",
+        "text": "NewProducts"
+      },
+      {
+        "href": "https://www.ivi.ru/collections",
+        "title": "Collections",
+        "text": "Collections"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/all?ivi_rating_10_gte=7&amp;sort=ivi&amp;rating_part=main&amp;rating_model=ready",
+        "title": "IviRating",
+        "text": "IviRating"
+      },
+      {
+        "href": "https://www.ivi.ru/new/soon-ivi",
+        "title": "SoonOnIvi",
+        "text": "SoonOnIvi"
+      },
+      {
+        "href": "https://www.ivi.ru/trailers",
+        "title": "Trailers",
+        "text": "Trailers"
+      },
+      {
+        "href": "https://www.ivi.ru/goodmovies",
+        "title": "WhatToSee",
+        "text": "WhatToSee"
+      }
+      ,
+      {
+        "href": "https://www.ivi.ru/collections/movies-hd",
+        "title": "MoviesInHD",
+        "text": "MoviesInHD"
+      },
+      {
+        "href": "https://www.ivi.ru/collections/vyibor-ivi",
+        "title": "IviChoice",
+        "text": "IviChoice"
+      },
+      {
+        "href": "https://www.ivi.ru/collections/very-new-svod?sort=priority_in_collection",
+        "title": "NewSubscriptions",
+        "text": "NewSubscriptions"
+      },
+      {
+        "href": "https://www.ivi.ru/collections/filmyi-amediateka",
+        "title": "AmediatekaFilms",
+        "text": "AmediatekaFilms"
+      },
+      {
+        "href": "https://www.ivi.ru/collections/best-movies",
+        "title": "PopularMovies",
+        "text": "PopularMovies"
+      },
+      {
+        "href": "https://www.ivi.ru/collections/ivi-originals",
+        "title": "IviFilms",
+        "text": "IviFilms"
+      }
+    ]
+  }
+}

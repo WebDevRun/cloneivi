@@ -1,0 +1,35 @@
+@use '../../styles/functions' as fn;
+
+.double {
+  column-count: 2;
+  column-gap: fn.toRem(24px);
+}
+
+.list {
+  margin-top: fn.toRem(8px);
+}
+
+.linksList:not(:first-child) {
+  margin-top: fn.toRem(24px);
+}
+
+.item {
+  font-size: fn.toRem(15px);
+  font-weight: 400;
+  line-height: fn.toRem(20px);
+
+  &:not(:first-child) {
+    margin-top: fn.toRem(8px);
+  }
+
+  a {
+    color: hsla(0, 0%, 100%, 0.48);
+
+    &:hover {
+      color: #ffffff;
+    }
+    &:not(:hover):not(:active) {
+      transition-duration: 0.4s;
+    }
+  }
+}
