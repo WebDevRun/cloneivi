@@ -1,0 +1,18 @@
+@use '../../styles/functions' as fn;
+
+.backLinkSection {
+  position: relative;
+}
+
+.backLinkWrapper {
+  top: fn.toRem(16px);
+  position: absolute;
+  padding: fn.toRem(16px) fn.toRem(12px) fn.toRem(16px) 0;
+  cursor: pointer;
+}
+
+.breadCrumbs {
+  display: flex;
+  justify-content: center;
+  margin: fn.toRem(40px) 0;
+}

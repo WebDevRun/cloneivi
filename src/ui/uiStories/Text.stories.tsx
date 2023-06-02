@@ -27,8 +27,15 @@ const meta: Meta<typeof Text> = {
 export default meta
 type Story = StoryObj<typeof Text>
 
+export const TextTitleXL: Story = {
+  name: 'Большой div заголовок - titleXL (32px)',
+  args: {
+    variant: 'titleXL',
+  },
+}
+
 export const TextTitleLarge: Story = {
-  name: 'Большой div заголовок - titleLg (32px)',
+  name: 'Большой div заголовок - titleLg (28px)',
   args: {
     variant: 'titleLg',
   },

@@ -1,211 +1,206 @@
 {
   "genres": {
-    "title": "Жанры",
+    "title": "Genres",
     "items": [
       {
         
         "href": "https://www.ivi.ru/movies/boeviki",
-        "title": "Смотреть фильмы аниме онлайн",
-        "text": "Аниме"
+        "title": "Anime",
+        "text": "Anime"
       },
       {
         "href": "https://www.ivi.ru/movies/boeviki",
-        "title": "Смотреть биографию онлайн",
-        "text": "Биография"
+        "title": "Biography",
+        "text": "Biography"
       },
       {
         "href": "https://www.ivi.ru/movies/western",
-        "title": "Смотреть боевик онлайн",
-        "text": "Боевик"
+        "title": "Action",
+        "text": "Action"
       },
       {
         "href": "https://www.ivi.ru/movies/voennye",
-        "title": "Смотреть вестерн онлайн",
-        "text": "Вестерн"
+        "title": "Western",
+        "text": "Western"
       },
       {
         "href": "https://www.ivi.ru/movies/detective",
-        "title": "Смотреть военный фильм онлайн",
-        "text": "Военный"
+        "title": "Military",
+        "text": "Military"
       },
       {
         "href": "https://www.ivi.ru/movies/dlya_vsej_semi",
-        "title": "Смотреть детектив онлайн",
-        "text": "Детектив"
+        "title": "Detective",
+        "text": "Detective"
       },
       {
         "href": "https://www.ivi.ru/movies/detskiy",
-        "title": "Смотреть детский фильм онлайн",
-        "text": "Детский"
+        "title": "Children",
+        "text": "Children"
       },
       {
         "href": "https://www.ivi.ru/movies/documentary",
-        "title": "Смотреть фильм для взрослых онлайн",
-        "text": "Для взрослых"
+        "title": "Adults",
+        "text": "Adults"
       },
       {
         "href": "https://www.ivi.ru/movies/drama",
-        "title": "Смотреть документальный фильм онлайн",
-        "text": "Документальный"
+        "title": "Documentary",
+        "text": "Documentary"
       },
       {
         "href": "https://www.ivi.ru/movies/istoricheskie",
-        "title": "Смотреть драму онлайн",
-        "text": "Драма"
+        "title": "Drama",
+        "text": "Drama"
       },
       {
         "href": "https://www.ivi.ru/movies/disaster",
-        "title": "Смотреть игра онлайн",
-        "text": "Игра"
+        "title": "Game",
+        "text": "Game"
       },
       {
         "href": "https://www.ivi.ru/movies/comedy",
-        "title": "Смотреть историю онлайн",
-        "text": "История"
+        "title": "History",
+        "text": "History"
       },
       {
         "href": "https://www.ivi.ru/movies/crime",
-        "title": "Смотреть комедию онлайн",
-        "text": "Комедия"
+        "title": "Comedy",
+        "text": "Comedy"
       },
       {
         "href": "https://www.ivi.ru/movies/melodramy",
-        "title": "Смотреть концерт онлайн",
-        "text": "Концерт"
+        "title": "Concert",
+        "text": "Concert"
       },
       {
         "href": "https://www.ivi.ru/movies/misticheskie",
-        "title": "Смотреть короткометражку онлайн",
-        "text": "Короткометражка"
+        "title": "ShortFilm",
+        "text": "ShortFilm"
       },
       {
         "href": "https://www.ivi.ru/movies/comics",
-        "title": "Смотреть криминал онлайн",
-        "text": "Криминал"
+        "title": "Crime",
+        "text": "Crime"
       },
       {
         "href": "https://www.ivi.ru/movies/adventures",
-        "title": "Смотреть мелодраму онлайн",
-        "text": "Мелодрама"
+        "title": "Melodrama",
+        "text": "Melodrama"
       },
       {
         "href": "https://www.ivi.ru/movies/sport",
-        "title": "Смотреть музыку онлайн",
-        "text": "Музыка"
+        "title": "Music",
+        "text": "Music"
       },
       {
         "href": "https://www.ivi.ru/movies/thriller",
-        "title": "Смотреть мультфильм онлайн",
-        "text": "Мультфильм"
+        "title": "Cartoons",
+        "text": "Cartoons"
       },
       {
         "href": "https://www.ivi.ru/movies/horror",
-        "title": "Смотреть мюзикл онлайн",
-        "text": "Мюзикл"
+        "title": "Musical",
+        "text": "Musical"
       },
       {
         "href": "https://www.ivi.ru/movies/fantastika",
-        "title": "Смотреть новости онлайн",
-        "text": "Новости"
+        "title": "News",
+        "text": "News"
       },
       {
         "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "Смотреть приключения онлайн",
-        "text": "Приключения"
+        "title": "Adventures",
+        "text": "Adventures"
       },
       {
         "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "Смотреть реальное ТВ онлайн",
-        "text": "Реальное ТВ"
+        "title": "RealTV",
+        "text": "RealTV"
       },
       {
         "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "Смотреть семейные фильмы онлайн",
-        "text": "Семейный"
+        "title": "Family",
+        "text": "Family"
       },
       {
         "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "Смотреть спорт онлайн",
-        "text": "Спорт"
+        "title": "Sport",
+        "text": "Sport"
       },
       {
         "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "Смотреть ток-шоу онлайн",
-        "text": "Ток-шоу"
+        "title": "TalkShow",
+        "text": "TalkShow"
       },
       {
         "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "Смотреть триллеры онлайн",
-        "text": "Триллеры"
+        "title": "Thriller",
+        "text": "Thriller"
       },
       {
         "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "Смотреть ужасы онлайн",
-        "text": "Ужасы"
+        "title": "Horror",
+        "text": "Horror"
       },      {
         "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "Смотреть фантастику онлайн",
-        "text": "Фантастика"
+        "title": "Fantastic",
+        "text": "Fantastic"
       },
       {
         "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "Смотреть фильм-нуар онлайн",
-        "text": "Фильм-нуар"
+        "title": "NoirFilm",
+        "text": "NoirFilm"
       },
       {
         "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "Смотреть фэнтези онлайн",
-        "text": "Фэнтези"
+        "title": "Fantasy",
+        "text": "Fantasy"
       },
       {
         "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "Смотреть церемонию онлайн",
-        "text": "Церемония"
+        "title": "Ceremony",
+        "text": "Ceremony"
       }
     ]
   },
   "countries": {
-    "title": "Страны",
+    "title": "Countries",
     "items": [
       {
         "href": "https://www.ivi.ru/movies/ru",
-        "title": "Смотреть русские фильмы онлайн",
-        "text": "Русские"
+        "title": "Russians",
+        "text": "Russians"
       },
       {
         "href": "https://www.ivi.ru/movies/foreign",
-        "title": "Смотреть зарубежные фильмы онлайн",
-        "text": "Зарубежные"
-      },
-      {
-        "href": "https://www.ivi.ru/movies/su",
-        "title": "Смотреть советское кино онлайн",
-        "text": "Советское кино"
+        "title": "Foreign",
+        "text": "Foreign"
       }
     ]
   },
   "years": {
-    "title": "Годы",
+    "title": "Years",
     "items": [
       {
         "href": "https://www.ivi.ru/movies/2023",
-        "title": "Смотреть фильмы 2023 года онлайн",
-        "text": "Фильмы 2023 года"
+        "title": "FilmsOf2023",
+        "text": "FilmsOf2023"
       },
       {
         "href": "https://www.ivi.ru/movies/2022",
-        "title": "Смотреть фильмы 2022 года онлайн",
-        "text": "Фильмы 2022 года"
+        "title": "FilmsOf2022",
+        "text": "FilmsOf2022"
       },
       {
         "href": "https://www.ivi.ru/movies/2021",
-        "title": "Смотреть фильмы 2021 года онлайн",
-        "text": "Фильмы 2021 года"
+        "title": "FilmsOf2021",
+        "text": "FilmsOf2021"
       },
       {
         "href": "https://www.ivi.ru/movies/2020",
-        "title": "Смотреть фильмы 2020 года онлайн",
-        "text": "Фильмы 2020 года"
+        "title": "FilmsOf2020",
+        "text": "FilmsOf2020"
       }
     ]
   },
@@ -214,64 +209,64 @@
     "items": [
       {
         "href": "https://www.ivi.ru/new/movie-new",
-        "title": "Смотреть новинки",
-        "text": "Новинки"
+        "title": "NewProducts",
+        "text": "NewProducts"
       },
       {
         "href": "https://www.ivi.ru/collections",
-        "title": "Подборки",
-        "text": "Подборки"
+        "title": "Collections",
+        "text": "Collections"
       },
       {
         "href": "https://www.ivi.ru/movies/all?ivi_rating_10_gte=7&amp;sort=ivi&amp;rating_part=main&amp;rating_model=ready",
-        "title": "Иви.Рейтинг",
-        "text": "Иви.Рейтинг"
+        "title": "IviRating",
+        "text": "IviRating"
       },
       {
         "href": "https://www.ivi.ru/new/soon-ivi",
-        "title": "Смотреть скоро на Иви",
-        "text": "Скоро на Иви"
+        "title": "SoonOnIvi",
+        "text": "SoonOnIvi"
       },
       {
         "href": "https://www.ivi.ru/trailers",
-        "title": "Смотреть трейлеры",
-        "text": "Трейлеры"
+        "title": "Trailers",
+        "text": "Trailers"
       },
       {
         "href": "https://www.ivi.ru/goodmovies",
-        "title": "Что посмотреть",
-        "text": "Что посмотреть"
+        "title": "WhatToSee",
+        "text": "WhatToSee"
       }
       ,
       {
         "href": "https://www.ivi.ru/collections/movies-hd",
-        "title": "Смотреть фильмы в HD онлайн",
-        "text": "Фильмы в HD"
+        "title": "MoviesInHD",
+        "text": "MoviesInHD"
       },
       {
         "href": "https://www.ivi.ru/collections/vyibor-ivi",
-        "title": "Выбор Иви",
-        "text": "Выбор Иви"
+        "title": "IviChoice",
+        "text": "IviChoice"
       },
       {
         "href": "https://www.ivi.ru/collections/very-new-svod?sort=priority_in_collection",
-        "title": "Новинки подписки",
-        "text": "Новинки подписки"
+        "title": "NewSubscriptions",
+        "text": "NewSubscriptions"
       },
       {
         "href": "https://www.ivi.ru/collections/filmyi-amediateka",
-        "title": "Фильмы Amediateka",
-        "text": "Фильмы Amediateka"
+        "title": "AmediatekaFilms",
+        "text": "AmediatekaFilms"
       },
       {
         "href": "https://www.ivi.ru/collections/best-movies",
-        "title": "Популярные фильмы",
-        "text": "Популярные фильмы"
+        "title": "PopularMovies",
+        "text": "PopularMovies"
       },
       {
         "href": "https://www.ivi.ru/collections/ivi-originals",
-        "title": "Фильмы Иви",
-        "text": "Фильмы Иви"
+        "title": "IviFilms",
+        "text": "IviFilms"
       }
     ]
   }
