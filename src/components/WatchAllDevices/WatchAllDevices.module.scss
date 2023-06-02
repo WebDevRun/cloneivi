@@ -26,7 +26,7 @@ $textLineHeight: fn.toRem(20px);
 
 .link {
   background-color: #ea003d;
-  border-radius: 8px;
+  border-radius: fn.toRem(8px);
   padding: fn.toRem(9px) fn.toRem(15px);
   color: inherit;
   font-size: $textFontSize;
@@ -50,7 +50,7 @@ $textLineHeight: fn.toRem(20px);
 
 .ipadWithoutPoster {
   position: absolute;
-  right: 42px;
+  right: fn.toRem(42px);
   bottom: 0;
   z-index: 1;
 }
@@ -62,14 +62,14 @@ $textLineHeight: fn.toRem(20px);
 }
 
 .tvPoster {
-  left: 100px;
-  top: 3px;
-  border-radius: 2px;
+  left: fn.toRem(100px);
+  top: fn.toRem(3px);
+  border-radius: fn.toRem(2px);
 }
 
 .ipadPoster {
-  right: 48px;
-  bottom: 7px;
-  border-radius: 4px;
+  right: fn.toRem(48px);
+  bottom: fn.toRem(7px);
+  border-radius: fn.toRem(4px);
   z-index: 1;
 }
