@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
+import { LinkBtn } from '@/ui/LinkBtn'
 import ipadWithoutPoster from '@assets/images/devices/ipad-without-poster.png'
 import tvWithoutPoster from '@assets/images/devices/tv-without-poster.png'
 
@@ -23,9 +24,13 @@ export const WatchAllDevices: FC<WatchAllDevicesProps> = ({ name, poster }) => {
           {t('moviePage:watchOnAllDevices', { name })}
         </h2>
         <p className={styles.subTitle}>{t('moviePage:appAvailable')}</p>
-        <Link className={styles.link} href='https://www.ivi.ru/devices'>
-          {t('moviePage:connectDevices')}
-        </Link>
+        <LinkBtn
+          background='red'
+          href='https://www.ivi.ru/devices'
+          mode='footer'
+          text={`${t('moviePage:connectDevices')}`}
+          type='square'
+        />
       </div>
       <div className={styles.images}>
         <Image

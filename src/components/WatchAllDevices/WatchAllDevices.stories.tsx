@@ -26,6 +26,6 @@ export const Default: Story = {
   args: {
     name: 'Зеленая миля',
     poster:
-      'https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/4057c4b8-8208-4a04-b169-26b0661453e3/300x450',
+      'https://thumbs.dfs.ivi.ru/storage29/contents/3/5/d921da2c85fcd55533dcac5a95e24c.jpg/400x226/',
   },
 }

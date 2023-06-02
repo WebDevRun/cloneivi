@@ -45,7 +45,7 @@
 .link:has(.accountLinks) {
   .iconBox svg {
     transition: 0.3s;
-    fill: rgba(var.$white, 0.48);;
+    fill: rgba(var.$white, 0.48);
   }
 }
 
@@ -195,5 +195,13 @@
     .actorName {
       color: var.$white;
     }
+
+    .btn.red:hover {
+      background-color: #ff0f4d;
+    }
   }
+}
+
+.red {
+  background-color: #ea003d;
 }
