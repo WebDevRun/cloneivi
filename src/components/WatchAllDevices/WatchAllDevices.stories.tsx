@@ -5,7 +5,7 @@ import '@styles/index.scss'
 import { WatchAllDevices } from './WatchAllDevices'
 
 const meta: Meta<typeof WatchAllDevices> = {
-  title: 'WatchAllDevices',
+  title: 'Movie/WatchAllDevices',
   tags: ['autodocs'],
   component: WatchAllDevices,
   argTypes: {
@@ -13,7 +13,7 @@ const meta: Meta<typeof WatchAllDevices> = {
       description: 'Наименование фильма',
     },
     poster: {
-      description: 'Постер фильма',
+      description: 'url постера к фильму',
     },
   },
 }

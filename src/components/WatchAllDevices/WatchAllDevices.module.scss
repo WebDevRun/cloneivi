@@ -45,8 +45,6 @@ $textLineHeight: fn.toRem(20px);
 
 .tvWithoutPoster {
   position: relative;
-  width: 536px;
-  height: 272px;
   z-index: 1;
 }
 
@@ -54,30 +52,24 @@ $textLineHeight: fn.toRem(20px);
   position: absolute;
   right: 42px;
   bottom: 0;
-  width: 200px;
-  height: 136px;
   z-index: 1;
 }
 
-.tvPosterContainer,
-.ipadPosterContainer {
+.tvPoster,
+.ipadPoster {
   position: absolute;
   overflow: hidden;
 }
 
-.tvPosterContainer {
+.tvPoster {
   left: 100px;
   top: 3px;
-  width: 337px;
-  height: 192px;
   border-radius: 2px;
 }
 
-.ipadPosterContainer {
+.ipadPoster {
   right: 48px;
   bottom: 7px;
-  width: 188px;
-  height: 102px;
   border-radius: 4px;
   z-index: 1;
 }
