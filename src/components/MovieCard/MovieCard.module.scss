@@ -94,8 +94,15 @@
   justify-content: center;
 }
 
-.favoriteBtn,
-.dislikeBtn {
+.iconBtn {
+  background: transparent;
+
+  svg{
+    fill: white;
+  }
+}
+
+.dislikeBtn{
   background: transparent;
 }
 

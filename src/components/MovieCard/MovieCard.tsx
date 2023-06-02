@@ -6,11 +6,6 @@ import { FC, useState } from 'react'
 import styles from './MovieCard.module.scss'
 import { MovieCardProperties } from './MovieCardProperties'
 
-import DislikeIcon from '@/assets/images/common/DislikeIcon'
-import FavoriteIcon from '@/assets/images/common/FavoriteIcon'
-import FavoriteRemoveIcon from '@/assets/images/common/FavoriteRemoveIcon'
-import RatingIcon from '@/assets/images/common/RatingIcon'
-import SimilarIcon from '@/assets/images/common/SimilarIcon'
 import { Button } from '@/ui/Button'
 import { Svg } from '@/ui/Svg'
 
@@ -78,17 +73,21 @@ export const MovieCard: FC<MovieCardProps> = ({
             <div className={styles.textBadge}>эксклюзив</div>
             <div className={styles.movieInfo}>
               <div className={styles.hoards}>
-                <button className={styles.favoriteBtn} onClick={addFavorite}>
+                <button className={styles.iconBtn} onClick={addFavorite}>
                   {favoriteIconActive ? (
-                    <FavoriteRemoveIcon fill='white' />
+                    <Svg icon='favoriteRemove'/>
                   ) : (
-                    <FavoriteIcon fill='white' />
+                    <Svg icon='favoriteAdd'/>
                   )}
                 </button>
-                <SimilarIcon fill='white' />
-                <RatingIcon fill='white' />
+                <button className={styles.iconBtn}>
+                  <Svg icon='similar'/>
+                </button>
+                <button className={styles.iconBtn}>
+                  <Svg icon='rating'/>
+                </button>
                 <button className={styles.dislikeBtn} onClick={addDislike}>
-                  <Svg icon='dislike' fill={dislike ? 'red' : 'white'}/>
+                  <Svg icon='dislike' fill={dislike ? 'red' : 'white'} ext={true}/>
                 </button>
               </div>
               <MovieCardProperties rating={rating} year={year} genre={genre} />

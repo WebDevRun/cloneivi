@@ -14,7 +14,8 @@ export type INameIcons =
   | 'smart'
   | 'quality'
   | 'drama'
-  | 'dislike'
+  | 'rating'
+  | 'similar'
 
 export type INameIconsExt =
   | 'top10'
@@ -22,3 +23,4 @@ export type INameIconsExt =
   | 'user'
   | 'googlePlay'
   | 'appStore'
+  | 'dislike'
