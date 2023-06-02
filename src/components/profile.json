@@ -1,49 +1,49 @@
 {
   "items": [
     {
-      "title": "Покупки",
+      "title": "Purchases",
       "extra": "",
       "icon": "multiseries",
       "href": "https://www.ivi.ru/profile/purchases"
     },
     {
-      "title": "Смотреть позже",
+      "title": "WatchLater",
       "extra": "",
       "icon": "favoriteAdd",
       "href": "https://www.ivi.ru/profile/favorites"
     },
     {
-      "title": "История просмотров",
+      "title": "BrowsingHistory",
       "extra": "",
       "icon": "history",
       "href": "https://www.ivi.ru/profile/watched"
     },
     {
-      "title": "Подписки",
-      "extra": "Подключить",
+      "title": "Subscriptions",
+      "extra": "Connect",
       "icon": "quality",
       "href": "https://www.ivi.ru/profile/subscriptions"
     },
     {
-      "title": "Активация сертификата",
+      "title": "CertificateActivation",
       "extra": "",
       "icon": "certificate",
       "href": ""
     },
     {
-      "title": "Вход по коду",
+      "title": "LoginByCode",
       "extra": "",
       "icon": "tvchannels",
       "href": ""
     },
     {
-      "title": "Способы оплаты",
+      "title": "PaymentMethods",
       "extra": "",
       "icon": "card",
       "href": "https://www.ivi.ru/profile/cards"
     },
     {
-      "title": "Пригласить друзей",
+      "title": "InviteFriends",
       "extra": "",
       "icon": "androidShare",
       "href": "https://www.ivi.ru/profile/referral"
@@ -54,13 +54,13 @@
     "items": [
       {
         "href": "https://www.ivi.ru/",
-        "title": "Настройки",
-        "text": "Настройки"
+        "title": "Settings",
+        "text": "Settings"
       },
       {
         "href": "https://www.ivi.ru/",
-        "title": "Помощь",
-        "text": "Помощь"
+        "title": "Help",
+        "text": "Help"
       }
     ]
   }

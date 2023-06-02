@@ -17,6 +17,7 @@ export type TextVariants =
   | 'superH1'
   | 'titleH1'
   | 'titleH2'
+  | 'titleXL'
   | 'titleLg'
   | 'titleBg'
   | 'titleMd'
