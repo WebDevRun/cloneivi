@@ -1,7 +1,9 @@
 import { useTranslation } from 'next-i18next'
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import { FormEvent } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
+import { incrementCount, decrementCount, resetCount } from '@/store/actions'
 import { IMovie, IMovieName } from '@/types/movie'
 import { Button } from '@/ui/Button'
 import { Input } from '@/ui/Input'
@@ -16,6 +18,9 @@ export interface EditFilmsProps {
 }
 
 export const EditFilms: FC<EditFilmsProps> = ({ film }) => {
+  const count = useSelector((state) => state.counter)
+  const dispatch = useDispatch()
+
   const [isChange, setIsChange] = useState(false)
   const { t } = useTranslation()
 
@@ -31,10 +36,6 @@ export const EditFilms: FC<EditFilmsProps> = ({ film }) => {
 
     changeFilmName(film.film_id, data)
   }
-
-  useEffect(() => {
-    alert('slkdfksdflkdf')
-  }, [film])
 
   return (
     <>
@@ -59,6 +60,15 @@ export const EditFilms: FC<EditFilmsProps> = ({ film }) => {
           <Button type='reset' text={`${t('Reset')}`} />
         </div>
       </form>
+
+      <div>
+        <h1>
+          Count: <span>{count}</span>
+        </h1>
+        <Button text='+1' onClick={() => dispatch(incrementCount())} />
+        <Button text='-1' onClick={() => dispatch(decrementCount())} />
+        <Button text='Reset' onClick={() => dispatch(resetCount())} />
+      </div>
     </>
   )
 }
