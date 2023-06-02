@@ -11,6 +11,7 @@ import { Button } from '../../ui/Button'
 
 import styles from './Header.module.scss'
 import menu from './menu.json'
+import { LinkBtn } from '@/ui/LinkBtn'
 
 export const Header: FC = () => {
   const { t } = useTranslation(['common'])
@@ -79,11 +80,11 @@ export const Header: FC = () => {
       </Link>
 
       <div data-test='header-profile' className={styles.profile}>
-        <Button
-          background='transparent'
+        <LinkBtn
+          href='https://www.ivi.ru/profile'
+          mode='account'
+          background='default'
           icon='profile'
-          onClick={() => {}}
-          withBorder='borderBg'
         />
       </div>
 

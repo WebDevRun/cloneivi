@@ -11,8 +11,8 @@ import styles from './LinkBtn.module.scss'
 
 interface LinkProps {
   href: string
-  mode: 'footer' | 'actor' | 'genres' | 'account' | 'accountLinks'
-  type: 'square' | 'circle'
+  mode?: 'footer' | 'actor' | 'genres' | 'account' | 'accountLinks'
+  type?: 'square' | 'circle'
   subText?: string
   text?: string
   icon?: INameIcons | INameIconsExt
