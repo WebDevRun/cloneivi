@@ -1,5 +1,5 @@
-import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { ReactElement } from 'react'
 
 import {
   getFilms,
@@ -10,17 +10,19 @@ import { wrapper } from '@/store/store'
 import { AppLayout } from '@layouts/AppLayout'
 
 export default function Movies() {
-  const { t } = useTranslation(['common'])
   const { data } = useGetFilmsQuery()
 
   return (
-    <AppLayout>
-      <h1>{t('common:subscriptionTitle')}</h1>
+    <>
       {data?.map((movie) => {
         return <p key={movie.film_id}>{movie.name_ru}</p>
       })}
-    </AppLayout>
+    </>
   )
+}
+
+Movies.getLayout = function getLayout(page: ReactElement) {
+  return <AppLayout>{page}</AppLayout>
 }
 
 export const getStaticProps = wrapper.getStaticProps(
