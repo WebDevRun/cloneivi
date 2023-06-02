@@ -20,8 +20,7 @@ export default function ErrorPage({ errorCode }: ErrorProps) {
       <Flex variant='center' className={styles.pageNotFound}>
         <Flex variant='column'>
           <H1>{t('Error')}</H1>
-          {errorCode === 404 && <Text>{t('PageNotFound')}</Text>}
-          {errorCode !== 404 && <Text>{errorCode}</Text>}
+          <Text> {errorCode === 404 ? t('PageNotFound') : errorCode}</Text>
         </Flex>
       </Flex>
     </AppLayout>
