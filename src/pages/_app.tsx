@@ -3,7 +3,7 @@ import { appWithTranslation } from 'next-i18next'
 import '../styles/index.scss'
 import { Provider } from 'react-redux'
 
-import { wrapper } from '@/store'
+import { wrapper } from '@/store/store'
 
 function App({ Component, ...rest }: AppProps) {
   const { store, props } = wrapper.useWrappedStore(rest)
