@@ -195,5 +195,13 @@
     .actorName {
       color: var.$mainTextColor;
     }
+
+    .btn.red:hover {
+      background-color: #ff0f4d;
+    }
   }
+}
+
+.red {
+  background-color: #ea003d;
 }
