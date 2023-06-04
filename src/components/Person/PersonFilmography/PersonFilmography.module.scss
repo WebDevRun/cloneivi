@@ -1,0 +1,28 @@
+@use '../../../styles/functions' as fn;
+
+.personFilmography {
+  margin-top: fn.toRem(40px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: fn.toRem(16px);
+}
+
+.title {
+  margin-right: fn.toRem(8px);
+  margin-bottom: fn.toRem(4px);
+  font-size: fn.toRem(24px);
+  line-height: fn.toRem(28px);
+  font-weight: 700;
+}
+
+.list > *:not(:first-child) {
+  margin-top: fn.toRem(16px);
+}
+
+.more {
+  margin-top: fn.toRem(16px);
+}

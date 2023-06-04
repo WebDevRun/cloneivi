@@ -4,38 +4,39 @@ import { useState } from 'react'
 
 import styles from './FooterMobile.module.scss'
 
-import { FooterSvg } from '@/ui/svg/FooterSvg'
+import { INameIcons, INameIconsExt } from '@/types/Icons'
+import { Svg } from '@/ui/Svg'
 
 export const FooterMobile = () => {
   const footerButtons = [
     {
       btnName: 'btnOne',
       href: '/',
-      icon: 'HomeIcon',
+      icon: 'home',
       btnText: 'Мой Иви',
     },
     {
       btnName: 'btnTwo',
       href: '/',
-      icon: 'CatalogIcon',
+      icon: 'catalog',
       btnText: 'Каталог',
     },
     {
       btnName: 'btnThree',
       href: '/',
-      icon: 'SearchIcon',
+      icon: 'search',
       btnText: 'Поиск',
     },
     {
       btnName: 'btnFour',
       href: '/',
-      icon: 'AvatarIcon',
+      icon: 'avatar',
       btnText: 'Профиль',
     },
     {
       btnName: 'btnFive',
       href: '/',
-      icon: 'MoreIcon',
+      icon: 'more',
       btnText: 'Ещё',
     },
   ]
@@ -59,9 +60,10 @@ export const FooterMobile = () => {
           >
             <div className={styles.light}></div>
             <div className={styles.tabBarIcon}>
-              <FooterSvg
-                icon={btn.icon}
+              <Svg
+                icon={btn.icon as INameIcons | INameIconsExt}
                 fill={activeButton === btn.btnName ? 'white' : 'gray'}
+                ext={true}
               />
             </div>
             <p className={styles.tabBarText}>{btn.btnText}</p>

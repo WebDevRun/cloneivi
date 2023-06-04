@@ -1,27 +1,29 @@
-import { Footer } from '@components/Footer'
-import { Header } from '@components/Header'
 import { AppLayout } from '@layouts/AppLayout'
 import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { ReactElement } from 'react'
+
+import { NextPageWithLayout } from './_app'
 
 
-export default function Home() {
+const Home: NextPageWithLayout = () => {
   const { t } = useTranslation(['header'])
-
-  return (
-    <main>
-      <AppLayout>
-        <h1>{t('header:more')}</h1>
-        <Header />
-        <Footer />
-      </AppLayout>
-    </main>
-  )
+  return <h1>{t('header:more')}</h1>
 }
 
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <AppLayout>{page}</AppLayout>
+}
+
+export default Home
+
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const localeData = await serverSideTranslations(locale ?? 'ru', ['header'])
+  const localeData = await serverSideTranslations(locale ?? 'ru', [
+    'header',
+    'common',
+  ])
+
   return {
     props: {
       ...localeData,

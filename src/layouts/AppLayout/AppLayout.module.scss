@@ -1,6 +1,14 @@
+@use '../../styles/functions' as fn;
+
 .appLayout {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   max-width: 1216px;
   margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+
+  @media (max-width: 1160px) {
+    padding-left: fn.toRem(20px);
+    padding-right: fn.toRem(20px);
+  }
 }

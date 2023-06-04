@@ -2,78 +2,66 @@ import Link from 'next/link'
 
 import styles from './FooterDesktop.module.scss'
 
-import anyDevIcon from '@/assets/images/install/anyDev_20__0.svg'
-import appStoreIcon from '@/assets/images/install/app-store.svg'
-import playStoreIcon from '@/assets/images/install/google-play.svg'
-import smartTvIcon from '@/assets/images/install/smartTvPromo_20__0.svg'
-import phoneIcon from '@/assets/images/social/call_16__0.svg'
-import mailIcon from '@/assets/images/social/email_16__0.svg'
-import linkedinIcon from '@/assets/images/social/linkedin.svg'
-import okIcon from '@/assets/images/social/odnoklassniki.svg'
-import telegramIcon from '@/assets/images/social/telegram.svg'
-import twitterIcon from '@/assets/images/social/twitter.svg'
-import viberIcon from '@/assets/images/social/viber.svg'
-import vkIcon from '@/assets/images/social/vkontakte.svg'
-import { FooterLink } from '@/ui/FooterLink'
+import { LinkBtn } from '@/ui/LinkBtn'
 
 export const FooterDesktop = () => {
   const footerSocailMedias = [
     {
       href: '/',
-      iconSrc: vkIcon,
+      iconSrc: '',
       iconAlt: 'VK',
     },
     {
       href: '/',
-      iconSrc: okIcon,
+      iconSrc: '',
       iconAlt: 'OK',
     },
     {
       href: '/',
-      iconSrc: twitterIcon,
+      iconSrc: '',
       iconAlt: 'TW',
     },
     {
       href: '/',
-      iconSrc: viberIcon,
+      iconSrc: '',
       iconAlt: 'VB',
     },
     {
       href: '/',
-      iconSrc: linkedinIcon,
+      iconSrc: '',
       iconAlt: 'LD',
     },
     {
       href: '/',
-      iconSrc: telegramIcon,
+      iconSrc: '',
       iconAlt: 'TG',
     },
   ]
   const footerStores = [
     {
       href: '/',
-      iconSrc: appStoreIcon,
+      iconSrc: '',
       iconAlt: 'App Store',
       text: 'App Store',
       subText: 'Загрузить в',
     },
     {
       href: '/',
-      iconSrc: playStoreIcon,
+      iconSrc: '',
       iconAlt: 'Play Store',
       text: 'Google Play',
       subText: 'Доступно в',
     },
     {
       href: '/',
-      iconSrc: smartTvIcon,
+      iconSrc: '',
       iconAlt: 'Smart Tv',
       text: 'Smart Tv',
       subText: 'Смотрите на',
     },
     {
       href: '/',
-      iconSrc: anyDevIcon,
+      iconSrc: '',
       iconAlt: 'All Dev',
       text: 'Все Устройства',
     },
@@ -132,19 +120,17 @@ export const FooterDesktop = () => {
             <p>Наши операторы онлайн 24/7</p>
           </div>
           <div className={styles.footerSupport}>
-            <FooterLink href="/" type="square" text="Написать в чате" />
+            <LinkBtn href="/" type="square" text="Написать в чате" mode='footer' />
             <div className={styles.footerSupportButtons}>
-              <FooterLink
+              <LinkBtn
                 href="/"
                 type="square"
-                iconSrc={mailIcon}
-                iconAlt="Mail"
+                mode='footer'
               />
-              <FooterLink
+              <LinkBtn
                 href="/"
                 type="square"
-                iconSrc={phoneIcon}
-                iconAlt="Phone"
+                mode='footer'
               />
             </div>
             <div className={styles.footerQuestions}>
@@ -166,14 +152,13 @@ export const FooterDesktop = () => {
         <div className={styles.footerColumn}>
           <div className={styles.footerStores}>
             {footerStores.map((store, index) => (
-              <FooterLink
+              <LinkBtn
                 key={index}
                 href={store.href}
                 type="square"
-                iconSrc={store.iconSrc}
-                iconAlt={store.iconAlt}
                 text={store.text}
                 subText={store.subText}
+                mode='footer'
               />
             ))}
           </div>
@@ -188,12 +173,11 @@ export const FooterDesktop = () => {
         <div className={styles.footerColumn}>
           <div className={styles.footerComunity}>
             {footerSocailMedias.map((socialMedia, index) => (
-              <FooterLink
+              <LinkBtn
                 key={index}
                 href={socialMedia.href}
                 type="circle"
-                iconSrc={socialMedia.iconSrc}
-                iconAlt={socialMedia.iconAlt}
+                mode='footer'
               />
             ))}
           </div>
