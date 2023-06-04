@@ -118,6 +118,8 @@
   "posterForTheMovie": "Постер для фильма",
   "collapse": "Свернуть",
   "expand": "Развернуть",
+  "Error": "Ошибка",
+  "PageNotFound": "Запрашиваемой страницы не существует",
   "Purchases": "Покупки",
   "WatchLater": "Смотреть позже",
   "BrowsingHistory": "История просмотров",

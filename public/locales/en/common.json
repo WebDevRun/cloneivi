@@ -118,6 +118,8 @@
   "posterForTheMovie": "Poster for the movie",
   "collapse": "Collapse",
   "expand": "Expand",
+  "Error": "Error",
+  "PageNotFound": "The requested page does not exist",
   "Purchases": "Purchases",
   "WatchLater": "Watch later",
   "BrowsingHistory": "Browsing history",
