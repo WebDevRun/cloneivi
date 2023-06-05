@@ -1,22 +1,15 @@
-import { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { GetServerSideProps } from 'next'
-import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ReactElement } from 'react'
 
-import { $instance } from '@/axios'
 import { GenrePatchList } from '@/components/GenrePatchList'
 import { AdminLayout } from '@/layouts/AdminLayout'
 import { AppLayout } from '@/layouts/AppLayout'
 import { NextPageWithLayout } from '@/pages/_app'
-import { IGenre } from '@/types/Movie'
+import { getGenres, getRunningQueriesThunk } from '@/store/endpoints/genres'
+import { wrapper } from '@/store/store'
 
-interface GenreProps {
-  genres: IGenre[]
-}
-
-const Genres: NextPageWithLayout<GenreProps> = ({ genres }) => {
-  return <GenrePatchList genres={genres} />
+const Genres: NextPageWithLayout = () => {
+  return <GenrePatchList />
 }
 
 Genres.getLayout = (page: ReactElement) => {
@@ -29,21 +22,21 @@ Genres.getLayout = (page: ReactElement) => {
 
 export default Genres
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-  const localeData = await serverSideTranslations(locale ?? 'ru', [
-    'header',
-    'adminPage',
-  ])
+export const getStaticProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    store.dispatch(getGenres.initiate())
+    await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
-  const { data: genres } = await $instance.get<
-    AxiosRequestConfig<undefined>,
-    AxiosResponse<IGenre[]>
-  >('/genres')
+    const localeData = await serverSideTranslations(context.locale ?? 'ru', [
+      'header',
+      'common',
+      'adminPage',
+    ])
 
-  return {
-    props: {
-      genres,
-      ...localeData,
-    },
-  }
-}
+    return {
+      props: {
+        ...localeData,
+      },
+    }
+  },
+)

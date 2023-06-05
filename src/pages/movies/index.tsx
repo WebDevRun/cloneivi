@@ -9,7 +9,9 @@ import {
 import { wrapper } from '@/store/store'
 import { AppLayout } from '@layouts/AppLayout'
 
-export default function Movies() {
+import { NextPageWithLayout } from '../_app'
+
+const Movies: NextPageWithLayout = () => {
   const { data } = useGetFilmsQuery()
 
   return (
@@ -25,10 +27,12 @@ Movies.getLayout = function getLayout(page: ReactElement) {
   return <AppLayout>{page}</AppLayout>
 }
 
+export default Movies
+
 export const getStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     store.dispatch(getFilms.initiate())
-    store.dispatch(getRunningQueriesThunk())
+    await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
     const localeData = await serverSideTranslations(context.locale ?? 'ru', [
       'header',

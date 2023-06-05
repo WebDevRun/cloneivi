@@ -9,12 +9,18 @@ import noImage from '@assets/images/no_image.jpg'
 import styles from './MovieItem.module.scss'
 
 export interface MovieItemProps {
+  id: string
   name_ru: string
   name_en: string
   imgSrc: string
 }
 
-export const MovieItem: FC<MovieItemProps> = ({ imgSrc, name_en, name_ru }) => {
+export const MovieItem: FC<MovieItemProps> = ({
+  id,
+  imgSrc,
+  name_en,
+  name_ru,
+}) => {
   const router = useRouter()
   const { t } = useTranslation(['adminPage'])
 
@@ -48,6 +54,18 @@ export const MovieItem: FC<MovieItemProps> = ({ imgSrc, name_en, name_ru }) => {
           size='small'
           background='gray'
           text={`${t('adminPage:edit')}`}
+          onClick={() =>
+            router.push(
+              {
+                pathname: `/admin/edit/${id}`,
+                query: {
+                  name_ru,
+                  name_en,
+                },
+              },
+              `/admin/edit/${id}`,
+            )
+          }
         />
         <Button
           size='small'

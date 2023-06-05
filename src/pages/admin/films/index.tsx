@@ -1,21 +1,15 @@
-import { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ReactElement } from 'react'
 
-import { $instance } from '@/axios'
 import { MoviePatchList } from '@/components/MoviePatchList'
 import { AdminLayout } from '@/layouts/AdminLayout'
 import { AppLayout } from '@/layouts/AppLayout'
 import { NextPageWithLayout } from '@/pages/_app'
-import { IMovie } from '@/types/Movie'
+import { getFilms, getRunningQueriesThunk } from '@/store/endpoints/films'
+import { wrapper } from '@/store/store'
 
-interface FilmsProps {
-  initialMovies: IMovie[]
-}
-
-const Films: NextPageWithLayout<FilmsProps> = ({ initialMovies }) => {
-  return <MoviePatchList initialMovies={initialMovies} />
+const Films: NextPageWithLayout = () => {
+  return <MoviePatchList />
 }
 
 Films.getLayout = (page: ReactElement) => {
@@ -28,21 +22,21 @@ Films.getLayout = (page: ReactElement) => {
 
 export default Films
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-  const localeData = await serverSideTranslations(locale ?? 'ru', [
-    'header',
-    'adminPage',
-  ])
+export const getStaticProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    store.dispatch(getFilms.initiate(20))
+    await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
-  const { data: initialMovies } = await $instance.get<
-    AxiosRequestConfig<undefined>,
-    AxiosResponse<IMovie[]>
-  >('/films?limit=30')
+    const localeData = await serverSideTranslations(context.locale ?? 'ru', [
+      'header',
+      'common',
+      'adminPage',
+    ])
 
-  return {
-    props: {
-      initialMovies,
-      ...localeData,
-    },
-  }
-}
+    return {
+      props: {
+        ...localeData,
+      },
+    }
+  },
+)

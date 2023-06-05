@@ -1,28 +1,24 @@
-import { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { useEffect, useState } from 'react'
 
-import { $instance } from '@/axios'
-import { IMovie } from '@/types/Movie'
+import { useLazyGetFilmsByNameQuery } from '@/store/endpoints/films'
+import { IMovie } from '@/types/movie'
 
-export const useMoviePatchList = (initialMovies: IMovie[]) => {
+export const useMoviePatchList = (initialMovies: IMovie[] | undefined) => {
   const [searchText, setSearchText] = useState('')
   const [movies, setMovies] = useState(initialMovies)
+  const [setName, result] = useLazyGetFilmsByNameQuery()
 
   useEffect(() => {
     let timeout: NodeJS.Timeout
 
-    const getMovies = async (searchText: string) => {
-      const { data: movies } = await $instance.get<
-        AxiosRequestConfig<undefined>,
-        AxiosResponse<IMovie[]>
-      >(`/name/films?name=${searchText}`)
-
-      setMovies(movies)
+    const getMovies = async () => {
+      await setName(searchText)
+      setMovies(result.data)
     }
 
     if (searchText !== '') {
       timeout = setTimeout(() => {
-        getMovies(searchText)
+        getMovies()
       }, 500)
     } else {
       setMovies(initialMovies)
@@ -31,7 +27,7 @@ export const useMoviePatchList = (initialMovies: IMovie[]) => {
     return () => {
       clearTimeout(timeout)
     }
-  }, [searchText, initialMovies])
+  }, [searchText, initialMovies, setName, result.data])
 
   return {
     movies,

@@ -19,6 +19,7 @@ export interface ButtonProps {
   subText?: string
   onClick?: MouseEventHandler<HTMLButtonElement>
   disabled?: boolean
+  type?: 'submit' | 'button'
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -33,6 +34,7 @@ export const Button: FC<ButtonProps> = ({
   fields = 'widthFields',
   onClick,
   disabled = undefined,
+  type = 'button',
 }) => {
   const mainCn = cn(
     styles.button,
@@ -49,7 +51,7 @@ export const Button: FC<ButtonProps> = ({
 
   return (
     <button
-      type='button'
+      type={type}
       className={mainCn}
       onClick={onClick}
       disabled={disabled}
