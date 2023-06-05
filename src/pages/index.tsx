@@ -3,7 +3,6 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ReactElement } from 'react'
 
-import Counter from '@/components/Counter'
 import { AppLayout } from '@layouts/AppLayout'
 
 import { NextPageWithLayout } from './_app'
@@ -12,7 +11,6 @@ const Home: NextPageWithLayout = () => {
   const { t } = useTranslation()
   return (
     <>
-      <Counter />
       <h1>{t('common:more')}</h1>
     </>
   )

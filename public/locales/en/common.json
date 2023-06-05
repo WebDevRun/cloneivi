@@ -38,6 +38,7 @@
   "allDevices": "All devices",
   "writeInChat": "Write in chat",
   "watchSubscription": "Watch by subscription",
+  "Subscription": "Subscription",
   "subscription": "Subscription for 99 ₽",
   "subscriptionIvi": "Subscription Ivi",
   "activateCertificate": "Activate certificate",
@@ -123,6 +124,8 @@
   "MovieTitle": "Movie title",
   "MovieGenre": "Movie genre",
   "FilmEditing": "Film Editing",
+  "Error": "Error",
+  "PageNotFound": "The requested page does not exist",
   "Purchases": "Purchases",
   "WatchLater": "Watch later",
   "BrowsingHistory": "Browsing history",
@@ -163,5 +166,6 @@
   "FilmsOf2023": "Films of 2023",
   "FilmsOf2022": "Films of 2022",
   "FilmsOf2021": "Films of 2021",
-  "FilmsOf2020": "Films of 2020"
+  "Exclusive": "exclusive",
+  "Story": "Story"
 }

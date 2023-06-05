@@ -23,7 +23,6 @@ export const Header: FC = () => {
 
     dispatchEvent(event)
   }
-
   return (
     <div className={styles.header} onMouseOver={handleMouseOver}>
       <div className={styles.headerLogo}>
