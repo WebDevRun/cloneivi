@@ -1,4 +1,5 @@
 @use '../../styles/functions' as fn;
+
 $white: #fff;
 $alpha48: 0.48;
 $alpha72: 0.72;
@@ -9,6 +10,7 @@ $alpha72: 0.72;
   align-items: center;
   border-radius: fn.toRem(8px);
   transition-duration: 0.4s;
+  transition-property: color, fill, border-color, background-color;
 
   img {
     display: flex;
@@ -55,11 +57,9 @@ $alpha72: 0.72;
 
   &:hover {
     color: $white;
-    transition-duration: 0.4s;
 
-    svg {
+    .icon svg {
       fill: $white;
-      transition-duration: 0.4s;
     }
   }
 }
@@ -113,8 +113,6 @@ $alpha72: 0.72;
   line-height: fn.toRem(20px);
   font-weight: 500;
   width: fn.toRem(320px);
-
-  transition-property: border-color, background-color;
 }
 
 .borderSm,
@@ -165,6 +163,10 @@ $alpha72: 0.72;
   }
 }
 
+.full {
+  width: 100%;
+}
+
 .onlyIcon {
   .icon {
     margin-right: 0;
@@ -187,4 +189,33 @@ $alpha72: 0.72;
   margin: 0;
   padding: 0;
   height: auto;
+}
+
+.rating {
+  height: fn.toRem(56px);
+  width: fn.toRem(56px);
+  padding: 0;
+  background-color: rgba($white, 0.16);
+  border-radius: fn.toRem(12px);
+
+  & > .mainText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #73a32f;
+    height: fn.toRem(44px);
+    width: fn.toRem(44px);
+    border-radius: fn.toRem(8px);
+    font-size: fn.toRem(15px);
+    line-height: fn.toRem(20px);
+    font-weight: 500;
+  }
+
+  .subText {
+    display: none;
+  }
+
+  &:hover {
+    background-color: rgba($white, 0.29);
+  }
 }

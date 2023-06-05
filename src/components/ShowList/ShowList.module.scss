@@ -5,12 +5,8 @@
   column-gap: fn.toRem(24px);
 }
 
-.title {
-  color: #fff;
-  font-size: fn.toRem(15px);
-  font-weight: 700;
-  line-height: fn.toRem(20px);
-  margin-bottom: fn.toRem(8px);
+.list {
+  margin-top: fn.toRem(8px);
 }
 
 .linksList:not(:first-child) {
