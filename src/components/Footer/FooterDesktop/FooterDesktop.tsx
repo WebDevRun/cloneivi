@@ -3,65 +3,64 @@ import Link from 'next/link'
 import styles from './FooterDesktop.module.scss'
 
 import { LinkBtn } from '@/ui/LinkBtn'
+import { INameIcons, INameIconsExt } from '@/types/Icons'
 
 export const FooterDesktop = () => {
   const footerSocailMedias = [
     {
       href: '/',
-      iconSrc: '',
+      icon: 'vkontakte',
       iconAlt: 'VK',
     },
     {
       href: '/',
-      iconSrc: '',
+      icon: 'odnoklassniki',
       iconAlt: 'OK',
     },
     {
       href: '/',
-      iconSrc: '',
+      icon: 'twitter',
       iconAlt: 'TW',
     },
     {
       href: '/',
-      iconSrc: '',
+      icon: 'viber',
       iconAlt: 'VB',
     },
     {
       href: '/',
-      iconSrc: '',
+      icon: 'linkedin',
       iconAlt: 'LD',
     },
     {
       href: '/',
-      iconSrc: '',
+      icon: 'telegram',
       iconAlt: 'TG',
     },
   ]
   const footerStores = [
     {
       href: '/',
-      iconSrc: '',
-      iconAlt: 'App Store',
+      icon: 'appStore',
       text: 'App Store',
       subText: 'Загрузить в',
     },
     {
       href: '/',
-      iconSrc: '',
-      iconAlt: 'Play Store',
+      icon: 'googlePlay',
       text: 'Google Play',
       subText: 'Доступно в',
     },
     {
       href: '/',
-      iconSrc: '',
+      icon: 'smartTV',
       iconAlt: 'Smart Tv',
       text: 'Smart Tv',
       subText: 'Смотрите на',
     },
     {
       href: '/',
-      iconSrc: '',
+      icon: 'anyDev',
       iconAlt: 'All Dev',
       text: 'Все Устройства',
     },
@@ -126,11 +125,17 @@ export const FooterDesktop = () => {
                 href="/"
                 type="square"
                 mode='footer'
+                icon='email'
+                iconExt={true}
+                iconSize='small'
               />
               <LinkBtn
                 href="/"
                 type="square"
                 mode='footer'
+                icon='phone'
+                iconExt={true}
+                iconSize='small'
               />
             </div>
             <div className={styles.footerQuestions}>
@@ -159,6 +164,8 @@ export const FooterDesktop = () => {
                 text={store.text}
                 subText={store.subText}
                 mode='footer'
+                icon={store.icon as INameIcons | INameIconsExt}
+                iconExt={true}
               />
             ))}
           </div>
@@ -178,6 +185,9 @@ export const FooterDesktop = () => {
                 href={socialMedia.href}
                 type="circle"
                 mode='footer'
+                icon={socialMedia.icon as INameIcons | INameIconsExt}
+                iconExt={true}
+                iconSize='small'
               />
             ))}
           </div>
