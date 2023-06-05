@@ -119,6 +119,8 @@
   "posterForTheMovie": "Poster for the movie",
   "collapse": "Collapse",
   "expand": "Expand",
+  "Error": "Error",
+  "PageNotFound": "The requested page does not exist",
   "Purchases": "Purchases",
   "WatchLater": "Watch later",
   "BrowsingHistory": "Browsing history",
@@ -161,5 +163,6 @@
   "FilmsOf2021": "Films of 2021",
   "FilmsOf2020": "Films of 2020",
   "Exclusive": "exclusive",
-  "Story": "Story"
+  "Story": "Story",
+  "FilmsOf2020": "Films of 2020"
 }
