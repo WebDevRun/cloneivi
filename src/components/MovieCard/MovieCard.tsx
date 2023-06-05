@@ -1,13 +1,14 @@
 import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 import { FC, useState } from 'react'
-
-import styles from './MovieCard.module.scss'
-import { MovieCardProperties } from './MovieCardProperties'
 
 import { Button } from '@/ui/Button'
 import { Svg } from '@/ui/Svg'
+
+import styles from './MovieCard.module.scss'
+import { MovieCardProperties } from './MovieCardProperties'
 
 export interface MovieCardProps {
   href: string
@@ -18,7 +19,7 @@ export interface MovieCardProps {
   rating?: number
   year?: number
   genre?: string[]
-  mode: string
+  mode: 'small' | 'big' | 'series'
   seriesDescription?: string
   seriesLength?: string
 }
@@ -32,10 +33,11 @@ export const MovieCard: FC<MovieCardProps> = ({
   rating,
   year,
   genre,
-  mode,
+  mode = 'small',
   seriesDescription,
-  seriesLength
+  seriesLength,
 }) => {
+  const { t } = useTranslation()
   const [favoriteIconActive, setFavoriteIconActive] = useState<boolean>(false)
   const [dislike, setDislike] = useState<boolean>(false)
 
@@ -63,31 +65,35 @@ export const MovieCard: FC<MovieCardProps> = ({
             <Button
               onClick={() => {}}
               size='middle'
-              text='Смотреть по подписке'
+              text={`${t('watchSubscription')}`}
             />
           </div>
         )}
 
         {mode === 'small' && (
           <>
-            <div className={styles.textBadge}>эксклюзив</div>
+            <div className={styles.textBadge}>{t('Exclusive')}</div>
             <div className={styles.movieInfo}>
               <div className={styles.hoards}>
                 <button className={styles.iconBtn} onClick={addFavorite}>
                   {favoriteIconActive ? (
-                    <Svg icon='favoriteRemove'/>
+                    <Svg icon='favoriteRemove' />
                   ) : (
-                    <Svg icon='favoriteAdd'/>
+                    <Svg icon='favoriteAdd' />
                   )}
                 </button>
                 <button className={styles.iconBtn}>
-                  <Svg icon='similar'/>
+                  <Svg icon='similar' />
                 </button>
                 <button className={styles.iconBtn}>
-                  <Svg icon='rating'/>
+                  <Svg icon='rating' />
                 </button>
                 <button className={styles.dislikeBtn} onClick={addDislike}>
-                  <Svg icon='dislike' fill={dislike ? 'red' : 'white'} ext={true}/>
+                  <Svg
+                    icon='dislike'
+                    fill={dislike ? 'red' : 'white'}
+                    ext={true}
+                  />
                 </button>
               </div>
               <MovieCardProperties rating={rating} year={year} genre={genre} />
@@ -98,7 +104,7 @@ export const MovieCard: FC<MovieCardProps> = ({
       {mode === 'small' && (
         <div className={styles.movieCardInfo}>
           <p className={styles.movieCardName}>{movieName}</p>
-          <p className={styles.movieCardType}>Подписка</p>
+          <p className={styles.movieCardType}>{t('Subscription')}</p>
         </div>
       )}
       {mode === 'series' && (

@@ -38,6 +38,7 @@
   "allDevices": "All devices",
   "writeInChat": "Write in chat",
   "watchSubscription": "Watch by subscription",
+  "Subscription": "Subscription",
   "subscription": "Subscription for 99 ₽",
   "subscriptionIvi": "Subscription Ivi",
   "activateCertificate": "Activate certificate",
@@ -158,5 +159,7 @@
   "FilmsOf2023": "Films of 2023",
   "FilmsOf2022": "Films of 2022",
   "FilmsOf2021": "Films of 2021",
-  "FilmsOf2020": "Films of 2020"
+  "FilmsOf2020": "Films of 2020",
+  "Exclusive": "exclusive",
+  "Story": "Story"
 }
