@@ -1,0 +1,1 @@
+export { GenrePatchList } from './GenrePatchList'

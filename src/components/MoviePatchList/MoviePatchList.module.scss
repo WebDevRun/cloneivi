@@ -1,0 +1,13 @@
+@use '@styles/functions' as fn;
+
+.moviePatchList {
+  display: flex;
+  flex-direction: column;
+  gap: fn.toRem(20px);
+}
+
+.movieList {
+  display: flex;
+  flex-direction: column;
+  gap: fn.toRem(20px);
+}

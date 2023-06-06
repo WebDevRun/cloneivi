@@ -1,18 +1,18 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ReactElement } from 'react'
 
-import { MoviePatchList } from '@/components/MoviePatchList'
+import { GenrePatchList } from '@/components/GenrePatchList'
 import { AdminLayout } from '@/layouts/AdminLayout'
 import { AppLayout } from '@/layouts/AppLayout'
 import { NextPageWithLayout } from '@/pages/_app'
-import { getFilms, getRunningQueriesThunk } from '@/store/endpoints/films'
+import { getGenres, getRunningQueriesThunk } from '@/store/endpoints/genres'
 import { wrapper } from '@/store/store'
 
-const Films: NextPageWithLayout = () => {
-  return <MoviePatchList />
+const Genres: NextPageWithLayout = () => {
+  return <GenrePatchList />
 }
 
-Films.getLayout = (page: ReactElement) => {
+Genres.getLayout = (page: ReactElement) => {
   return (
     <AppLayout>
       <AdminLayout>{page}</AdminLayout>
@@ -20,11 +20,11 @@ Films.getLayout = (page: ReactElement) => {
   )
 }
 
-export default Films
+export default Genres
 
 export const getStaticProps = wrapper.getServerSideProps(
   (store) => async (context) => {
-    store.dispatch(getFilms.initiate(20))
+    store.dispatch(getGenres.initiate())
     await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
     const localeData = await serverSideTranslations(context.locale ?? 'ru', [

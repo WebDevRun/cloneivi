@@ -24,6 +24,11 @@ $alpha72: 0.72;
     margin-right: fn.toRem(8px);
     transition-duration: 0.4s;
   }
+
+  &:disabled,
+  &:disabled:hover {
+    background-color: rgb(73, 73, 73);
+  }
 }
 
 .active svg {

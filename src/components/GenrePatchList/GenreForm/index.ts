@@ -1,0 +1,1 @@
+export { GenreForm } from './GenreForm'
