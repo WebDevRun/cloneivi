@@ -5,16 +5,18 @@ import '@styles/index.scss'
 import { AdminLayout } from './AdminLayout'
 
 const meta: Meta<typeof AdminLayout> = {
-  title: 'AdminLayout',
+  title: 'Admin/AdminLayout',
   tags: ['autodocs'],
   component: AdminLayout,
-  argTypes: {},
+  argTypes: {
+    children: {
+      description: 'Next компонент',
+    },
+  },
 }
 
 export default meta
 
 type Story = StoryObj<typeof AdminLayout>
 
-export const Default: Story = {
-  args: {},
-}
+export const Default: Story = {}
