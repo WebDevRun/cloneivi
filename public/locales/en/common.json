@@ -163,5 +163,15 @@
   "FilmsOf2021": "Films of 2021",
   "FilmsOf2020": "Films of 2020",
   "Exclusive": "exclusive",
-  "Story": "Story"
+  "Story": "Story",
+  "Continue": "Continue",
+  "ViaEmailOrPhone": "Via email or phone",
+  "LoginOrRegistration": "Login or registration",
+  "PleaseLoginOrRegister": "Please log in or register",
+  "ToUseTheServiceOnAnyDevice": "to use the service on any device",
+  "ByClickingContinueIAgree": "By clicking «Continue», I agree",
+  "With": "with",
+  "And": "and",
+  "ThePrivacyPolicy": "The Privacy Policy",
+  "UserAgreement": "User Agreement"
 }

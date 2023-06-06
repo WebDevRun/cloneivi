@@ -1,0 +1,56 @@
+.inputBody {
+  display: block;
+  position: relative;
+  background-color: #d9d7e0;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.editBox {
+  display: block;
+  position: absolute;
+  top: 20px;
+  height: 20px;
+  background-color: transparent;
+  color: #000000;
+  padding-left: 12px;
+
+  width: 100%;
+  transform: translateZ(0);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+
+  text-overflow: ellipsis;
+
+  &:focus,
+  &:valid {
+    & ~ .label {
+      top: 0;
+    }
+  }
+
+  &:focus.editBox:not(:valid) {
+    & ~ .label {
+      color: #ff0000;
+    }
+  }
+}
+
+.label {
+  color: #a5a1b2;
+  will-change: transform;
+  text-rendering: geometricPrecision;
+  transform-origin: 0 0;
+  text-overflow: ellipsis;
+
+  position: absolute;
+  left: 12px;
+  right: 0;
+  top: 12px;
+  bottom: 0;
+  transform: translateZ(0);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+}

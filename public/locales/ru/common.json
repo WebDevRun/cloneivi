@@ -163,5 +163,15 @@
   "FilmsOf2021": "Фильмы 2021 года",
   "FilmsOf2020": "Фильмы 2020 года",
   "Exclusive": "эксклюзив",
-  "Story": "Сюжет"
+  "Story": "Сюжет",
+  "Continue": "Продолжить",
+  "ViaEmailOrPhone": "Через email или телефон",
+  "LoginOrRegistration": "Вход или регистрация",
+  "PleaseLoginOrRegister": "Войдите или зарегистрируйтесь",
+  "ToUseTheServiceOnAnyDevice": "чтобы пользоваться сервисом на любом устройстве",
+  "ByClickingContinueIAgree": "Нажимая «Продолжить», я соглашаюсь",
+  "With": "с",
+  "And": "и",
+  "ThePrivacyPolicy": "Политикой конфиденциальности",
+  "UserAgreement": "Пользовательским соглашением"
 }
