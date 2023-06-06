@@ -1,4 +1,11 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import {
+  Action,
+  combineReducers,
+  configureStore,
+  PreloadedState,
+  StateFromReducersMapObject,
+  ThunkAction,
+} from '@reduxjs/toolkit'
 import { createWrapper } from 'next-redux-wrapper'
 
 import { filmsApi } from './endpoints/films'
@@ -20,7 +27,13 @@ export const setupStore = () => {
 }
 
 export type AppStore = ReturnType<typeof setupStore>
-export type RootState = ReturnType<typeof rootReducer>
+export type AppState = ReturnType<AppStore['getState']>
 export type AppDispatch = AppStore['dispatch']
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  AppState,
+  unknown,
+  Action
+>
 
 export const wrapper = createWrapper<AppStore>(setupStore)
