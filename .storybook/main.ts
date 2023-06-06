@@ -28,6 +28,7 @@ const config: StorybookConfig = {
         '@assets': path.resolve('src', 'assets'),
         '@styles': path.resolve('src', 'styles'),
         '@public': path.resolve('public'),
+        '@testConfig': path.resolve('testConfig'),
         'next-i18next': 'react-i18next',
       }
     }
