@@ -1,10 +1,7 @@
 import { useTranslation } from 'next-i18next'
-import { FC, FormEventHandler, useRef, useState } from 'react'
+import { FC, FormEventHandler, useEffect, useState } from 'react'
 
-import {
-  getFilmsByName,
-  useLazyGetFilmsByNameQuery,
-} from '@/store/endpoints/films'
+import { useLazyGetFilmsByNameQuery } from '@/store/endpoints/films'
 import { IMovie } from '@/types/movie'
 import { Button } from '@/ui/Button'
 import { Input } from '@/ui/Input'
@@ -20,13 +17,16 @@ export const MovieForm: FC<MovieFormProps> = ({ setData }) => {
   const [searchText, setSearchText] = useState('')
   const [setName, result] = useLazyGetFilmsByNameQuery()
 
+  useEffect(() => {
+    if (result.data === undefined) return
+
+    setData(result.data)
+  }, [result.data, setData])
+
   const submitHandler: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
-    if (searchText !== '') {
-      await setName(searchText)
-      console.log(result.data)
-      setData(result.data)
-    }
+
+    await setName(searchText).unwrap()
   }
 
   return (
