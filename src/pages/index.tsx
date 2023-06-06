@@ -3,14 +3,13 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ReactElement } from 'react'
 
-import { Header } from '@components/Header'
 import { AppLayout } from '@layouts/AppLayout'
 
 import { NextPageWithLayout } from './_app'
 
 const Home: NextPageWithLayout = () => {
-  const { t } = useTranslation(['header'])
-  return <h1>{t('header:more')}</h1>
+  const { t } = useTranslation()
+  return <h1>{t('common:more')}</h1>
 }
 
 Home.getLayout = function getLayout(page: ReactElement) {
@@ -20,10 +19,7 @@ Home.getLayout = function getLayout(page: ReactElement) {
 export default Home
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const localeData = await serverSideTranslations(locale ?? 'ru', [
-    'header',
-    'common',
-  ])
+  const localeData = await serverSideTranslations(locale ?? 'ru', ['common'])
   return {
     props: {
       ...localeData,
