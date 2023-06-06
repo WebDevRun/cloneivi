@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Provider } from 'react-redux'
 
-import { makeStore } from '@/store/store'
+import { setupStore } from '@/store/store'
 
 import '@styles/index.scss'
 
@@ -20,7 +20,7 @@ type Story = StoryObj<typeof GenrePatchList>
 export const Default: Story = {
   decorators: [
     (Story) => {
-      const store = makeStore()
+      const store = setupStore()
 
       return (
         <Provider store={store}>
