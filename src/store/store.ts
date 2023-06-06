@@ -9,13 +9,13 @@ const rootReducer = combineReducers({
   [genresApi.reducerPath]: genresApi.reducer,
 })
 
-const middleware = [filmsApi.middleware, genresApi.middleware]
+const middlewares = [filmsApi.middleware, genresApi.middleware]
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(...middleware),
+      getDefaultMiddleware().concat(middlewares),
   })
 }
 
