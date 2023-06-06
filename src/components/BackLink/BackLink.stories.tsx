@@ -10,14 +10,14 @@ const meta: Meta<typeof BackLink> = {
   component: BackLink,
   argTypes: {
     text: {
-      description: 'Текст, отображаемый на обратной ссылке'
+      description: 'Текст, отображаемый на обратной ссылке',
     },
     iconName: {
-      description: 'Название иконки'
+      description: 'Название иконки',
     },
     iconSize: {
-      description: 'Размер иконки'
-    }
+      description: 'Размер иконки',
+    },
   },
 }
 

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumbs тесты снимок с параметрами SlashDefault 1`] = `
+<ul
+  className="breadcrumbs"
+>
+  <li
+    className="item slash"
+  >
+    <a
+      className="link"
+      href="/"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      Home
+    </a>
+  </li>
+  <li
+    className="item slash"
+  >
+    Фёдор Бондарчук
+  </li>
+</ul>
+`;
