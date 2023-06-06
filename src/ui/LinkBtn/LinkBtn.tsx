@@ -17,7 +17,7 @@ interface LinkProps {
   text?: string
   icon?: INameIcons | INameIconsExt
   iconExt?: boolean
-  background?: 'lightgray' | 'default'
+  background?: 'lightgray' | 'default' | 'red'
   imgSrc?: string
   imgAlt?: string
   iconSize?: 'small' | 'middle' | 'big' | 'large'
