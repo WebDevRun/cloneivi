@@ -12,12 +12,12 @@ export const MoviePatchList: FC = () => {
   const { data: initialMovies } = useGetFilmsQuery(20)
   const [movies, setMovies] = useState(initialMovies)
 
-  if (movies === undefined) return <p>{`${t('adminPage:loading')}...`}</p>
-
   return (
     <div className={styles.moviePatchList}>
       <MovieForm setData={setMovies} />
-      {movies.length === 0 ? (
+      {movies === undefined ? (
+        <p>{`${t('adminPage:loading')}...`}</p>
+      ) : movies.length === 0 ? (
         <p>{t('adminPage:notFound')}</p>
       ) : (
         <div className={styles.movieList}>
