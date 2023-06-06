@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { FC, ReactNode } from 'react'
 
-import { Text } from '@/ui/ui'
+import { H2, Text } from '@/ui/ui'
 
 import styles from './AdminLayout.module.scss'
 
@@ -19,9 +19,7 @@ export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
 
   return (
     <div className={styles.adminLayout}>
-      <Text as='h2' variant='titleH2' className={styles.title}>
-        {t('adminPage:title')}
-      </Text>
+      <H2 className={styles.title}>{t('adminPage:title')}</H2>
       <div className={styles.pageContainer}>
         <nav className={styles.navigationBar}>
           {links.map((link, index) => {
