@@ -12,7 +12,7 @@ export const MoviePatchList: FC = () => {
   const { data: initialMovies } = useGetFilmsQuery(20)
   const [movies, setMovies] = useState(initialMovies)
 
-  if (movies === undefined) return <p>Loading...</p>
+  if (movies === undefined) return <p>{`${t('adminPage:loading')}...`}</p>
 
   return (
     <div className={styles.moviePatchList}>

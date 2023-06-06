@@ -8,5 +8,6 @@
   "find": "Find",
   "notFound": "Not found",
   "edit": "Edit",
-  "delete": "Delete"
+  "delete": "Delete",
+  "loading": "Loading"
 }
