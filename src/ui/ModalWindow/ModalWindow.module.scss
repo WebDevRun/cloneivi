@@ -42,28 +42,10 @@
   background: none;
 }
 
-.closeBtn{
+.closeBtn {
+  transition: 0.4s transform;
 
-  *:first-child{
-    transition: .4s transform;
-  }
-  
-  &:hover{
-
-    *:first-child{
-      transform: scale(1.1);
-    }
-  }
-}
-
-@keyframes hoverBtn {
-  0% {
+  &:hover {
     transform: scale(1.1);
-  }
-  50% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
   }
 }

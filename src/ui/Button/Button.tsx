@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React, { FC, MouseEventHandler } from 'react'
 
-import { INameIcons } from '@/types/IconTypes'
+import { INameIcons } from '@/types/Icons'
 
 import { Svg } from '../Svg'
 

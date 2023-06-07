@@ -2,7 +2,7 @@ import { FC, cloneElement } from 'react'
 
 import { names } from './icons'
 
-import { INameIcons, INameIconsExt } from '@/types/IconTypes'
+import { INameIcons, INameIconsExt } from '@/types/Icons'
 
 interface SvgProps {
   size?: 'small' | 'middle' | 'big' | 'large'
@@ -38,7 +38,14 @@ export const Svg: FC<SvgProps> = ({
           {names[icon as INameIcons]}
         </svg>
       )}
-      {ext && <>{cloneElement(names[icon as INameIconsExt], { width: sz[size], height: sz[size] })}</>}
+      {ext && (
+        <>
+          {cloneElement(names[icon as INameIconsExt], {
+            width: sz[size],
+            height: sz[size],
+          })}
+        </>
+      )}
     </>
   )
 }

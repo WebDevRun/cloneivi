@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { FC } from 'react'
 
-import { INameIcons, INameIconsExt } from '@/types/IconTypes'
+import { INameIcons, INameIconsExt } from '@/types/Icons'
 
 import { Svg } from '../Svg'
 import { Text, TextVariants } from '../ui'
