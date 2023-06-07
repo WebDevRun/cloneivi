@@ -4,7 +4,7 @@ import styles from './Input.module.scss'
 
 export interface InputProps {
   label: string
-  type?: 'text' | 'url'
+  type?: 'text' | 'url' | 'email' | 'password'
   required?: boolean
   name: string
   defaultValue?: string
@@ -25,7 +25,7 @@ export const Input: FC<InputProps> = ({
         className={styles.editBox}
         name={name}
         id={name}
-        autoComplete='off'
+        autoComplete='on'
         required={required}
         type={type}
         defaultValue={defaultValue}

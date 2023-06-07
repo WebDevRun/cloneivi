@@ -16,6 +16,7 @@ export type INameIcons =
   | 'drama'
   | 'rating'
   | 'similar'
+  | 'refresh'
 
 export type INameIconsExt =
   | 'top10'

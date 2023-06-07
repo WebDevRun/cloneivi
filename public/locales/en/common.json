@@ -173,5 +173,9 @@
   "With": "with",
   "And": "and",
   "ThePrivacyPolicy": "The Privacy Policy",
-  "UserAgreement": "User Agreement"
+  "UserAgreement": "User Agreement",
+  "Hello": "Hello",
+  "InputPassword": "Input password",
+  "Login": "Login",
+  "RecoverPassword": "Recover password"
 }
