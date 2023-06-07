@@ -1,7 +1,10 @@
 import { useTranslation } from 'next-i18next'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
-import { useGetFilmsQuery } from '@/store/endpoints/films'
+import {
+  useGetFilmsQuery,
+  useLazyGetFilmsByNameQuery,
+} from '@/store/endpoints/films'
 
 import { MovieForm } from './MovieForm'
 import { MovieItem } from './MovieItem'
@@ -10,13 +13,23 @@ import styles from './MoviePatchList.module.scss'
 export const MoviePatchList: FC = () => {
   const { t } = useTranslation(['adminPage'])
   const { data: initialMovies } = useGetFilmsQuery(20)
-  const [movies, setMovies] = useState(initialMovies)
+  const [setName, { data: movies }] = useLazyGetFilmsByNameQuery()
 
   return (
     <div className={styles.moviePatchList}>
-      <MovieForm setData={setMovies} />
+      <MovieForm setData={setName} />
       {movies === undefined ? (
-        <p>{`${t('adminPage:loading')}...`}</p>
+        initialMovies?.map((movie) => {
+          return (
+            <MovieItem
+              key={movie.film_id}
+              id={movie.film_id}
+              name_en={movie.name_en}
+              name_ru={movie.name_ru}
+              imgSrc={movie.img}
+            />
+          )
+        })
       ) : movies.length === 0 ? (
         <p>{t('adminPage:notFound')}</p>
       ) : (
