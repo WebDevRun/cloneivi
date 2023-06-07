@@ -43,6 +43,7 @@
   text-rendering: geometricPrecision;
   transform-origin: 0 0;
   text-overflow: ellipsis;
+  pointer-events: none;
 
   position: absolute;
   left: 12px;
