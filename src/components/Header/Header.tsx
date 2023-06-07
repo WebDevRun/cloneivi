@@ -28,7 +28,7 @@ export const Header: FC = () => {
     <div className={styles.header} onMouseOver={handleMouseOver}>
       <div className={styles.headerLogo}>
         <Link href='https://www.ivi.ru/'>
-          <Image src={logo} alt={t('common:logo') as string}></Image>
+          <Image src={logo} alt={t('common:logo') as string} />
         </Link>
       </div>
 
