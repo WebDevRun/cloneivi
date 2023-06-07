@@ -43,6 +43,7 @@ export const Svg: FC<SvgProps> = ({
           {cloneElement(names[icon as INameIconsExt], {
             width: sz[size],
             height: sz[size],
+            fill: fill,
           })}
         </>
       )}

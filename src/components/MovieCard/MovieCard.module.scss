@@ -1,0 +1,191 @@
+@use '../../styles/functions' as fn;
+
+.movieCard.small {
+  max-width: fn.toRem(154px);
+  display: block;
+
+  .textBadge {
+    font-size: fn.toRem(13px);
+    font-weight: 700;
+    color: white;
+    background-color: rgb(255, 84, 46);
+    box-shadow: 0 fn.toRem(4px) fn.toRem(12px) rgba(255, 84, 46, 0.4);
+    padding: fn.toRem(3px) fn.toRem(8px);
+    border-radius: fn.toRem(50px);
+    position: absolute;
+    top: fn.toRem(5px);
+    left: fn.toRem(-5px);
+    z-index: 1;
+  }
+
+  .ageBadge {
+    bottom: fn.toRem(10px);
+    right: fn.toRem(5px);
+  }
+}
+
+.movieCard.big,
+.movieCard.series {
+  width: 100%;
+  display: block;
+
+  .ageBadge {
+    left: fn.toRem(24px);
+    top: fn.toRem(20px);
+  }
+}
+
+.movieCardImageCont {
+  position: relative;
+  transition: 0.2s ease-in-out;
+}
+
+.movieCard.series {
+  .movieCardImageCont {
+    transition: 0.3s ease-out;
+  }
+}
+
+.movieCardImage {
+  width: 100%;
+  height: auto;
+  border-radius: fn.toRem(10px);
+  display: block;
+}
+
+.btnCont {
+  position: absolute;
+  left: fn.toRem(24px);
+  bottom: fn.toRem(20px);
+}
+
+.movieInfo {
+  opacity: 0;
+  background: rgba(7, 5, 14, 0.8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.2s ease-in-out;
+  border-radius: fn.toRem(16px);
+}
+
+.hoards {
+  position: absolute;
+  top: fn.toRem(16px);
+  right: fn.toRem(16px);
+  display: flex;
+  flex-direction: column;
+  gap: fn.toRem(10px);
+  z-index: 1;
+}
+
+.ageBadge {
+  width: fn.toRem(24px);
+  height: fn.toRem(16px);
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: fn.toRem(4px);
+  font-size: fn.toRem(10.5px);
+  color: rgba(211, 211, 211, 0.6);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconBtn {
+  background: transparent;
+
+  svg {
+    fill: white;
+  }
+}
+
+.dislikeBtn {
+  background: transparent;
+}
+
+.movieCardInfo {
+  margin-top: fn.toRem(8px);
+}
+
+.movieCardName {
+  color: rgb(217, 215, 224);
+  font-size: fn.toRem(15px);
+  font-weight: 500;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.movieCardType {
+  color: rgb(234, 0, 61);
+  font-size: fn.toRem(13px);
+  font-weight: 400;
+}
+
+.movieCard.small:hover {
+  .movieCardImageCont {
+    transform: scale(1.05);
+
+    .movieInfo {
+      opacity: 1;
+    }
+  }
+}
+
+.movieCard.series:hover {
+  .movieCardImageCont {
+    transition: all 0.1s ease;
+    transform: scale(1.05);
+  }
+
+  .seriesName {
+    color: white;
+  }
+}
+
+.seriesInfo {
+  margin-top: fn.toRem(12px);
+}
+
+.seriesName {
+  color: rgb(217, 215, 224);
+  transition-duration: 0.4s;
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(20px);
+  font-weight: 500;
+  font-style: normal;
+}
+
+.seriesDescription {
+  font-size: fn.toRem(13px);
+  line-height: fn.toRem(16px);
+  font-weight: 400;
+  font-style: normal;
+  max-height: fn.toRem(64px);
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  text-overflow: -o-ellipsis-lastline;
+  color: rgb(165, 161, 178);
+  margin-top: fn.toRem(4px);
+}
+
+.seriesLength {
+  margin-right: fn.toRem(10px);
+  color: rgb(165, 161, 178);
+  font-size: fn.toRem(13px);
+  line-height: fn.toRem(16px);
+  font-weight: 400;
+  font-style: normal;
+  height: fn.toRem(16px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: fn.toRem(4px);
+}

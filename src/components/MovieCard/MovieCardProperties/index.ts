@@ -1,0 +1,1 @@
+export { MovieCardProperties } from './MovieCardProperties'
