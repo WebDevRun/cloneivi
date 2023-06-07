@@ -165,7 +165,7 @@
   "Exclusive": "эксклюзив",
   "Story": "Сюжет",
   "Continue": "Продолжить",
-  "ViaEmailOrPhone": "Через email или телефон",
+  "ViaEmail": "Через email",
   "LoginOrRegistration": "Вход или регистрация",
   "PleaseLoginOrRegister": "Войдите или зарегистрируйтесь",
   "ToUseTheServiceOnAnyDevice": "чтобы пользоваться сервисом на любом устройстве",
@@ -176,6 +176,9 @@
   "UserAgreement": "Пользовательским соглашением",
   "Hello": "Здравствуйте",
   "InputPassword": "Введите пароль",
+  "EnterYourPasswordToLogIn": "Введите пароль, чтобы войти",
   "Login": "Войти",
-  "RecoverPassword": "Восстановить пароль"
+  "RecoverPassword": "Восстановить пароль",
+  "LogInUsing": "Войти с помощью",
+  "ThePasswordIsIncorrect": "Неверно указан пароль. Пожалуйста, попробуйте еще раз"
 }

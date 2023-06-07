@@ -17,6 +17,7 @@ export type INameIcons =
   | 'rating'
   | 'similar'
   | 'refresh'
+  | 'email'
 
 export type INameIconsExt =
   | 'top10'
@@ -25,3 +26,5 @@ export type INameIconsExt =
   | 'googlePlay'
   | 'appStore'
   | 'dislike'
+  | 'vkontakte'
+  | 'google'

@@ -165,7 +165,7 @@
   "Exclusive": "exclusive",
   "Story": "Story",
   "Continue": "Continue",
-  "ViaEmailOrPhone": "Via email or phone",
+  "ViaEmail": "Via email",
   "LoginOrRegistration": "Login or registration",
   "PleaseLoginOrRegister": "Please log in or register",
   "ToUseTheServiceOnAnyDevice": "to use the service on any device",
@@ -176,6 +176,9 @@
   "UserAgreement": "User Agreement",
   "Hello": "Hello",
   "InputPassword": "Input password",
+  "EnterYourPasswordToLogIn": "Enter your password to log in",
   "Login": "Login",
-  "RecoverPassword": "Recover password"
+  "RecoverPassword": "Recover password",
+  "LogInUsing": "Log in using",
+  "ThePasswordIsIncorrect": "The password is incorrect. Please try again"
 }

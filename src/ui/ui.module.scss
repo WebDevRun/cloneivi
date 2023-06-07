@@ -59,6 +59,18 @@
   justify-content: center;
 }
 
+.gap4 {
+  gap: 4px;
+}
+
+.gap12 {
+  gap: 12px;
+}
+
+.gap16 {
+  gap: 16px;
+}
+
 .superH1 {
   font-size: fn.toRem(56px);
   line-height: fn.toRem(56px);

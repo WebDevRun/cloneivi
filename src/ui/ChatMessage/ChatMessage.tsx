@@ -10,24 +10,23 @@ export interface ChatMessageProps {
   title: string
   extra?: string
   showExtra?: boolean
-  direction?: 'left' | 'right'
   className?: string
   editable?: boolean
+  variant?: 'messageLeft' | 'messageRight' | 'error' | 'success'
 }
 
 export const ChatMessage: FC<ChatMessageProps> = ({
   title,
   extra,
   showExtra = true,
-  direction = 'left',
   className,
   editable = false,
+  variant = 'messageLeft',
 }) => {
-  const mainCn = cn(styles.message, styles[direction], className)
+  const mainCn = cn(styles.message, styles[variant], className)
 
   return (
-    
-    <Flex variant='columnStart' className={mainCn}>
+    <Flex variant='columnStart' className={mainCn} gap='gap4'>
       <Text variant='titleSm'>{title}</Text>
       {showExtra && extra && <Text variant='small'>{extra}</Text>}
     </Flex>

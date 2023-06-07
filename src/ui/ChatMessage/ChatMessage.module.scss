@@ -1,19 +1,28 @@
 .message {
-  width: 37.5%;
-  margin-bottom: 24px;
+  width: 100%;
   padding: 16px;
   background-color: #312b45;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
   border-bottom-left-radius: 0;
+}
 
-  & > :last-child {
-    margin-top: 4px;
+.messageRight {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 16px;
+}
+
+.error {
+  background-color: #ff542e;
+  padding: 12px 12px 12px 52px;
+  border-radius: 4px;
+
+  & > * {
+    color: white;
   }
 }
 
-.right {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 16px;
+.success {
+  background-color: #6eb800;
 }

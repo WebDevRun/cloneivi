@@ -7,11 +7,16 @@ import { names } from './icons'
 interface SvgProps {
   size?: 'small' | 'middle' | 'big' | 'large'
   icon: INameIcons | INameIconsExt
-  ext?: true | false
-  fill?: string 
+  ext?: boolean
+  fill?: string
 }
 
-export const Svg: FC<SvgProps> = ({ size = 'middle', icon, ext = false, fill }) => {
+export const Svg: FC<SvgProps> = ({
+  size = 'middle',
+  icon,
+  ext = false,
+  fill = '#ffffff',
+}) => {
   const sz = {
     small: 16,
     middle: 20,
@@ -28,11 +33,20 @@ export const Svg: FC<SvgProps> = ({ size = 'middle', icon, ext = false, fill }) 
           width={sz[size]}
           height={sz[size]}
           viewBox={`0 0 32 32`}
+          fill={fill}
         >
           {names[icon as INameIcons]}
         </svg>
       )}
-      {ext && <>{cloneElement(names[icon as INameIconsExt], { width: sz[size], height: sz[size], fill: fill })}</>}
+      {ext && (
+        <>
+          {cloneElement(names[icon as INameIconsExt], {
+            width: sz[size],
+            height: sz[size],
+            fill: fill,
+          })}
+        </>
+      )}
     </>
   )
 }
