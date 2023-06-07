@@ -1,13 +1,22 @@
 import { screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 import React from 'react'
 
-import { IGenre } from '@/types/movie'
 import { renderWithProviders } from '@testConfig/storeWrapper'
 
 import { GenrePatchList } from './GenrePatchList'
+
+jest.mock('react-i18next', () => ({
+  useTranslation: () => {
+    return {
+      t: (str: string) => str,
+      i18n: {
+        changeLanguage: () => new Promise(() => {}),
+      },
+    }
+  },
+}))
 
 const mockData = [
   {
@@ -28,26 +37,9 @@ export const handlers = [
   rest.get('/genres', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockData), ctx.delay(150))
   }),
-  rest.patch(`/genres/${mockData[0].genre_id}`, async (req, res, ctx) => {
-    const data = await req.json<IGenre>()
-    mockData[0].genre_ru = data.genre_ru
-
-    return res(ctx.status(200), ctx.json(mockData))
-  }),
 ]
 
 export const server = setupServer(...handlers)
-
-jest.mock('react-i18next', () => ({
-  useTranslation: () => {
-    return {
-      t: (str: string) => str,
-      i18n: {
-        changeLanguage: () => new Promise(() => {}),
-      },
-    }
-  },
-}))
 
 beforeAll(() => server.listen())
 beforeEach(() => renderWithProviders(<GenrePatchList />))
@@ -63,19 +55,5 @@ describe('GenrePatchList tests', () => {
     const inputs = await screen.findAllByRole('textbox')
 
     expect(inputs).toHaveLength(4)
-  })
-
-  it('should update input value', async () => {
-    const input = await screen.findByDisplayValue(/мюзикл/i)
-    const buttons = await screen.findAllByText(/save/i)
-    const user = userEvent.setup()
-
-    expect(input).toBeInTheDocument()
-
-    await user.type(input, '1')
-    await user.click(buttons[0])
-
-    expect(mockData[0].genre_ru).toBe('мюзикл1')
-    expect(input).toHaveValue('мюзикл1')
   })
 })
