@@ -8,7 +8,7 @@
   padding-left: fn.toRem(12px);
   padding-right: fn.toRem(12px);
   height: fn.toRem(66px);
-  z-index: 2;
+  z-index: 100;
 }
 
 .headerLogo {
@@ -77,11 +77,11 @@
   margin-left: fn.toRem(12px);
 
   svg {
-    fill: rgba(255, 255, 255, 0.48);
+    fill: rgba(white, 0.48);
     transition-duration: 0.4s;
 
     &:hover {
-      fill: #fff;
+      fill: white;
     }
   }
 }
