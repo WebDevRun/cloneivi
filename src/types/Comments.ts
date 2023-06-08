@@ -7,17 +7,17 @@ export interface IComment {
   updatedAt: string
   user_id: string
   parent_id: string | null
-  vote: number
-  user: User
+  like: number
+  user: IUser
   sub_comments: IComment[]
 }
 
-export interface User {
+export interface IUser {
   email: string
-  profile: Profile
+  profile: IProfile
 }
 
-export interface Profile {
+export interface IProfile {
   profile_id: string
   first_name: string
   last_name: string

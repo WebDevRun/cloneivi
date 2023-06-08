@@ -10,8 +10,7 @@ import {
   useState,
 } from 'react'
 
-import { $instance } from '@/axios'
-import { IComment } from '@/types/Comments'
+import { useAddCommentMutation } from '@/store/endpoints/comments'
 
 import { CommentAvatar } from '../CommentAvatar'
 
@@ -21,7 +20,6 @@ interface CommentFormProps {
   type?: 'comment' | 'answer'
   filmId: string
   parentFilmId?: string | null
-  setComments: Dispatch<SetStateAction<IComment[]>>
   setOpen?: Dispatch<SetStateAction<boolean>>
 }
 
@@ -31,12 +29,12 @@ export const CommentForm: FC<CommentFormProps> = ({
   type = 'comment',
   filmId,
   parentFilmId = null,
-  setComments,
   setOpen,
 }) => {
   const [text, setText] = useState('')
   const [isError, setIsError] = useState(false)
   const [isDisabled, setIsDisabled] = useState(true)
+  const [setComment] = useAddCommentMutation()
 
   useEffect(() => {
     if (text.length >= textLengthLimit) {
@@ -61,35 +59,17 @@ export const CommentForm: FC<CommentFormProps> = ({
 
   const submitHandler: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
-    //Пока авторизации нет
-    const token = process.env.NEXT_PUBLIC_TOKEN
 
     const formData = {
       text,
-      vote: 36,
       film_id: filmId,
-      parent_id: null,
-      user_id: process.env.NEXT_PUBLIC_USER_ID, //Пока авторизации нет
+      parent_id: parentFilmId,
+      user_id: process.env.NEXT_PUBLIC_USER_ID as string, //Пока авторизации нет
     }
 
-    try {
-      const { data } = await $instance.post(
-        'http://localhost:4000/comments',
-        JSON.stringify(formData),
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        },
-      )
+    await setComment(formData)
 
-      setComments((prev) => [data, ...prev])
-      setText('')
-    } catch (error) {
-      console.log('error', error) // Временно, пока layout-a нет
-    }
+    setText('')
   }
 
   const openClickhandler: MouseEventHandler<HTMLButtonElement> = () => {

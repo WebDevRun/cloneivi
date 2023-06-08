@@ -1,12 +1,5 @@
-import {
-  Dispatch,
-  FC,
-  MouseEventHandler,
-  SetStateAction,
-  useState,
-} from 'react'
+import { FC, MouseEventHandler, useState } from 'react'
 
-import { IComment } from '@/types/Comments'
 import { formatToMonthName } from '@/utils/functions/formatToMonthName'
 
 import { CommentAvatar } from '../CommentAvatar'
@@ -18,23 +11,21 @@ import styles from './CommentItem.module.scss'
 export interface CommentItemProps {
   date: string
   text: string
-  vote: number
+  like: number
   firstName: string
   lastName: string
   filmId: string
   parentFilmId: string | null
-  setComments: Dispatch<SetStateAction<IComment[]>>
 }
 
 export const CommentItem: FC<CommentItemProps> = ({
   date,
   text,
-  vote,
+  like,
   firstName,
   lastName,
   filmId,
   parentFilmId,
-  setComments,
 }) => {
   const [open, setOpen] = useState(false)
 
@@ -57,7 +48,7 @@ export const CommentItem: FC<CommentItemProps> = ({
         <button className={styles.button}>
           <CommentThumb type='up' className={styles.buttonImage} />
         </button>
-        <span className={styles.vote}>{vote}</span>
+        <span className={styles.vote}>{like}</span>
         <button className={styles.button}>
           <CommentThumb type='down' className={styles.buttonImage} />
         </button>
@@ -73,7 +64,6 @@ export const CommentItem: FC<CommentItemProps> = ({
             type='answer'
             filmId={filmId}
             parentFilmId={parentFilmId}
-            setComments={setComments}
             setOpen={setOpen}
           />
         </div>

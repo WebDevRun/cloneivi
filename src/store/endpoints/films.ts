@@ -19,6 +19,9 @@ export const filmsApi = createApi({
     getFilms: builder.query<IMovie[], void>({
       query: () => '/films',
     }),
+    getFilm: builder.query<IMovie, string>({
+      query: (id) => `/films/${id}`,
+    }),
   }),
 })
 

@@ -1,47 +1,64 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { GetServerSideProps } from 'next'
-import { useTranslation } from 'next-i18next'
+import { GetStaticPaths } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { FC, useState } from 'react'
+import { ReactElement } from 'react'
 
 import { $instance } from '@/axios'
 import { Comments } from '@/components/Comments'
-import { IComment } from '@/types/Comments'
+import { NextPageWithLayout } from '@/pages/_app'
+import { getComments, getRunningQueriesThunk } from '@/store/endpoints/comments'
+import { wrapper } from '@/store/store'
+import { IComment } from '@/types/comments'
+import { IMovie } from '@/types/movie'
 import { AppLayout } from '@layouts/AppLayout'
 
 export interface CommentsProps {
   initialComments: IComment[]
 }
 
-const CommentPage: FC<CommentsProps> = ({ initialComments }) => {
-  const [comments, setComments] = useState<IComment[]>(initialComments)
-  const { t } = useTranslation(['header'])
-
-  return (
-    <main>
-      <AppLayout>
-        <Comments comments={comments} setComments={setComments} />
-      </AppLayout>
-    </main>
-  )
+const CommentsPage: NextPageWithLayout = () => {
+  return <Comments />
 }
 
-export default CommentPage
+CommentsPage.getLayout = function getLayout(page: ReactElement) {
+  return <AppLayout>{page}</AppLayout>
+}
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const localeData = await serverSideTranslations(context.locale ?? 'ru', [
-    'header',
-  ])
+export default CommentsPage
 
-  const { data } = await $instance.get<
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { data: films } = await $instance.get<
     AxiosRequestConfig<undefined>,
-    AxiosResponse<IComment[]>
-  >(`/comments/films/${context.params?.id}`)
+    AxiosResponse<IMovie[]>
+  >(`/films`)
+
+  const paths = films.map((film) => {
+    return { params: { id: film.film_id } }
+  })
 
   return {
-    props: {
-      initialComments: data,
-      ...localeData,
-    },
+    paths,
+    fallback: 'blocking',
   }
 }
+
+export const getStaticProps = wrapper.getStaticProps(
+  (store) => async (context) => {
+    if (typeof context.params?.id === 'string') {
+      store.dispatch(getComments.initiate(context.params?.id))
+    }
+
+    await Promise.all(store.dispatch(getRunningQueriesThunk()))
+
+    const localeData = await serverSideTranslations(context.locale ?? 'ru', [
+      'header',
+      'common',
+    ])
+
+    return {
+      props: {
+        ...localeData,
+      },
+    }
+  },
+)

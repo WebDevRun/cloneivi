@@ -1,32 +1,33 @@
-import { Dispatch, FC, SetStateAction } from 'react'
+import { useRouter } from 'next/router'
+import { FC } from 'react'
 
-import { IComment } from '@/types/Comments'
+import { useGetCommentsQuery } from '@/store/endpoints/comments'
+import { IComment } from '@/types/comments'
 
 import { CommentForm } from './CommentForm'
 import { CommentItem } from './CommentItem'
 import styles from './Comments.module.scss'
 
-export interface CommentProps {
-  comments: IComment[]
-  setComments: Dispatch<SetStateAction<IComment[]>>
-}
+export const Comments: FC = () => {
+  const router = useRouter()
+  const { data: comments } = useGetCommentsQuery(router.query.id as string)
 
-export const Comments: FC<CommentProps> = ({ comments, setComments }) => {
-  const renderComments = (comments: IComment[]) => {
+  const renderComments = (comments: IComment[] | undefined) => {
+    if (comments === undefined) return null
+
     return (
       <ul className={styles.commentList}>
         {comments.map((comment) => {
           return (
             <li key={comment.comment_id}>
               <CommentItem
-                vote={comment.vote}
+                like={comment.like}
                 date={comment.createdAt}
                 text={comment.text}
                 firstName={comment.user.profile.first_name}
                 lastName={comment.user.profile.last_name}
                 filmId={comment.film_id}
                 parentFilmId={comment.parent_id}
-                setComments={setComments}
               />
 
               {comment.sub_comments.length > 0 &&
@@ -41,7 +42,7 @@ export const Comments: FC<CommentProps> = ({ comments, setComments }) => {
   return (
     <div className={styles.comments}>
       <div className={styles.commentForm}>
-        <CommentForm filmId={comments[0].film_id} setComments={setComments} />
+        <CommentForm filmId={router.query.id as string} />
       </div>
 
       {renderComments(comments)}
