@@ -2,11 +2,11 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { FC, MouseEventHandler, useState } from 'react'
 
+import { Svg } from '@/ui/Svg'
 import { formatToMonthName } from '@/utils/functions/formatToMonthName'
 
 import { CommentAvatar } from '../CommentAvatar'
 import { CommentForm } from '../CommentForm'
-import { CommentThumb } from '../CommentThumb'
 
 import styles from './CommentItem.module.scss'
 
@@ -52,11 +52,11 @@ export const CommentItem: FC<CommentItemProps> = ({
 
       <div className={styles.voteContainer}>
         <button className={styles.button}>
-          <CommentThumb type='up' className={styles.buttonImage} />
+          <Svg icon='thumbUp' />
         </button>
         <span className={styles.vote}>{like}</span>
         <button className={styles.button}>
-          <CommentThumb type='down' className={styles.buttonImage} />
+          <Svg icon='thumbDown' />
         </button>
       </div>
 

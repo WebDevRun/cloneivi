@@ -41,16 +41,14 @@ $fontSize: fn.toRem(15px);
   width: 16px;
   height: 16px;
 
-  &:hover .buttonImage {
-    fill: #7e798f;
-  }
-}
-
-.buttonImage {
   width: 100%;
   height: auto;
   fill: rgba(126, 121, 143, 0.72);
   transition-duration: 0.4s;
+
+  &:hover {
+    fill: #7e798f;
+  }
 }
 
 .vote {
