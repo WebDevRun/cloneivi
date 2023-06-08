@@ -10,9 +10,11 @@ import styles from './Button.module.scss'
 export interface ButtonProps {
   icon?: INameIcons
   background?: 'gray' | 'primary' | 'red' | 'transparent'
-  theme?: 'active' | 'passive'
+  theme?: 'active' | 'passive' | 'rating'
   withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg'
   size?: 'small' | 'middle' | 'big'
+  width?: 'full' | 'fitContent'
+  fields?: 'noneFields' | 'widthFields'
   text?: string
   subText?: string
   onClick?: MouseEventHandler<HTMLButtonElement>
@@ -24,8 +26,10 @@ export const Button: FC<ButtonProps> = ({
   theme = 'active',
   withBorder = 'borderNone',
   size = 'middle',
+  width = 'fitContent',
   text,
   subText,
+  fields = 'widthFields',
   onClick,
 }) => {
   const mainCn = cn(
@@ -34,7 +38,9 @@ export const Button: FC<ButtonProps> = ({
     styles[theme],
     styles[withBorder],
     styles[size],
+    styles[width],
     !text && styles.onlyIcon,
+    fields === 'noneFields' && styles[fields],
   )
 
   const iconSize = size === 'big' ? 'big' : 'middle'
@@ -42,9 +48,7 @@ export const Button: FC<ButtonProps> = ({
   return (
     <button type='button' className={mainCn} onClick={onClick}>
       {icon && (
-        <div className={styles.icon}>
-          {<Svg icon={icon} size={iconSize} />}
-        </div>
+        <div className={styles.icon}>{<Svg icon={icon} size={iconSize} />}</div>
       )}
       {text && (
         <div className={styles.mainText}>

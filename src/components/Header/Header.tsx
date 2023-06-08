@@ -3,17 +3,18 @@ import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
+import { LinkBtn } from '@/ui/LinkBtn'
 import { Svg } from '@/ui/Svg'
+import { SwitchLanguage } from '@/ui/SwitchLanguage'
 import logo from '@assets/images/common/ivi.svg'
 
 import { Button } from '../../ui/Button'
-import { Language } from '../../ui/Language'
 
 import styles from './Header.module.scss'
 import menu from './menu.json'
 
 export const Header: FC = () => {
-  const { t } = useTranslation(['header'])
+  const { t } = useTranslation(['common'])
 
   const handleMouseOver = (e: React.MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLElement
@@ -23,12 +24,11 @@ export const Header: FC = () => {
 
     dispatchEvent(event)
   }
-
   return (
     <div className={styles.header} onMouseOver={handleMouseOver}>
       <div className={styles.headerLogo}>
         <Link href='https://www.ivi.ru/'>
-          <Image src={logo} alt={t('header:logo') as string}></Image>
+          <Image src={logo} alt={t('common:logo') as string} />
         </Link>
       </div>
 
@@ -47,44 +47,48 @@ export const Header: FC = () => {
       </nav>
 
       <div className={styles.topWide}>
-        <div className={styles.additionalButton}>
+        <div
+          data-test='header-addButton'
+          className={styles.additionalButton}
+        >
           <Button
             size='small'
             background='primary'
             onClick={() => {}}
-            text={t('header:pay') as string}
+            text={t('common:pay') as string}
           />
         </div>
         <div className={styles.buttonMobile}>
-          <Button size='small' text={t('header:see') as string} />
+          <Button size='small' text={t('common:see') as string} />
         </div>
         <div className={styles.headerSearch}>
           <Button
             background='transparent'
             icon='search'
-            text={t('header:search') as string}
+            text={t('common:search') as string}
           />
         </div>
       </div>
 
       <Link
+        data-test='header-notify'
         className={styles.notifyLink}
-        href="https://www.ivi.ru/profile/pull_notifications"
+        href='https://www.ivi.ru/profile/pull_notifications'
       >
-        <Svg icon="notify" />
+        <Svg icon='notify' />
       </Link>
 
       <div data-test='header-profile' className={styles.profile}>
-        <Button
-          background='transparent'
+        <LinkBtn
+          href='https://www.ivi.ru/profile'
+          mode='account'
+          background='default'
           icon='profile'
-          onClick={() => {}}
-          withBorder='borderBg'
         />
       </div>
 
       <div className={styles.language}>
-        <Language />
+        <SwitchLanguage />
       </div>
     </div>
   )

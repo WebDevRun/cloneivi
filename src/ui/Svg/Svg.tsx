@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, cloneElement } from 'react'
 
 import { INameIcons, INameIconsExt } from '@/types/Icons'
 
@@ -8,9 +8,10 @@ interface SvgProps {
   size?: 'small' | 'middle' | 'big' | 'large'
   icon: INameIcons | INameIconsExt
   ext?: true | false
+  fill?: string 
 }
 
-export const Svg: FC<SvgProps> = ({ size = 'middle', icon, ext = false }) => {
+export const Svg: FC<SvgProps> = ({ size = 'middle', icon, ext = false, fill }) => {
   const sz = {
     small: 16,
     middle: 20,
@@ -26,12 +27,12 @@ export const Svg: FC<SvgProps> = ({ size = 'middle', icon, ext = false }) => {
           xmlns='http://www.w3.org/2000/svg'
           width={sz[size]}
           height={sz[size]}
-          viewBox='0 0 32 32'
+          viewBox={`0 0 32 32`}
         >
           {names[icon as INameIcons]}
         </svg>
       )}
-      {ext && <>{names[icon as INameIconsExt]}</>}
+      {ext && <>{cloneElement(names[icon as INameIconsExt], { width: sz[size], height: sz[size], fill: fill })}</>}
     </>
   )
 }

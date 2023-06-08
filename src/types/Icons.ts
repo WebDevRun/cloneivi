@@ -11,5 +11,16 @@ export type INameIcons =
   | 'profile'
   | 'search'
   | 'share'
+  | 'smart'
+  | 'quality'
+  | 'drama'
+  | 'rating'
+  | 'similar'
 
-export type INameIconsExt = 'top10' | '18plus'
+export type INameIconsExt =
+  | 'top10'
+  | '18plus'
+  | 'user'
+  | 'googlePlay'
+  | 'appStore'
+  | 'dislike'

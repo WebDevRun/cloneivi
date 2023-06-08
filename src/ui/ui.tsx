@@ -17,6 +17,7 @@ export type TextVariants =
   | 'superH1'
   | 'titleH1'
   | 'titleH2'
+  | 'titleXL'
   | 'titleLg'
   | 'titleBg'
   | 'titleMd'
@@ -38,6 +39,48 @@ export function Base({
   ...props
 }: BaseProps) {
   return <Component className={cx(..._cx, className)} {...props} />
+}
+
+export type FlexVariants =
+  | 'wrap'
+  | 'start'
+  | 'baseline'
+  | 'columnStart'
+  | 'column'
+  | 'end'
+  | 'stretch'
+  | 'spaceBetween'
+  | 'center'
+  | 'centerNoWrap'
+  | 'stretchCenter'
+
+interface FlexProps extends BaseProps {
+  variant?: FlexVariants
+  wrap?: boolean
+  alignItems?: FlexVariants
+}
+
+export function Flex({
+  variant,
+  wrap,
+  alignItems,
+  cx: _cx = [],
+  ...props
+}: WithChildren<FlexProps>) {
+  return (
+    <Base
+      cx={[
+        cn(
+          styles.flex,
+          variant && styles[variant],
+          wrap && styles.wrap,
+          alignItems && styles[alignItems],
+        ),
+        ..._cx,
+      ]}
+      {...props}
+    />
+  )
 }
 
 export function Text({

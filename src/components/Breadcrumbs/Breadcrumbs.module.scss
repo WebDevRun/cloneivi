@@ -1,0 +1,65 @@
+@use '../../styles/functions' as fn;
+
+.breadcrumbs {
+  display: flex;
+  color: rgba(white, 0.56);
+  font-weight: 500;
+}
+
+.item {
+  &.slash {
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
+
+    & > .link {
+      color: white;
+
+      &:active,
+      &:hover {
+        background-color: #7e798f;
+      }
+
+      &:not(:hover):not(:active) {
+        box-shadow: 0 fn.toRem(2px) 0 #7e798f, inset 0 0 0 #7e798f;
+        transition-duration: 0.4s;
+      }
+
+      &:hover:not(:active) {
+        box-shadow: 0 0 0 #7e798f, inset 0 -1.5em 0 #7e798f;
+        transition-duration: 80ms;
+      }
+    }
+  }
+
+  &.dot {
+    font-size: fn.toRem(15px);
+    line-height: fn.toRem(20px);
+  }
+
+  &.slash:not(:first-child)::before {
+    content: '/';
+    margin-left: fn.toRem(4px);
+    margin-right: fn.toRem(3px);
+  }
+
+  &.dot:not(:first-child)::before {
+    display: inline-block;
+    content: '';
+    width: fn.toRem(2px);
+    height: fn.toRem(2px);
+    background-color: rgba(white, 0.56);
+    margin-left: fn.toRem(7px);
+    margin-right: fn.toRem(7px);
+    margin-bottom: fn.toRem(3px);
+  }
+}
+
+.link {
+  color: rgba(white, 0.72);
+  transition-duration: 0.4s;
+
+  &:active,
+  &:hover {
+    color: white;
+  }
+}

@@ -1,0 +1,60 @@
+@use '../../../styles/functions' as fn;
+
+.body {
+  display: flex;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 1 100%;
+  margin-left: fn.toRem(16px);
+
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(22px);
+  font-weight: 500;
+  color: #fff;
+}
+
+.info {
+  margin-right: fn.toRem(16px);
+
+  & > *:not(:first-child) {
+    margin-top: fn.toRem(4px);
+  }
+}
+
+.rating {
+  color: #a5a1b2;
+  font-size: fn.toRem(13px);
+  line-height: fn.toRem(16px);
+  font-weight: 500;
+}
+
+.ratingValue {
+  margin-left: fn.toRem(4px);
+  font-weight: 700;
+}
+
+.action {
+  min-width: fn.toRem(140px);
+}
+
+@media (max-width: 600px) {
+
+  .main {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .action {
+    margin-top: fn.toRem(10px);
+    width: 100%;
+
+    & button {
+      width: 100%;
+    }
+  }
+}

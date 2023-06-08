@@ -1,0 +1,15 @@
+@use '../../styles/functions' as fn;
+
+.backLink {
+  display: flex;
+  height: fn.toRem(20px);
+}
+
+.backLink svg {
+  fill: #ffffff;
+}
+
+.text {
+  margin-left: fn.toRem(8px); 
+  color: #ffffff;
+}

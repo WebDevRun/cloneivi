@@ -38,7 +38,7 @@
     top: 0;
     transition-duration: 80ms;
     transition-property: background-color;
-    z-index: 1;
+    z-index: 1000;
   }
 }
 
@@ -123,13 +123,53 @@
   height: 100%;
   width: fn.toRem(244px);
   margin-right: fn.toRem(12px);
-
-  background-color: rgb(85, 35, 0);
 }
 
 .nativeScrollInner {
   overflow: hidden;
 }
+
+//----- Это изменить -----
+.subscriptionAdd {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.mainContent {
+  width: 50%;
+}
+
+.subtitle {
+  margin-top: fn.toRem(8px);
+}
+
+.tilesList {
+  grid-gap: fn.toRem(24px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(fn.toRem(155px), 1fr));
+  grid-template-rows: auto;
+  margin-top: fn.toRem(32px);
+}
+
+.tileItem:nth-child(2) {
+  grid-column: span 2;
+}
+
+.footer {
+  display: flex;
+  margin-top: 32px;
+}
+
+.action {
+  padding-right: 24px;
+  width: 66.7%;
+}
+
+.info {
+  width: 33.3%;
+}
+//-------------------------------
 
 .notifyWrap {
   display: flex;
@@ -207,7 +247,7 @@
   position: relative;
   background-color: #312b45;
   border-radius: fn.toRem(8px);
-  min-height: fn.toRem(108px);
+  min-height: fn.toRem(128px);
 
   font-size: fn.toRem(15px);
   font-weight: 400;
@@ -231,5 +271,3 @@
 .textBlock > :first-child {
   color: #fff;
 }
-
-
