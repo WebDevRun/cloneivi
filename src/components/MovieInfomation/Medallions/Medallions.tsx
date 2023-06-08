@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { FC } from 'react'
 
 import { Button } from '@/ui/Button'
@@ -6,10 +7,12 @@ import { LinkBtn } from '@/ui/LinkBtn'
 import styles from './Medallions.module.scss'
 
 export interface IPerson {
-  first_name: string
-  last_name: string
+  first_name_ru: string
+  last_name_ru: string
+  first_name_en: string
+  last_name_en: string
   img: string
-  id: string
+  person_id: string
 }
 
 export interface MedallionsProps {
@@ -18,6 +21,8 @@ export interface MedallionsProps {
 }
 
 export const Medallions: FC<MedallionsProps> = ({ rating, persons }) => {
+  const router = useRouter()
+
   return (
     <div className={styles.medallions}>
       {/* <Button
@@ -32,12 +37,20 @@ export const Medallions: FC<MedallionsProps> = ({ rating, persons }) => {
       {persons.map((person) => {
         return (
           <LinkBtn
-            key={person.id}
-            href={`/person/${person.id}`}
-            imgAlt={`${person.first_name} ${person.last_name}`}
+            key={person.person_id}
+            href={`/person/${person.person_id}`}
+            imgAlt={
+              router.locale === 'ru'
+                ? `${person.first_name_ru} ${person.last_name_ru}`
+                : `${person.first_name_en} ${person.last_name_en}`
+            }
             imgSrc={person.img}
             mode='actor'
-            text={`${person.first_name} ${person.last_name}`}
+            text={
+              router.locale === 'ru'
+                ? `${person.first_name_ru} ${person.last_name_ru}`
+                : `${person.first_name_en} ${person.last_name_en}`
+            }
             type='square'
           />
         )

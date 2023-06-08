@@ -65,6 +65,7 @@ export const TextCollapse: FC<TextCollapseProps> = (props) => {
           size='middle'
           text={buttonText}
           withBorder='borderNone'
+          fields='noneFields'
         />
       )}
     </>
