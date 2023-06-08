@@ -8,8 +8,8 @@ import { AppLayout } from '@layouts/AppLayout'
 import { NextPageWithLayout } from './_app'
 
 const Home: NextPageWithLayout = () => {
-  const { t } = useTranslation(['header'])
-  return <h1>{t('header:more')}</h1>
+  const { t } = useTranslation()
+  return <h1>{t('common:more')}</h1>
 }
 
 Home.getLayout = function getLayout(page: ReactElement) {
