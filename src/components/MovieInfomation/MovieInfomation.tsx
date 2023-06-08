@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next'
-import { FC, MouseEventHandler, useState } from 'react'
+import { FC } from 'react'
 
-import { Button } from '@/ui/Button'
+import { TextCollapse } from '../TextCollapse'
 
 import { IPerson } from './Medallions'
 import { MovieDescription } from './MovieDescription'
@@ -36,12 +36,7 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
   rating,
   persons,
 }) => {
-  const [isClose, setIsClose] = useState(true)
   const { t } = useTranslation(['common'])
-
-  const clickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
-    setIsClose((prev) => !prev)
-  }
 
   return (
     <div className={styles.movieInfomation}>
@@ -57,25 +52,20 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
       />
 
       <div className={styles.watchDescriptionContainer}>
-        <MovieDescription
-          isClose={isClose}
-          description={description}
-          languagesAudio={languagesAudio}
-          qualities={qualities}
-          persons={persons.slice(0, 4)}
-          rating={rating}
-        />
-
-        <Button
-          background='transparent'
-          fields='noneFields'
-          text={
-            isClose
-              ? `${t('common:filmDetails')}`
-              : `${t('common:collapseDetails')}`
-          }
-          onClick={clickHandler}
-        />
+        <TextCollapse
+          maxChar={200}
+          textForCollapse={`${t('common:collapseDetails')}`}
+          textForExpand={`${t('common:filmDetails')}`}
+        >
+          <MovieDescription
+            isClose={false}
+            description={description}
+            languagesAudio={languagesAudio}
+            qualities={qualities}
+            persons={persons}
+            rating={rating}
+          />
+        </TextCollapse>
       </div>
 
       <MovieRating rating={rating}></MovieRating>

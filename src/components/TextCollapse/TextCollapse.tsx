@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next'
-import { FC, ReactElement, useState } from 'react'
+import { FC, ReactElement, useEffect, useState } from 'react'
 import { renderToString } from 'react-dom/server'
 
 import { Button } from '@/ui/Button'
@@ -16,6 +16,8 @@ export interface TextCollapseProps {
 }
 
 export const TextCollapse: FC<TextCollapseProps> = (props) => {
+  const [stringNodeOut, setStringNodeOut] = useState('')
+
   const { t } = useTranslation()
 
   const {
@@ -29,15 +31,32 @@ export const TextCollapse: FC<TextCollapseProps> = (props) => {
   const toggleExpand = () => setIsExpanded((prevState) => !prevState)
 
   const stringNode = renderToString(children)
+  const stringNodeShort = cutStringOfNodes(stringNode, maxChar)
+
+  useEffect(() => {
+    const textCollapseElement = document.createElement('div')
+    textCollapseElement.classList.add(`${styles.textCollapse}`)
+
+    textCollapseElement.innerHTML = stringNodeShort
+
+    while (textCollapseElement.querySelectorAll(':empty').length) {
+      const emptyTags = textCollapseElement.querySelectorAll(':empty')
+
+      emptyTags.forEach((tag) => {
+        tag.parentElement?.removeChild(tag)
+      })
+    }
+    setStringNodeOut(textCollapseElement.outerHTML)
+  }, [isExpanded, stringNodeShort])
 
   const displayedText = isExpanded
     ? stringNode
-    : cutStringOfNodes(stringNode, maxChar)
+    : cutStringOfNodes(stringNodeOut, maxChar)
 
   const buttonText = isExpanded ? textForCollapse : textForExpand
 
   return (
-    <div className={styles.textCollapse}>
+    <>
       <div dangerouslySetInnerHTML={{ __html: displayedText }} />
       {displayedText.length > maxChar && (
         <Button
@@ -48,6 +67,6 @@ export const TextCollapse: FC<TextCollapseProps> = (props) => {
           withBorder='borderNone'
         />
       )}
-    </div>
+    </>
   )
 }
