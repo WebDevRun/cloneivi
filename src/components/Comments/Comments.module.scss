@@ -10,16 +10,20 @@
   gap: fn.toRem(28px);
 
   & ul {
-    margin-left: fn.toRem(28px);
-    margin-top: fn.toRem(28px);
+    $margin: fn.toRem(28px);
+
+    margin-left: $margin;
+    margin-top: $margin;
   }
 }
 
 @media (max-width: 600px) {
   .commentList {
     & ul {
-      margin-left: fn.toRem(10px);
-      margin-top: fn.toRem(10px);
+      $marginSmall: fn.toRem(10px);
+
+      margin-left: $marginSmall;
+      margin-top: $marginSmall;
     }
   }
 }

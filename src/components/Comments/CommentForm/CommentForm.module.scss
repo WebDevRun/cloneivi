@@ -1,6 +1,6 @@
 @use '@styles/functions' as fn;
 
-$borderRadius: 8px;
+$borderRadius: fn.toRem(8px);
 $fontSize: fn.toRem(15px);
 $transitionDuration: 0.4s;
 $inputTransform: scale(0.87) translate(fn.toRem(-12px), fn.toRem(-24px));
@@ -63,7 +63,7 @@ $errorColor: #ff542e;
 
 .buttonContainer {
   display: flex;
-  gap: 8px;
+  gap: fn.toRem(8px);
 }
 
 .button {
