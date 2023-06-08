@@ -1,15 +1,15 @@
 @use '../../styles/functions' as fn;
 
 .movieCard.small {
-  max-width: 154px;
+  max-width: fn.toRem(154px);
   display: block;
 
   .textBadge {
     font-size: fn.toRem(13px);
     font-weight: 700;
-    color: rgb(255, 255, 255);
+    color: white;
     background-color: rgb(255, 84, 46);
-    box-shadow: 0 4px 12px rgba(255, 84, 46, 0.4);
+    box-shadow: 0 fn.toRem(4px) fn.toRem(12px) rgba(255, 84, 46, 0.4);
     padding: fn.toRem(3px) fn.toRem(8px);
     border-radius: fn.toRem(50px);
     position: absolute;
@@ -82,8 +82,8 @@
 }
 
 .ageBadge {
-  width: 24px;
-  height: 16px;
+  width: fn.toRem(24px);
+  height: fn.toRem(16px);
   background: rgba(0, 0, 0, 0.6);
   border-radius: fn.toRem(4px);
   font-size: fn.toRem(10.5px);
@@ -97,12 +97,12 @@
 .iconBtn {
   background: transparent;
 
-  svg{
+  svg {
     fill: white;
   }
 }
 
-.dislikeBtn{
+.dislikeBtn {
   background: transparent;
 }
 
@@ -142,7 +142,7 @@
   }
 
   .seriesName {
-    color: rgb(255, 255, 255);
+    color: white;
   }
 }
 
@@ -164,7 +164,7 @@
   line-height: fn.toRem(16px);
   font-weight: 400;
   font-style: normal;
-  max-height: 64px;
+  max-height: fn.toRem(64px);
   display: block;
   display: -webkit-box;
   overflow: hidden;
@@ -177,15 +177,15 @@
 }
 
 .seriesLength {
-  margin-right: 10px;
+  margin-right: fn.toRem(10px);
   color: rgb(165, 161, 178);
-  font-size: 13px;
-  line-height: 16px;
+  font-size: fn.toRem(13px);
+  line-height: fn.toRem(16px);
   font-weight: 400;
   font-style: normal;
-  height: 16px;
+  height: fn.toRem(16px);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  margin-top: 4px;
+  margin-top: fn.toRem(4px);
 }

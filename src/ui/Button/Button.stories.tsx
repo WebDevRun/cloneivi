@@ -12,6 +12,9 @@ const meta: Meta<typeof Button> = {
       control: { type: 'select' },
       description: 'Размер',
     },
+    width: {
+      description: 'Ширина кнопки',
+    },
     icon: {
       control: { type: 'select' },
       description: 'Название иконки',
@@ -30,11 +33,16 @@ const meta: Meta<typeof Button> = {
     },
     subText: {
       type: 'string',
-      description: 'Дополнительный текст на кнопке. Не работает без основного текста',
+      description:
+        'Дополнительный текст на кнопке. Не работает без основного текста',
     },
     onClick: {
       type: 'function',
       description: 'Обработчик нажатия',
+    },
+    theme: {
+      control: { type: 'select' },
+      description: 'Тема',
     },
   },
 
@@ -58,6 +66,16 @@ export const Player: Story = {
     size: 'big',
     text: 'Смотреть с рекламой',
     subText: 'серия 1 сезон 1',
+  },
+}
+
+export const WidthFull: Story = {
+  name: 'На всю ширину родительского контейнера',
+  args: {
+    size: 'big',
+    text: 'Смотреть с рекламой',
+    subText: 'серия 1 сезон 1',
+    width: 'full',
   },
 }
 
@@ -99,6 +117,14 @@ export const Search: Story = {
     background: 'transparent',
     icon: 'search',
     text: 'Поиск',
+  },
+}
+
+export const Rating: Story = {
+  name: 'Рейтинг',
+  args: {
+    theme: 'rating',
+    text: '9,2',
   },
 }
 

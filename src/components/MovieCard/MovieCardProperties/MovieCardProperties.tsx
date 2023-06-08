@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
 import styles from './MovieCardProperties.module.scss'
@@ -13,6 +14,7 @@ export const MovieCardProperties: FC<IMovieCardProperties> = ({
   genre,
   year,
 }) => {
+  const { t } = useTranslation()
   const ratings = ['40%', '20%', '70%', '50%']
   
   return (
@@ -35,7 +37,7 @@ export const MovieCardProperties: FC<IMovieCardProperties> = ({
         </div>
         <div className={styles.propertiesRow}>
           <div className={styles.barChart}>
-            <div className={styles.barChartName}>Сюжет</div>
+            <div className={styles.barChartName}>{t('Story')}</div>
             <div className={styles.progress}>
               <div
                 style={{ width: '23%' }}

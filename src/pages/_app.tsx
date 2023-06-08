@@ -4,9 +4,8 @@ import { appWithTranslation } from 'next-i18next'
 import { ReactElement, ReactNode } from 'react'
 import { Provider } from 'react-redux'
 
+import { wrapper } from '@/store/store'
 import '../styles/index.scss'
-
-import { wrapper } from '@/store'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -19,10 +18,11 @@ type AppPropsWithLayout = AppProps & {
 function App({ Component, ...rest }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page)
   const { store, props } = wrapper.useWrappedStore(rest)
-  const { pageProps } = props
 
   return (
-    <Provider store={store}>{getLayout(<Component {...pageProps} />)}</Provider>
+    <Provider store={store}>
+      {getLayout(<Component {...props.pageProps} />)}
+    </Provider>
   )
 }
 
