@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { useTranslation } from 'next-i18next'
 import {
   ChangeEventHandler,
   Dispatch,
@@ -31,6 +32,7 @@ export const CommentForm: FC<CommentFormProps> = ({
   parentFilmId = null,
   setOpen,
 }) => {
+  const { t } = useTranslation(['common'])
   const [text, setText] = useState('')
   const [isError, setIsError] = useState(false)
   const [isDisabled, setIsDisabled] = useState(true)
@@ -96,13 +98,18 @@ export const CommentForm: FC<CommentFormProps> = ({
               [styles.error]: isError,
             })}
           >
-            {type === 'comment' ? 'Написать отзыв' : 'Ответить'}
+            {type === 'comment'
+              ? `${t('common:WriteReview')}`
+              : `${t('common:Answer')}`}
           </p>
         </label>
 
         {text.length > 0 && text.length < textLengthLimit && (
           <p className={styles.caption}>
-            Минимум {textLengthLimit} символов, вы ввели {text.length}
+            {`${t('common:MinWords', {
+              textLengthLimit,
+              textLength: text.length,
+            })}`}
           </p>
         )}
       </div>
@@ -115,7 +122,7 @@ export const CommentForm: FC<CommentFormProps> = ({
           type='submit'
           disabled={isDisabled}
         >
-          Отправить
+          {t('common:Send')}
         </button>
         {type === 'answer' && (
           <button
@@ -123,7 +130,7 @@ export const CommentForm: FC<CommentFormProps> = ({
             type='button'
             onClick={openClickhandler}
           >
-            Закрыть
+            {t('common:Close')}
           </button>
         )}
       </div>

@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
 import { FC, MouseEventHandler, useState } from 'react'
 
 import { formatToMonthName } from '@/utils/functions/formatToMonthName'
@@ -27,6 +29,8 @@ export const CommentItem: FC<CommentItemProps> = ({
   filmId,
   parentFilmId,
 }) => {
+  const { t } = useTranslation()
+  const router = useRouter()
   const [open, setOpen] = useState(false)
 
   const openCommentFormHandler: MouseEventHandler<HTMLButtonElement> = () => {
@@ -39,7 +43,9 @@ export const CommentItem: FC<CommentItemProps> = ({
 
       <p className={styles.title}>
         {`${firstName} ${lastName}`}
-        <span className={styles.date}>{formatToMonthName(date, 'ru')}</span>
+        <span className={styles.date}>
+          {formatToMonthName(date, router.locale || 'ru')}
+        </span>
       </p>
 
       <p className={styles.text}>{text}</p>
@@ -55,7 +61,7 @@ export const CommentItem: FC<CommentItemProps> = ({
       </div>
 
       <button className={styles.answerButton} onClick={openCommentFormHandler}>
-        Ответить
+        {`${t('common:Answer')}`}
       </button>
 
       {open && (

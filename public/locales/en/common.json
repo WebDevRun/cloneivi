@@ -160,5 +160,10 @@
   "FilmsOf2023": "Films of 2023",
   "FilmsOf2022": "Films of 2022",
   "FilmsOf2021": "Films of 2021",
-  "FilmsOf2020": "Films of 2020"
+  "FilmsOf2020": "Films of 2020",
+  "WriteReview": "Write review",
+  "Answer": "Answer",
+  "MinWords": "Minimum {{ textLengthLimit }} characters, you entered {{ textLength }}",
+  "Send": "Send",
+  "Close": "Close"
 }
