@@ -87,3 +87,17 @@ $errorColor: #ff542e;
 .error {
   color: $errorColor;
 }
+
+@media (max-width: 600px) {
+  .commentForm {
+    flex-direction: column;
+  }
+
+  .avatar {
+    display: none;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

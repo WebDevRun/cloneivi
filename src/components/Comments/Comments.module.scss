@@ -14,3 +14,12 @@
     margin-top: fn.toRem(28px);
   }
 }
+
+@media (max-width: 600px) {
+  .commentList {
+    & ul {
+      margin-left: fn.toRem(10px);
+      margin-top: fn.toRem(10px);
+    }
+  }
+}

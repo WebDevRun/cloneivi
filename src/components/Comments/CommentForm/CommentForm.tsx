@@ -80,7 +80,9 @@ export const CommentForm: FC<CommentFormProps> = ({
 
   return (
     <form className={styles.commentForm} onSubmit={submitHandler}>
-      <CommentAvatar />
+      <div className={styles.avatar}>
+        <CommentAvatar />
+      </div>
 
       <div className={styles.inputContainer}>
         <label className={styles.label}>
