@@ -87,7 +87,7 @@ export const MovieCard: FC<MovieCardProps> = ({
                   <Svg icon='rating'/>
                 </button>
                 <button className={styles.dislikeBtn} onClick={addDislike}>
-                  <Svg icon='dislike' fill={dislike ? 'red' : 'white'} ext={true}/>
+                  <Svg icon='dislike' fill={dislike ? 'red' : 'white'}/>
                 </button>
               </div>
               <MovieCardProperties rating={rating} year={year} genre={genre} />
