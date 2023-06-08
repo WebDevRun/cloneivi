@@ -31,19 +31,15 @@ export const commentsApi = createApi({
         user_id: string
       }
     >({
-      query: ({ text, film_id, user_id }) => ({
+      query: (body) => ({
         url: '/comments',
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        body: {
-          text,
-          film_id,
-          user_id,
-        },
-        invalidatesTags: () => [{ type: 'Comments' }],
+        body,
       }),
+      invalidatesTags: () => [{ type: 'Comments' }],
     }),
   }),
 })

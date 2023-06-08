@@ -27,7 +27,7 @@ export const Comments: FC = () => {
                 firstName={comment.user.profile.first_name}
                 lastName={comment.user.profile.last_name}
                 filmId={comment.film_id}
-                parentFilmId={comment.parent_id}
+                parentFilmId={comment.comment_id}
               />
 
               {comment.sub_comments.length > 0 &&
