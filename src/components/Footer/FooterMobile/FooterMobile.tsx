@@ -63,7 +63,7 @@ export const FooterMobile = () => {
               <Svg
                 icon={btn.icon as INameIcons | INameIconsExt}
                 fill={activeButton === btn.btnName ? 'white' : 'gray'}
-                ext={true}
+                ext={btn.icon == 'avatar' ? true : false}
               />
             </div>
             <p className={styles.tabBarText}>{btn.btnText}</p>

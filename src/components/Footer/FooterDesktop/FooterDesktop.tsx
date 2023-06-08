@@ -126,7 +126,6 @@ export const FooterDesktop = () => {
                 type="square"
                 mode='footer'
                 icon='email'
-                iconExt={true}
                 iconSize='small'
               />
               <LinkBtn
@@ -134,7 +133,6 @@ export const FooterDesktop = () => {
                 type="square"
                 mode='footer'
                 icon='phone'
-                iconExt={true}
                 iconSize='small'
               />
             </div>
@@ -165,7 +163,6 @@ export const FooterDesktop = () => {
                 subText={store.subText}
                 mode='footer'
                 icon={store.icon as INameIcons | INameIconsExt}
-                iconExt={true}
               />
             ))}
           </div>
