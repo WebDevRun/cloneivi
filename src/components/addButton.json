@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "title": "NewTVSeriesAndMovies",
+      "extra": "",
+      "icon": "films",
+      "href": "https://www.ivi.ru/profile/purchases"
+    },
+    {
+      "title": "WeeklyReplenishmentCatalog",
+      "extra": "",
+      "icon": "catalogAdd",
+      "href": "https://www.ivi.ru/profile/favorites"
+    },
+    {
+      "title": "MoviesAndSeriesWithoutAds",
+      "extra": "",
+      "icon": "noAds",
+      "href": "https://www.ivi.ru/profile/watched"
+    },
+    {
+      "title": "FamilyAccount5Devices",
+      "extra": "",
+      "icon": "anyDev",
+      "href": "https://www.ivi.ru/profile/subscriptions"
+    },
+    {
+      "title": "UploadingToMobileDevices",
+      "extra": "",
+      "icon": "download",
+      "href": ""
+    }
+  ]
+}

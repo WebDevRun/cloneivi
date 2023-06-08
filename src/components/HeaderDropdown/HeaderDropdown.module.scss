@@ -1,0 +1,273 @@
+@use '../../styles/functions' as fn;
+
+.headerDropdown {
+  display: none;
+  flex-direction: column;
+  background: #1f1b2e;
+  border-radius: fn.toRem(12px);
+  box-shadow: 0 fn.toRem(20px) fn.toRem(96px) #12101b;
+}
+
+.headerDropdownActive {
+  display: flex;
+  flex-direction: column;
+  background: #1f1b2e;
+  border-radius: fn.toRem(12px);
+  box-shadow: 0 fn.toRem(20px) fn.toRem(96px) #12101b;
+
+  @media (max-width: 1160px) {
+    display: none;
+  }
+}
+
+.headerDropdownBody {
+  margin-top: fn.toRem(68px);
+  padding: fn.toRem(32px) fn.toRem(12px);
+  background-color: transparent;
+  color: #a5a1b2;
+  position: relative;
+
+  &::after {
+    background-color: hsla(0, 0%, 100%, 0.16);
+    content: '';
+    height: 1px;
+    left: fn.toRem(8px);
+    pointer-events: none;
+    position: absolute;
+    right: fn.toRem(8px);
+    top: 0;
+    transition-duration: 80ms;
+    transition-property: background-color;
+    z-index: 1000;
+  }
+}
+
+.doubleColumn {
+  width: 33.3%;
+}
+
+.dropdownContent {
+  display: flex;
+  justify-items: stretch;
+}
+
+.dropdownContent > * {
+  padding-left: fn.toRem(12px);
+  padding-right: fn.toRem(12px);
+}
+
+.singleColumn {
+  width: 16.7%;
+}
+
+.singleColumn > *:not(:first-child) {
+  margin-top: fn.toRem(24px);
+}
+
+.sideContent {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sideContentFull {
+  width: 100%;
+}
+
+.sideContentFull > .group {
+  width: 17.5%;
+  padding-left: fn.toRem(12px);
+  padding-right: fn.toRem(12px);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.group > :first-child {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+}
+
+.group > :last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContentTv {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-left: fn.toRem(32px);
+  margin-left: fn.toRem(12px);
+  border-left: 1px solid hsla(0, 0%, 100%, 0.16);
+  min-height: fn.toRem(300px);
+
+  .title {
+    color: #fff;
+    font-size: fn.toRem(15px);
+    font-weight: 700;
+    line-height: fn.toRem(20px);
+    margin-bottom: fn.toRem(16px);
+  }
+}
+
+.sideContentWidget {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: fn.toRem(244px);
+  margin-right: fn.toRem(12px);
+}
+
+.nativeScrollInner {
+  overflow: hidden;
+}
+
+//----- Это изменить -----
+.subscriptionAdd {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.mainContent {
+  width: 50%;
+}
+
+.subtitle {
+  margin-top: fn.toRem(8px);
+}
+
+.tilesList {
+  grid-gap: fn.toRem(24px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(fn.toRem(155px), 1fr));
+  grid-template-rows: auto;
+  margin-top: fn.toRem(32px);
+}
+
+.tileItem:nth-child(2) {
+  grid-column: span 2;
+}
+
+.footer {
+  display: flex;
+  margin-top: 32px;
+}
+
+.action {
+  padding-right: 24px;
+  width: 66.7%;
+}
+
+.info {
+  width: 33.3%;
+}
+//-------------------------------
+
+.notifyWrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: fn.toRem(250px);
+}
+
+.notify {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notifyBell {
+  position: relative;
+
+  svg {
+    fill: #a5a1b2;
+    opacity: 0.32;
+  }
+}
+
+.clink {
+  position: absolute;
+  top: 1px;
+  left: 0;
+}
+
+.notifyText {
+  opacity: 0.32;
+  margin-top: fn.toRem(24px);
+}
+
+.profile {
+  display: flex;
+  min-height: fn.toRem(224px);
+  width: 100%;
+}
+
+.profileMain {
+  grid-gap: fn.toRem(24px);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(fn.toRem(155px), 1fr));
+  grid-template-rows: repeat(2, auto);
+  padding-right: fn.toRem(12px);
+  width: 66.7%;
+}
+
+.profileSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid hsla(0, 0%, 100%, 0.16);
+  padding-left: fn.toRem(24px);
+  margin-left: fn.toRem(12px);
+  width: 33.3%;
+}
+
+.list > *:not(:first-child) {
+  margin-top: fn.toRem(8px);
+}
+
+.list a {
+  font-size: fn.toRem(15px);
+  font-weight: 400;
+  line-height: fn.toRem(20px);
+  color: hsla(0, 0%, 100%, 0.48);
+}
+
+// После вставки компонента карточки профиля все что внизу удалить
+
+.profileItem {
+  position: relative;
+  background-color: #312b45;
+  border-radius: fn.toRem(8px);
+  min-height: fn.toRem(128px);
+
+  font-size: fn.toRem(15px);
+  font-weight: 400;
+  line-height: fn.toRem(20px);
+  color: hsla(0, 0%, 100%, 0.48);
+}
+
+.profileItem > :first-child {
+  position: absolute;
+  top: fn.toRem(16px);
+  left: fn.toRem(16px);
+}
+
+.textBlock {
+  position: absolute;
+  bottom: fn.toRem(16px);
+  left: fn.toRem(16px);
+  right: fn.toRem(16px);
+}
+
+.textBlock > :first-child {
+  color: #fff;
+}
