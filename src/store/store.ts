@@ -1,19 +1,36 @@
-import { configureStore } from '@reduxjs/toolkit'
+import {
+  Action,
+  combineReducers,
+  configureStore,
+  ThunkAction,
+} from '@reduxjs/toolkit'
 import { createWrapper } from 'next-redux-wrapper'
 
+import { commentsApi } from './endpoints/comments'
 import { filmsApi } from './endpoints/films'
 
-export const makeStore = () =>
+const rootReducer = combineReducers({
+  [filmsApi.reducerPath]: filmsApi.reducer,
+  [commentsApi.reducerPath]: commentsApi.reducer,
+})
+
+const middlewares = [filmsApi.middleware, commentsApi.middleware]
+
+export const setupStore = () =>
   configureStore({
-    reducer: {
-      [filmsApi.reducerPath]: filmsApi.reducer,
-    },
+    reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(filmsApi.middleware),
+      getDefaultMiddleware().concat(middlewares),
   })
 
-export type AppStore = ReturnType<typeof makeStore>
-export type RootState = ReturnType<AppStore['getState']>
+export type AppStore = ReturnType<typeof setupStore>
+export type AppState = ReturnType<AppStore['getState']>
 export type AppDispatch = AppStore['dispatch']
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  AppState,
+  unknown,
+  Action<string>
+>
 
-export const wrapper = createWrapper<AppStore>(makeStore)
+export const wrapper = createWrapper<AppStore>(setupStore)

@@ -1,0 +1,1 @@
+export { CommentThumb } from './CommentThumb'

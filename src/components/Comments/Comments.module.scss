@@ -1,0 +1,16 @@
+@use '@styles/functions' as fn;
+
+.commentForm {
+  margin-bottom: fn.toRem(32px);
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: fn.toRem(28px);
+
+  & ul {
+    margin-left: fn.toRem(28px);
+    margin-top: fn.toRem(28px);
+  }
+}
