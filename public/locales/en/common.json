@@ -41,7 +41,7 @@
   "Subscription": "Subscription",
   "subscription": "Subscription for 99 ₽",
   "subscriptionIvi": "Subscription Ivi",
-  "activateCertificate": "Activate certificate",
+  "ActivateCertificate": "Activate certificate",
   "Anime": "Anime",
   "Biography": "Biography",
   "Action": "Action",
@@ -84,6 +84,7 @@
   "search": "Search",
   "see": "Watch 30 days in 1₽",
   "Watch30DaysFor1": "Watch 30 days for 1₽",
+  "DaysSubscriptionFor": "days subscription for",
   "logIn": "Log in to your account",
   "logo": "logo",
   "searchPlaceholder": "Movies, persons, genres",
@@ -163,5 +164,8 @@
   "FilmsOf2021": "Films of 2021",
   "FilmsOf2020": "Films of 2020",
   "Exclusive": "exclusive",
-  "Story": "Story"
+  "Story": "Story",
+  "IviOnlineCinemaMoviesInHighQuality": "Ivi online cinema: movies in high quality always bring real pleasure",
+  "GoodAnimatedSeries": "Good animated series",
+  "NewMovies": "New movies"
 }

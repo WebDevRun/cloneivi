@@ -27,21 +27,20 @@ const Home: NextPageWithLayout = () => {
               size='big'
               background='gray'
               width='full'
-              text='30 дней подписки за 1 ₽'
+              text={`30 ${t('DaysSubscriptionFor')} 1 ₽`}
             />
             <Button
               size='big'
               background='gray'
               width='full'
-              text='Активировать сертификат'
+              text={`${t('ActivateCertificate')}`}
             />
           </Flex>
         </section>
 
         <section>
           <H2 className={styles.clauseTitle}>
-            Онлайн-кинотеатр Иви: фильмы в хорошем качестве всегда приносят
-            настоящее удовольствие
+          {`${t('IviOnlineCinemaMoviesInHighQuality')}`}
           </H2>
 
           <TextCollapse maxChar={231}>
@@ -111,11 +110,11 @@ const Home: NextPageWithLayout = () => {
         </section>
 
         <section>
-          <IconInText icon='arrowRight' text='Добрые мультсериалы' />
+          <IconInText icon='arrowRight' text={`${t('GoodAnimatedSeries')}`} />
         </section>
 
         <section>
-          <IconInText icon='arrowRight' text='Фильмы-новинки' />
+          <IconInText icon='arrowRight' text={`${t('NewMovies')}`} />
         </section>
 
         <section className={styles.noticeTvBlock}>

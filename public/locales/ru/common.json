@@ -10,7 +10,7 @@
   "subscription": "Подписка за 99 ₽",
   "subscriptionIvi": "Подписка Иви",
   "plug99": "Подключить за 99 ₽",
-  "activateCertificate": "Активировать сертификат",
+  "ActivateCertificate": "Активировать сертификат",
   "aboutUs": "О нас",
   "aboutCompany": "О компании",
   "jobs": "Вакансии",
@@ -71,6 +71,7 @@
   "search": "Поиск",
   "see": "Смотреть 30 дней за 1₽",
   "Watch30DaysFor1": "Смотреть 30 дней за 1₽",
+  "DaysSubscriptionFor": "дней подписки за",
   "logIn": "Войти в аккаунт",
   "logo": "Логотип",
   "searchPlaceholder": "Фильмы, персоны, жанры",
@@ -163,5 +164,8 @@
   "FilmsOf2021": "Фильмы 2021 года",
   "FilmsOf2020": "Фильмы 2020 года",
   "Exclusive": "эксклюзив",
-  "Story": "Сюжет"
+  "Story": "Сюжет",
+  "IviOnlineCinemaMoviesInHighQuality": "Онлайн-кинотеатр Иви: фильмы в хорошем качестве всегда приносят настоящее удовольствие",
+  "GoodAnimatedSeries": "Добрые мультсериалы",
+  "NewMovies": "Фильмы-новинки"
 }
