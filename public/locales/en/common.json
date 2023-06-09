@@ -165,5 +165,14 @@
   "FilmsOf2021": "Films of 2021",
   "FilmsOf2020": "Films of 2020",
   "Exclusive": "exclusive",
-  "Story": "Story"
+  "Story": "Story",
+  "WatchOnAllDevices": "Watch «{{ name }}» on all devices",
+  "AppAvailable": "The app is available for download on iOS, Android, Smart TV and set-top boxes",
+  "ConnectDevices": "Connect devices",
+  "ViewingDevices": "Viewing devices",
+  "Languages": "Languages",
+  "ImageAndSound": "Image and sound",
+  "ActualQuality": "The actual quality depends on the device and the restrictions of the copyright holder",
+  "KinopoiskRating": "Kinopoisk rating",
+  "Estimate": "Estimate"
 }

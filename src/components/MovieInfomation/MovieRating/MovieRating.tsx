@@ -10,18 +10,18 @@ export interface MovieRatingProps {
 }
 
 export const MovieRating: FC<MovieRatingProps> = ({ rating }) => {
-  const { t } = useTranslation(['movieInfomation'])
+  const { t } = useTranslation()
 
   return (
     <div className={styles.movieRating}>
       <div className={styles.valueContainer}>
         <p className={styles.value}>{rating}</p>
       </div>
-      <div className={styles.text}>{t('movieInfomation:kinopoiskRating')}</div>
+      <div className={styles.text}>{t('KinopoiskRating')}</div>
       <div className={styles.buttonContainer}>
         <Button
           onClick={() => {}}
-          text={`${t('movieInfomation:estimate')}`}
+          text={`${t('Estimate')}`}
           withBorder='borderSm'
         />
       </div>

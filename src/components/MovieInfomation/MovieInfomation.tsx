@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 import { TextCollapse } from '../TextCollapse'
 
-import { IPerson } from './Medallions'
+import { IPerson, Medallions } from './Medallions'
 import { MovieDescription } from './MovieDescription'
 import styles from './MovieInfomation.module.scss'
 import { MovieParams } from './MovieParams'
@@ -36,7 +36,7 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
   rating,
   persons,
 }) => {
-  const { t } = useTranslation(['common'])
+  const { t } = useTranslation()
 
   return (
     <div className={styles.movieInfomation}>
@@ -51,11 +51,15 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
         quality={qualities[0]}
       />
 
+      <div className={styles.medallions}>
+        <Medallions rating={rating} persons={persons} />
+      </div>
+
       <div className={styles.watchDescriptionContainer}>
         <TextCollapse
           maxChar={200}
-          textForCollapse={`${t('common:collapseDetails')}`}
-          textForExpand={`${t('common:filmDetails')}`}
+          textForCollapse={`${t('CollapseDetails')}`}
+          textForExpand={`${t('FilmDetails')}`}
         >
           <MovieDescription
             isClose={false}

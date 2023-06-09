@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 import { capitaliseArr } from '@/utils/functions'
 
-import { Medallions, IPerson } from '../Medallions'
+import { IPerson } from '../Medallions'
 import { MovieQuality } from '../MovieQuality'
 
 import styles from './MovieDescription.module.scss'
@@ -22,10 +22,8 @@ export const MovieDescription: FC<MovieDescriptionProps> = ({
   description,
   languagesAudio,
   qualities,
-  persons,
-  rating,
 }) => {
-  const { t } = useTranslation(['movieInfomation'])
+  const { t } = useTranslation()
 
   return (
     <div
@@ -34,16 +32,12 @@ export const MovieDescription: FC<MovieDescriptionProps> = ({
       }}
       className={styles.movieDescription}
     >
-      <div className={styles.medallions}>
-        <Medallions rating={rating} persons={persons} />
-      </div>
-
       <p className={styles.description}>{description}</p>
 
       <div className={styles.options}>
         <div className={styles.languageContainer}>
           <p className={styles.languageText}>
-            {t('movieInfomation:languages')}
+            {t('Languages')}
           </p>
           <p className={styles.languages}>
             {capitaliseArr(languagesAudio).join(', ')}
@@ -51,9 +45,9 @@ export const MovieDescription: FC<MovieDescriptionProps> = ({
         </div>
 
         <p className={styles.disclaimerContainer}>
-          {`${t('movieInfomation:imageAndSound')}.`}
+          {`${t('ImageAndSound')}.`}
           <span className={styles.disclaimer}>
-            {` ${t('movieInfomation:actualQuality')}.`}
+            {` ${t('ActualQuality')}.`}
           </span>
         </p>
 

@@ -165,5 +165,14 @@
   "FilmsOf2021": "Фильмы 2021 года",
   "FilmsOf2020": "Фильмы 2020 года",
   "Exclusive": "эксклюзив",
-  "Story": "Сюжет"
+  "Story": "Сюжет",
+  "WatchOnAllDevices": "Cмотреть «{{ name }}» на всех устройствах",
+  "AppAvailable": "Приложение доступно для скачивания на iOS, Android, SmartTV и приставках",
+  "ConnectDevices": "Подключить устройства",
+  "ViewingDevices": "Устройства для просмотра",
+  "Languages": "Языки",
+  "ImageAndSound": "Изображение и звук",
+  "ActualQuality": "Фактическое качество зависит от устройства и ограничений правообладателя",
+  "KinopoiskRating": "Рейтинг кинопоиска",
+  "Estimate": "Оценить"
 }

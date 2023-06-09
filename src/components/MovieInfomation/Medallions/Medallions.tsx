@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
-import { Button } from '@/ui/Button'
 import { LinkBtn } from '@/ui/LinkBtn'
 
 import styles from './Medallions.module.scss'
@@ -25,14 +24,6 @@ export const Medallions: FC<MedallionsProps> = ({ rating, persons }) => {
 
   return (
     <div className={styles.medallions}>
-      {/* <Button
-        background='transparent'
-        icon='profile'
-        onClick={() => {}}
-        size='big'
-        withBorder='borderBg'
-        text={`${rating}`}
-      /> */}
 
       {persons.map((person) => {
         return (
