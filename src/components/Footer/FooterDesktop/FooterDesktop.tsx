@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 import styles from './FooterDesktop.module.scss'
 
@@ -92,7 +92,7 @@ export const FooterDesktop = () => {
     <>
       <div className={styles.footerContent}>
         <div className={styles.footerColumn}>
-          <p className={styles.footerColumnTitle}>{t('common:aboutUs')}</p>
+          <p className={styles.footerColumnTitle}>{t('aboutUs')}</p>
           <ul className={styles.footerLinkList}>
             {footerLinks1.map((link, index) => (
               <li key={index} className={styles.footerLinkItem}>
@@ -122,7 +122,7 @@ export const FooterDesktop = () => {
             <p>{t('supportInfo')}</p>
           </div>
           <div className={styles.footerSupport}>
-            <LinkBtn href="/" type="square" text="Написать в чате" mode='footer' />
+            <LinkBtn href="/" type="square" text={t('writeInChat')} mode='footer' />
             <div className={styles.footerSupportButtons}>
               <LinkBtn
                 href="/"
