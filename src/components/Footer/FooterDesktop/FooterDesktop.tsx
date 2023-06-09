@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import { useTranslation } from 'react-i18next'
 
 import styles from './FooterDesktop.module.scss'
 
-import { LinkBtn } from '@/ui/LinkBtn'
 import { INameIcons, INameIconsExt } from '@/types/Icons'
+import { LinkBtn } from '@/ui/LinkBtn'
 
 export const FooterDesktop = () => {
   const footerSocailMedias = [
@@ -43,80 +44,82 @@ export const FooterDesktop = () => {
       href: '/',
       icon: 'appStore',
       text: 'App Store',
-      subText: 'Загрузить в',
+      subText: 'downloadTo',
     },
     {
       href: '/',
       icon: 'googlePlay',
       text: 'Google Play',
-      subText: 'Доступно в',
+      subText: 'AvailableIn',
     },
     {
       href: '/',
       icon: 'smartTV',
       iconAlt: 'Smart Tv',
       text: 'Smart Tv',
-      subText: 'Смотрите на',
+      subText: 'watchAt',
     },
     {
       href: '/',
       icon: 'anyDev',
       iconAlt: 'All Dev',
-      text: 'Все Устройства',
+      text: 'allDevices',
     },
   ]
   const footerLinks1 = [
-    'О компании',
-    'Вакансии',
-    'Программа бета-тестирования',
-    'Информация для партнёров',
-    'Размещение рекламы',
-    'Пользовательское соглашение',
-    'Политика конфиденциальности',
-    'Комплаенс',
+    'aboutCompany',
+    'jobs',
+    'betaProgram',
+    'partnersInformation',
+    'advertisingPlacement',
+    'termsOfUse',
+    'privacyPolicy',
+    'compliance',
   ]
   const footerLinks2 = [
-    'Мой Иви',
-    'Что нового',
-    'Фильмы',
-    'Сериалы',
-    'Мультфильмы',
-    'ТВ-каналы',
-    'Что посмотреть',
+    'myIvi',
+    'whatsNew',
+    'movies',
+    'serials',
+    'animations',
+    'TVChannels',
+    'whatSee',
   ]
+
+  const { t } = useTranslation(['common'])
+
   return (
     <>
       <div className={styles.footerContent}>
         <div className={styles.footerColumn}>
-          <p className={styles.footerColumnTitle}>О нас</p>
+          <p className={styles.footerColumnTitle}>{t('common:aboutUs')}</p>
           <ul className={styles.footerLinkList}>
             {footerLinks1.map((link, index) => (
               <li key={index} className={styles.footerLinkItem}>
-                <Link href="#">{link}</Link>
+                <Link href="#">{t(link)}</Link>
               </li>
             ))}
           </ul>
         </div>
         <div className={styles.footerColumn}>
-          <p className={styles.footerColumnTitle}>Разделы</p>
+          <p className={styles.footerColumnTitle}>{t('sections')}</p>
           <ul className={styles.footerLinkList}>
             {footerLinks2.map((link, index) => (
               <li key={index} className={styles.footerLinkItem}>
-                <Link href="#">{link}</Link>
+                <Link href="#">{t(link)}</Link>
               </li>
             ))}
             <li className={styles.footerLinkItem}>
               <Link className={styles.certificationLink} href="#">
-                Активация сертификата
+                {t('CertificateActivation')}
               </Link>
             </li>
           </ul>
         </div>
         <div className={styles.footerColumn}>
-          <p className={styles.footerColumnTitle}>Служба поддержки</p>
+          <p className={styles.footerColumnTitle}>{t('support')}</p>
           <div className={styles.footerColumnDescription}>
-            <p>Мы всегда готовы вам помочь.</p>
-            <p>Наши операторы онлайн 24/7</p>
+            <p>{t('supportInfo')}</p>
           </div>
           <div className={styles.footerSupport}>
             <LinkBtn href="/" type="square" text="Написать в чате" mode='footer' />
@@ -138,7 +141,7 @@ export const FooterDesktop = () => {
             </div>
             <div className={styles.footerQuestions}>
               <a href="#">ask.ivi.ru</a>
-              <p>Ответы на вопросы</p>
+              <p>{t('answersOnQuestions')}</p>
             </div>
           </div>
         </div>
@@ -146,7 +149,7 @@ export const FooterDesktop = () => {
           <div className={styles.footerWidget}>
             <div className={styles.footerWidgetIcon}></div>
             <div className={styles.footerWidgetText}>
-              Смотрите фильмы, сериалы и мультфильмы без рекламы
+              {t('watchWithoutAdd')}
             </div>
           </div>
         </div>
@@ -159,15 +162,15 @@ export const FooterDesktop = () => {
                 key={index}
                 href={store.href}
                 type="square"
-                text={store.text}
-                subText={store.subText}
+                text={t(store.text)}
+                subText={t(store.subText as string)}
                 mode='footer'
                 icon={store.icon as INameIcons | INameIconsExt}
               />
             ))}
           </div>
           <div className={styles.footerCopyrights}>
-            <p>© 2023 ООО «Иви.ру»</p>
+            <p>{t('company')}</p>
             <p>
               HBO ® and related service marks are the property of Home Box
               Office, Inc

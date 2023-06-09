@@ -1,0 +1,32 @@
+[
+  {
+    "btnName": "btnOne",
+    "href": "/",
+    "icon": "home",
+    "btnText": "myIvi"
+  },
+  {
+    "btnName": "btnTwo",
+    "href": "/",
+    "icon": "catalog",
+    "btnText": "catalog"
+  },
+  {
+    "btnName": "btnThree",
+    "href": "/",
+    "icon": "search",
+    "btnText": "search"
+  },
+  {
+    "btnName": "btnFour",
+    "href": "/",
+    "icon": "avatar",
+    "btnText": "account"
+  },
+  {
+    "btnName": "btnFive",
+    "href": "/",
+    "icon": "more",
+    "btnText": "more"
+  }
+]

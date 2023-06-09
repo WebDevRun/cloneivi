@@ -1,45 +1,17 @@
 import cn from 'classnames'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
+import footerButtons from './footerButtons.json'
 import styles from './FooterMobile.module.scss'
 
 import { INameIcons, INameIconsExt } from '@/types/Icons'
 import { Svg } from '@/ui/Svg'
 
+
 export const FooterMobile = () => {
-  const footerButtons = [
-    {
-      btnName: 'btnOne',
-      href: '/',
-      icon: 'home',
-      btnText: 'Мой Иви',
-    },
-    {
-      btnName: 'btnTwo',
-      href: '/',
-      icon: 'catalog',
-      btnText: 'Каталог',
-    },
-    {
-      btnName: 'btnThree',
-      href: '/',
-      icon: 'search',
-      btnText: 'Поиск',
-    },
-    {
-      btnName: 'btnFour',
-      href: '/',
-      icon: 'avatar',
-      btnText: 'Профиль',
-    },
-    {
-      btnName: 'btnFive',
-      href: '/',
-      icon: 'more',
-      btnText: 'Ещё',
-    },
-  ]
+  const { t } = useTranslation(['common'])
 
   const [activeButton, setActiveButton] = useState<string | null>('btnOne')
 
@@ -66,7 +38,7 @@ export const FooterMobile = () => {
                 ext={btn.icon == 'avatar' ? true : false}
               />
             </div>
-            <p className={styles.tabBarText}>{btn.btnText}</p>
+            <p className={styles.tabBarText}>{t(btn.btnText)}</p>
           </Link>
         ))}
       </div>
