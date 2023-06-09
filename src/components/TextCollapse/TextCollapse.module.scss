@@ -1,5 +1,5 @@
 @use '../../styles/functions' as fn;
 
-.textCollapse > :last-child {
+.button {
   margin-top: fn.toRem(8px);
 }

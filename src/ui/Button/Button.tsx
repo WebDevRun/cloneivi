@@ -1,14 +1,14 @@
 import cn from 'classnames'
 import React, { FC, MouseEventHandler } from 'react'
 
-import { INameIcons } from '@/types/Icons'
+import { INameIcons, INameIconsExt } from '@/types/Icons'
 
 import { Svg } from '../Svg'
 
 import styles from './Button.module.scss'
 
 export interface ButtonProps {
-  icon?: INameIcons
+  icon?: INameIcons | INameIconsExt
   background?: 'gray' | 'primary' | 'red' | 'transparent'
   theme?: 'active' | 'passive' | 'rating'
   withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg'
@@ -17,6 +17,7 @@ export interface ButtonProps {
   fields?: 'noneFields' | 'widthFields'
   text?: string
   subText?: string
+  className?: string
   onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
@@ -30,6 +31,7 @@ export const Button: FC<ButtonProps> = ({
   text,
   subText,
   fields = 'widthFields',
+  className,
   onClick,
 }) => {
   const mainCn = cn(
@@ -41,6 +43,7 @@ export const Button: FC<ButtonProps> = ({
     styles[width],
     !text && styles.onlyIcon,
     fields === 'noneFields' && styles[fields],
+    className,
   )
 
   const iconSize = size === 'big' ? 'big' : 'middle'

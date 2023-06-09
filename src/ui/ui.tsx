@@ -27,11 +27,6 @@ export type TextVariants =
   | 'normal'
   | 'small'
 
-interface TextProps extends BaseProps {
-  variant?: TextVariants
-  bold?: boolean
-}
-
 export function Base({
   as: Component = 'div',
   cx: _cx = [],
@@ -58,12 +53,14 @@ interface FlexProps extends BaseProps {
   variant?: FlexVariants
   wrap?: boolean
   alignItems?: FlexVariants
+  gap?: 'gap0' | 'gap4' | 'gap12' | 'gap16'
 }
 
 export function Flex({
   variant,
   wrap,
   alignItems,
+  gap = 'gap12',
   cx: _cx = [],
   ...props
 }: WithChildren<FlexProps>) {
@@ -75,12 +72,18 @@ export function Flex({
           variant && styles[variant],
           wrap && styles.wrap,
           alignItems && styles[alignItems],
+          styles[gap],
         ),
         ..._cx,
       ]}
       {...props}
     />
   )
+}
+
+interface TextProps extends BaseProps {
+  variant?: TextVariants
+  bold?: boolean
 }
 
 export function Text({

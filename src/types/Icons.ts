@@ -24,3 +24,5 @@ export type INameIconsExt =
   | 'googlePlay'
   | 'appStore'
   | 'dislike'
+  | 'lightning'
+  | 'gift'
