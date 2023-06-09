@@ -1,8 +1,9 @@
-import { AppLayout } from '@layouts/AppLayout'
 import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ReactElement } from 'react'
+
+import { AppLayout } from '@layouts/AppLayout'
 
 import { NextPageWithLayout } from './_app'
 

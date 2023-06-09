@@ -1,13 +1,14 @@
 import cn from 'classnames'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
+
+import { INameIcons, INameIconsExt } from '@/types/Icons'
+import { Svg } from '@/ui/Svg'
 
 import footerButtons from './footerButtons.json'
 import styles from './FooterMobile.module.scss'
 
-import { INameIcons, INameIconsExt } from '@/types/Icons'
-import { Svg } from '@/ui/Svg'
 
 
 export const FooterMobile = () => {

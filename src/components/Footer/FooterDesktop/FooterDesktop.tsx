@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 
-import styles from './FooterDesktop.module.scss'
-
 import { INameIcons, INameIconsExt } from '@/types/Icons'
 import { LinkBtn } from '@/ui/LinkBtn'
+
+import styles from './FooterDesktop.module.scss'
 
 export const FooterDesktop = () => {
   const footerSocailMedias = [
@@ -77,7 +77,7 @@ export const FooterDesktop = () => {
     'compliance',
   ]
   const footerLinks2 = [
-    'myIvi',
+    'MyIvi',
     'whatsNew',
     'movies',
     'serials',
@@ -86,13 +86,13 @@ export const FooterDesktop = () => {
     'whatSee',
   ]
 
-  const { t } = useTranslation(['common'])
+  const { t } = useTranslation()
 
   return (
     <>
       <div className={styles.footerContent}>
         <div className={styles.footerColumn}>
-          <p className={styles.footerColumnTitle}>{t('aboutUs')}</p>
+          <p className={styles.footerColumnTitle}>{t('AboutUs')}</p>
           <ul className={styles.footerLinkList}>
             {footerLinks1.map((link, index) => (
               <li key={index} className={styles.footerLinkItem}>
@@ -170,7 +170,7 @@ export const FooterDesktop = () => {
             ))}
           </div>
           <div className={styles.footerCopyrights}>
-            <p>{t('company')}</p>
+            <p>{t('Company')}</p>
             <p>
               HBO ® and related service marks are the property of Home Box
               Office, Inc
