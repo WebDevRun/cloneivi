@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { DefaultTFuncReturn } from 'i18next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
@@ -8,7 +9,6 @@ import { INameIcons, INameIconsExt } from '@/types/Icons'
 import { Svg } from '../Svg'
 
 import styles from './LinkBtn.module.scss'
-import { DefaultTFuncReturn } from 'i18next'
 
 interface LinkProps {
   href: string

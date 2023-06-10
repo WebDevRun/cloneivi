@@ -1,7 +1,6 @@
 import { NextPage } from 'next'
 import { AppProps } from 'next/app'
 import { appWithTranslation } from 'next-i18next'
-
 import { ReactElement, ReactNode } from 'react'
 import { Provider } from 'react-redux'
 
