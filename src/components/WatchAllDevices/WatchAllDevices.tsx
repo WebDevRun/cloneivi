@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
@@ -15,20 +14,20 @@ export interface WatchAllDevicesProps {
 }
 
 export const WatchAllDevices: FC<WatchAllDevicesProps> = ({ name, poster }) => {
-  const { t } = useTranslation(['moviePage'])
+  const { t } = useTranslation()
 
   return (
     <div className={styles.watchAllDevices}>
       <div>
         <h2 className={styles.title}>
-          {t('moviePage:watchOnAllDevices', { name })}
+          {t('watchOnAllDevices', { name })}
         </h2>
-        <p className={styles.subTitle}>{t('moviePage:appAvailable')}</p>
+        <p className={styles.subTitle}>{t('appAvailable')}</p>
         <LinkBtn
           background='red'
           href='https://www.ivi.ru/devices'
           mode='footer'
-          text={`${t('moviePage:connectDevices')}`}
+          text={`${t('connectDevices')}`}
           type='square'
         />
       </div>
@@ -38,14 +37,14 @@ export const WatchAllDevices: FC<WatchAllDevicesProps> = ({ name, poster }) => {
           width={536}
           height={272}
           src={tvWithoutPoster}
-          alt={t('moviePage:viewingDevices')}
+          alt={t('viewingDevices')}
           priority
           placeholder='empty'
         />
         <Image
           className={styles.ipadWithoutPoster}
           src={ipadWithoutPoster}
-          alt={t('moviePage:viewingDevices')}
+          alt={t('viewingDevices')}
           width={200}
           height={136}
           priority
