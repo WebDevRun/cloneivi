@@ -9,7 +9,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
-    ns: ['common', 'moviePage'],
+    ns: ['common'],
     defaultNS: 'common',
     debug: true,
     interpolation: {
