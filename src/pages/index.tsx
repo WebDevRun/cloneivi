@@ -12,6 +12,7 @@ import { AppLayout } from '@layouts/AppLayout'
 import { NextPageWithLayout } from './_app'
 import styles from './pages.module.scss'
 
+
 const Home: NextPageWithLayout = () => {
   const { t } = useTranslation()
 

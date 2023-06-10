@@ -10,8 +10,13 @@
   "subscription": "Подписка за 99 ₽",
   "subscriptionIvi": "Подписка Иви",
   "plug99": "Подключить за 99 ₽",
+<<<<<<< HEAD
   "ActivateCertificate": "Активировать сертификат",
   "aboutUs": "О нас",
+=======
+  "activateCertificate": "Активировать сертификат",
+  "AboutUs": "О нас",
+>>>>>>> main
   "aboutCompany": "О компании",
   "jobs": "Вакансии",
   "betaProgram": "Программа бета-тестирования",
@@ -27,7 +32,7 @@
   "supportInfo": "Мы всегда готовы вам помочь.\nНаши операторы онлайн 24/7",
   "answersOnQuestions": "Ответы на вопросы",
   "watchWithoutAdd": "Смотрите фильмы, сериалы и мультфильмы без рекламы",
-  "company": "© 2023 ООО «Иви.ру»",
+  "Company": "© 2023 ООО «Иви.ру»",
   "inc": "HBO ® and related service marks are the property of Home Box Office, Inc",
   "Anime": "Аниме",
   "Biography": "Биография",
@@ -109,8 +114,8 @@
   "LogInOrRegister": "Войти или зарегистрироваться",
   "Settings": "Настройки",
   "Help": "Помощь",
-  "back": "Назад",
-  "myIvi": "Мой Иви",
+  "Back": "Назад",
+  "MyIvi": "Мой Иви",
   "films": "фильм",
   "filmsA": "фильма",
   "filmsOV": "фильмов",
@@ -167,5 +172,11 @@
   "Story": "Сюжет",
   "IviOnlineCinemaMoviesInHighQuality": "Онлайн-кинотеатр Иви: фильмы в хорошем качестве всегда приносят настоящее удовольствие",
   "GoodAnimatedSeries": "Добрые мультсериалы",
-  "NewMovies": "Фильмы-новинки"
+  "NewMovies": "Фильмы-новинки",
+  "Catalog": "Каталог",
+  "Account": "Профиль",
+  "watchOnAllDevices": "Cмотреть «{{ name }}» на всех устройствах",
+  "appAvailable": "Приложение доступно для скачивания на iOS, Android, SmartTV и приставках",
+  "connectDevices": "Подключить устройства",
+  "viewingDevices": "Устройства для просмотра"
 }

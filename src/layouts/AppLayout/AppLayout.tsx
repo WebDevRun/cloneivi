@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react'
 
+import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { HeaderDropdown } from '@/components/HeaderDropdown'
 
@@ -19,7 +20,7 @@ export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
         <HeaderDropdown />
       </DropDownLayout>
       <main>{children}</main>
-      {/** <Footer /> */}
+      <Footer />
     </div>
   )
 }

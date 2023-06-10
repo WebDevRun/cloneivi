@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { DefaultTFuncReturn } from 'i18next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
@@ -13,8 +14,8 @@ interface LinkProps {
   href: string
   mode?: 'footer' | 'actor' | 'genres' | 'account' | 'accountLinks'
   type?: 'square' | 'circle'
-  subText?: string
-  text?: string
+  subText?: string | DefaultTFuncReturn
+  text?: string | DefaultTFuncReturn
   icon?: INameIcons | INameIconsExt
   iconExt?: boolean
   background?: 'lightgray' | 'default' | 'red'
