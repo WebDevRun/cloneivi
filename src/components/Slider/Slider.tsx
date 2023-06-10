@@ -13,8 +13,8 @@ import styles from './Slider.module.scss'
 export interface SliderProps {
   Component: FC<any>
   items: any[]
-  arrowSize: 'small' | 'big'
-  type: 'list' | 'oneItem'
+  arrowSize?: 'small' | 'big'
+  type?: 'list' | 'oneItem'
   componentSetting?: object
   onItemClick: (id: number) => void
   slidesToShow?: number
@@ -23,7 +23,7 @@ export interface SliderProps {
   gap?: number
   infinite?: boolean
   autoScroll?: boolean
-  isCrop: boolean
+  isCrop?: boolean
 }
 
 export interface ICloneCount {
@@ -39,10 +39,10 @@ export const Slider: FC<SliderProps> = ({
   slidesToShow = 0,
   startPosition = 0,
   slidesToScroll = 0,
-  arrowSize,
+  arrowSize = 'small',
   gap = 24,
   infinite = false,
-  type,
+  type = 'list',
   autoScroll = false,
   isCrop = true,
 }) => {
@@ -227,7 +227,7 @@ export const Slider: FC<SliderProps> = ({
 
   const nextClickHandler = () => {
     const itemsLeft = sliderItems.length - ((Math.abs(position - margin) + slidesCount * (itemWidth + itemsGap)) / (itemWidth + itemsGap))
-    const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + itemsGap) : itemsLeft * (itemWidth + itemsGap)
+    const pos = getPos(itemsLeft)
 
     setPosition(prevState => prevState - pos)
 
@@ -240,7 +240,7 @@ export const Slider: FC<SliderProps> = ({
 
   const prevClickHandler = () => {
     const itemsLeft = Math.abs(position - margin) / (itemWidth + itemsGap)
-    const pos = itemsLeft >= scrollStep ? scrollStep * (itemWidth + itemsGap) : itemsLeft * (itemWidth + itemsGap)
+    const pos = getPos(itemsLeft)
 
     setPosition(prevState => prevState + pos)
 
@@ -249,6 +249,10 @@ export const Slider: FC<SliderProps> = ({
     setTimeout(() => {
       setIsLeftArrowAnimate(false)
     }, 50)
+  }
+
+  const getPos = (itemsLeft: number) => {
+    return itemsLeft >= scrollStep ? scrollStep * (itemWidth + itemsGap) : itemsLeft * (itemWidth + itemsGap)
   }
 
   return (

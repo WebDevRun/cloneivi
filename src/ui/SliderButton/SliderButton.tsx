@@ -2,6 +2,7 @@ import cn from 'classnames'
 import Image from 'next/image'
 import { FC } from 'react'
 
+import { IGenres } from '@/types/genres'
 import add from '@assets/images/filter/filter-add.svg'
 import remove from '@assets/images/filter/filter-remove.svg'
 import { GenresSvg } from '@assets/svg/GenresSvg/GenresSvg'
@@ -23,7 +24,7 @@ export const SliderButton: FC<SliderButtonProps> = ({
     <div className={cn( styles.sliderButton, styles[type] )}>
       <div className={styles[style]}>
         {type === 'square' &&
-          <GenresSvg icon={name!} iconType={style === 'fill' ? 'twoTone' : 'outlined'} size={32} />
+          <GenresSvg icon={name as IGenres} iconType={style === 'fill' ? 'twoTone' : 'outlined'} size={32} />
         }
         {
           type === 'circle' && style === 'active' &&

@@ -37,12 +37,8 @@
     transform: translateY(50%) scale(0.6);
   }
 
-  .overlay {
-    width: 100%;
-    height: 100%;
-  }
-
   .overlay::before {
+    pointer-events: none;
     content: '';
     z-index: 10;
     width: 100%;

@@ -78,7 +78,6 @@ export const GenresFilledSlider: Story = {
     arrowSize: 'big',
     onItemClick: () => {},
     items: GENRES_ICONS,
-    type: 'list',
   },
   render: args => {
     return (
@@ -93,10 +92,8 @@ export const GenresOutlinedSlider: Story = {
   args: {
     Component: SliderButton,
     componentSetting: {type: 'square', style: 'outline'},
-    arrowSize: 'small',
     onItemClick: () => {},
     items: GENRES_ICONS,
-    type: 'list',
   },
   render: args => {
     return (
@@ -111,10 +108,8 @@ export const CircleFilledSlider: Story = {
   args: {
     Component: SliderButton,
     componentSetting: {type: 'circle', style: 'fill'},
-    arrowSize: 'small',
     onItemClick: () => {},
     items: GENRES_ICONS,
-    type: 'list',
   },
   render: args => {
     return (
@@ -129,10 +124,8 @@ export const CircleOutlinedSlider: Story = {
   args: {
     Component: SliderButton,
     componentSetting: {type: 'circle', style: 'outline'},
-    arrowSize: 'small',
     onItemClick: () => {},
     items: GENRES_ICONS,
-    type: 'list',
   },
   render: args => {
     return (
@@ -151,7 +144,6 @@ export const GenresInfinitySlider: Story = {
     onItemClick: () => {},
     items: GENRES_ICONS,
     infinite: true,
-    type: 'list',
   },
   render: args => {
     return (
@@ -209,7 +201,6 @@ export const GenresWithoutScrollSlider: Story = {
     onItemClick: () => {},
     items: GENRES_ICONS,
     infinite: true,
-    type: 'list',
     isCrop: false,
     gap: 50,
   },
