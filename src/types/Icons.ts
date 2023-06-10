@@ -24,6 +24,16 @@ export type INameIcons =
   | 'phone'
   | 'email'
   | 'dislike'
+  | 'card'
+  | 'multiseries'
+  | 'history'
+  | 'certificate'
+  | 'tvchannels'
+  | 'androidShare'
+  | 'films'
+  | 'catalogAdd'
+  | 'noAds'
+  | 'download'
 
 export type INameIconsExt =
   | 'top10'
