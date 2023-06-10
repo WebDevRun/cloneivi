@@ -1,30 +1,24 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticPaths } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { ReactElement } from 'react'
 
 import { $instance } from '@/axios'
-import { Header } from '@/components/Header'
+import { Movie } from '@/components/Movie'
 import { AppLayout } from '@/layouts/AppLayout'
+import { getFilmById, getRunningQueriesThunk } from '@/store/endpoints/films'
+import { wrapper } from '@/store/store'
 import { IMovie } from '@/types/movie'
-import { MoviePlayer } from '@/ui/MoviePlayer'
 
-export interface MovieProps {
-  movie: IMovie
+const MoviePage = () => {
+  return <Movie />
 }
 
-const Movie = ({ movie }: MovieProps) => {
-  return (
-    <AppLayout>
-      <Header />
-      <MoviePlayer
-        name={movie.name_ru}
-        videoSrc='https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4'
-        posterSrc={movie.trailers[0].img}
-      />
-    </AppLayout>
-  )
+MoviePage.getLayout = function getLayout(page: ReactElement) {
+  return <AppLayout>{page}</AppLayout>
 }
 
-export default Movie
+export default MoviePage
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await $instance.get<
@@ -42,15 +36,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { data } = await $instance.get<
-    AxiosRequestConfig<undefined>,
-    AxiosResponse<IMovie>
-  >(`films/${context.params?.id}`)
+export const getStaticProps = wrapper.getStaticProps(
+  (store) => async (context) => {
+    if (typeof context.params?.id === 'string') {
+      store.dispatch(getFilmById.initiate(context.params.id))
+    }
 
-  return {
-    props: {
-      movie: data,
-    },
-  }
-}
+    await Promise.all(store.dispatch(getRunningQueriesThunk()))
+
+    const localeData = await serverSideTranslations(context.locale ?? 'ru', [
+      'header',
+      'common',
+    ])
+
+    return {
+      props: {
+        ...localeData,
+      },
+    }
+  },
+)

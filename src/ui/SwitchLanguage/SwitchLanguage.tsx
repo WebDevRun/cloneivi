@@ -5,18 +5,29 @@ import { Button } from '../Button'
 
 import styles from './SwitchLanguage.module.scss'
 
-export interface SwitchLanguageProps {}
-
-export const SwitchLanguage: FC<SwitchLanguageProps> = () => {
-  const { locale } = useRouter()
-  let router = useRouter()
+export const SwitchLanguage: FC = () => {
+  const router = useRouter()
 
   const handleClick = () => {
-
-    if (locale === 'ru') {
-      router.push('', undefined, { locale: 'en' })
-    } else router.push('', undefined, { locale: 'ru' })
-
+    if (router.locale === 'ru') {
+      router.push(
+        {
+          pathname: router.pathname,
+          query: router.query,
+        },
+        router.asPath,
+        { locale: 'en' },
+      )
+    } else {
+      router.push(
+        {
+          pathname: router.pathname,
+          query: router.query,
+        },
+        router.asPath,
+        { locale: 'ru' },
+      )
+    }
   }
 
   return (
@@ -28,7 +39,9 @@ export const SwitchLanguage: FC<SwitchLanguageProps> = () => {
           size='big'
           onClick={handleClick}
         />
-        <div className={styles.toggleLangText}>{locale?.toUpperCase()}</div>
+        <div className={styles.toggleLangText}>
+          {router.locale?.toUpperCase()}
+        </div>
       </div>
     </div>
   )
