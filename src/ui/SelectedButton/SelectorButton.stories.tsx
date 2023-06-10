@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { SelectorButton } from './SelectorButton'
 
 const meta: Meta<typeof SelectorButton> = {
-  title: 'Selector/SelectorButton',
+  title: 'Selector/SelectedButton',
   tags: ['autodocs'],
   component: SelectorButton,
   argTypes: {
