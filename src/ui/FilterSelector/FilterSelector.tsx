@@ -1,7 +1,7 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 
 import { IActiveFilterModal, IFilterCategory, IFilterItems, IFilterSettings } from '@/types/filter'
-import { IGenre } from '@/types/Movie'
+import { IGenre } from '@/types/movie'
 import { FilterDropDown } from '@ui/FilterSelector/FilterDropDown'
 import { FilterSelectorButton } from '@ui/FilterSelector/FilterSelectorButton'
 

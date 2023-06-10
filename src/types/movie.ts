@@ -43,7 +43,21 @@ export interface ITrailer {
 }
 
 export interface ICountry {
-  "country_id": string
-  "country": string
-  "slug": string
+  country_id: string
+  country: string
+  slug: string
+}
+
+export interface IYear {
+  year_id: string
+  year: string
+  slug: string
+  filter: (year: number) => {}
+}
+
+export interface IRating {
+  rating_id: string
+  rating: string
+  slug: string
+  filter: (rating: number) => {}
 }

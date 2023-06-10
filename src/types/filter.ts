@@ -1,4 +1,4 @@
-import { IGenre } from '@/types/Movie'
+import { ICountry, IGenre, IRating, IYear } from '@/types/movie'
 
 export interface ICountrySlug {
   id: string
@@ -8,9 +8,9 @@ export interface ICountrySlug {
 
 export interface IFilterSettings {
   genre: IGenre[]
-  country: string[]
-  year: number
-  rating: number
+  country: ICountry[]
+  year: IYear[]
+  rating: IRating
 }
 
 export type IFilterPosition = 'left' | 'center' | 'right'

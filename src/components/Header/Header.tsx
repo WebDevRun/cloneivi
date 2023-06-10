@@ -7,8 +7,7 @@ import { LinkBtn } from '@/ui/LinkBtn'
 import { Svg } from '@/ui/Svg'
 import { SwitchLanguage } from '@/ui/SwitchLanguage'
 import logo from '@assets/images/common/ivi.svg'
-
-import { Button } from '../../ui/Button'
+import { Button } from '@ui/Button'
 
 import styles from './Header.module.scss'
 import menu from './menu.json'
