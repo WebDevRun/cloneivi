@@ -1,0 +1,49 @@
+{
+  "genres": {
+    "title": "",
+    "items": []
+  },
+  "countries": {
+    "title": "",
+    "items": []
+  },
+  "years": {
+    "title": "",
+    "items": []
+  },
+  "extra": {
+    "title": "",
+    "items": [
+      {
+        "href": "https://www.ivi.ru/new/movie-new",
+        "title": "TVOnline",
+        "text": "TVOnline"
+      },
+      {
+        "href": "https://www.ivi.ru/collections",
+        "title": "TVChannels",
+        "text": "TVChannels"
+      },
+      {
+        "href": "https://www.ivi.ru/movies/all?ivi_rating_10_gte=7&amp;sort=ivi&amp;rating_part=main&amp;rating_model=ready",
+        "title": "entertainment",
+        "text": "entertainment"
+      },
+      {
+        "href": "https://www.ivi.ru/new/soon-ivi",
+        "title": "Children",
+        "text": "Children"
+      },
+      {
+        "href": "https://www.ivi.ru/trailers",
+        "title": "TVSport",
+        "text": "TVSport"
+      },
+      {
+        "href": "https://www.ivi.ru/goodmovies",
+        "title": "Documentary",
+        "text": "Documentary"
+      }
+    ]
+  }
+}

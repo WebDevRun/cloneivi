@@ -1,0 +1,216 @@
+@use '../../styles/functions' as fn;
+
+$white: #fff;
+$alpha48: 0.48;
+$alpha72: 0.72;
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: fn.toRem(8px);
+  transition-duration: 0.4s;
+  transition-property: color, fill, border-color, background-color;
+
+  img {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: fn.toRem(8px);
+    transition-duration: 0.4s;
+  }
+}
+
+.active svg {
+  fill: $white;
+}
+
+.passive svg {
+  fill: rgba($white, $alpha72);
+}
+
+.active {
+  color: $white;
+}
+
+.passive {
+  color: rgba($white, $alpha72);
+}
+
+.transparent {
+  background-color: transparent;
+  color: rgba($white, $alpha72);
+
+  svg {
+    fill: rgba($white, $alpha72);
+  }
+
+  &:hover {
+    color: $white;
+
+    .icon svg {
+      fill: $white;
+    }
+  }
+}
+
+.red {
+  background-color: #ea003d;
+  color: $white;
+
+  &:hover {
+    background-color: #ff0f4d;
+  }
+}
+
+.gray {
+  background-color: #3a3352;
+  color: $white;
+
+  &:hover {
+    background-color: #494069;
+  }
+}
+
+.primary {
+  background-image: linear-gradient(270deg, #ea003d 0, #c447ff 100%);
+}
+
+.small {
+  height: fn.toRem(32px);
+  padding: fn.toRem(7px) fn.toRem(11px);
+
+  .mainText {
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
+    font-weight: 500;
+  }
+}
+
+.middle {
+  height: fn.toRem(40px);
+  padding: fn.toRem(9px) fn.toRem(15px);
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(20px);
+  font-weight: 500;
+}
+
+.big {
+  height: fn.toRem(48px);
+  padding: fn.toRem(5px) fn.toRem(15px);
+
+  font-size: fn.toRem(15px);
+  line-height: fn.toRem(20px);
+  font-weight: 500;
+  width: fn.toRem(320px);
+}
+
+.borderSm,
+.borderMd {
+  background: transparent;
+  border-radius: fn.toRem(6px);
+  padding: fn.toRem(3px) fn.toRem(7px);
+  border: 1px solid rgba($white, 0.32);
+
+  .mainText {
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
+    font-weight: 500;
+  }
+
+  &:hover {
+    border: 1px solid rgba($white, 1);
+    background: transparent;
+  }
+
+  &:not(:hover) {
+    transition-duration: 0.4s;
+    transition-property: border;
+  }
+}
+
+.borderSm {
+  height: fn.toRem(24px);
+}
+
+.borderMd {
+  height: fn.toRem(32px);
+}
+
+.borderBg {
+  height: fn.toRem(48px);
+  border-radius: fn.toRem(8px);
+  padding: fn.toRem(12px);
+  border: solid fn.toRem(2px) rgba($white, 0.48);
+
+  &:hover {
+    border: solid fn.toRem(2px) $white;
+    box-shadow: 0 0 fn.toRem(15px) rgba($white, 0.4);
+
+    svg {
+      fill: $white;
+    }
+  }
+}
+
+.full {
+  width: 100%;
+}
+
+.onlyIcon {
+  .icon {
+    margin-right: 0;
+  }
+
+  &.small {
+    width: fn.toRem(32px);
+  }
+
+  &.middle {
+    width: fn.toRem(40px);
+  }
+
+  &.big {
+    width: fn.toRem(48px);
+  }
+}
+
+.noneFields {
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+
+.rating {
+  height: fn.toRem(56px);
+  width: fn.toRem(56px);
+  padding: 0;
+  background-color: rgba($white, 0.16);
+  border-radius: fn.toRem(12px);
+
+  & > .mainText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #73a32f;
+    height: fn.toRem(44px);
+    width: fn.toRem(44px);
+    border-radius: fn.toRem(8px);
+    font-size: fn.toRem(15px);
+    line-height: fn.toRem(20px);
+    font-weight: 500;
+  }
+
+  .subText {
+    display: none;
+  }
+
+  &:hover {
+    background-color: rgba($white, 0.29);
+  }
+}
