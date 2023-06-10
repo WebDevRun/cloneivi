@@ -8,20 +8,26 @@ interface SvgProps {
   size?: 'small' | 'middle' | 'big' | 'large'
   icon: INameIcons | INameIconsExt
   ext?: true | false
+  fill?: string
 }
 
-export const Svg: FC<SvgProps> = ({ size = 'middle', icon, ext = false }) => {
+export const Svg: FC<SvgProps> = ({
+  size = 'middle',
+  icon,
+  ext = false,
+  fill,
+}) => {
   const sz = {
     small: 16,
     middle: 20,
     big: 32,
     large: 56,
   }
-
   return (
     <>
       {!ext && (
         <svg
+          fill={fill}
           version='1.1'
           xmlns='http://www.w3.org/2000/svg'
           width={sz[size]}
@@ -31,7 +37,15 @@ export const Svg: FC<SvgProps> = ({ size = 'middle', icon, ext = false }) => {
           {names[icon as INameIcons]}
         </svg>
       )}
-      {ext && <>{cloneElement(names[icon as INameIconsExt], { width: sz[size], height: sz[size] })}</>}
+      {ext && (
+        <>
+          {cloneElement(names[icon as INameIconsExt], {
+            width: sz[size],
+            height: sz[size],
+            fill: fill,
+          })}
+        </>
+      )}
     </>
   )
 }

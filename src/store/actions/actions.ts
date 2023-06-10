@@ -1,1 +1,0 @@
-export { fetchGenres } from './filterActions'

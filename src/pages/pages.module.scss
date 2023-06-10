@@ -1,0 +1,11 @@
+@use '../styles/functions' as fn;
+
+.pageNotFound {
+  background-image: url(../assets/images/other/bg404.png);
+  height: fn.toRem(348px);
+  background-position: 50% 0;
+
+  h1 {
+    margin-bottom: fn.toRem(8px);
+  }
+}
