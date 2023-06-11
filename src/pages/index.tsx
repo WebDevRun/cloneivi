@@ -117,7 +117,7 @@ const Home: NextPageWithLayout<IHomePage> = ({
           <IconInText
             className={styles.sectionTitle}
             icon='arrowRight'
-            text={`${t('GoodAnimatedSeries')}`}
+            text={`${t('Drams')}`}
           />
           <Slider
             Component={MovieCard}

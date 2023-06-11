@@ -12,8 +12,8 @@
 
 .home {
   section {
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-top: fn.toRem(24px);
+    padding-bottom: fn.toRem(24px);
   }
 }
 
@@ -24,8 +24,8 @@
 .clauseText {
   li {
     position: relative;
-    margin-left: 12px;
-    padding-left: 16px;
+    margin-left: fn.toRem(12px);
+    padding-left: fn.toRem(16px);
     list-style: none;
     color: #a5a1b2;
   }
@@ -34,18 +34,18 @@
     background-color: #a5a1b2;
     border-radius: 50%;
     content: '';
-    height: 6px;
+    height: fn.toRem(6px);
     left: 0;
     position: absolute;
-    top: 10px;
-    width: 6px;
+    top: fn.toRem(10px);
+    width: fn.toRem(6px);
   }
 
   li + li,
   p + p,
   p + ol,
   ol + p {
-    margin-top: 8px;
+    margin-top: fn.toRem(8px);
   }
 }
 
@@ -55,10 +55,10 @@
   }
 
   & > :first-child {
-    margin-bottom: 20px;
+    margin-bottom: fn.toRem(20px);
   }
 }
 
 .sectionTitle {
-  margin-bottom: 24px;
+  margin-bottom: fn.toRem(24px);
 }
