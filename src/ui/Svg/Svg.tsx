@@ -23,17 +23,16 @@ export const Svg: FC<SvgProps> = ({
     big: 32,
     large: 56,
   }
-
   return (
     <>
       {!ext && (
         <svg
+          fill={fill}
           version='1.1'
           xmlns='http://www.w3.org/2000/svg'
           width={sz[size]}
           height={sz[size]}
           viewBox={`0 0 32 32`}
-          fill={fill}
         >
           {names[icon as INameIcons]}
         </svg>

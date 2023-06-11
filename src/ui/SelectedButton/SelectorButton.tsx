@@ -4,7 +4,7 @@ import { Dispatch, FC, MouseEventHandler, SetStateAction } from 'react'
 
 import arrowDown from '@assets/images/selectors/arrow-down.svg'
 
-import styles from './SelectorButton.module.scss'
+import styles from './SelectedButton.module.scss'
 
 interface SelectorButtonProps {
   name: string

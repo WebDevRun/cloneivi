@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { FC } from 'react'
 
 import { Svg } from '@/ui/Svg'
+import { Text } from '@/ui/ui'
 
 import styles from './BackLink.module.scss'
 
@@ -23,7 +24,7 @@ export const BackLink: FC<BackLinkProps> = ({
       <div className={styles.icon}>
         <Svg icon={iconName} size={iconSize} />
       </div>
-      <div className={styles.text}>{text}</div>
+      <Text className={styles.text}>{text}</Text>
     </div>
   )
 }
