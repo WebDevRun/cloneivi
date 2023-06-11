@@ -21,17 +21,35 @@ import styles from './pages.module.scss'
 export interface IHomePage {
   newMovies: IMovie[]
   kindCartoons: IMovie[]
+  top10: IMovie[]
   lang: string
 }
 
 const Home: NextPageWithLayout<IHomePage> = ({
   newMovies,
   kindCartoons,
+  top10,
   lang,
 }) => {
   const { t } = useTranslation()
 
   const minutes = ['минута', 'минуты', 'минут']
+
+  const top10Out = top10.map((item) => {
+    return {
+      id: item.film_id,
+      genre: [
+        lang === 'ru' ? item.genres[0]?.genre_ru : item.genres[0]?.genre_en,
+        `${item.duration} ${declOfNum(item.duration, minutes)}`,
+      ],
+      year: `${item.year}, ${item.countries[0]?.country}`,
+      imgSrc: item.img,
+      movieName: lang === 'ru' ? item.name_ru : item.name_en,
+      rating: item.rating,
+      href: item.trailers[0]?.trailer,
+      ageLimit: `${item.age_limit}+`,
+    }
+  })
 
   const newMoviesOut = newMovies.map((item) => {
     return {
@@ -67,8 +85,6 @@ const Home: NextPageWithLayout<IHomePage> = ({
 
   return (
     <>
-      <h1>{t('common:more')}</h1>
-
       <div className={styles.home}>
         <section>
           <Flex gap='gap16'>
@@ -86,6 +102,24 @@ const Home: NextPageWithLayout<IHomePage> = ({
               text={`${t('ActivateCertificate')}`}
             />
           </Flex>
+        </section>
+
+        <section>
+          <IconInText className={styles.clauseTitle} text={`${t('ForTheWeek')}`} extIcon icon='top10' orderIcon='before' />
+          <Slider
+            Component={MovieCard}
+            arrowSize='big'
+            componentSetting={{
+              style: 'fill',
+              type: 'square',
+              imgAlt: 'Movie Image',
+              mode: 'small',
+            }}
+            isCrop={true}
+            type='list'
+            items={top10Out}
+            onItemClick={() => {}}
+          />
         </section>
 
         <section>
@@ -185,10 +219,16 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     AxiosResponse<IMovie>
   >(`filter/films?year_min=2000`)
 
+  const top10 = await $instance.get<
+  AxiosRequestConfig<undefined>,
+  AxiosResponse<IMovie>
+>(`filter/films?rating=8.2&limit=10`)
+
   return {
     props: {
       newMovies: newMovies.data,
       kindCartoons: kindCartoons.data,
+      top10: top10.data,
       lang: locale,
       ...localeData,
     },
