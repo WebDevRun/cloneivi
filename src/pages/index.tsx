@@ -1,20 +1,69 @@
+import { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ReactElement } from 'react'
 
+import { $instance } from '@/axios'
+import { MovieCard } from '@/components/MovieCard'
+import { Slider } from '@/components/Slider'
 import { TextCollapse } from '@/components/TextCollapse'
+import { IMovie } from '@/types/movie'
 import { Button } from '@/ui/Button'
 import { IconInText } from '@/ui/IconInText'
 import { Flex, H2, Text, TextPar } from '@/ui/ui'
+import { declOfNum } from '@/utils/functions/declinOfNum'
 import { AppLayout } from '@layouts/AppLayout'
 
 import { NextPageWithLayout } from './_app'
 import styles from './pages.module.scss'
 
+export interface IHomePage {
+  newMovies: IMovie[]
+  kindCartoons: IMovie[]
+  lang: string
+}
 
-const Home: NextPageWithLayout = () => {
+const Home: NextPageWithLayout<IHomePage> = ({
+  newMovies,
+  kindCartoons,
+  lang,
+}) => {
   const { t } = useTranslation()
+
+  const minutes = ['минута', 'минуты', 'минут']
+
+  const newMoviesOut = newMovies.map((item) => {
+    return {
+      id: item.film_id,
+      genre: [
+        lang === 'ru' ? item.genres[0]?.genre_ru : item.genres[0]?.genre_en,
+        `${item.duration} ${declOfNum(item.duration, minutes)}`,
+      ],
+      year: `${item.year}, ${item.countries[0]?.country}`,
+      imgSrc: item.img,
+      movieName: lang === 'ru' ? item.name_ru : item.name_en,
+      rating: item.rating,
+      href: item.trailers[0]?.trailer,
+      ageLimit: `${item.age_limit}+`,
+    }
+  })
+
+  const kindCartoonsOut = kindCartoons.map((item) => {
+    return {
+      id: item.film_id,
+      genre: [
+        lang === 'ru' ? item.genres[0]?.genre_ru : item.genres[0]?.genre_en,
+        `${item.duration} ${declOfNum(item.duration, minutes)}`,
+      ],
+      year: `${item.year}, ${item.countries[0]?.country}`,
+      imgSrc: item.img,
+      movieName: lang === 'ru' ? item.name_ru : item.name_en,
+      rating: item.rating,
+      href: item.trailers[0]?.trailer,
+      ageLimit: `${item.age_limit}+`,
+    }
+  })
 
   return (
     <>
@@ -41,92 +90,76 @@ const Home: NextPageWithLayout = () => {
 
         <section>
           <H2 className={styles.clauseTitle}>
-          {`${t('IviOnlineCinemaMoviesInHighQuality')}`}
+            {`${t('IviOnlineCinemaMoviesInHighQuality')}`}
           </H2>
 
           <TextCollapse maxChar={231}>
             <div className={styles.clauseText}>
-              <TextPar>
-                Каждый день миллионы людей ищут фильмы онлайн, и никто не хочет
-                усложнять себе жизнь – и вы наверняка один из них! А раз так, то
-                Иви – это именно тот ресурс, который вам нужен. От лучших
-                кинолент в HD-качестве вас отделяет буквально один клик. Мы не
-                просто освобождаем от необходимости идти в кинотеатр или изучать
-                программу телепередач – у посетителей нашего ресурса гораздо
-                больше возможностей.
-              </TextPar>
-              <TextPar>
-                Видеотека Иви – это постоянно пополняющаяся коллекция в рунете,
-                которая насчитывает более 60 тысяч отечественного и зарубежного
-                контента, доступного для просмотра онлайн. Мы первыми в России
-                подписали контракты с крупнейшими голливудскими студиями (Walt
-                Disney, Sony, 20th Century Fox, Universal, Paramount, MGM и
-                другими) и на постоянной основе сотрудничаем с крупнейшими
-                российскими компаниями и телеканалами.
-              </TextPar>
-              <TextPar>Онлайн-кинотеатр ivi.ru – это:</TextPar>
+              <TextPar>{`${t('EveryDayMillionsOfPeople')}`}</TextPar>
+              <TextPar>{`${t('TheIviVideoLibrary')}`}</TextPar>
+              <TextPar>{`${t('OnlineMovieTheaterIvi')}`}</TextPar>
               <ol>
-                <li>
-                  уникальная рекомендательная система, учитывающая ваши
-                  предпочтения и предлагающая посмотреть именно то, что точно
-                  придется вам по душе;
-                </li>
-                <li>
-                  просмотр в одно касание на любом из устройств, подключенном к
-                  вашему Иви-аккаунту – от смартфонов до телевизоров с
-                  технологией Smart TV;
-                </li>
-                <li>
-                  возможность скачивать в память мобильного устройства
-                  лицензионный контент и смотреть его без доступа к Интернету;
-                </li>
-                <li>
-                  уникальные условия и преимущества для обладателей подписки
-                  Иви, делающей кинопросмотр комфортным и приятным;
-                </li>
-                <li>
-                  удобная и продвинутая система уведомлений, вы не пропустите
-                  выход крутого обсуждаемого блокбастера – мы известим о
-                  появлении подходящим для вас способом;
-                </li>
-                <li>
-                  возможность добавлять фильмы в «смотреть позже», чтобы
-                  вернуться к ним в свободное время;
-                </li>
-                <li>
-                  контент, для просмотра которого не требуется устанавливать
-                  видеоплееры или искать кодеки;
-                </li>
-                <li>
-                  просмотр онлайн контента хорошего разрешения без регистрации и
-                  смс.
-                </li>
+                <li>{`${t('UniqueRecommendationSystem')}`}</li>
+                <li>{`${t('OneTouchViewingOnAnyOfTheDevices')}`}</li>
+                <li>{`${t('TheAbilityToDownload')}`}</li>
+                <li>{`${t('UniqueConditionsAndBenefits')}`}</li>
+                <li>{`${t('ConvenientAndAdvancedNotificationSystem')}`}</li>
+                <li>{`${t('TheAbilityToAddMovies')}`}</li>
+                <li>{`${t('ContentThatYouDonotNeedToInstall')}`}</li>
+                <li>{`${t('ViewingOnlineContent')}`}</li>
               </ol>
-              <TextPar>
-                Откройте для себя возможность смотреть фильмы онлайн бесплатно в
-                отличном качестве с кинотеатром Иви!
-              </TextPar>
+              <TextPar>{`${t('DiscoverTheOpportunity')}`}</TextPar>
             </div>
           </TextCollapse>
         </section>
 
         <section>
-          <IconInText icon='arrowRight' text={`${t('GoodAnimatedSeries')}`} />
+          <IconInText
+            className={styles.sectionTitle}
+            icon='arrowRight'
+            text={`${t('GoodAnimatedSeries')}`}
+          />
+          <Slider
+            Component={MovieCard}
+            arrowSize='big'
+            componentSetting={{
+              style: 'fill',
+              type: 'square',
+              imgAlt: 'Movie Image',
+              mode: 'small',
+            }}
+            isCrop={true}
+            type='list'
+            items={kindCartoonsOut}
+            onItemClick={() => {}}
+          />
         </section>
 
         <section>
-          <IconInText icon='arrowRight' text={`${t('NewMovies')}`} />
+          <IconInText
+            className={styles.sectionTitle}
+            icon='arrowRight'
+            text={`${t('NewMovies')}`}
+          />
+          <Slider
+            Component={MovieCard}
+            isCrop={false}
+            arrowSize='big'
+            componentSetting={{
+              style: 'fill',
+              type: 'square',
+              imgAlt: 'Movie Image',
+              mode: 'small',
+            }}
+            items={newMoviesOut}
+            type='list'
+            onItemClick={() => {}}
+          />
         </section>
 
         <section className={styles.noticeTvBlock}>
-          <Text variant='bold'>Смотри телеканалы* круглосуточно, непрерывно и бесплатно.</Text>
-          <Text variant='bold'>
-            *Первый канал, Телеканал &quot;Россия&quot; (Россия-1), Телеканал
-            &quot;Матч ТВ&quot;, Телекомпания НТВ, Петербург - 5 канал,
-            Телеканал &quot;Россия - Культура&quot;, Российский информационный
-            канал &quot;Россия-24&quot;, Телеканал &quot;Общественное
-            телевидение России&quot;, ТВ ЦЕНТР
-          </Text>
+          <Text variant='bold'>{`${t('WatchTVChannels')}`}</Text>
+          <Text variant='bold'>{`${t('ChannelOne')}`}</Text>
         </section>
       </div>
     </>
@@ -140,9 +173,23 @@ Home.getLayout = function getLayout(page: ReactElement) {
 export default Home
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const localeData = await serverSideTranslations(locale ?? 'ru', ['common'])
+  const localeData = await serverSideTranslations(locale ?? 'ru')
+
+  const kindCartoons = await $instance.get<
+    AxiosRequestConfig<undefined>,
+    AxiosResponse<IMovie>
+  >(`filter/films?genres=drama`)
+
+  const newMovies = await $instance.get<
+    AxiosRequestConfig<undefined>,
+    AxiosResponse<IMovie>
+  >(`filter/films?year_min=2000`)
+
   return {
     props: {
+      newMovies: newMovies.data,
+      kindCartoons: kindCartoons.data,
+      lang: locale,
       ...localeData,
     },
   }

@@ -33,7 +33,6 @@ export type INameIconsExt =
   | 'appStore'
   | 'dislike'
   | 'lightning'
-  | 'gift'
   | 'avatar'
   | 'linkedin'
   | 'odnoklassniki'

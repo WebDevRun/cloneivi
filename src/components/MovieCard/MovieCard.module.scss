@@ -1,7 +1,7 @@
 @use '../../styles/functions' as fn;
 
 .movieCard.small {
-  max-width: fn.toRem(154px);
+  width: fn.toRem(154px);
   display: block;
 
   .textBadge {
