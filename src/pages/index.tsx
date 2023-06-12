@@ -12,7 +12,7 @@ import { IMovie } from '@/types/movie'
 import { Button } from '@/ui/Button'
 import { IconInText } from '@/ui/IconInText'
 import { Flex, H2, Text, TextPar } from '@/ui/ui'
-import { declOfNum } from '@/utils/functions/declinOfNum'
+import { iMovieToSliderProps } from '@/utils/functions/iMovieToSliderProps'
 import { AppLayout } from '@layouts/AppLayout'
 
 import { NextPageWithLayout } from './_app'
@@ -33,55 +33,9 @@ const Home: NextPageWithLayout<IHomePage> = ({
 }) => {
   const { t } = useTranslation()
 
-  const minutes = ['минута', 'минуты', 'минут']
-
-  const top10Out = top10.map((item) => {
-    return {
-      id: item.film_id,
-      genre: [
-        lang === 'ru' ? item.genres[0]?.genre_ru : item.genres[0]?.genre_en,
-        `${item.duration} ${declOfNum(item.duration, minutes)}`,
-      ],
-      year: `${item.year}, ${item.countries[0]?.country}`,
-      imgSrc: item.img,
-      movieName: lang === 'ru' ? item.name_ru : item.name_en,
-      rating: item.rating,
-      href: item.trailers[0]?.trailer,
-      ageLimit: `${item.age_limit}+`,
-    }
-  })
-
-  const newMoviesOut = newMovies.map((item) => {
-    return {
-      id: item.film_id,
-      genre: [
-        lang === 'ru' ? item.genres[0]?.genre_ru : item.genres[0]?.genre_en,
-        `${item.duration} ${declOfNum(item.duration, minutes)}`,
-      ],
-      year: `${item.year}, ${item.countries[0]?.country}`,
-      imgSrc: item.img,
-      movieName: lang === 'ru' ? item.name_ru : item.name_en,
-      rating: item.rating,
-      href: item.trailers[0]?.trailer,
-      ageLimit: `${item.age_limit}+`,
-    }
-  })
-
-  const kindCartoonsOut = kindCartoons.map((item) => {
-    return {
-      id: item.film_id,
-      genre: [
-        lang === 'ru' ? item.genres[0]?.genre_ru : item.genres[0]?.genre_en,
-        `${item.duration} ${declOfNum(item.duration, minutes)}`,
-      ],
-      year: `${item.year}, ${item.countries[0]?.country}`,
-      imgSrc: item.img,
-      movieName: lang === 'ru' ? item.name_ru : item.name_en,
-      rating: item.rating,
-      href: item.trailers[0]?.trailer,
-      ageLimit: `${item.age_limit}+`,
-    }
-  })
+  const top10Out = iMovieToSliderProps(top10, lang)
+  const newMoviesOut = iMovieToSliderProps(newMovies, lang)
+  const kindCartoonsOut = iMovieToSliderProps(kindCartoons, lang)
 
   return (
     <>
@@ -105,7 +59,13 @@ const Home: NextPageWithLayout<IHomePage> = ({
         </section>
 
         <section>
-          <IconInText className={styles.clauseTitle} text={`${t('ForTheWeek')}`} extIcon icon='top10' orderIcon='before' />
+          <IconInText
+            className={styles.clauseTitle}
+            text={`${t('ForTheWeek')}`}
+            extIcon
+            icon='top10'
+            orderIcon='before'
+          />
           <Slider
             Component={MovieCard}
             arrowSize='big'
@@ -211,18 +171,18 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
   const kindCartoons = await $instance.get<
     AxiosRequestConfig<undefined>,
-    AxiosResponse<IMovie>
-  >(`filter/films?genres=drama`)
+    AxiosResponse<IMovie[]>
+  >(`filter/films?genres=drama&limit=20`)
 
   const newMovies = await $instance.get<
     AxiosRequestConfig<undefined>,
-    AxiosResponse<IMovie>
-  >(`filter/films?year_min=2000`)
+    AxiosResponse<IMovie[]>
+  >(`filter/films?year_min=2000&limit=20`)
 
   const top10 = await $instance.get<
-  AxiosRequestConfig<undefined>,
-  AxiosResponse<IMovie>
->(`filter/films?rating=8.2&limit=10`)
+    AxiosRequestConfig<undefined>,
+    AxiosResponse<IMovie[]>
+  >(`filter/films?rating=8.2&limit=10`)
 
   return {
     props: {
