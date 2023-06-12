@@ -31,6 +31,8 @@ export type INameIconsExt =
   | 'user'
   | 'googlePlay'
   | 'appStore'
+  | 'dislike'
+  | 'lightning'
   | 'avatar'
   | 'linkedin'
   | 'odnoklassniki'

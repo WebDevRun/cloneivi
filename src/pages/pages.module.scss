@@ -9,3 +9,56 @@
     margin-bottom: fn.toRem(8px);
   }
 }
+
+.home {
+  section {
+    padding-top: fn.toRem(24px);
+    padding-bottom: fn.toRem(24px);
+  }
+}
+
+.clauseTitle {
+  margin-bottom: fn.toRem(12px);
+}
+
+.clauseText {
+  li {
+    position: relative;
+    margin-left: fn.toRem(12px);
+    padding-left: fn.toRem(16px);
+    list-style: none;
+    color: #a5a1b2;
+  }
+
+  li:before {
+    background-color: #a5a1b2;
+    border-radius: 50%;
+    content: '';
+    height: fn.toRem(6px);
+    left: 0;
+    position: absolute;
+    top: fn.toRem(10px);
+    width: fn.toRem(6px);
+  }
+
+  li + li,
+  p + p,
+  p + ol,
+  ol + p {
+    margin-top: fn.toRem(8px);
+  }
+}
+
+.noticeTvBlock {
+  & > * {
+    color: #d9d7e0;
+  }
+
+  & > :first-child {
+    margin-bottom: fn.toRem(20px);
+  }
+}
+
+.sectionTitle {
+  margin-bottom: fn.toRem(24px);
+}
