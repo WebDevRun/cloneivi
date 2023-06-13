@@ -1,9 +1,3 @@
-@use '../styles/functions' as fn;
-
-.inputWrapper {
-  position: relative;
-}
-
 .inputBody {
   display: block;
   position: relative;
@@ -18,8 +12,8 @@
   top: 20px;
   height: 20px;
   background-color: transparent;
-  color: #000;
-  border-radius: 8px;
+  color: #000000;
+  padding-left: 12px;
 
   width: 100%;
   transform: translateZ(0);
@@ -29,35 +23,35 @@
 
   text-overflow: ellipsis;
 
-  padding-left: 12px;
+  &:focus,
+  &:valid {
+    & ~ .label {
+      top: 0;
+    }
+  }
+
+  &:focus.editBox:not(:valid) {
+    & ~ .label {
+      color: #ff0000;
+    }
+  }
 }
 
-.overlays {
-  position: absolute;
-  left: 12px;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  transform: translateZ(0);
-  font-size: 15px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-.placeholder {
+.label {
   color: #a5a1b2;
   will-change: transform;
   text-rendering: geometricPrecision;
   transform-origin: 0 0;
   text-overflow: ellipsis;
-}
+  pointer-events: none;
 
-.pageNotFound {
-  background-image: url(../assets/images/other/bg404.png);
-  height: fn.toRem(348px);
-  background-position: 50% 0;
-
-  h1 {
-    margin-bottom: fn.toRem(8px);
-  }
+  position: absolute;
+  left: 12px;
+  right: 0;
+  top: 12px;
+  bottom: 0;
+  transform: translateZ(0);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
 }

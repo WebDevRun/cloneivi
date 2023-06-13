@@ -20,6 +20,8 @@ export interface IPersonPage {
   person: IPerson
 }
 
+const url = process.env.NEXT_PUBLIC_API_URL
+
 const PersonPage: NextPageWithLayout<IPersonPage> = ({ person }) => {
   const { t } = useTranslation()
 
@@ -62,7 +64,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await $instance.get<
     AxiosRequestConfig<undefined>,
     AxiosResponse<IPerson[]>
-  >('persons')
+  >(`${url}/persons`)
 
   const paths = data.map((person) => {
     return { params: { id: person.person_id } }
@@ -79,7 +81,7 @@ export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
   const { data } = await $instance.get<
     AxiosRequestConfig<undefined>,
     AxiosResponse<IPerson>
-  >(`persons/${params?.id}`)
+  >(`${url}/persons/${params?.id}`)
 
   return {
     props: {

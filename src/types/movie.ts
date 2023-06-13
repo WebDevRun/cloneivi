@@ -4,7 +4,7 @@ export interface IMovie {
   name_en: string
   description: string
   year: number
-  country: ICountry[]
+  countries: ICountry[]
   rating: number
   assessments: number
   reviews: number
@@ -16,6 +16,11 @@ export interface IMovie {
   qualities: IQuality[]
   languagesAudio: ILanguages[]
   languagesSubtitle: ILanguages[]
+}
+
+export interface IMovieName {
+  name_ru: string
+  name_en: string
 }
 
 export interface IGenre {
@@ -43,7 +48,7 @@ export interface ITrailer {
 }
 
 export interface ICountry {
-  "country_id": string
-  "country": string
-  "slug": string
+  country_id: string
+  country: string
+  slug: string
 }

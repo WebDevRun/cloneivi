@@ -20,7 +20,7 @@ export const Person: FC<PersonProps> = ({ person, maxShowFilms }) => {
       <section>
         <PersonFilmography
           films={person.films}
-          pathDataSrc='http://localhost:4000/films/'
+          pathDataSrc={`${process.env.NEXT_PUBLIC_API_URL}/films/`}
           maxShowItems={maxShowFilms}
         />
       </section>
