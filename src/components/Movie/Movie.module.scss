@@ -1,2 +1,5 @@
-.movie {
+@use '@styles/functions' as fn;
+
+.recommendedFilms {
+  margin-bottom: fn.toRem(20px);
 }

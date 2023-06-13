@@ -169,5 +169,6 @@
   "WatchOnAllDevices": "Watch «{{ name }}» on all devices",
   "appAvailable": "The app is available for download on iOS, Android, Smart TV and set-top boxes",
   "connectDevices": "Connect devices",
-  "viewingDevices": "Viewing devices"
+  "viewingDevices": "Viewing devices",
+  "WatchWithFilm": "With the movie «{{ film_name }}» watching"
 }
