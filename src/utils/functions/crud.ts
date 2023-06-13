@@ -4,7 +4,7 @@ import { IMovie, IMovieName } from '../../types/movie'
 import { getToken } from '../auth/getToken'
 
 const api = axios.create({
-  baseURL: 'http://localhost:4000', // process.env.NEXT_PUBLIC_API_URL, //
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
 })
 
 api.interceptors.request.use(

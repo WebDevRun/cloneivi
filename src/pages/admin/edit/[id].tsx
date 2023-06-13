@@ -43,7 +43,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   const { data } = await $instance.get<
     AxiosRequestConfig<undefined>,
     AxiosResponse<IMovie>
-  >(`http://localhost:4000/films/${params?.id}`)
+  >(`${process.env.NEXT_PUBLIC_API_URL}/films/${params?.id}`)
 
   return {
     props: {
