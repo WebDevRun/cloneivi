@@ -7,6 +7,7 @@ import { AppLayout } from '@layouts/AppLayout'
 
 import { NextPageWithLayout } from './_app'
 
+
 const Home: NextPageWithLayout = () => {
   const { t } = useTranslation()
   return <h1>{t('common:more')}</h1>

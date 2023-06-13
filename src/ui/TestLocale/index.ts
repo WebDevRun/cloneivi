@@ -1,1 +1,0 @@
-export { TestLocale } from './TestLocale'
