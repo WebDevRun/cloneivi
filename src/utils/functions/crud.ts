@@ -29,8 +29,3 @@ export const changeFilmName = async (
   )
   return data
 }
-
-export const deleteFilm = async (idFilm: string): Promise<IMovie[]> => {
-  const { data }: AxiosResponse<IMovie[]> = await api.delete(`/films/${idFilm}`)
-  return data
-}
