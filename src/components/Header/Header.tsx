@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
+import { LinkBtn } from '@/ui/LinkBtn'
 import { Svg } from '@/ui/Svg'
 import { SwitchLanguage } from '@/ui/SwitchLanguage'
 import logo from '@assets/images/common/ivi.svg'
@@ -27,7 +28,7 @@ export const Header: FC = () => {
     <div className={styles.header} onMouseOver={handleMouseOver}>
       <div className={styles.headerLogo}>
         <Link href='https://www.ivi.ru/'>
-          <Image src={logo} alt={t('common:logo') as string}></Image>
+          <Image src={logo} alt={t('common:logo') as string} />
         </Link>
       </div>
 
@@ -78,11 +79,11 @@ export const Header: FC = () => {
       </Link>
 
       <div data-test='header-profile' className={styles.profile}>
-        <Button
-          background='transparent'
+        <LinkBtn
+          href='https://www.ivi.ru/profile'
+          mode='account'
+          background='default'
           icon='profile'
-          onClick={() => {}}
-          withBorder='borderBg'
         />
       </div>
 

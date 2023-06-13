@@ -1,16 +1,18 @@
+@use '../../styles/functions' as fn;
+
 .breadcrumbs {
   display: flex;
-  color: rgba(255, 255, 255, 0.56);
+  color: rgba(white, 0.56);
   font-weight: 500;
 }
 
 .item {
   &.slash {
-    font-size: 13px;
-    line-height: 16px;
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
 
     & > .link {
-      color: #fff;
+      color: white;
 
       &:active,
       &:hover {
@@ -18,7 +20,7 @@
       }
 
       &:not(:hover):not(:active) {
-        box-shadow: 0 2px 0 #7e798f, inset 0 0 0 #7e798f;
+        box-shadow: 0 fn.toRem(2px) 0 #7e798f, inset 0 0 0 #7e798f;
         transition-duration: 0.4s;
       }
 
@@ -30,34 +32,34 @@
   }
 
   &.dot {
-    font-size: 15px;
-    line-height: 20px;
+    font-size: fn.toRem(15px);
+    line-height: fn.toRem(20px);
   }
 
   &.slash:not(:first-child)::before {
     content: '/';
-    margin-left: 4px;
-    margin-right: 3px;
+    margin-left: fn.toRem(4px);
+    margin-right: fn.toRem(3px);
   }
 
   &.dot:not(:first-child)::before {
     display: inline-block;
     content: '';
-    width: 2px;
-    height: 2px;
-    background-color: rgba(255, 255, 255, 0.56);
-    margin-left: 7px;
-    margin-right: 7px;
-    margin-bottom: 3px;
+    width: fn.toRem(2px);
+    height: fn.toRem(2px);
+    background-color: rgba(white, 0.56);
+    margin-left: fn.toRem(7px);
+    margin-right: fn.toRem(7px);
+    margin-bottom: fn.toRem(3px);
   }
 }
 
 .link {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(white, 0.72);
   transition-duration: 0.4s;
 
   &:active,
   &:hover {
-    color: #fff;
+    color: white;
   }
 }

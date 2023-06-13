@@ -24,7 +24,7 @@ const PersonPage: NextPageWithLayout<IPersonPage> = ({ person }) => {
   const { t } = useTranslation()
 
   const crumbHome: CrumbItem = {
-    text: t('myIvi'),
+    text: t('MyIvi'),
     path: '/',
   }
 
@@ -41,7 +41,7 @@ const PersonPage: NextPageWithLayout<IPersonPage> = ({ person }) => {
     <>
       <div className={styles.backLinkSection}>
         <div className={styles.backLinkWrapper}>
-          <BackLink text={t('back')}></BackLink>
+          <BackLink text={t('Back')}></BackLink>
         </div>
       </div>
       <Person person={person} maxShowFilms={8} />
