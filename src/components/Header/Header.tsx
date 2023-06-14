@@ -27,7 +27,7 @@ export const Header: FC = () => {
   return (
     <div className={styles.header} onMouseOver={handleMouseOver}>
       <div className={styles.headerLogo}>
-        <Link href='https://www.ivi.ru/'>
+        <Link href='/'>
           <Image src={logo} alt={t('common:logo') as string} />
         </Link>
       </div>
@@ -73,14 +73,14 @@ export const Header: FC = () => {
       <Link
         data-test='header-notify'
         className={styles.notifyLink}
-        href='https://www.ivi.ru/profile/pull_notifications'
+        href='/profile/pull_notifications'
       >
         <Svg icon='notify' />
       </Link>
 
       <div data-test='header-profile' className={styles.profile}>
         <LinkBtn
-          href='https://www.ivi.ru/profile'
+          href='/profile'
           mode='account'
           background='default'
           icon='profile'

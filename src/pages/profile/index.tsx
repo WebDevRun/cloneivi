@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
@@ -15,29 +16,106 @@ import { NextPageWithLayout } from '../_app'
 
 import styles from './profile.module.scss'
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL
+
 const Profile: NextPageWithLayout = () => {
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('qwerty')
+
+  const [password, setPassword] = useState('')
+  const [isValidatePassword, setIsValidatePassword] = useState(false)
+  const [passwordMatсh, setPasswordMatсh] = useState(false)
+  const [isSignIn, setIsSignIn] = useState(false)
+
+  const [isEmailRegistered, setIsEmailRegistered] = useState(false)
   const [isPasswordInvalid, setIsPasswordInvalid] = useState(false)
 
   const { t } = useTranslation()
   const router = useRouter()
 
-  const handleSubmitEmail = async (event: FormEvent<HTMLFormElement>) => {
+  const handleEmail = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     const target = event.target as HTMLFormElement
     setEmail(target.viaEmail.value)
+
+    try {
+      const response = await axios.get(
+        `${BASE_URL}/users/${target.viaEmail.value}`,
+        { withCredentials: true },
+      )
+
+      setIsEmailRegistered(true)
+    } catch (error) {
+      setIsEmailRegistered(false)
+    }
   }
 
-  const handleSubmitPassword = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+  const handleComeUpWithPassword = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
 
-    const target = event.target as HTMLFormElement
-    setPassword(target.InputPassword.value)
+    const target = e.target as HTMLFormElement
+    setIsValidatePassword(true)
+  }
 
-    if (target.InputPassword.value !== password) {
+  const handleRepeatPassword = (pasw: string) => {
+    if (password === pasw) {
+      setPasswordMatсh(true)
+    }
+  }
+
+  const handleSignUp = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const target = e.target as HTMLFormElement
+    setPassword(target.comeUpWithPassword.value)
+
+    try {
+      const response = await axios.post(`${BASE_URL}/signup`, {
+        email,
+        password,
+        withCredentials: true,
+      })
+
+      console.log('Успех регистрации')
+    } catch (error) {
+      console.log('Ошибка регистрации')
+    }
+  }
+
+  const handleInputPassword = (passw: string) => {
+    setIsPasswordInvalid(false)
+    setPassword(passw)
+  }
+
+  const handlePassword = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const target = e.target as HTMLFormElement
+    setPassword(target.inputPassword.value)
+    
+
+    if (target.inputPassword.value !== password) {
       setIsPasswordInvalid(true)
+    }
+
+    console.log('Пароль авторизации', password)
+
+    try {
+      const response = await axios.post(`${BASE_URL}/login`, {
+        email,
+        password,
+        withCredentials: true,
+      })
+
+      localStorage.setItem('accessToken', response.data.accessToken)
+
+      setIsSignIn(true)
+
+      console.log('Успех авторизации')
+    } catch (error) {
+      setIsPasswordInvalid(true)
+      console.log(error)
+      console.log('Ошибка авторизации')
     }
   }
 
@@ -66,8 +144,18 @@ const Profile: NextPageWithLayout = () => {
             showExtra={email ? false : true}
             className={styles.firstMessage}
           />
+
           {email && <ChatMessage title={email} variant='messageRight' />}
-          {email && <ChatMessage title={`${t('EnterYourPasswordToLogIn')}`} />}
+
+          {email && !isEmailRegistered && (
+            <ChatMessage
+              title='Придумайте пароль для входа'
+              extra='Установите пароль для входа через email, минимум 6 символов'
+            />
+          )}
+          {email && isEmailRegistered && !isSignIn && (
+            <ChatMessage title={`${t('EnterYourPasswordToLogIn')}`} />
+          )}
         </Flex>
 
         <div className={styles.controlsWrapper}>
@@ -75,7 +163,7 @@ const Profile: NextPageWithLayout = () => {
             <form
               name='emailForm'
               className={styles.controls}
-              onSubmit={handleSubmitEmail}
+              onSubmit={handleEmail}
             >
               <Input
                 label={`${t('ViaEmail')}`}
@@ -86,17 +174,75 @@ const Profile: NextPageWithLayout = () => {
             </form>
           )}
 
-          {email && (
+          {email && !isEmailRegistered && !isValidatePassword && (
+            <form
+              name='comeUpWithPassword'
+              className={styles.controls}
+              onSubmit={handleComeUpWithPassword}
+            >
+              <Input
+                label={`Придумайте пароль`}
+                type='password'
+                minLength={6}
+                name={'comeUpWithPassword'}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {!isValidatePassword && (
+                <Button
+                  type='submit'
+                  width='full'
+                  text={`${t('Continue')}`}
+                  disabled={password.length < 6 ? true : false}
+                />
+              )}
+            </form>
+          )}
+
+          {email && !isEmailRegistered && isValidatePassword && (
+            <form
+              name='signUp'
+              className={styles.controls}
+              onSubmit={handleSignUp}
+            >
+              <Input
+                label={`Придумайте пароль`}
+                type='password'
+                name={'comeUpWithPassword'}
+                defaultValue={password}
+              />
+              {!password && (
+                <Button type='button' width='full' text={`${t('Continue')}`} />
+              )}
+
+              <Input
+                label={`Повторите пароль`}
+                type='password'
+                name={'repeatPassword'}
+                onChange={(e) => handleRepeatPassword(e.target.value)}
+              />
+
+              <Button
+                type='submit'
+                width='full'
+                text={`Зарегистрироваться`}
+                disabled={passwordMatсh ? false : true}
+              />
+            </form>
+          )}
+
+          {email && isEmailRegistered && !isSignIn && (
             <form
               name='passwordForm'
               className={styles.controls}
-              onSubmit={handleSubmitPassword}
+              onSubmit={handlePassword}
             >
               <Input
                 label={`${t('InputPassword')}`}
                 type='password'
-                name={'InputPassword'}
+                name={'inputPassword'}
+                onChange={(e) => handleInputPassword(e.target.value)}
               />
+
               <Button type='submit' width='full' text={`${t('Login')}`} />
               <Button
                 type='button'
@@ -107,7 +253,11 @@ const Profile: NextPageWithLayout = () => {
             </form>
           )}
 
-          {isPasswordInvalid && (
+          {isSignIn && (
+            <ChatMessage title='Вы успешно вошли' variant='success' />
+          )}
+
+          {password && isPasswordInvalid && (
             <ChatMessage
               variant='error'
               title={`${t('Error')}`}
@@ -116,43 +266,46 @@ const Profile: NextPageWithLayout = () => {
           )}
 
           {!email && (
-            <Text variant='small' className='privacy-policy'>
-              {t('ByClickingContinueIAgree')} <br /> {t('With')} &nbsp;
-              <Decor>
-                <a href='https://www.ivi.ru/info/confidential' target='_blank'>
-                  {t('ThePrivacyPolicy')}
-                </a>
-              </Decor>
-              <br />
-              {t('And')} &nbsp;
-              <Decor>
-                <a href='https://www.ivi.ru/info/agreement' target='_blank'>
-                  {t('UserAgreement')}
-                </a>
-              </Decor>
-            </Text>
-          )}
+            <>
+              <Text variant='small' className='privacy-policy'>
+                {t('ByClickingContinueIAgree')} <br /> {t('With')} &nbsp;
+                <Decor>
+                  <a
+                    href='https://www.ivi.ru/info/confidential'
+                    target='_blank'
+                  >
+                    {t('ThePrivacyPolicy')}
+                  </a>
+                </Decor>
+                <br />
+                {t('And')} &nbsp;
+                <Decor>
+                  <a href='https://www.ivi.ru/info/agreement' target='_blank'>
+                    {t('UserAgreement')}
+                  </a>
+                </Decor>
+              </Text>
 
-          {!email && (
-            <Flex className={styles.socials} variant='center'>
-              <Flex variant='column'>
-                <Text>{t('LogInUsing')}</Text>
-                <Flex>
-                  <Button
-                    onClick={handleBtnVk}
-                    iconExt={true}
-                    icon='vkontakte'
-                    theme='social'
-                  />
-                  <Button
-                    onClick={handleBtnGoogle}
-                    icon='google'
-                    iconExt={true}
-                    theme='social'
-                  />
+              <Flex className={styles.socials} variant='center'>
+                <Flex variant='column'>
+                  <Text>{t('LogInUsing')}</Text>
+                  <Flex>
+                    <Button
+                      onClick={handleBtnVk}
+                      iconExt={true}
+                      icon='vkontakte'
+                      theme='social'
+                    />
+                    <Button
+                      onClick={handleBtnGoogle}
+                      icon='google'
+                      iconExt={true}
+                      theme='social'
+                    />
+                  </Flex>
                 </Flex>
               </Flex>
-            </Flex>
+            </>
           )}
         </div>
       </Flex>

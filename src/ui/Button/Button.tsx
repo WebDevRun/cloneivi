@@ -20,6 +20,8 @@ export interface ButtonProps {
   text?: string
   subText?: string
   type?: 'button' | 'reset' | 'submit'
+  disabled?: boolean
+  className?: string
   onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
@@ -36,6 +38,8 @@ export const Button: FC<ButtonProps> = ({
   subText,
   fields = 'widthFields',
   type = 'button',
+  disabled,
+  className,
   onClick,
 }) => {
   const mainCn = cn(
@@ -45,6 +49,7 @@ export const Button: FC<ButtonProps> = ({
     styles[withBorder],
     styles[size],
     styles[width],
+    className && styles[className],
     !text && styles.onlyIcon,
     fields === 'noneFields' && styles[fields],
   )
@@ -52,7 +57,12 @@ export const Button: FC<ButtonProps> = ({
   const iconSize = size === 'big' ? 'big' : 'middle'
 
   return (
-    <button type={type} className={mainCn} onClick={onClick}>
+    <button
+      type={type}
+      className={mainCn}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {icon && (
         <div className={styles.icon}>
           {<Svg icon={icon} ext={iconExt} size={iconSize} fill={iconFill} />}
