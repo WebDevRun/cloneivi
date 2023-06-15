@@ -1,0 +1,5 @@
+@use '../../styles/functions/' as fn;
+
+.editFilmsPage {
+  padding: fn.toRem(40px) 0;
+}

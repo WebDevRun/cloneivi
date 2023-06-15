@@ -18,6 +18,11 @@ export interface IMovie {
   languagesSubtitle: ILanguages[]
 }
 
+export interface IMovieName {
+  name_ru: string
+  name_en: string
+}
+
 export interface IGenre {
   genre_id: string
   genre_ru: string

@@ -18,7 +18,7 @@ interface LinkProps {
   text?: string | DefaultTFuncReturn
   icon?: INameIcons | INameIconsExt
   iconExt?: boolean
-  background?: 'lightgray' | 'default' | 'red'
+  background?: 'lightgray' | 'default' | 'red' | 'green'
   imgSrc?: string
   imgAlt?: string
   iconSize?: 'small' | 'middle' | 'big' | 'large'
@@ -37,6 +37,8 @@ export const LinkBtn: FC<LinkProps> = ({
   imgAlt = '',
   iconSize = 'middle',
 }) => {
+  const login = mode === 'account' && text ? true : false
+
   return (
     <Link className={styles.link} href={href}>
       <div
@@ -45,6 +47,7 @@ export const LinkBtn: FC<LinkProps> = ({
           styles[type],
           styles[mode],
           styles[background],
+          login && styles.accountLogin,
           {
             [styles.btn_withSubText]: subText,
           },
@@ -55,7 +58,7 @@ export const LinkBtn: FC<LinkProps> = ({
             [styles.genres]: mode === 'genres',
           })}
         >
-          {mode !== 'actor' && icon && (
+          {!login && mode !== 'actor' && icon && (
             <div className={styles.iconBox}>
               <Svg icon={icon} size={iconSize} ext={iconExt} />
             </div>

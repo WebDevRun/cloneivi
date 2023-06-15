@@ -9,6 +9,7 @@ import { SwitchLanguage } from '@/ui/SwitchLanguage'
 import logo from '@assets/images/common/ivi.svg'
 
 import { Button } from '../../ui/Button'
+import { Avatar } from '../Avatar'
 
 import styles from './Header.module.scss'
 import menu from './menu.json'
@@ -47,10 +48,7 @@ export const Header: FC = () => {
       </nav>
 
       <div className={styles.topWide}>
-        <div
-          data-test='header-addButton'
-          className={styles.additionalButton}
-        >
+        <div data-test='header-addButton' className={styles.additionalButton}>
           <Button
             size='small'
             background='primary'
@@ -79,12 +77,7 @@ export const Header: FC = () => {
       </Link>
 
       <div data-test='header-profile' className={styles.profile}>
-        <LinkBtn
-          href='/profile'
-          mode='account'
-          background='default'
-          icon='profile'
-        />
+        <Avatar />
       </div>
 
       <div className={styles.language}>

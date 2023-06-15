@@ -5,10 +5,14 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { FormEvent, ReactElement, useState } from 'react'
 
+import { useUser } from '@/components/Avatar/useUser'
+import { IMovieName } from '@/types/movie'
 import { Button } from '@/ui/Button'
 import { ChatMessage } from '@/ui/ChatMessage/ChatMessage'
 import { Input } from '@/ui/Input/Input'
+import { Spinner } from '@/ui/Spinner/Spinner'
 import { Decor, Flex } from '@/ui/ui'
+import { changeFilmName } from '@/utils/functions/crud'
 import { AppLayout } from '@layouts/AppLayout'
 
 import { Text } from '../../ui/ui'
@@ -19,7 +23,10 @@ import styles from './profile.module.scss'
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 const Profile: NextPageWithLayout = () => {
+  const [isRequestGo, setIsRequestGo] = useState(false)
+
   const [email, setEmail] = useState('')
+  const [currentUser, setCurrentUser] = useUser()
 
   const [password, setPassword] = useState('')
   const [isValidatePassword, setIsValidatePassword] = useState(false)
@@ -71,8 +78,8 @@ const Profile: NextPageWithLayout = () => {
 
     try {
       const response = await axios.post(`${BASE_URL}/signup`, {
-        email,
-        password,
+        email: email,
+        password: password,
         withCredentials: true,
       })
 
@@ -88,11 +95,12 @@ const Profile: NextPageWithLayout = () => {
   }
 
   const handlePassword = async (e: FormEvent<HTMLFormElement>) => {
+    setIsRequestGo(true)
+
     e.preventDefault()
 
     const target = e.target as HTMLFormElement
     setPassword(target.inputPassword.value)
-    
 
     if (target.inputPassword.value !== password) {
       setIsPasswordInvalid(true)
@@ -101,16 +109,28 @@ const Profile: NextPageWithLayout = () => {
     console.log('Пароль авторизации', password)
 
     try {
-      const response = await axios.post(`${BASE_URL}/login`, {
-        email,
-        password,
-        withCredentials: true,
-      })
+      const response = await axios.post(
+        `${BASE_URL}/login`,
+        {
+          email: email,
+          password: password,
+        },
+        { withCredentials: true },
+      )
 
       localStorage.setItem('accessToken', response.data.accessToken)
 
+      localStorage.setItem('currentUser', email)
+
       setIsSignIn(true)
 
+      setTimeout(() => {
+        setIsRequestGo(false)
+        router.reload()
+      }, 1000)
+
+      console.log('email', email)
+      console.log('password', password)
       console.log('Успех авторизации')
     } catch (error) {
       setIsPasswordInvalid(true)
@@ -129,186 +149,237 @@ const Profile: NextPageWithLayout = () => {
     router.push('https://accounts.google.com')
   }
 
+  const handleLogout = async () => {
+    localStorage.setItem('currentUser', '')
+
+    const response = await axios.delete('http://localhost:4000/logout', {
+      withCredentials: true,
+    })
+
+    setTimeout(() => {
+      router.reload()
+    }, 1000)
+  }
+
+  // i.jashkin@yandex.ru
+  // admin@gmail.com
+  // qwer@bk.ru
+
+  // "user_id": "358df730-e473-4b2b-a504-e0af8899df97",
+  // "email": "injashkin@gmail.com",
+
+  const handleSubmitTest = (e: FormEvent<HTMLFormElement>) => {
+    const film_id = 'c20394ef-d42e-4651-8a09-90ae2b64a098'
+
+    e.preventDefault()
+
+    const target = e.target as HTMLFormElement
+
+    const data: IMovieName = {
+      name_ru: target.test.value,
+      name_en: 'Burning Down the House2',
+    }
+
+    changeFilmName(film_id, data)
+  }
+
   return (
     <Flex className={styles.profile} variant='center'>
-      <Flex variant='column'>
-        <Text className={styles.title} variant='titleSm'>
-          {email ? t('Hello') : t('LoginOrRegistration')}
-        </Text>
-        {email && <Text>{email}</Text>}
+      {currentUser && (
+        <Button type='button' text={`Выйти`} onClick={handleLogout} />
+      )}
 
-        <Flex className={styles.messages} variant='column'>
-          <ChatMessage
-            title={`${t('PleaseLoginOrRegister')}`}
-            extra={`${t('ToUseTheServiceOnAnyDevice')}`}
-            showExtra={email ? false : true}
-            className={styles.firstMessage}
-          />
+      {!currentUser && (
+        <Flex variant='column'>
+          <Text className={styles.title} variant='titleSm'>
+            {email ? t('Hello') : t('LoginOrRegistration')}
+          </Text>
+          {email && <Text>{email}</Text>}
 
-          {email && <ChatMessage title={email} variant='messageRight' />}
-
-          {email && !isEmailRegistered && (
+          <Flex className={styles.messages} variant='column'>
             <ChatMessage
-              title='Придумайте пароль для входа'
-              extra='Установите пароль для входа через email, минимум 6 символов'
+              title={`${t('PleaseLoginOrRegister')}`}
+              extra={`${t('ToUseTheServiceOnAnyDevice')}`}
+              showExtra={email ? false : true}
+              className={styles.firstMessage}
             />
-          )}
-          {email && isEmailRegistered && !isSignIn && (
-            <ChatMessage title={`${t('EnterYourPasswordToLogIn')}`} />
-          )}
-        </Flex>
 
-        <div className={styles.controlsWrapper}>
-          {!email && (
-            <form
-              name='emailForm'
-              className={styles.controls}
-              onSubmit={handleEmail}
-            >
-              <Input
-                label={`${t('ViaEmail')}`}
-                type='email'
-                name={'viaEmail'}
-              />
-              <Button type='submit' width='full' text={`${t('Continue')}`} />
-            </form>
-          )}
+            {email && <ChatMessage title={email} variant='messageRight' />}
 
-          {email && !isEmailRegistered && !isValidatePassword && (
-            <form
-              name='comeUpWithPassword'
-              className={styles.controls}
-              onSubmit={handleComeUpWithPassword}
-            >
-              <Input
-                label={`Придумайте пароль`}
-                type='password'
-                minLength={6}
-                name={'comeUpWithPassword'}
-                onChange={(e) => setPassword(e.target.value)}
+            {email && !isEmailRegistered && (
+              <ChatMessage
+                title='Придумайте пароль для входа'
+                extra='Установите пароль для входа через email, минимум 6 символов'
               />
-              {!isValidatePassword && (
+            )}
+            {email && isEmailRegistered && !isSignIn && (
+              <ChatMessage title={`${t('EnterYourPasswordToLogIn')}`} />
+            )}
+          </Flex>
+
+          <div className={styles.controlsWrapper}>
+            {!email && (
+              <form
+                name='emailForm'
+                className={styles.controls}
+                onSubmit={handleEmail}
+              >
+                <Input
+                  label={`${t('ViaEmail')}`}
+                  type='email'
+                  name={'viaEmail'}
+                />
+                <Button type='submit' width='full' text={`${t('Continue')}`} />
+              </form>
+            )}
+
+            {email && !isEmailRegistered && !isValidatePassword && (
+              <form
+                name='comeUpWithPassword'
+                className={styles.controls}
+                onSubmit={handleComeUpWithPassword}
+              >
+                <Input
+                  label={`Придумайте пароль`}
+                  type='password'
+                  minLength={6}
+                  name={'comeUpWithPassword'}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                {!isValidatePassword && (
+                  <Button
+                    type='submit'
+                    width='full'
+                    text={`${t('Continue')}`}
+                    disabled={password.length < 6 ? true : false}
+                  />
+                )}
+              </form>
+            )}
+
+            {email && !isEmailRegistered && isValidatePassword && (
+              <form
+                name='signUp'
+                className={styles.controls}
+                onSubmit={handleSignUp}
+              >
+                <Input
+                  label={`Придумайте пароль`}
+                  type='password'
+                  name={'comeUpWithPassword'}
+                  defaultValue={password}
+                />
+                {!password && (
+                  <Button
+                    type='button'
+                    width='full'
+                    text={`${t('Continue')}`}
+                  />
+                )}
+
+                <Input
+                  label={`Повторите пароль`}
+                  type='password'
+                  name={'repeatPassword'}
+                  onChange={(e) => handleRepeatPassword(e.target.value)}
+                />
+
                 <Button
                   type='submit'
                   width='full'
-                  text={`${t('Continue')}`}
-                  disabled={password.length < 6 ? true : false}
+                  text={`Зарегистрироваться`}
+                  disabled={passwordMatсh ? false : true}
                 />
-              )}
-            </form>
-          )}
+              </form>
+            )}
 
-          {email && !isEmailRegistered && isValidatePassword && (
-            <form
-              name='signUp'
-              className={styles.controls}
-              onSubmit={handleSignUp}
-            >
-              <Input
-                label={`Придумайте пароль`}
-                type='password'
-                name={'comeUpWithPassword'}
-                defaultValue={password}
+            {email && isEmailRegistered && !isSignIn && (
+              <form
+                name='passwordForm'
+                className={styles.controls}
+                onSubmit={handlePassword}
+              >
+                <Input
+                  label={`${t('InputPassword')}`}
+                  type='password'
+                  name={'inputPassword'}
+                  onChange={(e) => handleInputPassword(e.target.value)}
+                />
+
+                <Button type='submit' width='full' text={`${t('Login')}`} />
+                <Button
+                  type='button'
+                  icon='refresh'
+                  background='transparent'
+                  text={`${t('RecoverPassword')}`}
+                />
+                {isRequestGo && <Spinner />}
+              </form>
+            )}
+
+            {isSignIn && (
+              <>
+                <Flex variant='center'>
+                  <ChatMessage title='Вы успешно вошли' variant='success' />
+
+                  <Button type='button' text={`Выйти`} onClick={handleLogout} />
+                </Flex>
+              </>
+            )}
+
+            {password && isPasswordInvalid && (
+              <ChatMessage
+                variant='error'
+                title={`${t('Error')}`}
+                extra={`${t('ThePasswordIsIncorrect')}`}
               />
-              {!password && (
-                <Button type='button' width='full' text={`${t('Continue')}`} />
-              )}
+            )}
 
-              <Input
-                label={`Повторите пароль`}
-                type='password'
-                name={'repeatPassword'}
-                onChange={(e) => handleRepeatPassword(e.target.value)}
-              />
+            {!email && (
+              <>
+                <Text variant='small' className='privacy-policy'>
+                  {t('ByClickingContinueIAgree')} <br /> {t('With')} &nbsp;
+                  <Decor>
+                    <a
+                      href='https://www.ivi.ru/info/confidential'
+                      target='_blank'
+                    >
+                      {t('ThePrivacyPolicy')}
+                    </a>
+                  </Decor>
+                  <br />
+                  {t('And')} &nbsp;
+                  <Decor>
+                    <a href='https://www.ivi.ru/info/agreement' target='_blank'>
+                      {t('UserAgreement')}
+                    </a>
+                  </Decor>
+                </Text>
 
-              <Button
-                type='submit'
-                width='full'
-                text={`Зарегистрироваться`}
-                disabled={passwordMatсh ? false : true}
-              />
-            </form>
-          )}
-
-          {email && isEmailRegistered && !isSignIn && (
-            <form
-              name='passwordForm'
-              className={styles.controls}
-              onSubmit={handlePassword}
-            >
-              <Input
-                label={`${t('InputPassword')}`}
-                type='password'
-                name={'inputPassword'}
-                onChange={(e) => handleInputPassword(e.target.value)}
-              />
-
-              <Button type='submit' width='full' text={`${t('Login')}`} />
-              <Button
-                type='button'
-                icon='refresh'
-                background='transparent'
-                text={`${t('RecoverPassword')}`}
-              />
-            </form>
-          )}
-
-          {isSignIn && (
-            <ChatMessage title='Вы успешно вошли' variant='success' />
-          )}
-
-          {password && isPasswordInvalid && (
-            <ChatMessage
-              variant='error'
-              title={`${t('Error')}`}
-              extra={`${t('ThePasswordIsIncorrect')}`}
-            />
-          )}
-
-          {!email && (
-            <>
-              <Text variant='small' className='privacy-policy'>
-                {t('ByClickingContinueIAgree')} <br /> {t('With')} &nbsp;
-                <Decor>
-                  <a
-                    href='https://www.ivi.ru/info/confidential'
-                    target='_blank'
-                  >
-                    {t('ThePrivacyPolicy')}
-                  </a>
-                </Decor>
-                <br />
-                {t('And')} &nbsp;
-                <Decor>
-                  <a href='https://www.ivi.ru/info/agreement' target='_blank'>
-                    {t('UserAgreement')}
-                  </a>
-                </Decor>
-              </Text>
-
-              <Flex className={styles.socials} variant='center'>
-                <Flex variant='column'>
-                  <Text>{t('LogInUsing')}</Text>
-                  <Flex>
-                    <Button
-                      onClick={handleBtnVk}
-                      iconExt={true}
-                      icon='vkontakte'
-                      theme='social'
-                    />
-                    <Button
-                      onClick={handleBtnGoogle}
-                      icon='google'
-                      iconExt={true}
-                      theme='social'
-                    />
+                <Flex className={styles.socials} variant='center'>
+                  <Flex variant='column'>
+                    <Text>{t('LogInUsing')}</Text>
+                    <Flex>
+                      <Button
+                        onClick={handleBtnVk}
+                        iconExt={true}
+                        icon='vkontakte'
+                        theme='social'
+                      />
+                      <Button
+                        onClick={handleBtnGoogle}
+                        icon='google'
+                        iconExt={true}
+                        theme='social'
+                      />
+                    </Flex>
                   </Flex>
                 </Flex>
-              </Flex>
-            </>
-          )}
-        </div>
-      </Flex>
+              </>
+            )}
+          </div>
+        </Flex>
+      )}
     </Flex>
   )
 }
