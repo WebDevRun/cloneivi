@@ -1,8 +1,6 @@
 import { IRating, IYear } from '@/types/movie'
 import { IMenuItem } from '@/types/navigate'
-
 export const IVI_RATING = 'ivi_rating_10_gte'
-
 export const MENU: IMenuItem[] = [
   { id: '1', name: 'Мой Иви', href: 'https://www.ivi.ru/' },
   { id: '2', name: 'Что нового', href: 'https://www.ivi.ru/new' },
@@ -130,4 +128,3 @@ export const RATINGS: IRating[] = [
     rating: 6,
   },
 ]
-

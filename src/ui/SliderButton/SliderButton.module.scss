@@ -1,0 +1,100 @@
+@use '../../styles/functions' as fn;
+
+$border: 1px solid rgba(255, 255, 255, 0.32);
+$activeColor: #7E798F;
+
+.sliderButton {
+  cursor: pointer;
+  font-weight: 500;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+
+.fill,
+.outline,
+.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.4s;
+}
+
+.square {
+
+  .fill,
+  .outline {
+    flex-direction: column;
+    border-radius: fn.toRem(8px);
+    gap: 8px;
+  }
+
+  .fill {
+    width: fn.toRem(153px);
+    height: fn.toRem(108px);
+    background-color: #1F1B2E;
+    font-size: fn.toRem(15px);
+    line-height: fn.toRem(20px);
+
+    &:hover {
+      background-color: #27223a;
+    }
+  }
+
+  .outline {
+    width: fn.toRem(108px);
+    height: fn.toRem(88px);
+    background: transparent;
+    border: $border;
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
+
+    &:hover {
+      background-color: $activeColor;
+    }
+  }
+}
+
+.circle {
+  width: fn.toRem(150px);
+  height: fn.toRem(34px);
+
+  .outline,
+  .active,
+  .fill {
+    height: 100%;
+    border-radius: fn.toRem(32px);
+    padding: fn.toRem(8px) fn.toRem(16px);
+    gap: fn.toRem(8px);
+
+    .image {
+      margin-right: fn.toRem(8px);
+    }
+  }
+
+  .outline,
+  .active {
+    font-size: fn.toRem(13px);
+    line-height: fn.toRem(16px);
+  }
+
+  .active {
+    flex-direction: row-reverse;
+    background-color: $activeColor;
+  }
+
+  .fill {
+    background-color: #312B45;
+
+    &:hover {
+      background-color: #38304d;
+    }
+
+    .name {
+      color: #a5a1b2;
+    }
+  }
+
+  .outline {
+    border: $border;
+  }
+}

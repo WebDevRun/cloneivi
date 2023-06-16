@@ -1,17 +1,50 @@
 import cn from 'classnames'
 import { FC } from 'react'
 
+import { IGenres } from '@/types/genres'
+
 import styles from './GenresSvg.module.scss'
+
 
 export interface GenresSvgProps {
   icon:
-    'anime' | 'biography' | 'action' | 'western' | 'military' |
-    'detective' | 'children' | 'adults' | 'documentary' | 'drama' |
-    'game' | 'history' | 'comedy' | 'concert' | 'shortFilm' |
-    'crime' | 'melodrama' | 'music' | 'cartoons' | 'musical' |
-    'news' | 'adventures' | 'realTV' | 'family' | 'sport' |
-    'talkShow' | 'thriller' | 'horror' | 'fantastic' | 'noirFilm' |
-    'fantasy' | 'ceremony'
+    | 'anime'
+    | 'biography'
+    | 'action'
+    | 'western'
+    | 'military'
+    | 'detective'
+    | 'children'
+    | 'adults'
+    | 'documentary'
+    | 'drama'
+    | 'game'
+    | 'history'
+    | 'comedy'
+    | 'concert'
+    | 'shortFilm'
+    | 'crime'
+    | 'melodrama'
+    | 'music'
+    | 'cartoons'
+    | 'musical'
+    | 'news'
+    | 'adventures'
+    | 'realTV'
+    | 'family'
+    | 'sport'
+    | 'talkShow'
+    | 'thriller'
+    | 'horror'
+    | 'fantastic'
+    | 'noirFilm'
+    | 'fantasy'
+    | 'ceremony'
+}
+
+  
+export interface GenresSvgProps {
+  icon: IGenres
   iconType: 'outlined' | 'twoTone',
   size: number
 }

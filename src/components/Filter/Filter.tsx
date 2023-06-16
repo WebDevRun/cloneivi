@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { FC, useState } from 'react'
 
 import {
@@ -14,7 +14,6 @@ import { FilterSvg } from '@assets/svg/FilterSvg/FilterSvg'
 import { FilterSelector } from '@ui/FilterSelector'
 
 import styles from './Filter.module.scss'
-import { useRouter } from 'next/router'
 
 export interface FilterProps {
   selectedFilters: ILocaleFilters

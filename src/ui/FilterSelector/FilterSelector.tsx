@@ -2,13 +2,13 @@ import { Dispatch, FC, SetStateAction } from 'react'
 
 import {
   IActiveFilterModal,
-  IFilterCategory, ILocaleFilterItem, ILocaleFilterItems, ILocaleFilters,
+  IFilterCategory, ILocaleFilterItem, ILocaleFilterItems,
 } from '@/types/filter'
+import { getFilterName } from '@/utils/functions/getFilter'
 import { FilterDropDown } from '@ui/FilterSelector/FilterDropDown'
 import { FilterSelectorButton } from '@ui/FilterSelector/FilterSelectorButton'
 
 import styles from './FilterSelector.module.scss'
-import { getFilterName } from '@/utils/functions/getFilter'
 
 export interface FilterSelectorProps {
   title: string
@@ -56,7 +56,7 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
         <FilterDropDown
           size={modalSize}
           position={position || 'left'}
-          slider={<div style={{ height: 88, background: '#000' }} />}
+          // slider={}
           allFilters={allFilters}
           selectedFilters={selectedFilters}
           category={category}

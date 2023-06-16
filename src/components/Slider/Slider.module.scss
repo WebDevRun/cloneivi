@@ -1,0 +1,52 @@
+.slider {
+  position: relative;
+
+  .container {
+    overflow: hidden;
+
+    .track {
+      display: flex;
+
+      .item {
+        height: 100%;
+      }
+
+      .unActive {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .button {
+    z-index: 10;
+    background-color: transparent;
+    position: absolute;
+    height: 100%;
+    top: -50%;
+    transform: translateY(50%) scale(1);
+    transition: 0.05s linear;
+
+    &:hover {
+      svg {
+        fill: #F1F1F3;
+      }
+    }
+  }
+
+  .arrowAnimate {
+    transform: translateY(50%) scale(0.6);
+  }
+
+  .overlay::before {
+    pointer-events: none;
+    content: '';
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: linear-gradient(90deg, rgba(#100E19, 0) 95%, #100E19 100%);
+  }
+}

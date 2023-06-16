@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { FC } from 'react'
 
 import { $instance } from '@/axios'
-import { ILocaleFilterItem, ILocaleFilters } from '@/types/filter'
+import { ILocaleFilters } from '@/types/filter'
 import { ICountry, IGenre, ILocaleGenre, IMovie, IRating, IYear } from '@/types/movie'
 import { IVI_RATING, RATINGS, YEARS } from '@/utils/consts'
 import { Filter } from '@components/Filter'
@@ -42,12 +42,12 @@ const getSelectedFilters = (params: Params, allFilters: AllFilters): SelectedFil
   return result
 }
 
-const localeGenres = (genres: IGenre[], locale: string | undefined):ILocaleGenre[] => {
+const localeGenres = (genres: IGenre[], locale: string | undefined): ILocaleGenre[] => {
   return genres.map(genre => {
     return {
       genre_id: genre.genre_id,
       genre_name: locale === 'ru' ? genre.genre_ru : genre.genre_en,
-      slug: genre.slug
+      slug: genre.slug,
     }
   })
 }
@@ -61,7 +61,7 @@ export interface MovieProps {
 const Movie: FC<MovieProps> = ({ selectedFilters, films, allFilters }) => {
   return (
     <AppLayout>
-      <Filter allFilters={allFilters} selectedFilters={selectedFilters}/>
+      <Filter allFilters={allFilters} selectedFilters={selectedFilters} />
     </AppLayout>
   )
 }

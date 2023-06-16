@@ -18,7 +18,7 @@ import Link from 'next/link'
 export interface FilterDropDownProps {
   size: 'big' | 'small'
   position?: IFilterPosition
-  slider: ReactNode
+  slider?: ReactNode
   allFilters: ILocaleFilterItems
   category: IFilterCategory
   selectedFilters: ILocaleFilterItems
