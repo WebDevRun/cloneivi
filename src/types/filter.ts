@@ -1,20 +1,16 @@
-import { ICountry, IGenre, IRating, IYear } from '@/types/movie'
+import { ICountry, ILocaleGenre, IRating, IYear } from '@/types/movie'
 
-export interface ICountrySlug {
-  id: string
-  name: string
-  slug: string
+export interface ILocaleFilters {
+  genres: ILocaleGenre[]
+  countries: ICountry[]
+  years: IYear[]
+  rating: IRating[]
 }
 
-export interface IFilterSettings {
-  genre: IGenre[]
-  country: ICountry[]
-  year: IYear[]
-  rating: IRating
-}
-
+export type IFilter = ICountry | IYear | IRating | ILocaleGenre
 export type IFilterPosition = 'left' | 'center' | 'right'
-export type IFilterItems = IGenre[] | string[] | number[]
+export type ILocaleFilterItems = (ILocaleGenre | ICountry | IYear | IRating)[]
+export type ILocaleFilterItem = ILocaleGenre | ICountry | IYear | IRating
 export type IFilterCategory = 'genre' | 'country' | 'year' | 'rating'
 
 export type IActiveFilterModal = 'genre' | 'country' | 'year' | 'rating' | ''

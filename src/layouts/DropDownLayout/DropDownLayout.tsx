@@ -8,6 +8,7 @@ export interface ModalLayoutProps {
   size?: 'big' | 'small' | 'middle'
   position?: 'left' | 'center' | 'right'
   type: 'filter' | 'header'
+  zIndex?: number
 }
 
 export const DropDownLayout: FC<ModalLayoutProps> = ({
@@ -15,6 +16,7 @@ export const DropDownLayout: FC<ModalLayoutProps> = ({
   position,
   size,
   type,
+  zIndex= 99
 }) => {
   return (
     <div
@@ -24,6 +26,7 @@ export const DropDownLayout: FC<ModalLayoutProps> = ({
         size && styles[size],
         position && styles[position],
       )}
+      style={{zIndex: zIndex}}
     >
       {children}
     </div>

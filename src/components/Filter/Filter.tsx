@@ -1,52 +1,82 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { FC, useEffect, useState } from 'react'
+import { redirect } from 'next/navigation'
+import { FC, useState } from 'react'
 
-import { IActiveFilterModal, IFilterSettings } from '@/types/filter'
-import { COUNTRIES, GENRES, RATINGS, YEARS } from '@/utils/consts'
+import {
+  IActiveFilterModal,
+  IFilterCategory,
+  ILocaleFilterItem,
+  ILocaleFilters,
+} from '@/types/filter'
+import { ICountry, ILocaleGenre, IRating, IYear } from '@/types/movie'
+import { getFiltersUrlQuery } from '@/utils/functions/getFilter'
 import { FilterSvg } from '@assets/svg/FilterSvg/FilterSvg'
 import { FilterSelector } from '@ui/FilterSelector'
 
 import styles from './Filter.module.scss'
+import { useRouter } from 'next/router'
 
-export const Filter: FC = () => {
-  const [filterSettings, setFilterSettings] = useState<IFilterSettings | null>(null)
+export interface FilterProps {
+  selectedFilters: ILocaleFilters
+  allFilters: ILocaleFilters
+}
+
+export const Filter: FC<FilterProps> = ({ selectedFilters, allFilters }) => {
   const [activeModal, setActiveModal] = useState<IActiveFilterModal>('')
-  const {query} = useRouter()
+  const router = useRouter()
 
-  useEffect(() => {
-    const {params, rating} = query
-    const settings: IFilterSettings = {
-      genre: [],
-      country: [],
-      year: -1,
-      rating: -1,
+  const filterRedirect = (
+    currentFilter: ILocaleFilterItem,
+    category: IFilterCategory,
+  ) => {
+    switch (category) {
+      case 'country':
+        const isCountrySelected = selectedFilters.countries
+          .some(country => country.slug === currentFilter.slug)
+        isCountrySelected
+          ? selectedFilters.countries = selectedFilters.countries.filter(country => country.slug !== currentFilter.slug)
+          : selectedFilters.countries.push(currentFilter as ICountry)
+        break
+      case 'year':
+        const isYearSelected = selectedFilters.years
+          .some(year => year.slug === currentFilter.slug)
+        isYearSelected
+          ? selectedFilters.years = []
+          : selectedFilters.years = [currentFilter as IYear]
+        break
+      case 'rating':
+        const isRatingSelected = selectedFilters.rating
+          .some(rate => rate.slug === currentFilter.slug)
+        isRatingSelected
+          ? selectedFilters.rating = []
+          : selectedFilters.rating = [currentFilter as IRating]
+        break
+      case 'genre':
+        const isGenreSelected = selectedFilters.genres
+          .some(genre => genre.slug === currentFilter.slug)
+        isGenreSelected
+          ? selectedFilters.genres = selectedFilters.genres.filter(genre => genre.slug !== currentFilter.slug)
+          : selectedFilters.genres.push(currentFilter as ILocaleGenre)
+        break
     }
 
-    if (params && Array.isArray(params)) {
-      params.forEach(parameter => {
-        const items = GENRES.filter((genre) => genre.slug === parameter)
-        if (items.length > 0) {
-          settings.genre = [...items]
-        }
-      })
+    const selectedGenres = getFiltersUrlQuery(selectedFilters.genres, 'genre')
+    const selectedCountries = getFiltersUrlQuery(selectedFilters.countries, 'country')
+    const selectedYears = getFiltersUrlQuery(selectedFilters.years, 'year')
+    const selectedRating = getFiltersUrlQuery(selectedFilters.rating, 'rating')
 
-    }
-
-    setFilterSettings(settings)
-  }, [query])
-
+    router.push(`/movies${selectedGenres}${selectedCountries}${selectedYears}${selectedRating}`)
+  }
 
   return (
     <div className={styles.filter}>
       <div className={styles.selectors}>
         <FilterSelector
           title='Жанры'
-          selectedItems={filterSettings}
-          // setSelectedItems={() => {
-          // }}
+          selectedFilters={selectedFilters.genres}
+          filterRedirect={filterRedirect}
           position={'left'}
-          items={GENRES}
+          allFilters={allFilters.genres}
           modalSize={'big'}
           category={'genre'}
           activeModal={activeModal}
@@ -54,11 +84,10 @@ export const Filter: FC = () => {
         />
         <FilterSelector
           title='Страны'
-          selectedItems={filterSettings}
-          // setSelectedItems={() => {
-          // }}
+          selectedFilters={selectedFilters.countries}
+          filterRedirect={filterRedirect}
           position={'center'}
-          items={COUNTRIES}
+          allFilters={allFilters.countries}
           modalSize={'big'}
           category={'country'}
           activeModal={activeModal}
@@ -66,10 +95,9 @@ export const Filter: FC = () => {
         />
         <FilterSelector
           title='Годы'
-          selectedItems={filterSettings}
-          // setSelectedItems={() => {
-          // }}
-          items={YEARS}
+          selectedFilters={selectedFilters.years}
+          filterRedirect={filterRedirect}
+          allFilters={allFilters.years}
           modalSize={'small'}
           category={'year'}
           activeModal={activeModal}
@@ -77,10 +105,9 @@ export const Filter: FC = () => {
         />
         <FilterSelector
           title='Рейтинг Иви'
-          selectedItems={filterSettings}
-          // setSelectedItems={() => {
-          // }}
-          items={RATINGS}
+          selectedFilters={selectedFilters.rating}
+          filterRedirect={filterRedirect}
+          allFilters={allFilters.rating}
           modalSize={'small'}
           category={'rating'}
           activeModal={activeModal}
@@ -88,10 +115,10 @@ export const Filter: FC = () => {
         />
       </div>
       <div className={styles.subFilters}>
-        <div style={{height: 35, background: '#000', width: 130}}></div>
-        <div style={{height: 35, background: '#000', width: 130}}></div>
-        <div style={{height: 35, background: '#000', width: 130}}></div>
-        <div style={{height: 35, background: '#000', width: 130}}></div>
+        <div style={{ height: 35, background: '#000', width: 130 }}></div>
+        <div style={{ height: 35, background: '#000', width: 130 }}></div>
+        <div style={{ height: 35, background: '#000', width: 130 }}></div>
+        <div style={{ height: 35, background: '#000', width: 130 }}></div>
       </div>
       <Link href={''} className={styles.clearButton}>
         <FilterSvg icon={'close'} />
