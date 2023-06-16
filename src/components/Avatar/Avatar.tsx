@@ -4,7 +4,7 @@ import styles from './Avatar.module.scss'
 import { useUser } from './useUser'
 
 export const Avatar = () => {
-  const [currentUser, setCurrentUser] = useUser()
+  const [currentUser] = useUser()
 
   return (
     <>

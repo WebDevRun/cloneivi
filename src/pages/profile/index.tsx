@@ -77,15 +77,27 @@ const Profile: NextPageWithLayout = () => {
     setPassword(target.comeUpWithPassword.value)
 
     try {
-      const response = await axios.post(`${BASE_URL}/signup`, {
-        email: email,
-        password: password,
-        withCredentials: true,
-      })
+      const response = await axios.post(
+        `${BASE_URL}/signup`,
+        {
+          email: email,
+          password: password,
+        },
+        { withCredentials: true },
+      )
 
-      console.log('Успех регистрации')
+      localStorage.setItem('accessToken', response.data.accessToken)
+
+      localStorage.setItem('currentUser', email)
+
+      setIsSignIn(true)
+
+      setTimeout(() => {
+        setIsRequestGo(false)
+        router.reload()
+      }, 500)
     } catch (error) {
-      console.log('Ошибка регистрации')
+      setIsPasswordInvalid(true)
     }
   }
 
@@ -94,10 +106,9 @@ const Profile: NextPageWithLayout = () => {
     setPassword(passw)
   }
 
-  const handlePassword = async (e: FormEvent<HTMLFormElement>) => {
-    setIsRequestGo(true)
-
+  const handleSignIn = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setIsRequestGo(true)
 
     const target = e.target as HTMLFormElement
     setPassword(target.inputPassword.value)
@@ -105,8 +116,6 @@ const Profile: NextPageWithLayout = () => {
     if (target.inputPassword.value !== password) {
       setIsPasswordInvalid(true)
     }
-
-    console.log('Пароль авторизации', password)
 
     try {
       const response = await axios.post(
@@ -127,15 +136,9 @@ const Profile: NextPageWithLayout = () => {
       setTimeout(() => {
         setIsRequestGo(false)
         router.reload()
-      }, 1000)
-
-      console.log('email', email)
-      console.log('password', password)
-      console.log('Успех авторизации')
+      }, 500)
     } catch (error) {
       setIsPasswordInvalid(true)
-      console.log(error)
-      console.log('Ошибка авторизации')
     }
   }
 
@@ -150,15 +153,22 @@ const Profile: NextPageWithLayout = () => {
   }
 
   const handleLogout = async () => {
+    setIsRequestGo(true)
     localStorage.setItem('currentUser', '')
 
-    const response = await axios.delete('http://localhost:4000/logout', {
+    const response = await axios.delete(`${BASE_URL}/logout`, {
       withCredentials: true,
     })
 
     setTimeout(() => {
-      router.reload()
-    }, 1000)
+      setIsRequestGo(false)
+      setCurrentUser
+
+      console.log(setCurrentUser)
+      router.push('/')
+
+      //router.reload()
+    }, 500)
   }
 
   // i.jashkin@yandex.ru
@@ -186,7 +196,11 @@ const Profile: NextPageWithLayout = () => {
   return (
     <Flex className={styles.profile} variant='center'>
       {currentUser && (
-        <Button type='button' text={`Выйти`} onClick={handleLogout} />
+        <Flex gap='gap16' variant='column'>
+          <Text variant='titleXL'>{`Профиль ${currentUser}`}</Text>
+          <Button type='button' text={`Выйти`} onClick={handleLogout} />
+          {isRequestGo && <Spinner />}
+        </Flex>
       )}
 
       {!currentUser && (
@@ -297,7 +311,7 @@ const Profile: NextPageWithLayout = () => {
               <form
                 name='passwordForm'
                 className={styles.controls}
-                onSubmit={handlePassword}
+                onSubmit={handleSignIn}
               >
                 <Input
                   label={`${t('InputPassword')}`}
@@ -321,7 +335,6 @@ const Profile: NextPageWithLayout = () => {
               <>
                 <Flex variant='center'>
                   <ChatMessage title='Вы успешно вошли' variant='success' />
-
                   <Button type='button' text={`Выйти`} onClick={handleLogout} />
                 </Flex>
               </>

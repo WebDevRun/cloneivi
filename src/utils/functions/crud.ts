@@ -11,11 +11,6 @@ api.interceptors.request.use(
   async (config) => {
     const token = getToken()
 
-    //const token =
-    //  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjYxNWU1ZGYtYzA1Ny00YjY5LTgyMGItNWIyMTU1YWMyYjFjIiwiZW1haWwiOiJxd2VyQGJrLnJ1Iiwicm9sZXMiOltdLCJpYXQiOjE2ODY4MDY2NjksImV4cCI6MTY4NjgwODQ2OX0.qywkK_mnjJ4Ccc2tSe3wie_gy4M7yCGJkeexOssF5oM'
-
-    console.log(token)
-
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }

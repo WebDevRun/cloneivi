@@ -4,9 +4,7 @@ export const useUser = () => {
   const [currentUser, setCurrentUser] = useState('')
 
   useEffect(() => {
-    //const storedUser = JSON.parse(localStorage.getItem('currentUser'))
-    const storedUser = localStorage.getItem('currentUser');
-    console.log(storedUser)
+    const storedUser = localStorage.getItem('currentUser')
 
     if (storedUser) {
       setCurrentUser(storedUser)
