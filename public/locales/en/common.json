@@ -169,5 +169,10 @@
   "WatchOnAllDevices": "Watch «{{ name }}» on all devices",
   "appAvailable": "The app is available for download on iOS, Android, Smart TV and set-top boxes",
   "connectDevices": "Connect devices",
-  "viewingDevices": "Viewing devices"
+  "viewingDevices": "Viewing devices",
+  "DontLikeThis": "Don't like this",
+  "AlreadyWatchedEvaluate": "Already watched, evaluate",
+  "Similar": "Similar",
+  "WatchLater":"Watch later",
+  "Purchase": "Purchase"
 }

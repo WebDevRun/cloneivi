@@ -1,0 +1,53 @@
+.body {
+  display: flex;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 1 100%;
+  margin-left: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.info {
+  margin-right: 1rem;
+}
+.info > *:not(:first-child) {
+  margin-top: 0.25rem;
+}
+
+.rating {
+  color: #a5a1b2;
+  font-size: 0.8125rem;
+  line-height: 1rem;
+  font-weight: 500;
+}
+
+.ratingValue {
+  margin-left: 0.25rem;
+  font-weight: 700;
+}
+
+.action {
+  min-width: 8.75rem;
+}
+
+@media (max-width: 600px) {
+  .main {
+    flex-direction: column;
+    align-items: start;
+  }
+  .action {
+    margin-top: 0.625rem;
+    width: 100%;
+  }
+  .action button {
+    width: 100%;
+  }
+}/*# sourceMappingURL=PersonFilmographyItem.module.css.map */

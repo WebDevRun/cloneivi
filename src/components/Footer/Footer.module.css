@@ -1,0 +1,21 @@
+.footer {
+  font-size: 15px;
+}
+
+.mobileFooter {
+  display: none;
+}
+
+@media (max-width: 1160px) {
+  .footer {
+    display: none;
+  }
+  .mobileFooter {
+    width: 100%;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(31, 27, 46, 0.88);
+  }
+}/*# sourceMappingURL=Footer.module.css.map */

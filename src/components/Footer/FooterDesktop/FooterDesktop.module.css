@@ -1,0 +1,120 @@
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.footerColumnDescription p {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.footerColumnTitle {
+  color: rgb(255, 255, 255);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.footerLinkList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerLinkItem a {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.48);
+}
+.footerLinkItem a:hover {
+  color: white;
+}
+
+.certificationLink {
+  background-image: linear-gradient(-45deg, #c447ff, #ea003d);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footerSupport {
+  margin-top: 1.25rem;
+}
+.footerSupport button {
+  padding: 0.75rem;
+}
+
+.footerSupportButtons {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 0.625rem;
+}
+.footerSupportButtons button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.footerQuestions {
+  margin-top: 1.5rem;
+}
+.footerQuestions p {
+  color: rgba(255, 255, 255, 0.48);
+}
+.footerQuestions a {
+  font-size: 0.9375rem;
+  color: white;
+}
+
+.footerWidget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.footerWidgetIcon {
+  width: 104px;
+  height: 104px;
+  border-radius: 1.25rem;
+  justify-content: center;
+  background: linear-gradient(180deg, #a869f0 0%, #834cc2 100%);
+  box-shadow: 0 0 104px #a869f0;
+}
+
+.footerWidgetText {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.footerContentBottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3rem 0;
+}
+
+.footerStores {
+  display: flex;
+  gap: 0.75rem;
+}
+.footerStores button {
+  padding: 0 0.625rem;
+}
+
+.footerCopyrights {
+  margin-top: 2rem;
+}
+.footerCopyrights p {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.footerComunity {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+.footerComunity button {
+  border-radius: 50%;
+}/*# sourceMappingURL=FooterDesktop.module.css.map */

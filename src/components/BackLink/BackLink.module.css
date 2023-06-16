@@ -1,0 +1,13 @@
+.backLink {
+  display: flex;
+  height: 1.25rem;
+}
+
+.backLink svg {
+  fill: #ffffff;
+}
+
+.text {
+  margin-left: 0.5rem;
+  color: #ffffff;
+}/*# sourceMappingURL=BackLink.module.css.map */

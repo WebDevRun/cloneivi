@@ -1,0 +1,8 @@
+.pageNotFound {
+  background-image: url(../assets/images/other/bg404.png);
+  height: 21.75rem;
+  background-position: 50% 0;
+}
+.pageNotFound h1 {
+  margin-bottom: 0.5rem;
+}/*# sourceMappingURL=pages.module.css.map */

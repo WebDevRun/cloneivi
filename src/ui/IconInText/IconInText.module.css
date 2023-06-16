@@ -1,0 +1,27 @@
+.iconInText {
+  display: flex;
+  align-items: stretch;
+}
+
+.iconInText svg {
+  fill: #ffffff;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  margin-top: 0.125rem;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+}
+
+.before > .icon {
+  order: -1;
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 0.5rem;
+}/*# sourceMappingURL=IconInText.module.css.map */

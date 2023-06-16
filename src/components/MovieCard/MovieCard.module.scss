@@ -1,8 +1,20 @@
 @use '../../styles/functions' as fn;
 
 .movieCard.small {
-  max-width: fn.toRem(154px);
+  width: fn.toRem(154px);
   display: block;
+
+  .movieCardBackground {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    border-radius: fn.toRem(10px);
+  }
+
+  .movieCardImageCont {
+    height: fn.toRem(235px);
+  }
 
   .textBadge {
     font-size: fn.toRem(13px);
@@ -24,6 +36,36 @@
   }
 }
 
+.movieCard.top10 {
+  position: relative;
+  width: fn.toRem(224px);
+  display: block;
+
+  .movieCardBackground {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: fn.toRem(10px);
+    box-shadow: 0px -100px 70px -40px rgba(16, 14, 25, 1) inset;
+  }
+
+  .movieCardImageCont {
+    height: fn.toRem(457px);
+  }
+
+  .numberImage{
+    position: absolute;
+    bottom: -33px;
+  }
+
+  .nameImage{
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 54px;
+  }
+}
+
 .movieCard.big,
 .movieCard.series {
   width: 100%;
@@ -38,6 +80,8 @@
 .movieCardImageCont {
   position: relative;
   transition: 0.2s ease-in-out;
+  width: 100%;
+  border-radius: fn.toRem(10px);
 }
 
 .movieCard.series {
@@ -68,7 +112,7 @@
   top: 0;
   left: 0;
   transition: 0.2s ease-in-out;
-  border-radius: fn.toRem(16px);
+  border-radius: fn.toRem(10px);
 }
 
 .hoards {
@@ -96,14 +140,64 @@
 
 .iconBtn {
   background: transparent;
+  position: relative;
 
   svg {
     fill: white;
   }
+
+  &::after {
+    content: 'Hello';
+    padding: 5px;
+    position: absolute;
+    color: white;
+    background: #1f1b2e;
+    display: none;
+    top: -100%;
+    transform: translateY(-25%);
+    border-radius: 5px;
+    left: 0;
+    white-space: nowrap;
+  }
+
+  &:hover::after {
+    display: inline;
+  }
+}
+
+.ratingBtn::after {
+  content: var(--ratingContent);
+}
+
+.similarBtn::after {
+  content: var(--similarContent);
+}
+
+.favoriteBtn::after {
+  content: var(--favoriteContent);
 }
 
 .dislikeBtn {
   background: transparent;
+  position: relative;
+
+  &::after {
+    content: 'Не нравится такое';
+    padding: 5px;
+    position: absolute;
+    color: white;
+    background: #1f1b2e;
+    display: none;
+    top: -100%;
+    transform: translateY(-25%);
+    border-radius: 5px;
+    left: 0;
+    white-space: nowrap;
+  }
+
+  &:hover::after {
+    display: inline;
+  }
 }
 
 .movieCardInfo {
@@ -120,7 +214,6 @@
 }
 
 .movieCardType {
-  color: rgb(234, 0, 61);
   font-size: fn.toRem(13px);
   font-weight: 400;
 }
@@ -132,6 +225,12 @@
     .movieInfo {
       opacity: 1;
     }
+  }
+}
+
+.movieCard.top10:hover {
+  .movieCardImageCont {
+    transform: scale(1.05);
   }
 }
 

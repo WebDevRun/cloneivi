@@ -1,0 +1,121 @@
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.start {
+  align-items: flex-start;
+}
+
+.baseline {
+  align-items: baseline;
+}
+
+.columnStart {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.end {
+  align-items: flex-end;
+}
+
+.stretch {
+  align-items: stretch;
+}
+
+.spaceBetween {
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.center {
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.centerNoWrap {
+  justify-content: center;
+  align-items: start;
+}
+
+.stretchCenter {
+  flex-wrap: wrap;
+  align-items: normal;
+  align-content: stretch;
+  justify-content: center;
+}
+
+.superH1 {
+  font-size: 3.5rem;
+  line-height: 3.5rem;
+  font-weight: 700;
+}
+
+.titleH1 {
+  font-size: 2.5rem;
+  line-height: 2.75rem;
+  font-weight: 700;
+}
+
+.titleXL {
+  font-size: 2rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+.titleLg {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+.titleBg {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.titleH2,
+.titleMd {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+}
+
+.titleSm {
+  color: #fff;
+  font-size: 0.9375rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+
+.bold {
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
+  font-weight: 500;
+}
+
+.normal {
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
+  font-weight: 400;
+  color: #a5a1b2;
+}
+
+.small {
+  font-size: 0.8125rem;
+  line-height: 1rem;
+  font-weight: 400;
+  color: #d9d7e0;
+}/*# sourceMappingURL=ui.module.css.map */

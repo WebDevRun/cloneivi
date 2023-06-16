@@ -1,0 +1,24 @@
+.list {
+  position: relative;
+}
+.list:last-child {
+  padding-left: 1rem;
+}
+
+.gutter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  width: 1px;
+  background-color: hsla(0, 0%, 100%, 0.16);
+}
+
+.stripe {
+  height: 1.25rem;
+  transform: translateY(0);
+  background-color: #fff;
+  width: 1px;
+  transition: transform 0.2s, width 0.4s, height 0.4s;
+  will-change: transform, width, height;
+}/*# sourceMappingURL=NativeScroll.module.css.map */

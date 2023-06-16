@@ -1,0 +1,34 @@
+@media (max-width: 1160px) {
+  .tabBar {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 120px));
+    justify-content: center;
+  }
+  .tabBar .tabBarItem {
+    position: relative;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 4px;
+  }
+  .tabBar .tabBarItem.active .light {
+    background-image: url("../../../assets/images/tabBarGlow.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 64px 48px;
+    width: 64px;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+  .tabBar .tabBarItem .tabBarText {
+    font-size: 10px;
+    font-weight: 500;
+    color: gray;
+  }
+  .tabBar .tabBarItem.active .tabBarText {
+    color: white;
+  }
+}/*# sourceMappingURL=FooterMobile.module.css.map */

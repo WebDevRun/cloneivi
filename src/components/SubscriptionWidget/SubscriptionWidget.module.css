@@ -1,0 +1,229 @@
+.subscriptionWidget {
+  display: flex;
+  flex-direction: column;
+  width: 15.25rem;
+}
+
+.animation {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #312b45;
+  margin-bottom: 1.5rem;
+}
+
+.posterBlock {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  transform: translateY(-4rem);
+}
+
+.posterLane {
+  display: flex;
+  margin-top: 0.5rem;
+  width: 25.5rem;
+  height: 4.5rem;
+  transition-duration: 0.3s;
+  animation-name: horizontalScrolling;
+  animation-timing-function: linear;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+}
+.posterLane > * {
+  margin-left: 0.5rem;
+}
+
+.posterLane:nth-child(odd) {
+  animation-direction: normal;
+  animation-duration: 36s;
+}
+
+.posterLane:nth-child(even) {
+  animation-direction: reverse;
+  animation-duration: 36s;
+}
+
+.image {
+  border-radius: 0.5rem;
+}
+
+.bottomPanel {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+  background-color: rgba(49, 43, 69, 0.96);
+  transition-property: height;
+  transition-duration: 0.3s;
+}
+.bottomPanel:hover {
+  height: 8.75rem;
+}
+.bottomPanel:not(:hover) {
+  height: 4.5rem;
+}
+
+.bottomFade {
+  position: absolute;
+  height: 3rem;
+  left: 0;
+  right: 0;
+  top: -3rem;
+  pointer-events: none;
+  background-image: linear-gradient(180deg, rgba(49, 43, 69, 0), rgba(49, 43, 69, 0.96));
+}
+
+.detailsBlock {
+  display: flex;
+  justify-content: center;
+  background: transparent;
+}
+
+.badgeBrand {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background-color: #ea003d;
+}
+
+.detailsTextBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 0.75rem;
+}
+
+.detailsTitle {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  height: 1.5rem;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.detailsExtra {
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  line-height: 1rem;
+  font-weight: 400;
+  height: 1rem;
+  color: #d9d7e0;
+}
+
+.bottomHover {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition-duration: 0.4s;
+  transition-property: opacity;
+  width: 100%;
+  height: 100%;
+  padding: 0 1.25rem;
+}
+.bottomHover:hover {
+  opacity: 1;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.note {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: #a5a1b2;
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 0.75rem;
+  text-align: center;
+  text-overflow: ellipsis;
+  transition-property: opacity, transform;
+  white-space: nowrap;
+}
+
+.subscriptionWidget.big {
+  width: 31.25rem;
+}
+.subscriptionWidget.big .animation {
+  margin-bottom: 0;
+}
+.subscriptionWidget.big .posterBlock {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
+  transform: translateY(0);
+}
+.subscriptionWidget.big .posterBlock::before {
+  background-image: linear-gradient(270deg, rgba(31, 27, 46, 0) 0, #1f1b2e 100%);
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  display: block;
+  z-index: 1;
+}
+.subscriptionWidget.big .posterBlock::after {
+  right: 0;
+  background-image: linear-gradient(90deg, rgba(31, 27, 46, 0) 0, #1f1b2e 100%);
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  display: block;
+  z-index: 1;
+}
+.subscriptionWidget.big .posterBlock > :first-child {
+  margin-top: 0;
+}
+.subscriptionWidget.big .posterLane {
+  width: 130rem;
+  height: 7.0625rem;
+}
+.subscriptionWidget.big .posterLane:nth-child(odd) {
+  animation-duration: 72s;
+}
+.subscriptionWidget.big .posterLane:nth-child(even) {
+  animation-duration: 72s;
+}
+
+.moreLink {
+  color: #fff;
+  position: absolute;
+  right: 24px;
+  bottom: 32px;
+  z-index: 2;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.moreLink:not(:hover):not(:active) {
+  box-shadow: 0 2px 0 #7e798f, inset 0 0 0 #7e798f;
+  transition-duration: 0.4s;
+}
+.moreLink:hover:not(:active) {
+  box-shadow: 0 0 0 #7e798f, inset 0 -1.5em 0 #7e798f;
+  transition-duration: 80ms;
+}
+
+@keyframes horizontalScrolling {
+  0% {
+    transform: translateZ(0);
+  }
+  100% {
+    transform: translate3d(-25.5rem, 0, 0);
+  }
+}/*# sourceMappingURL=SubscriptionWidget.module.css.map */

@@ -1,0 +1,11 @@
+.outlined .mainImage,
+.outlined .subImage {
+  fill: #fff;
+}
+
+.twoTone .subImage {
+  fill: #7e798f;
+}
+.twoTone .mainImage {
+  fill: #ea003d;
+}/*# sourceMappingURL=GenresSvg.module.css.map */

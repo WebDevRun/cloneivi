@@ -1,0 +1,26 @@
+.personFilmography {
+  margin-top: 2.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin-right: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+
+.list > *:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.more {
+  margin-top: 1rem;
+}/*# sourceMappingURL=PersonFilmography.module.css.map */

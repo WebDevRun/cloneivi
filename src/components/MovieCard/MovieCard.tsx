@@ -2,16 +2,19 @@ import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
-import { FC, useState } from 'react'
+import { CSSProperties, FC, MouseEvent, useState } from 'react'
 
 import { Button } from '@/ui/Button'
 import { Svg } from '@/ui/Svg'
 
 import styles from './MovieCard.module.scss'
 import { MovieCardProperties } from './MovieCardProperties'
+import { getProportionalImgWidth } from '@/utils/functions/getProportionalImgWidth'
 
 export interface MovieCardProps {
   href: string
+  exclusive?: boolean
+  buy?: 'subscription' | 'purchase'
   imgSrc: string
   imgAlt: string
   ageLimit?: string
@@ -19,13 +22,17 @@ export interface MovieCardProps {
   rating?: number
   year?: number
   genre?: string[]
-  mode: 'small' | 'big' | 'series'
+  mode: 'small' | 'big' | 'series' | 'top10'
   seriesDescription?: string
   seriesLength?: string
+  imgText?: string
+  imgNum?: string[]
 }
 
 export const MovieCard: FC<MovieCardProps> = ({
   href,
+  exclusive = false,
+  buy = 'subscription',
   imgAlt,
   imgSrc,
   ageLimit,
@@ -36,29 +43,96 @@ export const MovieCard: FC<MovieCardProps> = ({
   mode = 'small',
   seriesDescription,
   seriesLength,
+  imgText,
+  imgNum,
 }) => {
   const { t } = useTranslation()
   const [favoriteIconActive, setFavoriteIconActive] = useState<boolean>(false)
   const [dislike, setDislike] = useState<boolean>(false)
 
-  function addFavorite() {
+  function addFavorite(e: MouseEvent<HTMLButtonElement>) {
+    e.preventDefault()
     setFavoriteIconActive((prev) => !prev)
   }
 
-  function addDislike() {
+  function addDislike(e: MouseEvent<HTMLButtonElement>) {
+    e.preventDefault()
     setDislike((prev) => !prev)
   }
+
+  const dislikeContent = {
+    '--dislikeContent': `"${t('DontLikeThis')}"`,
+  } as CSSProperties
+
+  const ratingContent = {
+    '--ratingContent': `"${t('AlreadyWatchedEvaluate')}"`,
+  } as CSSProperties
+
+  const similarContent = {
+    '--similarContent': `"${t('Similar')}"`,
+  } as CSSProperties
+
+  const favoriteContent = {
+    '--favoriteContent': `"${t('WatchLater')}"`,
+  } as CSSProperties
+
+  let sizes = ['300', '450']
+  if (imgSrc) {
+    const splitImgSrc = imgSrc.split('/').at(-2)
+    sizes = splitImgSrc ? splitImgSrc.split('x') : sizes
+  }
+  const width = parseInt(sizes[0])
+  const height = parseInt(sizes[1])
 
   return (
     <Link href={href} className={cn(styles.movieCard, styles[mode])}>
       <div className={styles.movieCardImageCont}>
-        <Image
-          width={234}
-          height={360}
-          className={styles.movieCardImage}
-          src={imgSrc}
-          alt={imgAlt}
-        />
+        <div
+          className={styles.movieCardBackground}
+          style={
+            mode == 'small' || mode == 'top10'
+              ? { background: `url(${imgSrc}) center/cover no-repeat` }
+              : { display: 'none' }
+          }
+        ></div>
+        {mode !== 'small' && mode !== 'top10' && (
+          <Image
+            width={width}
+            height={height}
+            className={styles.movieCardImage}
+            src={imgSrc}
+            alt={imgAlt}
+          />
+        )}
+        {mode === 'top10' && (
+          <>
+            <div
+              className={styles.nameImage}
+              style={{ position: 'absolute', width: '176px', height: '61px' }}
+            >
+              <Image
+                style={{ objectFit: 'contain', objectPosition: 'bottom' }}
+                alt=''
+                fill
+                src={imgText as string}
+              />
+            </div>
+            {imgNum?.map((num, index, arr) => (
+              <Image
+                key={index}
+                style={{
+                  transform: `translateX(calc(-50% + ${index * 35}px))`,
+                  left: `calc(50% - ${(arr.length - 1) * (35 / 2)}px)`,
+                }}
+                className={styles.numberImage}
+                alt=''
+                width={48}
+                height={66}
+                src={num as string}
+              />
+            ))}
+          </>
+        )}
         {ageLimit && <div className={styles.ageBadge}>{ageLimit}</div>}
         {mode === 'big' && (
           <div className={styles.btnCont}>
@@ -72,28 +146,40 @@ export const MovieCard: FC<MovieCardProps> = ({
 
         {mode === 'small' && (
           <>
-            <div className={styles.textBadge}>{t('Exclusive')}</div>
+            {exclusive && (
+              <div className={styles.textBadge}>{t('Exclusive')}</div>
+            )}
             <div className={styles.movieInfo}>
               <div className={styles.hoards}>
-                <button className={styles.iconBtn} onClick={addFavorite}>
+                <button
+                  style={favoriteContent}
+                  className={cn(styles.iconBtn, styles.favoriteBtn)}
+                  onClick={addFavorite}
+                >
                   {favoriteIconActive ? (
                     <Svg icon='favoriteRemove' />
                   ) : (
                     <Svg icon='favoriteAdd' />
                   )}
                 </button>
-                <button className={styles.iconBtn}>
+                <button
+                  style={similarContent}
+                  className={cn(styles.iconBtn, styles.similarBtn)}
+                >
                   <Svg icon='similar' />
                 </button>
-                <button className={styles.iconBtn}>
+                <button
+                  style={ratingContent}
+                  className={cn(styles.iconBtn, styles.ratingBtn)}
+                >
                   <Svg icon='rating' />
                 </button>
-                <button className={styles.dislikeBtn} onClick={addDislike}>
-                  <Svg
-                    icon='dislike'
-                    fill={dislike ? 'red' : 'white'}
-                    ext={true}
-                  />
+                <button
+                  style={dislikeContent}
+                  className={styles.dislikeBtn}
+                  onClick={addDislike}
+                >
+                  <Svg icon='dislike' fill={dislike ? 'red' : 'white'} />
                 </button>
               </div>
               <MovieCardProperties rating={rating} year={year} genre={genre} />
@@ -104,7 +190,16 @@ export const MovieCard: FC<MovieCardProps> = ({
       {mode === 'small' && (
         <div className={styles.movieCardInfo}>
           <p className={styles.movieCardName}>{movieName}</p>
-          <p className={styles.movieCardType}>{t('Subscription')}</p>
+          <p
+            style={
+              buy === 'subscription'
+                ? { color: '#ea003d' }
+                : { color: '#00a5ff' }
+            }
+            className={styles.movieCardType}
+          >
+            {buy === 'subscription' ? t('Subscription') : t('Purchase')}
+          </p>
         </div>
       )}
       {mode === 'series' && (

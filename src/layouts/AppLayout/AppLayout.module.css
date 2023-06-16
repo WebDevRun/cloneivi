@@ -1,0 +1,16 @@
+.appLayout {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 1216px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: content-box;
+}
+@media (max-width: 1160px) {
+  .appLayout {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}/*# sourceMappingURL=AppLayout.module.css.map */

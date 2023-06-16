@@ -169,5 +169,10 @@
   "watchOnAllDevices": "Cмотреть «{{ name }}» на всех устройствах",
   "appAvailable": "Приложение доступно для скачивания на iOS, Android, SmartTV и приставках",
   "connectDevices": "Подключить устройства",
-  "viewingDevices": "Устройства для просмотра"
+  "viewingDevices": "Устройства для просмотра",
+  "DontLikeThis": "Не нравится такое",
+  "AlreadyWatchedEvaluate": "Уже смотрел, оценить",
+  "Similar": "Похожее",
+  "WatchLater":"Смотреть позже",
+  "Purchase": "Покупка"
 }
