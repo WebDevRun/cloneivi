@@ -9,7 +9,9 @@ export const useUser = () => {
     if (storedUser) {
       setCurrentUser(storedUser)
     }
-  }, [])
+  }, [currentUser, setCurrentUser])
+
+  
 
   return [currentUser, setCurrentUser]
 }

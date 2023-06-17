@@ -3,9 +3,9 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { FormEvent, ReactElement, useState } from 'react'
+import { FormEvent, ReactElement, useEffect, useState } from 'react'
 
-import { useUser } from '@/components/Avatar/useUser'
+//import { useUser } from '@/components/Avatar/useUser'
 import { IMovieName } from '@/types/movie'
 import { Button } from '@/ui/Button'
 import { ChatMessage } from '@/ui/ChatMessage/ChatMessage'
@@ -23,10 +23,11 @@ import styles from './profile.module.scss'
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 const Profile: NextPageWithLayout = () => {
+  //const [currentUser] = useUser()
   const [isRequestGo, setIsRequestGo] = useState(false)
 
   const [email, setEmail] = useState('')
-  const [currentUser, setCurrentUser] = useUser()
+  const [currentUser, setCurrentUser] = useState('')
 
   const [password, setPassword] = useState('')
   const [isValidatePassword, setIsValidatePassword] = useState(false)
@@ -38,6 +39,14 @@ const Profile: NextPageWithLayout = () => {
 
   const { t } = useTranslation()
   const router = useRouter()
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('currentUser')
+
+    if (storedUser) {
+      setCurrentUser(storedUser)
+    }
+  }, [currentUser, setCurrentUser])
 
   const handleEmail = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -58,9 +67,9 @@ const Profile: NextPageWithLayout = () => {
   }
 
   const handleComeUpWithPassword = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    //e.preventDefault()
 
-    const target = e.target as HTMLFormElement
+    //const target = e.target as HTMLFormElement
     setIsValidatePassword(true)
   }
 
@@ -72,13 +81,23 @@ const Profile: NextPageWithLayout = () => {
 
   const handleSignUp = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setIsRequestGo(true)
 
     const target = e.target as HTMLFormElement
     setPassword(target.comeUpWithPassword.value)
 
     try {
-      const response = await axios.post(
+      const response2 = await axios.post(
         `${BASE_URL}/signup`,
+        {
+          email: email,
+          password: password,
+        },
+        { withCredentials: true },
+      )
+
+      const response = await axios.post(
+        `${BASE_URL}/login`,
         {
           email: email,
           password: password,
@@ -88,12 +107,12 @@ const Profile: NextPageWithLayout = () => {
 
       localStorage.setItem('accessToken', response.data.accessToken)
 
-      localStorage.setItem('currentUser', email)
-
       setIsSignIn(true)
 
       setTimeout(() => {
         setIsRequestGo(false)
+        localStorage.setItem('currentUser', email)
+        setCurrentUser(email)
         router.reload()
       }, 500)
     } catch (error) {
@@ -129,17 +148,34 @@ const Profile: NextPageWithLayout = () => {
 
       localStorage.setItem('accessToken', response.data.accessToken)
 
-      localStorage.setItem('currentUser', email)
-
       setIsSignIn(true)
 
       setTimeout(() => {
         setIsRequestGo(false)
+        localStorage.setItem('currentUser', email)
+        setCurrentUser(email)
         router.reload()
-      }, 500)
+        //router.push('/profile')
+      }, 1000)
     } catch (error) {
       setIsPasswordInvalid(true)
     }
+  }
+
+  const handleLogout = async () => {
+    setIsRequestGo(true)
+
+    const response = await axios.delete(`${BASE_URL}/logout`, {
+      withCredentials: true,
+    })
+
+    setTimeout(() => {
+      setIsRequestGo(false)
+      localStorage.setItem('currentUser', '')
+      setCurrentUser('')
+      //router.push('/profile')
+      router.reload()
+    }, 500)
   }
 
   const handleBtnVk = () => {
@@ -152,46 +188,8 @@ const Profile: NextPageWithLayout = () => {
     router.push('https://accounts.google.com')
   }
 
-  const handleLogout = async () => {
-    setIsRequestGo(true)
-    localStorage.setItem('currentUser', '')
-
-    const response = await axios.delete(`${BASE_URL}/logout`, {
-      withCredentials: true,
-    })
-
-    setTimeout(() => {
-      setIsRequestGo(false)
-      setCurrentUser
-
-      console.log(setCurrentUser)
-      router.push('/')
-
-      //router.reload()
-    }, 500)
-  }
-
-  // i.jashkin@yandex.ru
-  // admin@gmail.com
-  // qwer@bk.ru
-
   // "user_id": "358df730-e473-4b2b-a504-e0af8899df97",
   // "email": "injashkin@gmail.com",
-
-  const handleSubmitTest = (e: FormEvent<HTMLFormElement>) => {
-    const film_id = 'c20394ef-d42e-4651-8a09-90ae2b64a098'
-
-    e.preventDefault()
-
-    const target = e.target as HTMLFormElement
-
-    const data: IMovieName = {
-      name_ru: target.test.value,
-      name_en: 'Burning Down the House2',
-    }
-
-    changeFilmName(film_id, data)
-  }
 
   return (
     <Flex className={styles.profile} variant='center'>
