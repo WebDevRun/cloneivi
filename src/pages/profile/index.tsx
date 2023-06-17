@@ -6,6 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { FormEvent, ReactElement, useState } from 'react'
 
 import { useUser } from '@/components/Avatar/useUser'
+import { useLoginMutation } from '@/store/endpoints/authorization'
 import { IMovieName } from '@/types/movie'
 import { Button } from '@/ui/Button'
 import { ChatMessage } from '@/ui/ChatMessage/ChatMessage'
@@ -23,6 +24,7 @@ import styles from './profile.module.scss'
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 const Profile: NextPageWithLayout = () => {
+  const [login] = useLoginMutation()
   const [isRequestGo, setIsRequestGo] = useState(false)
 
   const [email, setEmail] = useState('')
@@ -108,38 +110,7 @@ const Profile: NextPageWithLayout = () => {
 
   const handleSignIn = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsRequestGo(true)
-
-    const target = e.target as HTMLFormElement
-    setPassword(target.inputPassword.value)
-
-    if (target.inputPassword.value !== password) {
-      setIsPasswordInvalid(true)
-    }
-
-    try {
-      const response = await axios.post(
-        `${BASE_URL}/login`,
-        {
-          email: email,
-          password: password,
-        },
-        { withCredentials: true },
-      )
-
-      localStorage.setItem('accessToken', response.data.accessToken)
-
-      localStorage.setItem('currentUser', email)
-
-      setIsSignIn(true)
-
-      setTimeout(() => {
-        setIsRequestGo(false)
-        router.reload()
-      }, 500)
-    } catch (error) {
-      setIsPasswordInvalid(true)
-    }
+    login({ email, password })
   }
 
   const handleBtnVk = () => {
