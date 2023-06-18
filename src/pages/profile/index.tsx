@@ -178,7 +178,7 @@ const Profile: NextPageWithLayout = () => {
         </Flex>
       )}
 
-      {!currentUser && (
+      {!isAuth && (
         <Flex variant='column'>
           <Text className={styles.title} variant='titleSm'>
             {email ? t('Hello') : t('LoginOrRegistration')}

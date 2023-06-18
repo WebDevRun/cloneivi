@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { FC, useEffect, useState } from 'react'
 
+import { useIsAuthQuery } from '@/store/endpoints/authorization'
 import { Button } from '@/ui/Button'
 
 import { Text } from '../../ui/ui'
@@ -21,6 +22,7 @@ import styles from './HeaderDropdown.module.scss'
 
 export const HeaderDropdown: FC = () => {
   const { t } = useTranslation()
+  const { data: isAuth } = useIsAuthQuery()
   const [active, setActive] = useState('headerDropdown')
   const [lists, setLists] = useState(movies)
   const [isTv, setIsTv] = useState(false)
@@ -241,7 +243,7 @@ export const HeaderDropdown: FC = () => {
                 ))}
               </div>
               <div className={styles.profileSide}>
-                <Button text={`${t('LogInOrRegister')}`} />
+                {!isAuth && <Button text={`${t('LogInOrRegister')}`} />}
                 <ShowList data={profile.extra} />
               </div>
             </div>
