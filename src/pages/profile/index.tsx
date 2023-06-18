@@ -1,18 +1,16 @@
 import axios from 'axios'
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
+import { signIn, signOut, useSession } from 'next-auth/react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { FormEvent, ReactElement, useEffect, useState } from 'react'
 
-//import { useUser } from '@/components/Avatar/useUser'
-import { IMovieName } from '@/types/movie'
 import { Button } from '@/ui/Button'
 import { ChatMessage } from '@/ui/ChatMessage/ChatMessage'
 import { Input } from '@/ui/Input/Input'
 import { Spinner } from '@/ui/Spinner/Spinner'
 import { Decor, Flex } from '@/ui/ui'
-import { changeFilmName } from '@/utils/functions/crud'
 import { AppLayout } from '@layouts/AppLayout'
 
 import { Text } from '../../ui/ui'
@@ -23,7 +21,9 @@ import styles from './profile.module.scss'
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 const Profile: NextPageWithLayout = () => {
-  //const [currentUser] = useUser()
+  const { data: session, status } = useSession()
+  const loading = status === 'loading'
+
   const [isRequestGo, setIsRequestGo] = useState(false)
 
   const [email, setEmail] = useState('')
@@ -66,19 +66,6 @@ const Profile: NextPageWithLayout = () => {
     }
   }
 
-  const handleComeUpWithPassword = (e: FormEvent<HTMLFormElement>) => {
-    //e.preventDefault()
-
-    //const target = e.target as HTMLFormElement
-    setIsValidatePassword(true)
-  }
-
-  const handleRepeatPassword = (pasw: string) => {
-    if (password === pasw) {
-      setPasswordMatсh(true)
-    }
-  }
-
   const handleSignUp = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsRequestGo(true)
@@ -118,11 +105,6 @@ const Profile: NextPageWithLayout = () => {
     } catch (error) {
       setIsPasswordInvalid(true)
     }
-  }
-
-  const handleInputPassword = (passw: string) => {
-    setIsPasswordInvalid(false)
-    setPassword(passw)
   }
 
   const handleSignIn = async (e: FormEvent<HTMLFormElement>) => {
@@ -178,30 +160,46 @@ const Profile: NextPageWithLayout = () => {
     }, 500)
   }
 
-  const handleBtnVk = () => {
-    router.push(
-      'https://id.vk.com/auth?app_id=2303446&state=&response_type=code&redirect_uri=https%3A%2F%2Fsocial.yandex.ru%2Fbroker%2Fredirect%3Furl%3Dhttps%253A%252F%252Fsocial.yandex.ru%252Fbroker2%252F0113610d2c1e41eeabbf24d11147a03c%252Fcallback&redirect_uri_hash=7aac4e1451ac7a65e3&code_challenge=&code_challenge_method=&return_auth_hash=c79c0d048a36686a7d&scope=4259840&force_hash=',
-    )
-  }
-
-  const handleBtnGoogle = () => {
-    router.push('https://accounts.google.com')
-  }
-
-  // "user_id": "358df730-e473-4b2b-a504-e0af8899df97",
-  // "email": "injashkin@gmail.com",
-
   return (
     <Flex className={styles.profile} variant='center'>
-      {currentUser && (
-        <Flex gap='gap16' variant='column'>
-          <Text variant='titleXL'>{`Профиль ${currentUser}`}</Text>
-          <Button type='button' text={`Выйти`} onClick={handleLogout} />
-          {isRequestGo && <Spinner />}
-        </Flex>
+      {(session?.user || currentUser) && (
+        <>
+          <Flex gap='gap16' variant='column'>
+            {currentUser && (
+              <Text variant='titleXL'>{`${t('Account')} ${currentUser}`}</Text>
+            )}
+            {session?.user && (
+              <>
+                <Text variant='titleXL'>{`${t('Account')} ${
+                  session.user.email
+                }`}</Text>
+                <Text variant='bold'>{session.user.name}</Text>
+              </>
+            )}
+            {!session?.user && (
+              <Button
+                type='button'
+                text={`${t('SignOut')}`}
+                onClick={handleLogout}
+              />
+            )}
+
+            {session?.user && (
+              <Button
+                type='button'
+                text={`${t('SignOut')}`}
+                onClick={(e) => {
+                  e.preventDefault()
+                  signOut()
+                }}
+              />
+            )}
+            {isRequestGo && <Spinner />}
+          </Flex>
+        </>
       )}
 
-      {!currentUser && (
+      {!(session?.user || currentUser) && (
         <Flex variant='column'>
           <Text className={styles.title} variant='titleSm'>
             {email ? t('Hello') : t('LoginOrRegistration')}
@@ -220,8 +218,8 @@ const Profile: NextPageWithLayout = () => {
 
             {email && !isEmailRegistered && (
               <ChatMessage
-                title='Придумайте пароль для входа'
-                extra='Установите пароль для входа через email, минимум 6 символов'
+                title={`${t('ComeUpWithPasswordToLogIn')}`}
+                extra={`${t('SetPasswordToLogInViaEmail')}`}
               />
             )}
             {email && isEmailRegistered && !isSignIn && (
@@ -249,10 +247,10 @@ const Profile: NextPageWithLayout = () => {
               <form
                 name='comeUpWithPassword'
                 className={styles.controls}
-                onSubmit={handleComeUpWithPassword}
+                onSubmit={() => setIsValidatePassword(true)}
               >
                 <Input
-                  label={`Придумайте пароль`}
+                  label={`${t('ComeUpWithPassword')}`}
                   type='password'
                   minLength={6}
                   name={'comeUpWithPassword'}
@@ -276,7 +274,7 @@ const Profile: NextPageWithLayout = () => {
                 onSubmit={handleSignUp}
               >
                 <Input
-                  label={`Придумайте пароль`}
+                  label={`${t('ComeUpWithPassword')}`}
                   type='password'
                   name={'comeUpWithPassword'}
                   defaultValue={password}
@@ -290,16 +288,20 @@ const Profile: NextPageWithLayout = () => {
                 )}
 
                 <Input
-                  label={`Повторите пароль`}
+                  label={`${t('RepeatThePassword')}`}
                   type='password'
                   name={'repeatPassword'}
-                  onChange={(e) => handleRepeatPassword(e.target.value)}
+                  onChange={(e) => {
+                    if (password === e.target.value) {
+                      setPasswordMatсh(true)
+                    }
+                  }}
                 />
 
                 <Button
                   type='submit'
                   width='full'
-                  text={`Зарегистрироваться`}
+                  text={`${t('SignUp')}`}
                   disabled={passwordMatсh ? false : true}
                 />
               </form>
@@ -315,7 +317,10 @@ const Profile: NextPageWithLayout = () => {
                   label={`${t('InputPassword')}`}
                   type='password'
                   name={'inputPassword'}
-                  onChange={(e) => handleInputPassword(e.target.value)}
+                  onChange={(e) => {
+                    setIsPasswordInvalid(false)
+                    setPassword(e.target.value)
+                  }}
                 />
 
                 <Button type='submit' width='full' text={`${t('Login')}`} />
@@ -332,8 +337,15 @@ const Profile: NextPageWithLayout = () => {
             {isSignIn && (
               <>
                 <Flex variant='center'>
-                  <ChatMessage title='Вы успешно вошли' variant='success' />
-                  <Button type='button' text={`Выйти`} onClick={handleLogout} />
+                  <ChatMessage
+                    title={`${t('YouHaveSuccessfullyLoggedIn')}`}
+                    variant='success'
+                  />
+                  <Button
+                    type='button'
+                    text={`${t('SignOut')}`}
+                    onClick={handleLogout}
+                  />
                 </Flex>
               </>
             )}
@@ -372,13 +384,20 @@ const Profile: NextPageWithLayout = () => {
                     <Text>{t('LogInUsing')}</Text>
                     <Flex>
                       <Button
-                        onClick={handleBtnVk}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          signIn()
+                        }}
                         iconExt={true}
                         icon='vkontakte'
                         theme='social'
                       />
+
                       <Button
-                        onClick={handleBtnGoogle}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          signIn()
+                        }}
                         icon='google'
                         iconExt={true}
                         theme='social'

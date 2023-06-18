@@ -186,5 +186,12 @@
   "watchOnAllDevices": "Cмотреть «{{ name }}» на всех устройствах",
   "appAvailable": "Приложение доступно для скачивания на iOS, Android, SmartTV и приставках",
   "connectDevices": "Подключить устройства",
-  "viewingDevices": "Устройства для просмотра"
+  "viewingDevices": "Устройства для просмотра",
+  "SignOut": "Выйти",
+  "ComeUpWithPasswordToLogIn": "Придумайте пароль для входа",
+  "ComeUpWithPassword": "Придумайте пароль",
+  "SetPasswordToLogInViaEmail": "Установите пароль для входа через email, минимум 6 символов",
+  "RepeatThePassword": "Повторите пароль",
+  "SignUp": "Зарегистрироваться",
+  "YouHaveSuccessfullyLoggedIn": "Вы успешно вошли"
 }

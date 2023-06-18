@@ -186,5 +186,12 @@
   "WatchOnAllDevices": "Watch «{{ name }}» on all devices",
   "appAvailable": "The app is available for download on iOS, Android, Smart TV and set-top boxes",
   "connectDevices": "Connect devices",
-  "viewingDevices": "Viewing devices"
+  "viewingDevices": "Viewing devices",
+  "SignOut": "Sign out",
+  "ComeUpWithPasswordToLogIn": "Come up with a password to log in",
+  "ComeUpWithPassword": "Come up with a password",
+  "SetPasswordToLogInViaEmail": "Set a password to log in via email, at least 6 characters",
+  "RepeatThePassword": "Repeat the password",
+  "SignUp": "Sign up",
+  "YouHaveSuccessfullyLoggedIn": "You have successfully logged in"
 }
