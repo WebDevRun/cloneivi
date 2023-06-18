@@ -6,7 +6,7 @@ import { FC } from 'react'
 import { $instance } from '@/axios'
 import { ILocaleFilters } from '@/types/filter'
 import { ICountry, IGenre, ILocaleGenre, IMovie, IRating, IYear } from '@/types/movie'
-import { IVI_RATING, RATINGS, YEARS } from '@/utils/consts'
+import { IVI_RATING, RATINGS, YEARS } from '@/utils/consts/filters'
 import { Filter } from '@components/Filter'
 import { AppLayout } from '@layouts/AppLayout'
 
@@ -35,8 +35,7 @@ const getSelectedFilters = (params: Params, allFilters: AllFilters): SelectedFil
       .filter(param => allFilters.some(filter => filter?.slug === param))
       .map(param => allFilters.find(filter => filter?.slug === param))
   } else {
-    params = params.split('+')
-    result.queryParams = params
+    result.queryParams = [params]
     result.filters = allFilters.filter(filter => filter?.slug === params)
   }
   return result
@@ -91,6 +90,9 @@ export const getServerSideProps: GetServerSideProps = async ({ locale, query }) 
     params: {
       genres: selectedGenres.queryParams,
       countries: selectedCountries.queryParams,
+      year: (selectedYears.filters[0] as IYear)?.year || '',
+      year_min: (selectedYears.filters[0] as IYear)?.year_min || '',
+      year_max: (selectedYears.filters[0] as IYear)?.year_max || '',
       years: selectedYears.queryParams,
       rating: selectedRatings.queryParams,
       limit: FILMS_LIMIT,

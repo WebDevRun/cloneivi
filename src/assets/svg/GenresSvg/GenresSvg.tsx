@@ -4,44 +4,6 @@ import { FC } from 'react'
 import { IGenres } from '@/types/genres'
 
 import styles from './GenresSvg.module.scss'
-
-
-export interface GenresSvgProps {
-  icon:
-    | 'anime'
-    | 'biography'
-    | 'action'
-    | 'western'
-    | 'military'
-    | 'detective'
-    | 'children'
-    | 'adults'
-    | 'documentary'
-    | 'drama'
-    | 'game'
-    | 'history'
-    | 'comedy'
-    | 'concert'
-    | 'shortFilm'
-    | 'crime'
-    | 'melodrama'
-    | 'music'
-    | 'cartoons'
-    | 'musical'
-    | 'news'
-    | 'adventures'
-    | 'realTV'
-    | 'family'
-    | 'sport'
-    | 'talkShow'
-    | 'thriller'
-    | 'horror'
-    | 'fantastic'
-    | 'noirFilm'
-    | 'fantasy'
-    | 'ceremony'
-}
-
   
 export interface GenresSvgProps {
   icon: IGenres
@@ -80,7 +42,7 @@ export const GenresSvg: FC<GenresSvgProps> = ({
         </>
       }
       {
-        icon === 'action' &&
+        icon === 'militant' &&
         <>
           <path
             className={styles.mainImage}
@@ -214,7 +176,7 @@ export const GenresSvg: FC<GenresSvgProps> = ({
         </>
       }
       {
-        icon === 'shortFilm' &&
+        icon === 'shortfilm' &&
         <>
           <path
             className={styles.mainImage}
@@ -225,7 +187,7 @@ export const GenresSvg: FC<GenresSvgProps> = ({
         </>
       }
       {
-        icon === 'crime' &&
+        icon === 'criminal' &&
         <>
           <path
             className={styles.mainImage}
@@ -258,7 +220,7 @@ export const GenresSvg: FC<GenresSvgProps> = ({
         </>
       }
       {
-        icon === 'cartoons' &&
+        icon === 'animatedfilm' &&
         <>
           <path
             className={styles.mainImage}
@@ -291,7 +253,7 @@ export const GenresSvg: FC<GenresSvgProps> = ({
         </>
       }
       {
-        icon === 'adventures' &&
+        icon === 'adventure' &&
         <>
           <path
             className={styles.mainImage}
@@ -302,7 +264,7 @@ export const GenresSvg: FC<GenresSvgProps> = ({
          </>
       }
       {
-        icon === 'realTV' &&
+        icon === 'realitytv' &&
         <>
           <path
             className={styles.mainImage}
@@ -368,7 +330,7 @@ export const GenresSvg: FC<GenresSvgProps> = ({
         </>
       }
       {
-        icon === 'fantastic' &&
+        icon === 'fiction' &&
         <>
           <path
             className={styles.mainImage}
@@ -379,7 +341,7 @@ export const GenresSvg: FC<GenresSvgProps> = ({
         </>
       }
       {
-        icon === 'noirFilm' &&
+        icon === 'filmnoir' &&
         <>
           <path
             className={styles.mainImage}

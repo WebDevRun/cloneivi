@@ -65,6 +65,7 @@ export const Filter: FC<FilterProps> = ({ selectedFilters, allFilters }) => {
     const selectedRating = getFiltersUrlQuery(selectedFilters.rating, 'rating')
 
     router.push(`/movies${selectedGenres}${selectedCountries}${selectedYears}${selectedRating}`)
+    setActiveModal('')
   }
 
   return (
@@ -112,12 +113,6 @@ export const Filter: FC<FilterProps> = ({ selectedFilters, allFilters }) => {
           activeModal={activeModal}
           setActiveModal={setActiveModal}
         />
-      </div>
-      <div className={styles.subFilters}>
-        <div style={{ height: 35, background: '#000', width: 130 }}></div>
-        <div style={{ height: 35, background: '#000', width: 130 }}></div>
-        <div style={{ height: 35, background: '#000', width: 130 }}></div>
-        <div style={{ height: 35, background: '#000', width: 130 }}></div>
       </div>
       <Link href={''} className={styles.clearButton}>
         <FilterSvg icon={'close'} />

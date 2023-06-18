@@ -6,14 +6,12 @@ import {
   IFilterPosition,
   ILocaleFilterItem,
   ILocaleFilterItems,
-  ILocaleFilters,
 } from '@/types/filter'
+import { getFilterName } from '@/utils/functions/getFilter'
 import { DropDownLayout } from '@layouts/DropDownLayout'
 import { Select } from '@ui/Select'
 
 import styles from './FilterDropDown.module.scss'
-import { getFilterName } from '@/utils/functions/getFilter'
-import Link from 'next/link'
 
 export interface FilterDropDownProps {
   size: 'big' | 'small'
@@ -54,7 +52,7 @@ export const FilterDropDown: FC<FilterDropDownProps> = ({
       <div className={styles[size]}>
         {
           allFilters.map((item, index) => (
-            <div key={index} >
+            <div key={index}>
               <Select
                 type={size === 'big' ? 'checkbox' : 'radio'}
                 name={getFilterName(item, category)}

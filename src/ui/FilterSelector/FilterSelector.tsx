@@ -9,6 +9,10 @@ import { FilterDropDown } from '@ui/FilterSelector/FilterDropDown'
 import { FilterSelectorButton } from '@ui/FilterSelector/FilterSelectorButton'
 
 import styles from './FilterSelector.module.scss'
+import GenresSlider from '@ui/FilterSelector/filterSlider/GenresSlider'
+import { IGenres } from '@/types/genres'
+import { ICountry, IGenre, ILocaleGenre } from '@/types/movie'
+import CountriesSlider from '@ui/FilterSelector/filterSlider/CountriesSlider'
 
 export interface FilterSelectorProps {
   title: string
@@ -42,7 +46,6 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
       return getFilterName(item, category)
     })
   }
-
   return (
     <div className={styles.filterSelector}>
       <FilterSelectorButton
@@ -56,7 +59,20 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
         <FilterDropDown
           size={modalSize}
           position={position || 'left'}
-          // slider={}
+          slider={
+            category === 'genre' ?
+              <GenresSlider
+                genres={allFilters as ILocaleGenre[]}
+                onClick={filterRedirect}
+                selectedGenres={selectedFilters as ILocaleGenre[]}
+              />
+              : category === 'country' &&
+              <CountriesSlider
+                countries={allFilters as ICountry[]}
+                onClick={filterRedirect}
+                selectedCountries={selectedFilters as ICountry[]}
+              />
+          }
           allFilters={allFilters}
           selectedFilters={selectedFilters}
           category={category}
