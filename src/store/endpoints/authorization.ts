@@ -35,13 +35,64 @@ export const authorizationApi = createApi({
       }),
       invalidatesTags: ['authorization'],
     }),
+    logout: builder.mutation<number, void>({
+      query: () => ({
+        url: '/logout',
+        method: 'DELETE',
+        credentials: 'include',
+      }),
+      invalidatesTags: ['authorization'],
+    }),
+    refreshToken: builder.mutation<
+      { email: string; accessToken: string },
+      void
+    >({
+      query: () => ({
+        url: '/refresh',
+        method: 'POST',
+        credentials: 'include',
+      }),
+      invalidatesTags: ['authorization'],
+    }),
+    signup: builder.mutation<
+      {
+        user_id: string
+        email: string
+        createdAt: string
+        updatedAt: string
+        roles: { role_id: string; value: string; description: string }[]
+        profile: {
+          profile_id: string
+          first_name: string
+          last_name: string
+          phone: string
+          city: string
+          user_id: string
+        } | null
+      },
+      { email: string; password: string }
+    >({
+      query: ({ email, password }) => ({
+        url: '/signup',
+        method: 'POST',
+        credentials: 'include',
+        body: {
+          email,
+          password,
+        },
+      }),
+    }),
   }),
 })
 
 export const {
   useIsAuthQuery,
   useLoginMutation,
+  useLogoutMutation,
+  useRefreshTokenMutation,
+  useSignupMutation,
   util: { getRunningQueriesThunk },
 } = authorizationApi
 
-export const { login } = authorizationApi.endpoints
+export const { login, logout, refreshToken, signup } =
+  authorizationApi.endpoints

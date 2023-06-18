@@ -6,7 +6,11 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { FormEvent, ReactElement, useState } from 'react'
 
 import { useUser } from '@/components/Avatar/useUser'
-import { useLoginMutation } from '@/store/endpoints/authorization'
+import {
+  useIsAuthQuery,
+  useLoginMutation,
+  useLogoutMutation,
+} from '@/store/endpoints/authorization'
 import { IMovieName } from '@/types/movie'
 import { Button } from '@/ui/Button'
 import { ChatMessage } from '@/ui/ChatMessage/ChatMessage'
@@ -24,7 +28,10 @@ import styles from './profile.module.scss'
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 const Profile: NextPageWithLayout = () => {
+  const { data: isAuth } = useIsAuthQuery()
   const [login] = useLoginMutation()
+  const [logout] = useLogoutMutation()
+
   const [isRequestGo, setIsRequestGo] = useState(false)
 
   const [email, setEmail] = useState('')
@@ -123,23 +130,20 @@ const Profile: NextPageWithLayout = () => {
     router.push('https://accounts.google.com')
   }
 
-  const handleLogout = async () => {
-    setIsRequestGo(true)
-    localStorage.setItem('currentUser', '')
-
-    const response = await axios.delete(`${BASE_URL}/logout`, {
-      withCredentials: true,
-    })
-
-    setTimeout(() => {
-      setIsRequestGo(false)
-      setCurrentUser
-
-      console.log(setCurrentUser)
-      router.push('/')
-
-      //router.reload()
-    }, 500)
+  const handleLogout = () => {
+    logout()
+    // setIsRequestGo(true)
+    // localStorage.setItem('currentUser', '')
+    // const response = await axios.delete(`${BASE_URL}/logout`, {
+    //   withCredentials: true,
+    // })
+    // setTimeout(() => {
+    //   setIsRequestGo(false)
+    //   setCurrentUser
+    //   console.log(setCurrentUser)
+    //   router.push('/')
+    //   //router.reload()
+    // }, 500)
   }
 
   // i.jashkin@yandex.ru
@@ -166,7 +170,7 @@ const Profile: NextPageWithLayout = () => {
 
   return (
     <Flex className={styles.profile} variant='center'>
-      {currentUser && (
+      {isAuth && (
         <Flex gap='gap16' variant='column'>
           <Text variant='titleXL'>{`Профиль ${currentUser}`}</Text>
           <Button type='button' text={`Выйти`} onClick={handleLogout} />
