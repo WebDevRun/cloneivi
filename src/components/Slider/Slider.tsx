@@ -3,7 +3,7 @@ import {
   FC,
   useEffect,
   useRef,
-  useState
+  useState,
 } from 'react'
 
 import { ArrowSvg } from '@assets/svg/ArrowSvg'
@@ -16,7 +16,7 @@ export interface SliderProps {
   arrowSize?: 'small' | 'big'
   type?: 'list' | 'oneItem'
   componentSetting?: object
-  onItemClick: (id: number) => void
+  onItemClick: (item: any) => void
   slidesToShow?: number
   slidesToScroll?: number
   startPosition?: number
@@ -40,7 +40,7 @@ export const Slider: FC<SliderProps> = ({
   startPosition = 0,
   slidesToScroll = 0,
   arrowSize = 'small',
-  gap = 24,
+  gap = 12,
   infinite = false,
   type = 'list',
   autoScroll = false,
@@ -286,14 +286,13 @@ export const Slider: FC<SliderProps> = ({
               <div key={index}
                    className={cn(styles.item, type === 'oneItem' && index !== activeItem && styles.unActive)}
                    style={{ transition: `opacity ${transitionDuration}ms` }}
-                   onClick={() => onItemClick(item.id)}>
+                   onClick={() => onItemClick(item)}>
                 <Component {...item} {...componentSetting} />
               </div>
             ))
           }
         </div>
       </div>
-      {!isCrop && <div className={styles.overlay} />}
       {
         (position - margin > -(sliderItems.length - slidesCount) * (itemWidth + itemsGap)) &&
         <button

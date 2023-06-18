@@ -1,0 +1,46 @@
+.filter {
+  background-color: #1F1B2E;
+  padding: 16px;
+  border-radius: 6px;
+
+  .selectors {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(auto, calc(25% - 8px)));
+    grid-gap: 16px;
+  }
+
+  .clearButton {
+    width: auto;
+    background-color: transparent;
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 16px;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px;
+    gap: 8px;
+
+    &:hover {
+      color: #ea003d;
+
+      svg {
+        fill: #ea003d;
+      }
+    }
+  }
+
+  @media screen and (max-width: 880px) {
+    .selectors {
+      grid-template-columns:  repeat(2, minmax(auto,  calc(50% - 8px)));
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .selectors {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+

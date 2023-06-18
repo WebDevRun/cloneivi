@@ -1,6 +1,6 @@
 export interface IMenuItem {
   id: string;
-  dataTest: string;
+  dataTest?: string;
   name: string;
   href: string;
 }

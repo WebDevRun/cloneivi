@@ -25,12 +25,6 @@ export interface IGenre {
   slug: string
 }
 
-export interface ILocaleGenre {
-  genre_id: string
-  genre_name: string
-  slug: string
-}
-
 export interface ILanguages {
   language_id: string
   language: string
@@ -56,16 +50,14 @@ export interface ICountry {
 
 export interface IYear {
   year_id: string
-  year_name: string
+  year: string
   slug: string
-  year?: number
-  year_min?: number
-  year_max?: number
+  filter: (year: number) => {}
 }
 
 export interface IRating {
   rating_id: string
-  rating_name: string
+  rating: string
   slug: string
-  rating: number
+  filter: (rating: number) => {}
 }

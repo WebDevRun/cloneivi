@@ -1,12 +1,12 @@
 
 import { Meta, StoryObj } from '@storybook/react'
 
-import { SelectorButton } from './SelectorButton'
+import { FilterSelectorButton } from './FilterSelectorButton'
 
-const meta: Meta<typeof SelectorButton> = {
-  title: 'Selector/SelectedButton',
+const meta: Meta<typeof FilterSelectorButton> = {
+  title: 'filter/FilterSelectorButton',
   tags: ['autodocs'],
-  component: SelectorButton,
+  component: FilterSelectorButton,
   argTypes: {
     disabled: {
       type: 'boolean',
@@ -19,7 +19,7 @@ const meta: Meta<typeof SelectorButton> = {
     selectedItems: {
       description: 'Массив выбранных объектов',
     },
-    name: {
+    title: {
       type: 'string',
       description: 'Имя селектора'
     },
@@ -32,11 +32,11 @@ const meta: Meta<typeof SelectorButton> = {
 
 export default meta
 
-type Story = StoryObj<typeof SelectorButton>;
+type Story = StoryObj<typeof FilterSelectorButton>;
 
 export const Default: Story = {
   args: {
-    name: 'Жанры',
+    title: 'Жанры',
     active: false,
     selectedItems: [],
   }
@@ -44,23 +44,15 @@ export const Default: Story = {
 
 export const WithSelectedItems: Story = {
   args: {
-    name: 'Жанры',
+    title: 'Жанры',
     active: false,
     selectedItems: ['Детектив, Артхаус'],
   }
 }
 
-export const WithFullySelectedItems: Story = {
-  args: {
-    name: 'Жанры',
-    active: false,
-    selectedItems: ['Детектив', 'Артхаус', 'Мультфильм', 'Триллер', 'Военные'],
-  }
-}
-
 export const Active: Story = {
   args: {
-    name: 'Жанры',
+    title: 'Жанры',
     active: true,
     selectedItems: [],
   }
@@ -68,7 +60,7 @@ export const Active: Story = {
 
 export const Disabled: Story = {
   args: {
-    name: 'Жанры',
+    title: 'Жанры',
     active: false,
     disabled: true,
     selectedItems: [],

@@ -5,9 +5,10 @@ import styles from './DropDownLayout.module.scss'
 
 export interface ModalLayoutProps {
   children: ReactNode
-  size?: 'big' | 'small'
+  size?: 'big' | 'small' | 'middle'
   position?: 'left' | 'center' | 'right'
   type: 'filter' | 'header'
+  zIndex?: number
 }
 
 export const DropDownLayout: FC<ModalLayoutProps> = ({
@@ -15,6 +16,7 @@ export const DropDownLayout: FC<ModalLayoutProps> = ({
   position,
   size,
   type,
+  zIndex= 99
 }) => {
   return (
     <div
@@ -22,8 +24,9 @@ export const DropDownLayout: FC<ModalLayoutProps> = ({
         styles.dropDownLayout,
         styles[type],
         size && styles[size],
-        position && styles[position]
+        position && styles[position],
       )}
+      style={{zIndex: zIndex}}
     >
       {children}
     </div>

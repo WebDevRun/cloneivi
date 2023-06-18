@@ -5,29 +5,46 @@ import { SliderButton } from './SliderButton'
 import '@styles/index.scss'
 
 const meta: Meta<typeof SliderButton> = {
-  title: 'SliderButton',
+  title: 'controls/SliderButton',
   tags: ['autodocs'],
   component: SliderButton,
   argTypes: {
-    name: {
-      type: 'string',
-      description: 'Название жанра',
-      control: {type: 'select'},
-      defaultValue: 'anime',
-    },
     type: {
       type: 'string',
       description: 'Форма кнопки',
       options: ['square', 'circle'],
-      control: {type: 'radio'},
+      control: { type: 'radio' },
       defaultValue: 'square',
     },
     style: {
       type: 'string',
       description: 'Стиль кнопки',
       options: ['fill', 'outline', 'active'],
-      control: {type: 'radio'},
+      control: { type: 'radio' },
       defaultValue: 'outline',
+    },
+    country: {
+      type: 'string',
+      description: 'Имя текущей страны',
+    },
+    genre_id: {
+      type: 'string',
+      description: 'Id текущего жанра',
+    },
+    selected: {
+      description: 'Выбранные фильтры',
+    },
+    slug: {
+      type: 'string',
+      description: 'Индентификатор фильтра',
+    },
+    genre_name: {
+      type: 'string',
+      description: 'Имя жанра',
+    },
+    country_id: {
+      type: 'string',
+      description: 'Id текущей страны',
     },
   },
 }
@@ -38,40 +55,42 @@ type Story = StoryObj<typeof SliderButton>
 
 export const FilledGenres: Story = {
   args: {
-    name: 'anime',
     type: 'square',
     style: 'fill',
+    genre_id: '',
+    selected: [],
+    slug: 'anime',
+    genre_name: 'anime',
   },
 }
 
 export const OutlinedGenres: Story = {
   args: {
-    name: 'drama',
     type: 'square',
     style: 'outline',
+    genre_id: '',
+    selected: [],
+    slug: 'anime',
+    genre_name: 'anime',
   },
 }
 
 export const FilledCountry: Story = {
   args: {
-    name: 'Россия',
     type: 'circle',
     style: 'fill',
+    country: 'Россия',
+    selected: [],
+    country_id: '',
   },
 }
 
 export const OutlinedCountry: Story = {
   args: {
-    name: 'США',
     type: 'circle',
     style: 'outline',
-  },
-}
-
-export const ActiveCountry: Story = {
-  args: {
-    name: 'Канада',
-    type: 'circle',
-    style: 'active',
+    country: 'Россия',
+    selected: [],
+    country_id: '',
   },
 }
