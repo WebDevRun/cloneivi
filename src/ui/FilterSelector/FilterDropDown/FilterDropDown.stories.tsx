@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { FilterDropDown } from './FilterDropDown'
 
 import '@styles/index.scss'
+import { GENRES_ICONS } from '@/utils/consts/filters'
 
 const GENRES = ['anime', 'biography', 'action', 'western', 'military', 'detective', 'children']
 
@@ -26,8 +27,8 @@ const meta: Meta<typeof FilterDropDown> = {
     slider: {
       description: 'Компонент слайдера',
     },
-    items: {
-      description: 'Массив объектов для фильтра',
+    allFilters: {
+      description: 'Все фильтры',
     },
     category: {
       type: 'string',
@@ -35,11 +36,11 @@ const meta: Meta<typeof FilterDropDown> = {
       options: ['genre', 'country', 'year', 'rating'],
       control: {type: 'radio'}
     },
-    selectedItems: {
+    selectedFilters: {
       description: 'Массив выбранных фильтров'
     },
-    setSelectedItems: {
-      description: 'Функция для установки выбранных фильтров'
+    filterRedirect: {
+      description: 'Функция для редиректа при выборе фильтра'
     }
   },
 }
@@ -52,10 +53,10 @@ export const BigLeft: Story = {
   args: {
     size: 'big',
     slider: <div style={{height: 88, background: '#000'}}/>,
+    selectedFilters: [],
+    allFilters: GENRES_ICONS,
     position: 'left',
-    items: GENRES,
     category: 'genre',
-    selectedItems: ['anime', 'western']
   },
   render: args => {
     return (
@@ -71,9 +72,9 @@ export const BigRight: Story = {
     size: 'big',
     slider: <div style={{height: 88, background: '#000'}}/>,
     position: 'right',
-    items: GENRES,
+    selectedFilters: [],
+    allFilters: GENRES_ICONS,
     category: 'genre',
-    selectedItems: ['anime', 'western']
   },
   render: args => {
     return (
@@ -89,9 +90,9 @@ export const BigCenter: Story = {
     size: 'big',
     slider: <div style={{height: 88, background: '#000'}}/>,
     position: 'center',
-    items: GENRES,
+    selectedFilters: [],
+    allFilters: GENRES_ICONS,
     category: 'genre',
-    selectedItems: ['anime', 'western']
   },
   render: args => {
     return (
@@ -106,10 +107,9 @@ export const Small: Story = {
   args: {
     size: 'small',
     slider: <div style={{height: 88, background: '#000'}}/>,
-    items: GENRES,
-    name: 'genres',
+    selectedFilters: [],
+    allFilters: GENRES_ICONS,
     category: 'genre',
-    selectedItems: ['anime', 'western']
   },
   render: args => {
     return (

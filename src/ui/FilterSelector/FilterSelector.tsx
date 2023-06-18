@@ -4,15 +4,15 @@ import {
   IActiveFilterModal,
   IFilterCategory, ILocaleFilterItem, ILocaleFilterItems,
 } from '@/types/filter'
+import { ICountry, ILocaleGenre } from '@/types/movie'
 import { getFilterName } from '@/utils/functions/getFilter'
 import { FilterDropDown } from '@ui/FilterSelector/FilterDropDown'
 import { FilterSelectorButton } from '@ui/FilterSelector/FilterSelectorButton'
+import CountriesSlider from '@ui/FilterSelector/filterSlider/CountriesSlider'
+import GenresSlider from '@ui/FilterSelector/filterSlider/GenresSlider'
 
 import styles from './FilterSelector.module.scss'
-import GenresSlider from '@ui/FilterSelector/filterSlider/GenresSlider'
-import { IGenres } from '@/types/genres'
-import { ICountry, IGenre, ILocaleGenre } from '@/types/movie'
-import CountriesSlider from '@ui/FilterSelector/filterSlider/CountriesSlider'
+
 
 export interface FilterSelectorProps {
   title: string

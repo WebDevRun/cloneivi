@@ -1,29 +1,24 @@
 import { Meta, StoryObj } from '@storybook/react'
 
+import { GENRES_ICONS } from '@/utils/consts/filters'
+
 import { FilterSelector } from './FilterSelector'
 
 const GENRES = ['anime', 'biography', 'action', 'western', 'military', 'detective', 'children']
-
 
 const meta: Meta<typeof FilterSelector> = {
   title: 'filter/FilterSelector',
   tags: ['autodocs'],
   component: FilterSelector,
   argTypes: {
-    setSelectedItems: {
-      description: 'Функция для выбора элемента',
-    },
-    selectedItems: {
-      description: 'Массив выбранных элементов',
-    },
     position: {
       type: 'string',
       description: 'Позиционирование модального окна относительно кнопки',
       options: ['left', 'center', 'right'],
       control: {type: 'radio'},
     },
-    items: {
-      description: 'Массив объектов',
+    allFilters: {
+      description: 'Массив всех фильтров',
     },
     title: {
       type: 'string',
@@ -47,6 +42,15 @@ const meta: Meta<typeof FilterSelector> = {
       options: ['', 'genre', 'country', 'year', 'rating'],
       control: {type: 'radio'},
     },
+    setActiveModal: {
+      description: 'функция для выбора активного drop down'
+    },
+    selectedFilters: {
+      description: 'Массив выбранных фильтров'
+    },
+    filterRedirect: {
+      description: 'Функция для редиректа при выборе фильтра'
+    }
   },
 }
 
@@ -57,16 +61,15 @@ type Story = StoryObj<typeof FilterSelector>
 export const WithBigLeftModal: Story = {
   args: {
     title: 'Жанры',
-    selectedItems: ['anime'],
-    setSelectedItems: () => {
-    },
     position: 'left',
-    items: GENRES,
     modalSize: 'big',
     category: 'genre',
     activeModal: 'genre',
     setActiveModal: () => {
     },
+    allFilters: GENRES_ICONS,
+    filterRedirect: () => {},
+    selectedFilters: [],
   },
   render: args => {
     return (
@@ -80,14 +83,15 @@ export const WithBigLeftModal: Story = {
 export const WithBigRightModal: Story = {
   args: {
     title: 'Жанры',
-    selectedItems: ['anime'],
     position: 'right',
-    items: GENRES,
     modalSize: 'big',
     category: 'genre',
     activeModal: 'genre',
     setActiveModal: () => {
     },
+    allFilters: GENRES_ICONS,
+    filterRedirect: () => {},
+    selectedFilters: [],
   },
   render: args => {
     return (
@@ -101,14 +105,15 @@ export const WithBigRightModal: Story = {
 export const WithBigCenterModal: Story = {
   args: {
     title: 'Жанры',
-    selectedItems: ['anime'],
     position: 'center',
-    items: GENRES,
     modalSize: 'big',
     category: 'genre',
     activeModal: 'genre',
     setActiveModal: () => {
     },
+    allFilters: GENRES_ICONS,
+    filterRedirect: () => {},
+    selectedFilters: [],
   },
   render: args => {
     return (
@@ -122,14 +127,14 @@ export const WithBigCenterModal: Story = {
 export const WithSmallModal: Story = {
   args: {
     title: 'Жанры',
-    selectedItems: ['anime'],
-    items: GENRES,
     modalSize: 'small',
-    name: 'genres',
     category: 'genre',
     activeModal: 'genre',
     setActiveModal: () => {
     },
+    allFilters: GENRES_ICONS,
+    filterRedirect: () => {},
+    selectedFilters: [],
   },
   render: args => {
     return (
@@ -143,14 +148,15 @@ export const WithSmallModal: Story = {
 export const UnActive: Story = {
   args: {
     title: 'Жанры',
-    selectedItems: ['anime'],
     position: 'center',
-    items: GENRES,
     modalSize: 'big',
     category: 'genre',
     activeModal: '',
     setActiveModal: () => {
     },
+    allFilters: GENRES_ICONS,
+    filterRedirect: () => {},
+    selectedFilters: [],
   },
   render: args => {
     return (
