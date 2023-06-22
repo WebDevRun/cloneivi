@@ -1,12 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { createWrapper } from 'next-redux-wrapper'
 
-import { authorizationApi } from './endpoints/authorization'
+import { authSlice, authorizationApi } from './endpoints/authorization'
 import { filmsApi } from './endpoints/films'
 
 export const store = () =>
   configureStore({
     reducer: {
+      auth: authSlice.reducer,
       [filmsApi.reducerPath]: filmsApi.reducer,
       [authorizationApi.reducerPath]: authorizationApi.reducer,
     },

@@ -79,7 +79,7 @@ const Profile: NextPageWithLayout = () => {
     setPassword(target.comeUpWithPassword.value)
 
     try {
-      const response2 = await axios.post(
+      const responseSignUp = await axios.post(
         `${BASE_URL}/signup`,
         {
           email: enteredEmail,
@@ -94,7 +94,15 @@ const Profile: NextPageWithLayout = () => {
       })
 
       const accessToken = response.data.accessToken
+
+      setAccessToken(accessToken)
+      dispatch(token(accessToken))
+      localStorage.setItem('accessToken', accessToken)
+
       const emailFromJWT = getDataFromJWT(accessToken).email
+      setEmail(emailFromJWT)
+      dispatch(emailUser(emailFromJWT))
+      localStorage.setItem('emailUser', emailFromJWT)
 
       setShowSuccess(true)
 
@@ -103,7 +111,7 @@ const Profile: NextPageWithLayout = () => {
         dispatch(emailUser(emailFromJWT))
 
         setShowSuccess(false)
-      }, 500)
+      }, 1000)
     } catch (error) {
       setIsPasswordInvalid(true)
     }
@@ -146,10 +154,9 @@ const Profile: NextPageWithLayout = () => {
     return JSON.parse(window.atob(token.split('.')[1]))
   }
 
-  const Refresh = async () => {
-    const response: any = await refreshToken()
-    console.log('response.data?.accessToken', response.data?.accessToken)
-  }
+  // const Refresh = async () => {
+  //   const response: any = await refreshToken()
+  // }
 
   const handleLogout = () => {
     logout()

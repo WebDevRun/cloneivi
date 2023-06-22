@@ -1,7 +1,12 @@
 import { useSession } from 'next-auth/react'
-import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { State, useIsAuthQuery } from '@/store/endpoints/authorization'
+import {
+  State,
+  emailUser,
+  useIsAuthQuery,
+} from '@/store/endpoints/authorization'
 import { LinkBtn } from '@/ui/LinkBtn'
 
 import styles from './Avatar.module.scss'
@@ -9,12 +14,24 @@ import styles from './Avatar.module.scss'
 export const Avatar = () => {
   const { data: isEmailAuthorized } = useIsAuthQuery()
   const { data: session, status } = useSession()
-  const emailUser = useSelector((state: State) => state.auth?.emailUser)
+  const [email, setEmail] = useState('')
+  const dispatch = useDispatch()
 
-  const user = session?.user?.email || session?.user?.name || emailUser
+  const user = session?.user?.email || session?.user?.name || email
 
   const isSocialAuthorized = status === 'authenticated'
   const isAuthorized = isEmailAuthorized || isSocialAuthorized
+
+  const stateEmailUser = useSelector((state: State) => state.auth?.emailUser)
+
+  useEffect(() => {
+    dispatch(emailUser(localStorage.getItem('emailUser')))
+    setEmail(localStorage.getItem('emailUser') as string)
+  }, [])
+
+  useEffect(() => {
+    setEmail(stateEmailUser)
+  }, [stateEmailUser])
 
   return (
     <LinkBtn
