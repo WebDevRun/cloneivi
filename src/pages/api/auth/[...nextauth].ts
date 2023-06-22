@@ -1,6 +1,6 @@
 import NextAuth, { NextAuthOptions } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
-import VkProvider from "next-auth/providers/vk";
+import VkProvider from 'next-auth/providers/vk'
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -21,22 +21,20 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token }) {
-      token.userRole = "admin"
-      return token
-    },
-    // async jwt({ token, account }) {
-    //   // Persist the OAuth access_token to the token right after signin
-    //   if (account) {
-    //     token.accessToken = account.access_token
-    //   }
+    // async jwt({ token }) {
+    //   token.userRole = "admin"
     //   return token
     // },
-    // async session({ session, token, user }) {
-    //   // Send properties to the client, like an access_token from a provider.
-    //   session.accessToken = token.accessToken
-    //   return session
-    // },
+    async jwt({ token, account }) {
+      if (account) {
+        token.accessToken = account.access_token
+      }
+      return token
+    },
+    async session({ session, token, user }) {
+      session.accessToken = token.accessToken
+      return session
+    },
   },
 }
 

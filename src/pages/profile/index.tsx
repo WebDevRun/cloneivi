@@ -5,7 +5,17 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { FormEvent, ReactElement, useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 
+import {
+  emailUser,
+  token,
+  useGetUserByEmailQuery,
+  useIsAuthQuery,
+  useLoginMutation,
+  useLogoutMutation,
+  useRefreshTokenMutation,
+} from '@/store/endpoints/authorization'
 import { Button } from '@/ui/Button'
 import { ChatMessage } from '@/ui/ChatMessage/ChatMessage'
 import { Input } from '@/ui/Input/Input'
@@ -21,54 +31,49 @@ import styles from './profile.module.scss'
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 const Profile: NextPageWithLayout = () => {
-  const { data: session, status } = useSession()
-  const loading = status === 'loading'
+  const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const router = useRouter()
 
-  const [isRequestGo, setIsRequestGo] = useState(false)
-
+  const [accessToken, setAccessToken] = useState('')
+  const [enteredEmail, setEnteredEmail] = useState('')
   const [email, setEmail] = useState('')
-  const [currentUser, setCurrentUser] = useState('')
-
   const [password, setPassword] = useState('')
   const [isValidatePassword, setIsValidatePassword] = useState(false)
   const [passwordMatсh, setPasswordMatсh] = useState(false)
-  const [isSignIn, setIsSignIn] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false)
 
-  const [isEmailRegistered, setIsEmailRegistered] = useState(false)
   const [isPasswordInvalid, setIsPasswordInvalid] = useState(false)
 
-  const { t } = useTranslation()
-  const router = useRouter()
+  const { data: session, status } = useSession()
+
+  const { data: getUserByEmail } = useGetUserByEmailQuery(enteredEmail)
+  const { data: isEmailAuthorized, isLoading } = useIsAuthQuery()
+
+  const [refreshToken] = useRefreshTokenMutation()
+  const [login] = useLoginMutation()
+  const [logout] = useLogoutMutation()
+
+  const isSocialAuthorized = status === 'authenticated'
+  const isAuthorized = isEmailAuthorized || isSocialAuthorized
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('currentUser')
+    dispatch(token(localStorage.getItem('accessToken')))
+    setAccessToken(localStorage.getItem('accessToken') as string)
 
-    if (storedUser) {
-      setCurrentUser(storedUser)
-    }
-  }, [currentUser, setCurrentUser])
+    dispatch(emailUser(localStorage.getItem('emailUser')))
+    setEmail(localStorage.getItem('emailUser') as string)
+  }, [])
 
   const handleEmail = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     const target = event.target as HTMLFormElement
-    setEmail(target.viaEmail.value)
-
-    try {
-      const response = await axios.get(
-        `${BASE_URL}/users/${target.viaEmail.value}`,
-        { withCredentials: true },
-      )
-
-      setIsEmailRegistered(true)
-    } catch (error) {
-      setIsEmailRegistered(false)
-    }
+    setEnteredEmail(target.viaEmail.value)
   }
 
   const handleSignUp = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsRequestGo(true)
 
     const target = e.target as HTMLFormElement
     setPassword(target.comeUpWithPassword.value)
@@ -77,30 +82,27 @@ const Profile: NextPageWithLayout = () => {
       const response2 = await axios.post(
         `${BASE_URL}/signup`,
         {
-          email: email,
+          email: enteredEmail,
           password: password,
         },
         { withCredentials: true },
       )
 
-      const response = await axios.post(
-        `${BASE_URL}/login`,
-        {
-          email: email,
-          password: password,
-        },
-        { withCredentials: true },
-      )
+      const response: any = await login({
+        email: enteredEmail,
+        password: password,
+      })
 
-      localStorage.setItem('accessToken', response.data.accessToken)
+      const accessToken = response.data.accessToken
+      const emailFromJWT = getDataFromJWT(accessToken).email
 
-      setIsSignIn(true)
+      setShowSuccess(true)
 
       setTimeout(() => {
-        setIsRequestGo(false)
-        localStorage.setItem('currentUser', email)
-        setCurrentUser(email)
-        router.reload()
+        dispatch(token(accessToken))
+        dispatch(emailUser(emailFromJWT))
+
+        setShowSuccess(false)
       }, 500)
     } catch (error) {
       setIsPasswordInvalid(true)
@@ -109,7 +111,6 @@ const Profile: NextPageWithLayout = () => {
 
   const handleSignIn = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsRequestGo(true)
 
     const target = e.target as HTMLFormElement
     setPassword(target.inputPassword.value)
@@ -118,65 +119,67 @@ const Profile: NextPageWithLayout = () => {
       setIsPasswordInvalid(true)
     }
 
-    try {
-      const response = await axios.post(
-        `${BASE_URL}/login`,
-        {
-          email: email,
-          password: password,
-        },
-        { withCredentials: true },
-      )
-
-      localStorage.setItem('accessToken', response.data.accessToken)
-
-      setIsSignIn(true)
-
-      setTimeout(() => {
-        setIsRequestGo(false)
-        localStorage.setItem('currentUser', email)
-        setCurrentUser(email)
-        router.reload()
-        //router.push('/profile')
-      }, 1000)
-    } catch (error) {
-      setIsPasswordInvalid(true)
-    }
-  }
-
-  const handleLogout = async () => {
-    setIsRequestGo(true)
-
-    const response = await axios.delete(`${BASE_URL}/logout`, {
-      withCredentials: true,
+    const response: any = await login({
+      email: enteredEmail,
+      password: password,
     })
 
+    const accessToken = response.data.accessToken
+
+    setAccessToken(accessToken)
+    dispatch(token(accessToken))
+    localStorage.setItem('accessToken', accessToken)
+
+    const emailFromJWT = getDataFromJWT(accessToken).email
+    setEmail(emailFromJWT)
+    dispatch(emailUser(emailFromJWT))
+    localStorage.setItem('emailUser', emailFromJWT)
+
+    setShowSuccess(true)
+
     setTimeout(() => {
-      setIsRequestGo(false)
-      localStorage.setItem('currentUser', '')
-      setCurrentUser('')
-      //router.push('/profile')
-      router.reload()
-    }, 500)
+      setShowSuccess(false)
+    }, 1000)
+  }
+
+  function getDataFromJWT(token: string) {
+    return JSON.parse(window.atob(token.split('.')[1]))
+  }
+
+  const Refresh = async () => {
+    const response: any = await refreshToken()
+    console.log('response.data?.accessToken', response.data?.accessToken)
+  }
+
+  const handleLogout = () => {
+    logout()
+
+    setAccessToken('')
+    dispatch(token(''))
+    localStorage.setItem('accessToken', '')
+
+    setEmail('')
+    dispatch(emailUser(''))
+    localStorage.setItem('emailUser', '')
   }
 
   return (
     <Flex className={styles.profile} variant='center'>
-      {(session?.user || currentUser) && (
+      {isAuthorized && (
         <>
           <Flex gap='gap16' variant='column'>
-            {currentUser && (
-              <Text variant='titleXL'>{`${t('Account')} ${currentUser}`}</Text>
+            {isEmailAuthorized && (
+              <Text variant='titleXL'>{`${t('Account')} ${email}`}</Text>
             )}
-            {session?.user && (
+            {isSocialAuthorized && (
               <>
                 <Text variant='titleXL'>{`${t('Account')} ${
-                  session.user.email
+                  session?.user?.email || session?.user?.name
                 }`}</Text>
-                <Text variant='bold'>{session.user.name}</Text>
+                <Text variant='bold'>{session?.user?.name}</Text>
               </>
             )}
-            {!session?.user && (
+            {isEmailAuthorized && (
               <Button
                 type='button'
                 text={`${t('SignOut')}`}
@@ -184,7 +187,7 @@ const Profile: NextPageWithLayout = () => {
               />
             )}
 
-            {session?.user && (
+            {isSocialAuthorized && (
               <Button
                 type='button'
                 text={`${t('SignOut')}`}
@@ -194,41 +197,43 @@ const Profile: NextPageWithLayout = () => {
                 }}
               />
             )}
-            {isRequestGo && <Spinner />}
+            {isLoading && <Spinner />}
           </Flex>
         </>
       )}
 
-      {!(session?.user || currentUser) && (
+      {!isAuthorized && (
         <Flex variant='column'>
           <Text className={styles.title} variant='titleSm'>
-            {email ? t('Hello') : t('LoginOrRegistration')}
+            {enteredEmail ? t('Hello') : t('LoginOrRegistration')}
           </Text>
-          {email && <Text>{email}</Text>}
+          {enteredEmail && <Text>{enteredEmail}</Text>}
 
           <Flex className={styles.messages} variant='column'>
             <ChatMessage
               title={`${t('PleaseLoginOrRegister')}`}
               extra={`${t('ToUseTheServiceOnAnyDevice')}`}
-              showExtra={email ? false : true}
+              showExtra={enteredEmail ? false : true}
               className={styles.firstMessage}
             />
 
-            {email && <ChatMessage title={email} variant='messageRight' />}
+            {enteredEmail && (
+              <ChatMessage title={enteredEmail} variant='messageRight' />
+            )}
 
-            {email && !isEmailRegistered && (
+            {enteredEmail && !getUserByEmail && (
               <ChatMessage
                 title={`${t('ComeUpWithPasswordToLogIn')}`}
                 extra={`${t('SetPasswordToLogInViaEmail')}`}
               />
             )}
-            {email && isEmailRegistered && !isSignIn && (
+            {enteredEmail && getUserByEmail && !showSuccess && (
               <ChatMessage title={`${t('EnterYourPasswordToLogIn')}`} />
             )}
           </Flex>
 
           <div className={styles.controlsWrapper}>
-            {!email && (
+            {!enteredEmail && (
               <form
                 name='emailForm'
                 className={styles.controls}
@@ -243,7 +248,7 @@ const Profile: NextPageWithLayout = () => {
               </form>
             )}
 
-            {email && !isEmailRegistered && !isValidatePassword && (
+            {enteredEmail && !getUserByEmail && !isValidatePassword && (
               <form
                 name='comeUpWithPassword'
                 className={styles.controls}
@@ -267,7 +272,7 @@ const Profile: NextPageWithLayout = () => {
               </form>
             )}
 
-            {email && !isEmailRegistered && isValidatePassword && (
+            {enteredEmail && !getUserByEmail && isValidatePassword && (
               <form
                 name='signUp'
                 className={styles.controls}
@@ -307,7 +312,7 @@ const Profile: NextPageWithLayout = () => {
               </form>
             )}
 
-            {email && isEmailRegistered && !isSignIn && (
+            {enteredEmail && getUserByEmail && !showSuccess && (
               <form
                 name='passwordForm'
                 className={styles.controls}
@@ -330,11 +335,11 @@ const Profile: NextPageWithLayout = () => {
                   background='transparent'
                   text={`${t('RecoverPassword')}`}
                 />
-                {isRequestGo && <Spinner />}
+                {isLoading && <Spinner />}
               </form>
             )}
 
-            {isSignIn && (
+            {showSuccess && (
               <>
                 <Flex variant='center'>
                   <ChatMessage
@@ -358,7 +363,7 @@ const Profile: NextPageWithLayout = () => {
               />
             )}
 
-            {!email && (
+            {!enteredEmail && (
               <>
                 <Text variant='small' className='privacy-policy'>
                   {t('ByClickingContinueIAgree')} <br /> {t('With')} &nbsp;

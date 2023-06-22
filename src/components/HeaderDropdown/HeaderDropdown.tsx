@@ -1,8 +1,10 @@
 import cn from 'classnames'
 import Link from 'next/link'
+import { useSession } from 'next-auth/react'
 import { useTranslation } from 'next-i18next'
 import { FC, useEffect, useState } from 'react'
 
+import { useIsAuthQuery } from '@/store/endpoints/authorization'
 import { Button } from '@/ui/Button'
 
 import { Text } from '../../ui/ui'
@@ -21,6 +23,8 @@ import styles from './HeaderDropdown.module.scss'
 
 export const HeaderDropdown: FC = () => {
   const { t } = useTranslation()
+  const { data: isEmailAuthorized } = useIsAuthQuery()
+  const { status } = useSession()
   const [active, setActive] = useState('headerDropdown')
   const [lists, setLists] = useState(movies)
   const [isTv, setIsTv] = useState(false)
@@ -85,6 +89,9 @@ export const HeaderDropdown: FC = () => {
   const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
     setActive('headerDropdown')
   }
+
+  const isSocialAuthorized = status === 'authenticated'
+  const isAuthorized = isEmailAuthorized || isSocialAuthorized
 
   return (
     <div className={mainCn} onMouseLeave={handleMouseLeave}>
@@ -241,7 +248,7 @@ export const HeaderDropdown: FC = () => {
                 ))}
               </div>
               <div className={styles.profileSide}>
-                <Button text={`${t('LogInOrRegister')}`} />
+                {!isAuthorized && <Button text={`${t('LogInOrRegister')}`} />}
                 <ShowList data={profile.extra} />
               </div>
             </div>

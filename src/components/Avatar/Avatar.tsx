@@ -1,31 +1,28 @@
-import { useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react'
+import { useSelector } from 'react-redux'
 
+import { State, useIsAuthQuery } from '@/store/endpoints/authorization'
 import { LinkBtn } from '@/ui/LinkBtn'
 
 import styles from './Avatar.module.scss'
-//import { useUser } from './useUser'
 
 export const Avatar = () => {
-  //const [currentUser] = useUser()
-  const [currentUser, setCurrentUser] = useState('')
+  const { data: isEmailAuthorized } = useIsAuthQuery()
+  const { data: session, status } = useSession()
+  const emailUser = useSelector((state: State) => state.auth?.emailUser)
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem('currentUser')
+  const user = session?.user?.email || session?.user?.name || emailUser
 
-    if (storedUser) {
-      setCurrentUser(storedUser)
-    }
-  }, [currentUser, setCurrentUser])
+  const isSocialAuthorized = status === 'authenticated'
+  const isAuthorized = isEmailAuthorized || isSocialAuthorized
 
   return (
-    <>
-      <LinkBtn
-        text={currentUser.toString().charAt(0).toUpperCase()}
-        href='/profile'
-        mode='account'
-        background={currentUser ? 'green' : 'default'}
-        icon='profile'
-      />
-    </>
+    <LinkBtn
+      text={user && user.toString().charAt(0).toUpperCase()}
+      href='/profile'
+      mode='account'
+      background={isAuthorized ? 'green' : 'default'}
+      icon='profile'
+    />
   )
 }
