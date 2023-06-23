@@ -52,6 +52,7 @@ export const Button: FC<ButtonProps> = ({
     className && styles[className],
     !text && styles.onlyIcon,
     fields === 'noneFields' && styles[fields],
+    className,
   )
 
   const iconSize = size === 'big' ? 'big' : 'middle'

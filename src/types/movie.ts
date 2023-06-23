@@ -4,7 +4,7 @@ export interface IMovie {
   name_en: string
   description: string
   year: number
-  country: ICountry[]
+  countries: ICountry[]
   rating: number
   assessments: number
   reviews: number

@@ -27,11 +27,6 @@ export type TextVariants =
   | 'normal'
   | 'small'
 
-interface TextProps extends BaseProps {
-  variant?: TextVariants
-  bold?: boolean
-}
-
 export function Base({
   as: Component = 'div',
   cx: _cx = [],
@@ -84,6 +79,11 @@ export function Flex({
       {...props}
     />
   )
+}
+
+interface TextProps extends BaseProps {
+  variant?: TextVariants
+  bold?: boolean
 }
 
 export function Text({

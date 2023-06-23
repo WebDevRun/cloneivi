@@ -36,6 +36,7 @@ export type INameIconsExt =
   | 'dislike'
   | 'vkontakte'
   | 'google'
+  | 'lightning'
   | 'avatar'
   | 'linkedin'
   | 'odnoklassniki'

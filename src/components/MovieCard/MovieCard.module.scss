@@ -1,7 +1,7 @@
 @use '../../styles/functions' as fn;
 
 .movieCard.small {
-  max-width: fn.toRem(154px);
+  width: fn.toRem(154px);
   display: block;
 
   .textBadge {
@@ -38,6 +38,9 @@
 .movieCardImageCont {
   position: relative;
   transition: 0.2s ease-in-out;
+  width: 100%;
+  height: fn.toRem(235px);
+  border-radius: fn.toRem(10px);
 }
 
 .movieCard.series {
@@ -68,7 +71,7 @@
   top: 0;
   left: 0;
   transition: 0.2s ease-in-out;
-  border-radius: fn.toRem(16px);
+  border-radius: fn.toRem(10px);
 }
 
 .hoards {

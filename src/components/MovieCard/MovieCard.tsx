@@ -51,21 +51,17 @@ export const MovieCard: FC<MovieCardProps> = ({
 
   return (
     <Link href={href} className={cn(styles.movieCard, styles[mode])}>
-      <div className={styles.movieCardImageCont}>
-        <Image
-          width={234}
-          height={360}
-          className={styles.movieCardImage}
-          src={imgSrc}
-          alt={imgAlt}
-        />
+      <div
+        className={styles.movieCardImageCont}
+        style={{ background: `url(${imgSrc}) center/contain no-repeat` }}
+      >
         {ageLimit && <div className={styles.ageBadge}>{ageLimit}</div>}
         {mode === 'big' && (
           <div className={styles.btnCont}>
             <Button
               onClick={() => {}}
               size='middle'
-              text={`${t('watchSubscription')}`}
+              text={`${t('watchSubscription')}`} 
             />
           </div>
         )}
