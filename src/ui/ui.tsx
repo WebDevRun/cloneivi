@@ -58,12 +58,14 @@ interface FlexProps extends BaseProps {
   variant?: FlexVariants
   wrap?: boolean
   alignItems?: FlexVariants
+  gap?: 'gap0' | 'gap4' | 'gap12' | 'gap16'
 }
 
 export function Flex({
   variant,
   wrap,
   alignItems,
+  gap = 'gap12',
   cx: _cx = [],
   ...props
 }: WithChildren<FlexProps>) {
@@ -75,6 +77,7 @@ export function Flex({
           variant && styles[variant],
           wrap && styles.wrap,
           alignItems && styles[alignItems],
+          styles[gap],
         ),
         ..._cx,
       ]}
@@ -105,4 +108,8 @@ export function H1({ ...props }) {
 
 export function H2({ ...props }) {
   return <Text as='h2' variant='titleH2' {...props} />
+}
+
+export function Decor({ variant = 'underline', ...props }) {
+  return <Base cx={[styles[variant]]} {...props} />
 }

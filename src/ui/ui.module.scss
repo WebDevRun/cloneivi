@@ -24,6 +24,7 @@
 
 .column {
   flex-direction: column;
+  width: 100%;
 }
 
 .end {
@@ -56,6 +57,18 @@
   align-items: normal;
   align-content: stretch;
   justify-content: center;
+}
+
+.gap4 {
+  gap: 4px;
+}
+
+.gap12 {
+  gap: 12px;
+}
+
+.gap16 {
+  gap: 16px;
 }
 
 .superH1 {
@@ -120,4 +133,20 @@
   line-height: fn.toRem(16px);
   font-weight: 400;
   color: #d9d7e0;
+}
+
+.underline {
+  display: inline-block;
+
+  & > :only-child {
+    &:not(:hover):not(:active) {
+      box-shadow: 0 2px 0 #7e798f, inset 0 0 0 #7e798f;
+      transition-duration: 0.4s;
+    }
+
+    &:hover:not(:active) {
+      box-shadow: 0 0 0 #7e798f, inset 0 -1.5em 0 #7e798f;
+      transition-duration: 80ms;
+    }
+  }
 }

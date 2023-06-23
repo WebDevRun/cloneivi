@@ -83,6 +83,20 @@
   padding: fn.toRem(12px);
 }
 
+.accountLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fn.toRem(44px);
+  width: fn.toRem(44px);
+
+  .textContainer {
+    font-size: fn.toRem(32px);
+    line-height: fn.toRem(32px);
+    font-weight: 500;
+  }
+}
+
 .link:has(.accountLinks) {
   display: block;
 
@@ -204,4 +218,8 @@
 
 .red {
   background-color: #ea003d;
+}
+
+.green {
+  background-color: #73a32f;
 }

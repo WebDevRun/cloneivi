@@ -7,7 +7,7 @@ import { names } from './icons'
 interface SvgProps {
   size?: 'small' | 'middle' | 'big' | 'large'
   icon: INameIcons | INameIconsExt
-  ext?: true | false
+  ext?: boolean
   fill?: string
 }
 
@@ -15,7 +15,7 @@ export const Svg: FC<SvgProps> = ({
   size = 'middle',
   icon,
   ext = false,
-  fill,
+  fill = '#ffffff',
 }) => {
   const sz = {
     small: 16,
