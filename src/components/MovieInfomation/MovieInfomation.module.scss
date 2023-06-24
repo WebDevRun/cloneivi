@@ -1,0 +1,39 @@
+@use '@styles/variables' as var;
+@use '@styles/functions' as fn;
+@use '@styles/mixins' as mix;
+
+.movieInfomation {
+  & > * {
+    $horizontalPadding: fn.toRem(12px);
+
+    padding-left: $horizontalPadding;
+    padding-right: $horizontalPadding;
+    margin-top: fn.toRem(8px);
+    margin-bottom: fn.toRem(20px);
+  }
+}
+
+.title {
+  font-size: fn.toRem(42px);
+  line-height: fn.toRem(44px);
+  font-weight: 700;
+  color: var.$mainTextColor;
+  text-align: center;
+}
+
+.toggleStatus {
+  margin-top: fn.toRem(8px);
+  font-size: fn.toRem(15px);
+  color: rgba(var.$mainTextColor, 0.48);
+  background-color: transparent;
+  transition-duration: 0.4s;
+
+  &:hover {
+    color: var.$mainTextColor;
+  }
+}
+
+.medallions {
+  display: flex;
+  justify-content: center;
+}

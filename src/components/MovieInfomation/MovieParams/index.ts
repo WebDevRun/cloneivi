@@ -1,0 +1,1 @@
+export { MovieParams } from './MovieParams'

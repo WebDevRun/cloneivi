@@ -19,15 +19,13 @@ export const WatchAllDevices: FC<WatchAllDevicesProps> = ({ name, poster }) => {
   return (
     <div className={styles.watchAllDevices}>
       <div>
-        <h2 className={styles.title}>
-          {t('watchOnAllDevices', { name })}
-        </h2>
-        <p className={styles.subTitle}>{t('appAvailable')}</p>
+        <h2 className={styles.title}>{t('WatchOnAllDevices', { name })}</h2>
+        <p className={styles.subTitle}>{t('AppAvailable')}</p>
         <LinkBtn
           background='red'
           href='https://www.ivi.ru/devices'
           mode='footer'
-          text={`${t('connectDevices')}`}
+          text={`${t('ConnectDevices')}`}
           type='square'
         />
       </div>
@@ -37,14 +35,14 @@ export const WatchAllDevices: FC<WatchAllDevicesProps> = ({ name, poster }) => {
           width={536}
           height={272}
           src={tvWithoutPoster}
-          alt={t('viewingDevices')}
+          alt={t('ViewingDevices')}
           priority
           placeholder='empty'
         />
         <Image
           className={styles.ipadWithoutPoster}
           src={ipadWithoutPoster}
-          alt={t('viewingDevices')}
+          alt={t('ViewingDevices')}
           width={200}
           height={136}
           priority

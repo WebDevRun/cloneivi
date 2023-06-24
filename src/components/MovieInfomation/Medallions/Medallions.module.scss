@@ -1,0 +1,7 @@
+@use '@styles/functions' as fn;
+
+.medallions {
+  display: flex;
+  gap: fn.toRem(4px);
+  margin-bottom: fn.toRem(24px);
+}

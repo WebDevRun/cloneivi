@@ -1,0 +1,39 @@
+@use '@styles/functions' as fn;
+@use '@styles/variables' as var;
+
+.movieRating {
+  display: flex;
+  align-items: center;
+  background-color: rgba(var.$mainTextColor, 0.08);
+  border-radius: fn.toRem(12px);
+  padding: fn.toRem(10px);
+  cursor: pointer;
+}
+
+.valueContainer {
+  $size: fn.toRem(64px);
+
+  width: $size;
+  height: $size;
+  background-color: #7e798f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: fn.toRem(8px);
+}
+
+.value {
+  font-size: fn.toRem(24px);
+  font-weight: 700;
+}
+
+.text {
+  margin-left: fn.toRem(16px);
+  font-size: fn.toRem(15px);
+  font-weight: 500;
+}
+
+.buttonContainer {
+  margin-left: auto;
+  margin-right: fn.toRem(10px);
+}

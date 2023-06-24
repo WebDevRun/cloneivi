@@ -5,7 +5,7 @@ import { MoviePlayer } from './MoviePlayer'
 import '@styles/index.scss'
 
 const meta: Meta<typeof MoviePlayer> = {
-  title: 'MoviePlayer',
+  title: 'Movie/MoviePlayer',
   tags: ['autodocs'],
   component: MoviePlayer,
   argTypes: {

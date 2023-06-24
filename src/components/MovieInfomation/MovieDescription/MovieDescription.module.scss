@@ -1,0 +1,62 @@
+@use '@styles/variables' as var;
+@use '@styles/functions' as fn;
+
+$transparentWite: rgba(
+  $color: var.$mainTextColor,
+  $alpha: 0.72,
+);
+
+.movieDescription {
+  line-height: fn.toRem(22px);
+  overflow: hidden;
+}
+
+.medallions {
+  display: flex;
+  justify-content: center;
+}
+
+.description,
+.languageContainer,
+.disclaimer {
+  font-size: fn.toRem(15px);
+}
+
+.description {
+  color: $transparentWite;
+}
+
+.options {
+  $top: fn.toRem(32px);
+
+  margin-top: $top;
+  margin-bottom: fn.toRem(8px);
+  padding-top: fn.toRem(16px);
+  padding-bottom: $top;
+  border-top: 1px solid rgba(var.$mainTextColor, 0.16);
+  border-bottom: 1px solid rgba(var.$mainTextColor, 0.16);
+}
+
+.languageText {
+  color: $transparentWite;
+}
+
+.languages {
+  margin-top: fn.toRem(4px);
+}
+
+.disclaimerContainer {
+  margin-top: fn.toRem(16px);
+  color: rgba(var.$mainTextColor, 0.72);
+}
+
+.disclaimer {
+  color: rgba(var.$mainTextColor, 0.4);
+}
+
+.qualitiesContainer {
+  margin-top: fn.toRem(8px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: fn.toRem(8px);
+}
