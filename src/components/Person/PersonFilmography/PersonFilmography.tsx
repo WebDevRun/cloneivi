@@ -73,7 +73,7 @@ export const PersonFilmography: FC<IPersonFilmography> = ({
       {showButton && remainingQuantity > 0 && (
         <div className={styles.more}>
           <Button
-            text={`${t('header:more')} 
+            text={`${t('common:more')} 
             ${remainingQuantity} ${declinationRemainingQuantity}`}
             background='transparent'
             onClick={handleOnClick}
