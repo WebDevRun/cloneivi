@@ -5,8 +5,6 @@ import { ReactElement } from 'react'
 
 import { AppLayout } from '@layouts/AppLayout'
 
-import data from './data.json'
-
 import { NextPageWithLayout } from './_app'
 import { MovieCard } from '@/components/MovieCard'
 import { Slider } from '@/components/Slider'
