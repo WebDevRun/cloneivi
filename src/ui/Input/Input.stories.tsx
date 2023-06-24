@@ -8,7 +8,14 @@ const meta: Meta<typeof Input> = {
   title: 'Input',
   tags: ['autodocs'],
   component: Input,
-  argTypes: {},
+  argTypes: {
+    type: {
+      description: 'Тип инпута',
+    },
+    label: {
+      description: 'Текст инпута',
+    },
+  },
 }
 
 export default meta
@@ -16,5 +23,8 @@ export default meta
 type Story = StoryObj<typeof Input>
 
 export const Default: Story = {
-  args: {},
+  args: {
+    label: 'Найти фильм:',
+    type: 'text',
+  },
 }

@@ -1,3 +1,5 @@
+@use '@styles/functions' as fn;
+
 .inputBody {
   display: block;
   position: relative;
@@ -54,4 +56,18 @@
   font-size: 15px;
   line-height: 20px;
   font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  gap: fn.toRem(8px);
+}
+
+.description {
+  flex-shrink: 0;
+}
+
+.input {
+  width: 100%;
+  padding: fn.toRem(7px);
+  border-radius: fn.toRem(8px);
 }

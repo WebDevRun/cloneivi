@@ -1,0 +1,7 @@
+@use '@styles/functions' as fn;
+
+.genrePatchList {
+  display: flex;
+  flex-direction: column;
+  gap: fn.toRem(20px);
+}

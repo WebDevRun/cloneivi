@@ -4,7 +4,6 @@ export interface IMovie {
   name_en: string
   description: string
   year: number
-  countries: ICountry[]
   rating: number
   assessments: number
   reviews: number
@@ -16,6 +15,7 @@ export interface IMovie {
   qualities: IQuality[]
   languagesAudio: ILanguages[]
   languagesSubtitle: ILanguages[]
+  countries: ICountry[]
 }
 
 export interface IMovieName {
@@ -33,6 +33,7 @@ export interface IGenre {
 export interface ILanguages {
   language_id: string
   language: string
+  slug: string
 }
 
 export interface IQuality {
