@@ -13,8 +13,6 @@ import { AppLayout } from '@layouts/AppLayout'
 import { NextPageWithLayout } from '../../_app'
 import styles from '../admin.module.scss'
 
-
-
 export interface IMoviePage {
   film: IMovie
 }
