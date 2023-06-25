@@ -4,7 +4,7 @@ import styles from './Input.module.scss'
 
 export interface InputProps {
   label: string
-  type?: 'text' | 'url' | 'email' | 'password'
+  type?: 'text' | 'url' | 'email' | 'password' | 'search'
   required?: boolean
   name: string
   defaultValue?: string

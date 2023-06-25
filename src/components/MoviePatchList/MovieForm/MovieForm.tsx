@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next'
-import { FC, FormEventHandler, useState } from 'react'
+import { FC, FormEvent, FormEventHandler, useState } from 'react'
 
 import { Button } from '@/ui/Button'
 import { Input } from '@/ui/Input'
@@ -11,24 +11,18 @@ interface MovieFormProps {
 }
 
 export const MovieForm: FC<MovieFormProps> = ({ setData }) => {
-  const { t } = useTranslation(['adminPage'])
-  const [searchText, setSearchText] = useState('')
+  const { t } = useTranslation()
 
-  const submitHandler: FormEventHandler<HTMLFormElement> = async (event) => {
-    event.preventDefault()
-    setData(searchText)
+  const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const target = e.target as HTMLFormElement
+    setData(target.findMovie.value)
   }
 
   return (
     <form className={styles.movieForm} onSubmit={submitHandler}>
-      <Input
-        type='search'
-        description={`${t('adminPage:findMovie')}:`}
-        text={searchText}
-        setText={setSearchText}
-        placeholder={`${t('adminPage:find')}...`}
-      />
-      <Button type='submit' size='small' text={`${t('adminPage:save')}`} />
+      <Input type='search' label={`${t('findMovie')}:`} name='findMovie' />
+      <Button type='submit' size='small' text={`${t('search')}`} />
     </form>
   )
 }

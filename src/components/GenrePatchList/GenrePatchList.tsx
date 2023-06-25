@@ -7,13 +7,13 @@ import { GenreForm } from './GenreForm'
 import styles from './GenrePatchList.module.scss'
 
 export const GenrePatchList: FC = () => {
-  const { t } = useTranslation(['adminPage'])
+  const { t } = useTranslation()
   const { data: genres } = useGetGenresQuery()
 
   return (
     <div className={styles.genrePatchList}>
       {genres === undefined ? (
-        <p>{`${t('adminPage:loading')}...`}</p>
+        <p>{`${t('loading')}...`}</p>
       ) : (
         genres.map((genre) => {
           return (

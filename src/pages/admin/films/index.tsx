@@ -27,11 +27,7 @@ export const getStaticProps = wrapper.getServerSideProps(
     store.dispatch(getFilms.initiate(20))
     await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
-    const localeData = await serverSideTranslations(context.locale ?? 'ru', [
-      'header',
-      'common',
-      'adminPage',
-    ])
+    const localeData = await serverSideTranslations(context.locale ?? 'ru')
 
     return {
       props: {

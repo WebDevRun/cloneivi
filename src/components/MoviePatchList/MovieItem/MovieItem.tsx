@@ -23,7 +23,7 @@ export const MovieItem: FC<MovieItemProps> = ({
   name_ru,
 }) => {
   const router = useRouter()
-  const { t } = useTranslation(['adminPage'])
+  const { t } = useTranslation()
   const [setFilmId] = useDeleteFilmMutation()
 
   const editHandler = () => {
@@ -72,13 +72,13 @@ export const MovieItem: FC<MovieItemProps> = ({
         <Button
           size='small'
           background='gray'
-          text={`${t('adminPage:edit')}`}
+          text={`${t('Edit')}`}
           onClick={editHandler}
         />
         <Button
           size='small'
           background='gray'
-          text={`${t('adminPage:delete')}`}
+          text={`${t('delete')}`}
           onClick={deleteHandler}
         />
       </div>

@@ -14,12 +14,12 @@ export interface AdminLayoutProps {
 
 export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
   const router = useRouter()
-  const { t } = useTranslation(['adminPage'])
+  const { t } = useTranslation()
   const links = ['films', 'genres']
 
   return (
     <div className={styles.adminLayout}>
-      <H2 className={styles.title}>{t('adminPage:title')}</H2>
+      <H2 className={styles.title}>{t('title')}</H2>
       <div className={styles.pageContainer}>
         <nav className={styles.navigationBar}>
           {links.map((link, index) => {
@@ -32,7 +32,7 @@ export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
                 })}
               >
                 <Link className={styles.navigationItem} href={`/admin/${link}`}>
-                  {t(`adminPage:${link}`)}
+                  {t(`${link}`)}
                 </Link>
               </li>
             )

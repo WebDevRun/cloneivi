@@ -11,7 +11,7 @@ import { MovieItem } from './MovieItem'
 import styles from './MoviePatchList.module.scss'
 
 export const MoviePatchList: FC = () => {
-  const { t } = useTranslation(['adminPage'])
+  const { t } = useTranslation()
   const { data: initialMovies } = useGetFilmsQuery(20)
   const [setName, { data: movies }] = useLazyGetFilmsByNameQuery()
 
@@ -31,7 +31,7 @@ export const MoviePatchList: FC = () => {
           )
         })
       ) : movies.length === 0 ? (
-        <p>{t('adminPage:notFound')}</p>
+        <p>{t('notFound')}</p>
       ) : (
         <div className={styles.movieList}>
           {movies.map((movie) => {

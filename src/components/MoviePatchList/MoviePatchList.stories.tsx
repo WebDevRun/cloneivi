@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Provider } from 'react-redux'
 
-import { setupStore } from '@/store/store'
+import { store } from '@/store/store'
 import '@styles/index.scss'
 
 import { MoviePatchList } from './MoviePatchList'
@@ -19,10 +19,10 @@ type Story = StoryObj<typeof MoviePatchList>
 export const Default: Story = {
   decorators: [
     (Story) => {
-      const store = setupStore()
+      //const store = store()
 
       return (
-        <Provider store={store}>
+        <Provider store={store()}>
           <Story />
         </Provider>
       )

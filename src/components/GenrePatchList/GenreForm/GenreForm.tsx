@@ -18,7 +18,7 @@ export const GenreForm: FC<GenreFormProps> = ({
   initialRuText,
   initialEnText,
 }) => {
-  const { t } = useTranslation(['adminPage'])
+  const { t } = useTranslation()
   const [ruText, setRuText] = useState(initialRuText)
   const [enText, setEnText] = useState(initialEnText)
   const ruTextRef = useRef(ruText)
@@ -39,18 +39,28 @@ export const GenreForm: FC<GenreFormProps> = ({
 
   return (
     <form className={styles.genreForm}>
-      <Input description='Ru:' text={ruText} setText={setRuText} type='text' />
-      <Input description='En:' text={enText} setText={setEnText} type='text' />
+      <Input
+        label={`Ru: ${ruText}`}
+        // text={ruText}
+        defaultValue={setRuText}
+        type='text'
+      />
+      <Input
+        label={`En: ${ruText}`}
+        // text={enText}
+        defaultValue={setEnText}
+        type='text'
+      />
       <Button
         disabled={ruText === initialRuText && enText === initialEnText}
-        text={`${t('adminPage:save')}`}
+        text={`${t('save')}`}
         size='small'
         background='gray'
         onClick={saveClickHandler}
       />
       <Button
         disabled={ruText === initialRuText && enText === initialEnText}
-        text={`${t('adminPage:cancel')}`}
+        text={`${t('cancel')}`}
         size='small'
         background='gray'
         onClick={cancelCkickHandler}
