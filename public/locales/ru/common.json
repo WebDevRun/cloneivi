@@ -125,6 +125,8 @@
   "MovieTitle": "Название фильма",
   "MovieGenre": "Жанр фильма",
   "FilmEditing": "Редактирование фильма",
+  "FilmDetails": "Детали о фильме",
+  "CollapseDetails": "Свернуть детали",
   "Error": "Ошибка",
   "PageNotFound": "Запрашиваемой страницы не существует",
   "Purchases": "Покупки",
@@ -229,5 +231,14 @@
   "notFound": "Ничего не найдено",
   "Edit": "Изменить",
   "delete": "Удалить",
-  "loading": "Загрузка"
+  "loading": "Загрузка",
+  "WatchOnAllDevices": "Cмотреть «{{ name }}» на всех устройствах",
+  "AppAvailable": "Приложение доступно для скачивания на iOS, Android, SmartTV и приставках",
+  "ConnectDevices": "Подключить устройства",
+  "ViewingDevices": "Устройства для просмотра",
+  "Languages": "Языки",
+  "ImageAndSound": "Изображение и звук",
+  "ActualQuality": "Фактическое качество зависит от устройства и ограничений правообладателя",
+  "KinopoiskRating": "Рейтинг кинопоиска",
+  "Estimate": "Оценить"
 }

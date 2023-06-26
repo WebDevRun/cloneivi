@@ -125,6 +125,8 @@
   "MovieTitle": "Movie title",
   "MovieGenre": "Movie genre",
   "FilmEditing": "Film Editing",
+  "FilmDetails": "Film details",
+  "CollapseDetails": "Collapse details",
   "Error": "Error",
   "PageNotFound": "The requested page does not exist",
   "Purchases": "Purchases",
@@ -228,5 +230,13 @@
   "notFound": "Not found",
   "Edit": "Edit",
   "delete": "Delete",
-  "loading": "Loading"
+  "loading": "Loading",
+  "AppAvailable": "The app is available for download on iOS, Android, Smart TV and set-top boxes",
+  "ConnectDevices": "Connect devices",
+  "ViewingDevices": "Viewing devices",
+  "Languages": "Languages",
+  "ImageAndSound": "Image and sound",
+  "ActualQuality": "The actual quality depends on the device and the restrictions of the copyright holder",
+  "KinopoiskRating": "Kinopoisk rating",
+  "Estimate": "Estimate"
 }

@@ -1,0 +1,23 @@
+@use '../functions/index.scss' as fn;
+@use '../variables' as var;
+
+$transparentWhite: rgba(
+  $color: var.$mainTextColor,
+  $alpha: 0.72,
+);
+
+#betweenPointsStyle {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 2px;
+  text-align: center;
+  background-color: $transparentWhite;
+  margin-bottom: fn.toRem(3px);
+}
+
+@mixin betweenPoints($horizontalMargin) {
+  @extend #betweenPointsStyle;
+  margin-left: $horizontalMargin;
+  margin-right: $horizontalMargin;
+}

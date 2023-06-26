@@ -1,0 +1,11 @@
+@use '@styles/functions' as fn;
+@use '../general' as gn;
+
+.button {
+  @include gn.buttonStyles;
+  @include gn.playingButtonStyles;
+}
+
+.image {
+  @include gn.buttonImageStyles;
+}

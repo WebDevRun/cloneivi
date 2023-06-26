@@ -58,6 +58,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "msw": "^1.2.1",
     "sass": "^1.62.0",
-    "storybook": "^7.0.4"
+    "storybook": "^7.0.4",
+    "storybook-addon-next": "^1.8.0"
   }
 }
