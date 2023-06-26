@@ -17,7 +17,7 @@ const meta: Meta<typeof Select> = {
     },
     name: {
       type: 'string' || 'number',
-      description: 'Текст селекта'
+      description: 'Текст селекта',
     },
     disabled: {
       type: 'boolean',
@@ -29,15 +29,11 @@ const meta: Meta<typeof Select> = {
     },
     checked: {
       type: 'boolean',
-      description: 'Активен ли элемент'
+      description: 'Активен ли элемент',
     },
-    onClickHandler: {
-      description: 'Функция при клике на инпут'
+    onClick: {
+      description: 'Функция при клике на инпут',
     },
-    value: {
-      type: 'string' || 'number',
-      description: 'Значение инпута'
-    }
   },
 }
 
@@ -45,67 +41,64 @@ export default meta
 
 type Story = StoryObj<typeof Select>
 
-export const radioSelectChecked: Story = {
+export const RadioSelectChecked: Story = {
   args: {
     type: 'radio',
     name: 'Америка',
     category: 'county',
     checked: true,
-    onClickHandler: () => {},
-    value: 'USA'
+    onClick: () => {},
   },
 }
 
-export const radioSelect: Story = {
+export const RadioSelect: Story = {
   args: {
     type: 'radio',
     name: 'Америка',
     category: 'county',
     checked: false,
-    onClickHandler: () => {},
-    value: 'USA'
+    onClick: () => {},
   },
 }
 
-export const radioSelectDisabled: Story = {
+export const RadioSelectDisabled: Story = {
   args: {
     type: 'radio',
     name: 'Америка',
     category: 'county',
     checked: false,
-    onClickHandler: () => {},
-    value: 'USA',
-    disabled: true
+    onClick: () => {},
+    disabled: true,
   },
 }
 
-export const checkboxSelectChecked: Story = {
+export const CheckboxSelectChecked: Story = {
   args: {
     type: 'checkbox',
-    name: 2002,
+    name: '2002',
     category: 'year',
     checked: true,
-    onClickHandler: () => {},
+    onClick: () => {},
   },
 }
 
-export const checkboxSelect: Story = {
+export const CheckboxSelect: Story = {
   args: {
     type: 'checkbox',
-    name: 2002,
+    name: '2002',
     category: 'year',
     checked: false,
-    onClickHandler: () => {},
+    onClick: () => {},
   },
 }
 
-export const checkboxSelectDisabled: Story = {
+export const CheckboxSelectDisabled: Story = {
   args: {
     type: 'checkbox',
-    name: 2002,
+    name: '2002',
     category: 'year',
     checked: false,
-    onClickHandler: () => {},
-    disabled: true
+    onClick: () => {},
+    disabled: true,
   },
 }

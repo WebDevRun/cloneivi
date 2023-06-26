@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
 
+import { COUNTRIES, GENRES_ICONS } from '@/utils/consts/filters'
 import { SliderButton } from '@ui/SliderButton/SliderButton'
 
 import { Slider } from './Slider'
-import { COUNTRIES, GENRES_ICONS } from '@/utils/consts/filters'
 
 const meta: Meta<typeof Slider> = {
   title: 'Slider',
@@ -80,11 +80,10 @@ export const GenresFilledSlider: Story = {
       selected: [],
     },
     arrowSize: 'big',
-    onItemClick: () => {
-    },
+    onItemClick: () => {},
     items: GENRES_ICONS,
   },
-  render: args => {
+  render: (args) => {
     return (
       <div style={{ padding: 40 }}>
         <Slider {...args} />
@@ -97,11 +96,10 @@ export const GenresOutlinedSlider: Story = {
   args: {
     Component: SliderButton,
     componentSetting: { type: 'square', style: 'outline' },
-    onItemClick: () => {
-    },
+    onItemClick: () => {},
     items: GENRES_ICONS,
   },
-  render: args => {
+  render: (args) => {
     return (
       <div style={{ padding: 20 }}>
         <Slider {...args} />
@@ -114,11 +112,10 @@ export const CircleFilledSlider: Story = {
   args: {
     Component: SliderButton,
     componentSetting: { type: 'circle', style: 'fill' },
-    onItemClick: () => {
-    },
+    onItemClick: () => {},
     items: COUNTRIES,
   },
-  render: args => {
+  render: (args) => {
     return (
       <div style={{ padding: 20 }}>
         <Slider {...args} />
@@ -131,11 +128,10 @@ export const CircleOutlinedSlider: Story = {
   args: {
     Component: SliderButton,
     componentSetting: { type: 'circle', style: 'outline' },
-    onItemClick: () => {
-    },
+    onItemClick: () => {},
     items: COUNTRIES,
   },
-  render: args => {
+  render: (args) => {
     return (
       <div style={{ padding: 20 }}>
         <Slider {...args} />
@@ -149,12 +145,11 @@ export const GenresInfinitySlider: Story = {
     Component: SliderButton,
     componentSetting: { type: 'square', style: 'fill' },
     arrowSize: 'big',
-    onItemClick: () => {
-    },
+    onItemClick: () => {},
     items: GENRES_ICONS,
     infinite: true,
   },
-  render: args => {
+  render: (args) => {
     return (
       <div style={{ padding: 40 }}>
         <Slider {...args} />
@@ -168,13 +163,12 @@ export const GenresOneItemSlider: Story = {
     Component: SliderButton,
     componentSetting: { type: 'square', style: 'fill' },
     arrowSize: 'big',
-    onItemClick: () => {
-    },
+    onItemClick: () => {},
     items: GENRES_ICONS,
     infinite: true,
     type: 'oneItem',
   },
-  render: args => {
+  render: (args) => {
     return (
       <div style={{ padding: 40 }}>
         <Slider {...args} />
@@ -188,14 +182,13 @@ export const GenresAutoScrollSlider: Story = {
     Component: SliderButton,
     componentSetting: { type: 'square', style: 'fill' },
     arrowSize: 'big',
-    onItemClick: () => {
-    },
+    onItemClick: () => {},
     items: GENRES_ICONS,
     infinite: true,
     autoScroll: true,
     type: 'oneItem',
   },
-  render: args => {
+  render: (args) => {
     return (
       <div style={{ padding: 40 }}>
         <Slider {...args} />
@@ -209,14 +202,13 @@ export const GenresWithoutScrollSlider: Story = {
     Component: SliderButton,
     componentSetting: { type: 'square', style: 'fill' },
     arrowSize: 'big',
-    onItemClick: () => {
-    },
+    onItemClick: () => {},
     items: GENRES_ICONS,
     infinite: true,
     isCrop: false,
     gap: 50,
   },
-  render: args => {
+  render: (args) => {
     return (
       <div style={{ padding: 40 }}>
         <Slider {...args} />
@@ -224,8 +216,3 @@ export const GenresWithoutScrollSlider: Story = {
     )
   },
 }
-
-
-
-
-
