@@ -64,6 +64,7 @@ const Home: NextPageWithLayout<IHomePage> = ({
             text={`${t('ForTheWeek')}`}
             extIcon
             icon='top10'
+            sizeIcon='unset'
             orderIcon='before'
           />
           <Slider

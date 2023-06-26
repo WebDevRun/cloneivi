@@ -11,7 +11,7 @@ import styles from './IconInText.module.scss'
 export interface IconInTextProps {
   icon?: INameIcons | INameIconsExt
   orderIcon?: 'before' | 'after'
-  sizeIcon?: 'small' | 'middle' | 'big' | 'large'
+  sizeIcon?: 'small' | 'middle' | 'big' | 'large' | 'unset'
   extIcon?: boolean
   text: string
   textVariant?: TextVariants

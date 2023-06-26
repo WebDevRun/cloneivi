@@ -249,7 +249,8 @@ const Profile: NextPageWithLayout = () => {
                 <Input
                   label={`${t('ViaEmail')}`}
                   type='email'
-                  name={'viaEmail'}
+                  name='viaEmail'
+                  required={true}
                 />
                 <Button type='submit' width='full' text={`${t('Continue')}`} />
               </form>
@@ -265,8 +266,9 @@ const Profile: NextPageWithLayout = () => {
                   label={`${t('ComeUpWithPassword')}`}
                   type='password'
                   minLength={6}
-                  name={'comeUpWithPassword'}
+                  name='comeUpWithPassword'
                   onChange={(e) => setPassword(e.target.value)}
+                  required={true}
                 />
                 {!isValidatePassword && (
                   <Button
@@ -288,8 +290,9 @@ const Profile: NextPageWithLayout = () => {
                 <Input
                   label={`${t('ComeUpWithPassword')}`}
                   type='password'
-                  name={'comeUpWithPassword'}
+                  name='comeUpWithPassword'
                   defaultValue={password}
+                  required={true}
                 />
                 {!password && (
                   <Button
@@ -302,7 +305,8 @@ const Profile: NextPageWithLayout = () => {
                 <Input
                   label={`${t('RepeatThePassword')}`}
                   type='password'
-                  name={'repeatPassword'}
+                  name='repeatPassword'
+                  required={true}
                   onChange={(e) => {
                     if (password === e.target.value) {
                       setPasswordMatсh(true)
@@ -328,7 +332,8 @@ const Profile: NextPageWithLayout = () => {
                 <Input
                   label={`${t('InputPassword')}`}
                   type='password'
-                  name={'inputPassword'}
+                  name='inputPassword'
+                  required={true}
                   onChange={(e) => {
                     setIsPasswordInvalid(false)
                     setPassword(e.target.value)

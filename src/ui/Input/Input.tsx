@@ -16,7 +16,7 @@ export interface InputProps {
 export const Input: FC<InputProps> = ({
   label,
   type = 'text',
-  required = true,
+  required = false,
   name,
   defaultValue,
   value,
@@ -29,7 +29,7 @@ export const Input: FC<InputProps> = ({
         className={styles.editBox}
         name={name}
         id={name}
-        autoComplete='on'
+        autoComplete='off'
         required={required}
         type={type}
         defaultValue={defaultValue}
