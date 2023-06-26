@@ -11,7 +11,6 @@ export const SwitchLanguage: FC<SwitchLanguageProps> = () => {
   const router = useRouter()
 
   const handleClick = () => {
-
     if (router.locale === 'ru') {
       router.push(
         {
@@ -42,7 +41,9 @@ export const SwitchLanguage: FC<SwitchLanguageProps> = () => {
           size='big'
           onClick={handleClick}
         />
-        <div className={styles.toggleLangText}>{router.locale?.toUpperCase()}</div>
+        <div className={styles.toggleLangText}>
+          {router.locale?.toUpperCase()}
+        </div>
       </div>
     </div>
   )

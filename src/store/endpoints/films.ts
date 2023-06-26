@@ -32,38 +32,17 @@ export const filmsApi = createApi({
             ]
           : [{ type: 'Films', id: 'LIST' }],
     }),
-    getFilmsByName: builder.query<IMovie[], string>({
-      query: (name) => `/name/films?name=${name}`,
-      transformResponse: (response: IMovie[]) => response.slice(0, 30),
-      providesTags: (result) =>
-        result
-          ? [
-              ...result.map((movie) => ({
-                type: 'Films' as const,
-                id: movie.film_id,
-              })),
-              { type: 'Films', id: 'LIST' },
-            ]
-          : [{ type: 'Films', id: 'LIST' }],
-    }),
-    deleteFilm: builder.mutation<void, string>({
-      query: (id) => ({
-        url: `/films/${id}`,
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
-        },
-      }),
-      invalidatesTags: (result, error, id) => [{ type: 'Films', id }],
+    getFilmById: builder.query<IMovie, string>({
+      query: (id) => `/films/${id}`,
+      providesTags: (result, error, id) => [{ type: 'Films', id }],
     }),
   }),
 })
 
 export const {
   useGetFilmsQuery,
-  useLazyGetFilmsByNameQuery,
-  useDeleteFilmMutation,
+  useGetFilmByIdQuery,
   util: { getRunningQueriesThunk },
 } = filmsApi
 
-export const { getFilms, getFilmsByName } = filmsApi.endpoints
+export const { getFilms, getFilmById } = filmsApi.endpoints
