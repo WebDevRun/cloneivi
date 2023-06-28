@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { IPerson } from '@/types/Person'
+import { IPerson } from '@/types/person'
 
 import styles from './Person.module.scss'
 import { PersonFilmography } from './PersonFilmography'

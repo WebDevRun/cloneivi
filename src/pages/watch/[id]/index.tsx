@@ -4,14 +4,40 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ReactElement } from 'react'
 
 import { $instance } from '@/axios'
-import { Movie } from '@/components/Movie'
+import { MoviePageContent } from '@/content/MoviePageContent'
 import { AppLayout } from '@/layouts/AppLayout'
-import { getFilmById, getRunningQueriesThunk } from '@/store/endpoints/films'
+import { NextPageWithLayout } from '@/pages/_app'
+import {
+  getFilmById,
+  getRunningQueriesThunk,
+  useGetFilmByIdQuery,
+} from '@/store/endpoints/films'
+import {
+  getPersonsFromFilm,
+  useGetPersonsFromFilmQuery,
+} from '@/store/endpoints/persons'
 import { wrapper } from '@/store/store'
 import { IMovie } from '@/types/movie'
+import { IPerson } from '@/types/person'
 
-const MoviePage = () => {
-  return <Movie />
+interface MoviePageProps {
+  id: string
+}
+
+const MoviePage: NextPageWithLayout<MoviePageProps> = ({ id }) => {
+  const film = useGetFilmByIdQuery(id)
+  const personsFromFilm = useGetPersonsFromFilmQuery(id)
+
+  console.log('personsFromFilm_index', personsFromFilm)
+
+  return (
+    <>
+      <MoviePageContent
+        film={film.data as IMovie}
+        personsFromFilm={personsFromFilm.data as IPerson[]}
+      />
+    </>
+  )
 }
 
 MoviePage.getLayout = function getLayout(page: ReactElement) {
@@ -40,17 +66,18 @@ export const getStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     if (typeof context.params?.id === 'string') {
       store.dispatch(getFilmById.initiate(context.params.id))
+      store.dispatch(getPersonsFromFilm.initiate(context.params.id))
     }
 
     await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
     const localeData = await serverSideTranslations(context.locale ?? 'ru', [
-      'header',
       'common',
     ])
 
     return {
       props: {
+        id: context.params?.id,
         ...localeData,
       },
     }

@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next'
 import { FC, useState } from 'react'
 
-import { IFilmId } from '@/types/Person'
+import { IFilmId } from '@/types/person'
 import { Button } from '@/ui/Button'
 import { declOfNum } from '@/utils/functions/declinOfNum'
 

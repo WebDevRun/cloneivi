@@ -7,7 +7,7 @@ import { declOfNum } from '@/utils/functions/declinOfNum'
 import { getProportionalImgWidth } from '@/utils/functions/getProportionalImgWidth'
 import { isSvg } from '@/utils/functions/isSvg'
 
-import { IPerson } from '../../../types/Person'
+import { IPerson } from '../../../types/person'
 
 import styles from './PersonHeader.module.scss'
 

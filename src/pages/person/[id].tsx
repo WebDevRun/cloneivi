@@ -10,7 +10,7 @@ import { BackLink } from '@/components/BackLink'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { CrumbItem } from '@/components/Breadcrumbs/Breadcrumbs'
 import { Person } from '@/components/Person'
-import { IPerson } from '@/types/Person'
+import { IPerson } from '@/types/person'
 import { AppLayout } from '@layouts/AppLayout'
 
 import { NextPageWithLayout } from '../_app'

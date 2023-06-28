@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { FC, useEffect, useState } from 'react'
 
-import { IFilm } from '@/types/Person'
+import { IFilm } from '@/types/person'
 import { Button } from '@/ui/Button'
 import { isSvg } from '@/utils/functions/isSvg'
 

@@ -11,17 +11,20 @@ import { createWrapper } from 'next-redux-wrapper'
 import { authSlice, authorizationApi } from './endpoints/authorization'
 import { filmsApi } from './endpoints/films'
 import { genresApi } from './endpoints/genres'
+import { personsApi } from './endpoints/persons'
 
 const rootReducer = combineReducers({
   auth: authSlice.reducer,
   [filmsApi.reducerPath]: filmsApi.reducer,
   [genresApi.reducerPath]: genresApi.reducer,
+  [personsApi.reducerPath]: personsApi.reducer,
   [authorizationApi.reducerPath]: authorizationApi.reducer,
 })
 
 const middlewares = [
   filmsApi.middleware,
   genresApi.middleware,
+  personsApi.middleware,
   authorizationApi.middleware,
 ]
 
