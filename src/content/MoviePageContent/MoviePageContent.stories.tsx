@@ -2,18 +2,18 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import '@styles/index.scss'
 
-import { Movie } from './Movie'
+import { MoviePageContent } from './MoviePageContent'
 
-const meta: Meta<typeof Movie> = {
+const meta: Meta<typeof MoviePageContent> = {
   title: 'Movie',
   tags: ['autodocs'],
-  component: Movie,
+  component: MoviePageContent,
   argTypes: {},
 }
 
 export default meta
 
-type Story = StoryObj<typeof Movie>
+type Story = StoryObj<typeof MoviePageContent>
 
 export const Default: Story = {
   args: {},

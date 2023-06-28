@@ -32,10 +32,10 @@ export default Movies
 export const getStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     store.dispatch(getFilms.initiate())
+
     await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
     const localeData = await serverSideTranslations(context.locale ?? 'ru', [
-      'header',
       'common',
     ])
 

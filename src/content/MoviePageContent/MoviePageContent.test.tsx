@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import { Movie } from './Movie'
+import { MoviePageContent } from './MoviePageContent'
 
 describe('Movie tests', () => {
   it('', () => {})
