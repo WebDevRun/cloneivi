@@ -63,6 +63,10 @@
   gap: 4px;
 }
 
+.gap8 {
+  gap: 8px;
+}
+
 .gap12 {
   gap: 12px;
 }
@@ -133,6 +137,10 @@
   line-height: fn.toRem(16px);
   font-weight: 400;
   color: #d9d7e0;
+}
+
+.centerText {
+  text-align: center;
 }
 
 .underline {

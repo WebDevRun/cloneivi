@@ -53,7 +53,7 @@ interface FlexProps extends BaseProps {
   variant?: FlexVariants
   wrap?: boolean
   alignItems?: FlexVariants
-  gap?: 'gap0' | 'gap4' | 'gap12' | 'gap16'
+  gap?: 'gap0' | 'gap4' | 'gap8' | 'gap12' | 'gap16'
 }
 
 export function Flex({
@@ -83,15 +83,28 @@ export function Flex({
 
 interface TextProps extends BaseProps {
   variant?: TextVariants
+  centerText?: boolean
   bold?: boolean
 }
 
 export function Text({
   variant = 'normal',
+  centerText = false,
   bold = false,
   ...props
 }: WithChildren<TextProps>) {
-  return <Base cx={[styles[variant]]} {...props} />
+  return (
+    <Base
+      cx={[
+        cn(
+          styles[variant],
+          centerText && styles.centerText,
+          bold && styles.bold,
+        ),
+      ]}
+      {...props}
+    />
+  )
 }
 
 export function TextPar({ ...props }) {
