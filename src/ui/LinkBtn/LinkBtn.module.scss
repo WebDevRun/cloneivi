@@ -205,3 +205,40 @@
 .red {
   background-color: #ea003d;
 }
+
+.actor2{
+  width: 88px;
+}
+
+.actor2Img{
+  border-radius: 50%;
+}
+
+.actor2Text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #d9d7e0;
+  transition: color 0.4s, color 0.4s;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.actor2:hover{
+  .actor2Text{
+    color: white;
+  }
+}
+
+.actor2SubText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #a5a1b2;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
