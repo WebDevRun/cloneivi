@@ -28,8 +28,6 @@ const MoviePage: NextPageWithLayout<MoviePageProps> = ({ id }) => {
   const film = useGetFilmByIdQuery(id)
   const personsFromFilm = useGetPersonsFromFilmQuery(id)
 
-  console.log('personsFromFilm_index', personsFromFilm)
-
   return (
     <>
       <MoviePageContent

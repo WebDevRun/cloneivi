@@ -238,5 +238,6 @@
   "ImageAndSound": "Image and sound",
   "ActualQuality": "The actual quality depends on the device and the restrictions of the copyright holder",
   "KinopoiskRating": "Kinopoisk rating",
-  "Estimate": "Estimate"
+  "Estimate": "Estimate",
+  "TheDescriptionOfTheMovieIsNotInTheDatabase": "The description of the movie is not in the database. Therefore, in order for text folding to work correctly, this text has been added. To show the text in collapsed form, you need to specify the number of displayed text characters in the maxChar option of the TextCollapse component (200 is specified here). At the same time, if the amount of the entire text is less than the value of maxChar, then folding will not work."
 }

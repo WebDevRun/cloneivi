@@ -44,8 +44,6 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
 
   const { t } = useTranslation(['common'])
   const router = useRouter()
-  //const { data: movie } = useGetFilmByIdQuery(router.query.id as string)
-
   if (film === undefined) return <p>{`${t('common:search')}...`}</p>
 
   return (
@@ -66,29 +64,42 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
         />
       </div>
       <section>
-        <Flex>
-          <MoviePlayer
-            name={router.locale === 'ru' ? name_ru : name_en}
-            videoSrc='https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4'
-            posterSrc={img}
-          />
-          <MovieInfomation
-            ageRating={`${age_limit}+`}
-            countries={countries.map((item) => item.country)}
-            description={description}
-            duration={duration}
-            genres={
-              router.locale === 'ru'
-                ? genres.map((item) => item.genre_ru)
-                : genres.map((item) => item.genre_en)
-            }
-            languagesAudio={['комедия', 'семейный']}
-            persons={personsFromFilm}
-            productionYear={year}
-            qualities={qualities.map((item) => item.quality)}
-            rating={rating}
-            title={router.locale === 'ru' ? name_ru : name_en}
-          />
+        <Flex variant='start' gap='gap0'>
+          <div className={styles.moviePlayer}>
+            <MoviePlayer
+              name={router.locale === 'ru' ? name_ru : name_en}
+              videoSrc={
+                trailers[0].trailer
+                  ? trailers[0].trailer
+                  : 'https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4'
+              }
+              posterSrc={trailers[0].img ? trailers[0].img : img}
+            />
+          </div>
+
+          <div className={styles.movieInfomation}>
+            <MovieInfomation
+              ageRating={`${age_limit}+`}
+              countries={countries.map((item) => item.country)}
+              description={
+                description
+                  ? description
+                  : `${t('TheDescriptionOfTheMovieIsNotInTheDatabase')}`
+              }
+              duration={duration}
+              genres={
+                router.locale === 'ru'
+                  ? genres.map((item) => item.genre_ru)
+                  : genres.map((item) => item.genre_en)
+              }
+              languagesAudio={languagesAudio.map((item) => item.language)}
+              persons={personsFromFilm}
+              productionYear={year}
+              qualities={qualities.map((item) => item.quality)}
+              rating={rating}
+              title={router.locale === 'ru' ? name_ru : name_en}
+            />
+          </div>
         </Flex>
       </section>
 
