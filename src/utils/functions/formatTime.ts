@@ -22,12 +22,12 @@ export const formatTime = (sec: Seconds, format: '00:00:00' | '00:00') => {
 }
 
 type TimeFormat = 'hh:mm:ss' | 'hh:mm' | 'mm:ss'
-type Locale = 'ru' | 'en'
+type Locale = string
 
 export const setDescriptions = (
   time: string,
   timeFormat: TimeFormat,
-  locale: Locale
+  locale: Locale,
 ) => {
   const timeArray = time
     .split(':')

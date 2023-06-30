@@ -119,6 +119,8 @@
   "posterForTheMovie": "Постер для фильма",
   "collapse": "Свернуть",
   "expand": "Развернуть",
+  "FilmDetails": "Детали о фильме",
+  "CollapseDetails": "Свернуть детали",
   "Error": "Ошибка",
   "PageNotFound": "Запрашиваемой страницы не существует",
   "Purchases": "Покупки",
@@ -164,6 +166,15 @@
   "FilmsOf2020": "Фильмы 2020 года",
   "Exclusive": "эксклюзив",
   "Story": "Сюжет",
+  "WatchOnAllDevices": "Cмотреть «{{ name }}» на всех устройствах",
+  "AppAvailable": "Приложение доступно для скачивания на iOS, Android, SmartTV и приставках",
+  "ConnectDevices": "Подключить устройства",
+  "ViewingDevices": "Устройства для просмотра",
+  "Languages": "Языки",
+  "ImageAndSound": "Изображение и звук",
+  "ActualQuality": "Фактическое качество зависит от устройства и ограничений правообладателя",
+  "KinopoiskRating": "Рейтинг кинопоиска",
+  "Estimate": "Оценить",
   "Catalog": "Каталог",
   "Account": "Профиль",
   "watchOnAllDevices": "Cмотреть «{{ name }}» на всех устройствах",
@@ -174,5 +185,6 @@
   "AlreadyWatchedEvaluate": "Уже смотрел, оценить",
   "Similar": "Похожее",
   "WatchLater":"Смотреть позже",
-  "Purchase": "Покупка"
+  "Purchase": "Покупка",
+  "Account": "Профиль"
 }
