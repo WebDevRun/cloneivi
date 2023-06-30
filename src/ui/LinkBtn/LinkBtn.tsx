@@ -61,7 +61,7 @@ export const LinkBtn: FC<LinkProps> = ({
             </div>
           )}
           {mode === 'actor' && (
-            <Image width={44} height={44} src={imgSrc} alt={imgAlt} />
+            <div className={styles.actorImg} style={{background: `url(${imgSrc}) center/cover no-repeat`}} />
           )}
 
           {(text || subText) && mode !== 'actor' && (
