@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { FC, useEffect, useState } from 'react'
 
@@ -22,6 +23,7 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
   pathDataSrc,
 }) => {
   const { t } = useTranslation()
+  const { locale } = useRouter()
 
   const [films, setFilms] = useState<IFilm>(initData)
 
@@ -69,7 +71,7 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
           <div className={styles.info}>
             <div className={styles.year}>{films.year}</div>
             <div className={styles.title} title={films.name_ru}>
-              {films.name_ru}
+              {locale === 'ru' ? films.name_ru : films.name_en}
             </div>
             <div className={styles.rating}>
               <span className={styles.ratingLabel}>{t('IviRating')}:</span>

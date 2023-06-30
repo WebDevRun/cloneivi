@@ -1,5 +1,6 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ReactElement } from 'react'
@@ -22,14 +23,20 @@ export interface IPersonPage {
 
 const PersonPage: NextPageWithLayout<IPersonPage> = ({ person }) => {
   const { t } = useTranslation()
+  const router = useRouter()
 
   const crumbHome: CrumbItem = {
     text: t('MyIvi'),
     path: '/',
   }
 
+  const firstName =
+    router.locale === 'ru' ? person.first_name_ru : person.first_name_en
+  const lastName =
+    router.locale === 'ru' ? person.last_name_ru : person.last_name_en
+
   const crumbCurrentPage: CrumbItem = {
-    text: `${person.first_name_ru} ${person.last_name_ru}`,
+    text: `${firstName} ${lastName}`,
     path: `/person/${person.person_id}`,
   }
 
