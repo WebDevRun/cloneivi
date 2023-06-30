@@ -1,0 +1,23 @@
+.galleryPersons {
+}
+
+.personItemMore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: #1f1b2e;
+  align-self: start;
+
+  &:hover * {
+    color: #ffffff;
+    transition: 0.4s;
+  }
+}
+
+.caption {
+  color: #a5a1b2;
+  transition: 0.4s;
+}

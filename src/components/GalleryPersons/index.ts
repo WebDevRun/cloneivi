@@ -1,0 +1,1 @@
+export { GalleryPersons } from './GalleryPersons'
