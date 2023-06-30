@@ -6,10 +6,10 @@ import { CSSProperties, FC, MouseEvent, useState } from 'react'
 
 import { Button } from '@/ui/Button'
 import { Svg } from '@/ui/Svg'
+import noImage from '../../assets/images/no_image.jpg'
 
 import styles from './MovieCard.module.scss'
 import { MovieCardProperties } from './MovieCardProperties'
-import { getProportionalImgWidth } from '@/utils/functions/getProportionalImgWidth'
 
 export interface MovieCardProps {
   href: string
@@ -91,7 +91,13 @@ export const MovieCard: FC<MovieCardProps> = ({
           className={styles.movieCardBackground}
           style={
             mode == 'small' || mode == 'top10'
-              ? { background: `url(${imgSrc}) center/cover no-repeat` }
+              ? {
+                  background: `url(${
+                    imgSrc
+                      ? imgSrc
+                      : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png'
+                  }) center/cover no-repeat`,
+                }
               : { display: 'none' }
           }
         ></div>

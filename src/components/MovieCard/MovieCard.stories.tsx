@@ -66,6 +66,19 @@ export const Default: Story = {
   },
 }
 
+export const WithoutImg: Story = {
+  args: {
+    ageLimit: '18+',
+    href: '#',
+    imgAlt: 'Movie Image',
+    movieName: 'Ничто не случается',
+    rating: 8.3,
+    year: 2019,
+    genre: ['Мелодрамы'],
+    mode: 'small',
+  },
+}
+
 export const BigMovieCard: Story = {
   args: {
     imgSrc:
