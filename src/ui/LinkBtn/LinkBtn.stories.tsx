@@ -137,6 +137,16 @@ export const AccountLink: Story = {
   },
 }
 
+export const ActorLink2: Story = {
+  args: {
+    mode: 'actor2',
+    href: '#',
+    imgSrc: 'https://thumbs.dfs.ivi.ru/storage30/contents/0/0/fc65b854db1231e8c7643a6209c0ee.jpg/88x88/',
+    text: 'Альба Гайя Крагеде Беллуджи',
+    subText: 'actor'
+  }
+}
+
 export const AccountFunctionLink: Story = {
   decorators: [
     (Story) => (
