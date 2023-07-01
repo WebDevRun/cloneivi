@@ -12,7 +12,7 @@ import styles from './LinkBtn.module.scss'
 
 interface LinkProps {
   href: string
-  mode?: 'footer' | 'actor' | 'genres' | 'account' | 'accountLinks'
+  mode?: 'footer' | 'actor' | 'genres' | 'account' | 'accountLinks' | 'actor2'
   type?: 'square' | 'circle'
   subText?: string | DefaultTFuncReturn
   text?: string | DefaultTFuncReturn
@@ -41,7 +41,7 @@ export const LinkBtn: FC<LinkProps> = ({
 
   return (
     <Link className={styles.link} href={href}>
-      <div
+      {mode !== 'actor2' && <div
         className={cn(
           styles.btn,
           styles[type],
@@ -64,7 +64,7 @@ export const LinkBtn: FC<LinkProps> = ({
             </div>
           )}
           {mode === 'actor' && (
-            <Image width={44} height={44} src={imgSrc} alt={imgAlt} />
+            <div className={styles.actorImg} style={{background: `url(${imgSrc}) center/cover no-repeat`}} />
           )}
 
           {(text || subText) && mode !== 'actor' && (
@@ -74,8 +74,16 @@ export const LinkBtn: FC<LinkProps> = ({
             </div>
           )}
         </div>
-      </div>
+      </div>}
       {mode === 'actor' && text && <p className={styles.actorName}>{text}</p>}
+      {mode === 'actor2' && 
+        <div className={styles.actor2}>
+          <Image className={styles.actor2Img} width={88} height={88} src={imgSrc} alt={imgAlt} />
+          <p className={styles.actor2Text}>{text?.split(' ').splice(0, 1)[0]}</p>
+          <p className={styles.actor2Text}>{text?.split(' ').splice(1).join(' ')}</p>
+          <p className={styles.actor2SubText}>{subText}</p>
+        </div>
+      }
     </Link>
   )
 }

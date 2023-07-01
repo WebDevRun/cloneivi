@@ -2,7 +2,7 @@
   position: relative;
 
   .container {
-    overflow: hidden;
+    overflow-x: clip;
 
     .track {
       display: flex;

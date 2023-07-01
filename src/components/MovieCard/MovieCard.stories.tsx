@@ -35,6 +35,15 @@ const meta: Meta<typeof MovieCard> = {
     mode: {
       description: 'Виды карточек',
     },
+    imgNum: {
+      description: 'Массив картинок цифр'
+    },
+    imgText: {
+      description: 'Картинка для названия фильма в топ10 категории'
+    },
+    exclusive: {
+      description: 'Добавляет слово эксклюзив на карточку'
+    }
   },
 }
 
@@ -48,6 +57,19 @@ export const Default: Story = {
     href: '#',
     imgSrc:
       'https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/4057c4b8-8208-4a04-b169-26b0661453e3/300x450',
+    imgAlt: 'Movie Image',
+    movieName: 'Ничто не случается',
+    rating: 8.3,
+    year: 2019,
+    genre: ['Мелодрамы'],
+    mode: 'small',
+  },
+}
+
+export const WithoutImg: Story = {
+  args: {
+    ageLimit: '18+',
+    href: '#',
     imgAlt: 'Movie Image',
     movieName: 'Ничто не случается',
     rating: 8.3,
@@ -105,5 +127,18 @@ export const TrailerCard: Story = {
     href: '#',
     movieName: 'Трейлер (дублированный)',
     seriesLength: '2 мин',
+  },
+}
+
+
+export const Top10: Story = {
+  args: {
+    href: '/',
+    imgSrc:
+      'https://thumbs.dfs.ivi.ru/storage6/contents/e/0/08c76a2df45108ec28af6300cc5b93.jpg/304x620/',
+    imgAlt: '',
+    mode: 'top10',
+    imgNum: ['https://solea-parent.dfs.ivi.ru/picture/bypass/number1.svg'],
+    imgText: 'https://thumbs.dfs.ivi.ru/storage4/contents/b/3/826ab6a9a975f9919837f0d17ba642.png/x200/'
   },
 }
