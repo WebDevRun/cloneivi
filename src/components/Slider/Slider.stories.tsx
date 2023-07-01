@@ -14,10 +14,10 @@ const meta: Meta<typeof Slider> = {
       description: 'Компонент внутри слайдера',
     },
     componentSetting: {
-      description: 'Настройки компонент внутри слайдера',
+      description: 'Пропсы для компонента, которые не меняются',
     },
     items: {
-      description: 'Массив объектов для слайдера',
+      description: 'Пропсы для компонента, которые меняются',
     },
     onItemClick: {
       type: 'function',

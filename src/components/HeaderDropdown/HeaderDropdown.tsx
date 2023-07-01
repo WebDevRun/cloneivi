@@ -20,6 +20,8 @@ import { SubscriptionWidget } from '../SubscriptionWidget/SubscriptionWidget'
 import tv from '../tv.json'
 
 import styles from './HeaderDropdown.module.scss'
+import { LinkBtn } from '@/ui/LinkBtn'
+import { INameIcons, INameIconsExt } from '@/types/Icons'
 
 export const HeaderDropdown: FC = () => {
   const { t } = useTranslation()
@@ -161,16 +163,13 @@ export const HeaderDropdown: FC = () => {
                 <div className={styles.tilesList}>
                   {addButton.items.map((item, index) => (
                     <div className={styles.tileItem} key={index}>
-                      {/* ------ Это заменить на компонент -------- */}
-                      <Link href={item.href}>
-                        <div className={styles.profileItem}>
-                          <div>{item.icon}</div>
-                          <div className={styles.textBlock}>
-                            <Text variant='titleSm'>{`${t(item.title)}`}</Text>
-                          </div>
-                        </div>
-                      </Link>
-                      {/* ------------------------------------------ */}
+                      <LinkBtn
+                        href='#'
+                        icon={item.icon as INameIcons | INameIconsExt}
+                        mode='accountLinks'
+                        text={t(item.title)}
+                        type='square'
+                      />
                     </div>
                   ))}
                 </div>
@@ -233,17 +232,14 @@ export const HeaderDropdown: FC = () => {
               <div className={styles.profileMain}>
                 {profile.items.map((item, index) => (
                   <div key={index}>
-                    {/* ------ Это заменить на компонент -------- */}
-                    <Link href={item.href}>
-                      <div className={styles.profileItem}>
-                        <div>{item.icon}</div>
-                        <div className={styles.textBlock}>
-                          <Text variant='titleSm'>{`${t(item.title)}`}</Text>
-                          <Text variant='small'>{`${t(item.extra)}`}</Text>
-                        </div>
-                      </div>
-                    </Link>
-                    {/* ------------------------------------------ */}
+                    <LinkBtn
+                      href='#'
+                      icon={item.icon as INameIcons | INameIconsExt}
+                      mode='accountLinks'
+                      text={t(item.title)}
+                      subText={t(item.extra)}
+                      type='square'
+                    />
                   </div>
                 ))}
               </div>

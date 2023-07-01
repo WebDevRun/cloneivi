@@ -240,5 +240,9 @@
   "ImageAndSound": "Изображение и звук",
   "ActualQuality": "Фактическое качество зависит от устройства и ограничений правообладателя",
   "KinopoiskRating": "Рейтинг кинопоиска",
-  "Estimate": "Оценить"
+  "Estimate": "Оценить",
+  "DontLikeThis": "Не нравится такое",
+  "AlreadyWatchedEvaluate": "Уже смотрел, оценить",
+  "Similar": "Похожее",
+  "Purchase": "Покупка"
 }
