@@ -52,7 +52,7 @@ export const Badge: FC<BadgeProps> = ({
           </Text>
         )}
         {role && (
-          <Text className={styles.additional} variant='small'>
+          <Text className={styles.extra} variant='small'>
             {role}
           </Text>
         )}

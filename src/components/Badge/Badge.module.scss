@@ -1,8 +1,14 @@
 .badge {
   color: #d9d7e0;
-}
 
-.imagePersonWrapper {
+  &:hover *:not(.extra) {
+    color: #ffffff;
+    transition: 0.4s;
+  }
+
+  & * {
+    transition: color 0.4s;
+  }
 }
 
 .medium {
@@ -25,6 +31,6 @@
   }
 }
 
-.additional {
+.extra {
   color: #a5a1b2;
 }
