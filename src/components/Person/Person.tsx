@@ -19,8 +19,8 @@ export const Person: FC<PersonProps> = ({ person, maxShowFilms }) => {
       </section>
       <section>
         <PersonFilmography
-          films={person.films}
-          pathDataSrc={`${process.env.NEXT_PUBLIC_API_URL}/films/`}
+          films={person?.films}
+          pathDataSrc={'/watch/'}
           maxShowItems={maxShowFilms}
         />
       </section>

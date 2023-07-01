@@ -1,5 +1,5 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticPaths } from 'next'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -10,6 +10,12 @@ import { BackLink } from '@/components/BackLink'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { CrumbItem } from '@/components/Breadcrumbs/Breadcrumbs'
 import { Person } from '@/components/Person'
+import {
+  getPersonById,
+  getRunningQueriesThunk,
+  useGetPersonByIdQuery,
+} from '@/store/endpoints/persons'
+import { wrapper } from '@/store/store'
 import { IPerson } from '@/types/person'
 import { AppLayout } from '@layouts/AppLayout'
 
@@ -17,15 +23,16 @@ import { NextPageWithLayout } from '../_app'
 
 import styles from './PersonPage.module.scss'
 
-export interface IPersonPage {
-  person: IPerson
+interface IPersonPage {
+  id: string
 }
 
-const url = process.env.NEXT_PUBLIC_API_URL
-
-const PersonPage: NextPageWithLayout<IPersonPage> = ({ person }) => {
+const PersonPage: NextPageWithLayout<IPersonPage> = ({ id }) => {
   const { t } = useTranslation()
   const router = useRouter()
+
+  const personFull = useGetPersonByIdQuery(id)
+  const person = personFull.data
 
   const crumbHome: CrumbItem = {
     text: t('MyIvi'),
@@ -33,13 +40,13 @@ const PersonPage: NextPageWithLayout<IPersonPage> = ({ person }) => {
   }
 
   const firstName =
-    router.locale === 'ru' ? person.first_name_ru : person.first_name_en
+    router.locale === 'ru' ? person?.first_name_ru : person?.first_name_en
   const lastName =
-    router.locale === 'ru' ? person.last_name_ru : person.last_name_en
+    router.locale === 'ru' ? person?.last_name_ru : person?.last_name_en
 
   const crumbCurrentPage: CrumbItem = {
     text: `${firstName} ${lastName}`,
-    path: `/person/${person.person_id}`,
+    path: `/person/${person?.person_id}`,
   }
 
   const breadCrumbsData = []
@@ -53,7 +60,7 @@ const PersonPage: NextPageWithLayout<IPersonPage> = ({ person }) => {
           <BackLink text={t('Back')}></BackLink>
         </div>
       </div>
-      <Person person={person} maxShowFilms={8} />
+      <Person person={person as IPerson} maxShowFilms={8} />
       <div className={styles.breadCrumbs}>
         <Breadcrumbs items={breadCrumbsData} separator='slash' />
       </div>
@@ -71,7 +78,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await $instance.get<
     AxiosRequestConfig<undefined>,
     AxiosResponse<IPerson[]>
-  >(`${url}/persons`)
+  >(`persons`)
 
   const paths = data.map((person) => {
     return { params: { id: person.person_id } }
@@ -83,17 +90,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
-  const localeData = await serverSideTranslations(locale ?? 'ru')
-  const { data } = await $instance.get<
-    AxiosRequestConfig<undefined>,
-    AxiosResponse<IPerson>
-  >(`${url}/persons/${params?.id}`)
+export const getStaticProps = wrapper.getStaticProps(
+  (store) => async (context) => {
+    if (typeof context.params?.id === 'string') {
+      store.dispatch(getPersonById.initiate(context.params.id))
+    }
 
-  return {
-    props: {
-      ...localeData,
-      person: data,
-    },
-  }
-}
+    await Promise.all(store.dispatch(getRunningQueriesThunk()))
+
+    const localeData = await serverSideTranslations(context.locale ?? 'ru', [
+      'common',
+    ])
+
+    return {
+      props: {
+        id: context.params?.id,
+        ...localeData,
+      },
+    }
+  },
+)

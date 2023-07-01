@@ -6,6 +6,13 @@ export interface IPerson {
   last_name_en: string
   img: string
   films: IFilmId[]
+  filmRoles: [
+    {
+      film_role_id: string,
+      film_role: string,
+      slug: string
+    }
+  ],
 }
 
 export interface IFilmId {
