@@ -91,6 +91,7 @@ export function Text({
   variant = 'normal',
   centerText = false,
   bold = false,
+  cx: _cx = [],
   ...props
 }: WithChildren<TextProps>) {
   return (
@@ -101,6 +102,7 @@ export function Text({
           centerText && styles.centerText,
           bold && styles.bold,
         ),
+        ..._cx,
       ]}
       {...props}
     />

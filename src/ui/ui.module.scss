@@ -60,19 +60,19 @@
 }
 
 .gap4 {
-  gap: 4px;
+  gap: fn.toRem(4px);
 }
 
 .gap8 {
-  gap: 8px;
+  gap: fn.toRem(8px);
 }
 
 .gap12 {
-  gap: 12px;
+  gap: fn.toRem(12px);
 }
 
 .gap16 {
-  gap: 16px;
+  gap: fn.toRem(16px);
 }
 
 .superH1 {
@@ -100,8 +100,8 @@
 }
 
 .titleBg {
-  font-size: 24px;
-  line-height: 28px;
+  font-size: fn.toRem(24px);
+  line-height: fn.toRem(28px);
   font-weight: 700;
 }
 
@@ -117,12 +117,6 @@
   font-size: fn.toRem(15px);
   line-height: fn.toRem(20px);
   font-weight: 700;
-}
-
-.bold {
-  font-size: fn.toRem(15px);
-  line-height: fn.toRem(22px);
-  font-weight: 500;
 }
 
 .normal {
@@ -158,3 +152,8 @@
     }
   }
 }
+
+.bold {
+  font-weight: 500;
+}
+
