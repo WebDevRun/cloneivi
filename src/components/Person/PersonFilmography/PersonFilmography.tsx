@@ -28,12 +28,7 @@ export const PersonFilmography: FC<IPersonFilmography> = ({
   const [showedItems, setShowedItems] = useState(maxShowItems)
   const [showButton, setShowButton] = useState(true)
 
-  const words = [
-    t('common:films'),
-    t('filmsA'),
-    t('filmsOV'),
-    t('common:film'),
-  ]
+  const words = [t('common:films'), t('filmsA'), t('filmsOV'), t('common:film')]
 
   const declinationFilmsNumber = declOfNum(filmsNumber, words)
 
