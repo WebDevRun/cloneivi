@@ -31,8 +31,7 @@ const PersonPage: NextPageWithLayout<IPersonPage> = ({ id }) => {
   const { t } = useTranslation()
   const router = useRouter()
 
-  const personFull = useGetPersonByIdQuery(id)
-  const person = personFull.data
+  const { data: person, isError, error } = useGetPersonByIdQuery(id)
 
   const crumbHome: CrumbItem = {
     text: t('MyIvi'),
@@ -60,7 +59,8 @@ const PersonPage: NextPageWithLayout<IPersonPage> = ({ id }) => {
           <BackLink text={t('Back')}></BackLink>
         </div>
       </div>
-      <Person person={person as IPerson} maxShowFilms={8} />
+      {!isError && <Person person={person as IPerson} maxShowFilms={8} />}
+      {isError && <div>{`Error!: ${error}`}</div>}
       <div className={styles.breadCrumbs}>
         <Breadcrumbs items={breadCrumbsData} separator='slash' />
       </div>

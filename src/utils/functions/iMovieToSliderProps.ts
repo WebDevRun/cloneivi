@@ -16,7 +16,7 @@ export function iMovieToSliderProps(data: IMovie[], lang: string) {
       imgSrc: item.img,
       movieName: lang === 'ru' ? item.name_ru : item.name_en,
       rating: item.rating,
-      href: item.trailers[0]?.trailer,
+      href: `watch/${item.film_id}`,
       ageLimit: `${item.age_limit}+`,
     }
   })

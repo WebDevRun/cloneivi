@@ -22,19 +22,16 @@ import styles from './pages.module.scss'
 export interface IHomePage {
   newMovies: IMovie[]
   kindCartoons: IMovie[]
-  //top10: IMovie[]
   lang: string
 }
 
 const Home: NextPageWithLayout<IHomePage> = ({
   newMovies,
   kindCartoons,
-  //top10,
   lang,
 }) => {
   const { t } = useTranslation()
 
-  //const top10Out = iMovieToSliderProps(top10, lang)
   const newMoviesOut = iMovieToSliderProps(newMovies, lang)
   const kindCartoonsOut = iMovieToSliderProps(kindCartoons, lang)
 
@@ -191,16 +188,10 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     AxiosResponse<IMovie[]>
   >(`filter/films?year_min=2000&limit=20`)
 
-  // const top10 = await $instance.get<
-  //   AxiosRequestConfig<undefined>,
-  //   AxiosResponse<IMovie[]>
-  // >(`filter/films?rating=8.2&limit=10`)
-
   return {
     props: {
       newMovies: newMovies.data,
       kindCartoons: kindCartoons.data,
-      //top10: top10.data,
       lang: locale,
       ...localeData,
     },

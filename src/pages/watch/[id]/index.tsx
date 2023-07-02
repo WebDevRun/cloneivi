@@ -18,22 +18,38 @@ import {
 } from '@/store/endpoints/persons'
 import { wrapper } from '@/store/store'
 import { IMovie } from '@/types/movie'
-import { IPerson } from '@/types/person'
 
 interface MoviePageProps {
   id: string
 }
 
 const MoviePage: NextPageWithLayout<MoviePageProps> = ({ id }) => {
-  const film = useGetFilmByIdQuery(id)
-  const personsFromFilm = useGetPersonsFromFilmQuery(id)
+  const {
+    data: personsFromFilm,
+    isError: isErrorPersons,
+    error: errorPersons,
+  } = useGetPersonsFromFilmQuery(id)
+
+  const {
+    data: film,
+    isError: isErrorFilm,
+    error: errorFilm,
+  } = useGetFilmByIdQuery(id)
+
+  const errorPersonsString = JSON.stringify(errorPersons)
+  const errorFilmString = JSON.stringify(errorFilm)
 
   return (
     <>
-      <MoviePageContent
-        film={film.data as IMovie}
-        personsFromFilm={personsFromFilm.data as IPerson[]}
-      />
+      {isErrorPersons && <div>{`ErrorPerson!: ${errorPersonsString}`}</div>}
+      {isErrorFilm && <div>{`ErrorFilm!: ${errorFilmString}`}</div>}
+
+      {!film && <div>Фильм не существует</div>}
+      {!personsFromFilm && <div>Список персон не существует</div>}
+
+      {film && personsFromFilm && (
+        <MoviePageContent film={film} personsFromFilm={personsFromFilm} />
+      )}
     </>
   )
 }
@@ -63,8 +79,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     if (typeof context.params?.id === 'string') {
-      store.dispatch(getFilmById.initiate(context.params.id))
       store.dispatch(getPersonsFromFilm.initiate(context.params.id))
+      store.dispatch(getFilmById.initiate(context.params.id))
     }
 
     await Promise.all(store.dispatch(getRunningQueriesThunk()))

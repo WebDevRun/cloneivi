@@ -35,8 +35,8 @@ export const personsApi = createApi({
       providesTags: (result, error, id) => [{ type: 'Persons', id }],
     }),
     getPersonsFromFilm: builder.query<IPerson[], string>({
-      query: (film_id) => `/persons/films/${film_id}`,
-      providesTags: (result, error, film_id) => [{ type: 'Persons', film_id }],
+      query: (id) => `/persons/films/${id}`,
+      providesTags: (result, error, id) => [{ type: 'Persons', id }],
     }),
   }),
 })
@@ -48,4 +48,5 @@ export const {
   util: { getRunningQueriesThunk },
 } = personsApi
 
-export const { getPersons, getPersonById, getPersonsFromFilm } = personsApi.endpoints
+export const { getPersons, getPersonById, getPersonsFromFilm } =
+  personsApi.endpoints

@@ -19,7 +19,7 @@ export const Person: FC<PersonProps> = ({ person, maxShowFilms }) => {
       </section>
       <section>
         <PersonFilmography
-          films={person?.films}
+          films={person.films}
           pathDataSrc={'/watch/'}
           maxShowItems={maxShowFilms}
         />

@@ -25,58 +25,60 @@ export const PersonFilmographyItem: FC<PersonFilmographyItemProps> = ({
   const { t } = useTranslation()
   const { locale } = useRouter()
 
-  const filmData = useGetFilmByIdQuery(id)
-  const film = filmData.data as IMovie
+  const { data: film } = useGetFilmByIdQuery(id)
 
   return (
     <div className={styles.personFilmographyItem}>
-      <Link href={`${pathDataSrc}${id}`} className={styles.body}>
-        <div className={styles.figure}>
-          {!isSvg(film?.img) && (
-            <Image
-              className={styles.image}
-              src={
-                film?.img
-                  ? film.img.indexOf('https://') === -1
-                    ? `https:${film.img}`
-                    : film.img
-                  : noImage
-              }
-              alt={`${t('posterForTheMovie')} ${film?.name_ru}`}
-              width={75}
-              height={118}
-            />
-          )}
-          {isSvg(film?.img) && (
-            <Image
-              className={styles.image}
-              src={film.img ? `${film.img}` : noImage}
-              alt={`${t('posterForTheMovie')} ${film.name_ru}`}
-              width={75}
-              height={118}
-            />
-          )}
-        </div>
-        <div className={styles.main}>
-          <div className={styles.info}>
-            <div className={styles.year}>{film?.year}</div>
-            <div className={styles.title} title={film?.name_ru}>
-              {locale === 'ru' ? film?.name_ru : film?.name_en}
-            </div>
-            <div className={styles.rating}>
-              <span className={styles.ratingLabel}>{t('IviRating')}:</span>
-              <span className={styles.ratingValue}>
-                <span className={styles.ratingValueInteger}>
-                  {film?.rating}
+      {!film && <div>Такого фильма не найдено</div>}
+      {film && (
+        <Link href={`${pathDataSrc}${id}`} className={styles.body}>
+          <div className={styles.figure}>
+            {!isSvg(film.img) && (
+              <Image
+                className={styles.image}
+                src={
+                  film.img
+                    ? film.img.indexOf('https://') === -1
+                      ? `https:${film.img}`
+                      : film.img
+                    : noImage
+                }
+                alt={`${t('posterForTheMovie')} ${film.name_ru}`}
+                width={75}
+                height={118}
+              />
+            )}
+            {isSvg(film.img) && (
+              <Image
+                className={styles.image}
+                src={film.img ? `${film.img}` : noImage}
+                alt={`${t('posterForTheMovie')} ${film.name_ru}`}
+                width={75}
+                height={118}
+              />
+            )}
+          </div>
+          <div className={styles.main}>
+            <div className={styles.info}>
+              <div className={styles.year}>{film.year}</div>
+              <div className={styles.title} title={film.name_ru}>
+                {locale === 'ru' ? film.name_ru : film.name_en}
+              </div>
+              <div className={styles.rating}>
+                <span className={styles.ratingLabel}>{t('IviRating')}:</span>
+                <span className={styles.ratingValue}>
+                  <span className={styles.ratingValueInteger}>
+                    {film.rating}
+                  </span>
                 </span>
-              </span>
+              </div>
+            </div>
+            <div className={styles.action}>
+              <Button text={`${t('seeMore')}`} background='gray' />
             </div>
           </div>
-          <div className={styles.action}>
-            <Button text={`${t('seeMore')}`} background='gray' />
-          </div>
-        </div>
-      </Link>
+        </Link>
+      )}
     </div>
   )
 }

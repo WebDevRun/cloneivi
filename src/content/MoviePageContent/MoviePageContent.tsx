@@ -47,6 +47,7 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
 
   const { t } = useTranslation(['common'])
   const router = useRouter()
+
   if (film === undefined) return <p>{`${t('common:search')}...`}</p>
 
   return (
