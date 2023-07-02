@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button tests снимок кнопки Player 1`] = `
+<button
+  className="button red active borderNone big fitContent"
+  type="button"
+>
+  <div
+    className="mainText"
+  >
+    Смотреть с рекламой
+    <div
+      className="subText"
+    >
+      серия 1 сезон 1
+    </div>
+  </div>
+</button>
+`;
