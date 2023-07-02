@@ -16,24 +16,25 @@ import { iMovieToSliderProps } from '@/utils/functions/iMovieToSliderProps'
 import { AppLayout } from '@layouts/AppLayout'
 
 import { NextPageWithLayout } from './_app'
+import top10 from './data.json'
 import styles from './pages.module.scss'
 
 export interface IHomePage {
   newMovies: IMovie[]
   kindCartoons: IMovie[]
-  top10: IMovie[]
+  //top10: IMovie[]
   lang: string
 }
 
 const Home: NextPageWithLayout<IHomePage> = ({
   newMovies,
   kindCartoons,
-  top10,
+  //top10,
   lang,
 }) => {
   const { t } = useTranslation()
 
-  const top10Out = iMovieToSliderProps(top10, lang)
+  //const top10Out = iMovieToSliderProps(top10, lang)
   const newMoviesOut = iMovieToSliderProps(newMovies, lang)
   const kindCartoonsOut = iMovieToSliderProps(kindCartoons, lang)
 
@@ -70,15 +71,23 @@ const Home: NextPageWithLayout<IHomePage> = ({
           <Slider
             Component={MovieCard}
             arrowSize='big'
+            //slidesToScroll={6}
             componentSetting={{
               style: 'fill',
               type: 'square',
               imgAlt: 'Movie Image',
-              mode: 'small',
+              mode: 'top10',
             }}
             isCrop={true}
             type='list'
-            items={top10Out}
+            items={top10.map((item) => {
+              return {
+                href: item.urlFilm,
+                imgSrc: item.poster,
+                imgText: item.imgText,
+                imgNum: item.imgNum,
+              }
+            })}
             onItemClick={() => {}}
           />
         </section>
@@ -127,6 +136,7 @@ const Home: NextPageWithLayout<IHomePage> = ({
             type='list'
             items={kindCartoonsOut}
             onItemClick={() => {}}
+            slidesToShow={7}
           />
         </section>
 
@@ -139,6 +149,7 @@ const Home: NextPageWithLayout<IHomePage> = ({
           <Slider
             Component={MovieCard}
             isCrop={false}
+            slidesToShow={7}
             arrowSize='big'
             componentSetting={{
               style: 'fill',
@@ -180,16 +191,16 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     AxiosResponse<IMovie[]>
   >(`filter/films?year_min=2000&limit=20`)
 
-  const top10 = await $instance.get<
-    AxiosRequestConfig<undefined>,
-    AxiosResponse<IMovie[]>
-  >(`filter/films?rating=8.2&limit=10`)
+  // const top10 = await $instance.get<
+  //   AxiosRequestConfig<undefined>,
+  //   AxiosResponse<IMovie[]>
+  // >(`filter/films?rating=8.2&limit=10`)
 
   return {
     props: {
       newMovies: newMovies.data,
       kindCartoons: kindCartoons.data,
-      top10: top10.data,
+      //top10: top10.data,
       lang: locale,
       ...localeData,
     },
