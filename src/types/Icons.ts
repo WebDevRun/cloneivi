@@ -36,6 +36,8 @@ export type INameIcons =
   | 'catalogAdd'
   | 'noAds'
   | 'download'
+  | 'thumbUp'
+  | 'thumbDown'
 
 export type INameIconsExt =
   | 'top10'

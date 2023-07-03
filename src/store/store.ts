@@ -9,6 +9,7 @@ import {
 import { createWrapper } from 'next-redux-wrapper'
 
 import { authSlice, authorizationApi } from './endpoints/authorization'
+import { commentsApi } from './endpoints/comments'
 import { filmsApi } from './endpoints/films'
 import { genresApi } from './endpoints/genres'
 import { personsApi } from './endpoints/persons'

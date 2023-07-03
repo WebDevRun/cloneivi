@@ -1,0 +1,1 @@
+export { CommentAvatar } from './CommentAvatar'

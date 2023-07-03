@@ -245,5 +245,10 @@
   "DontLikeThis": "Не нравится такое",
   "AlreadyWatchedEvaluate": "Уже смотрел, оценить",
   "Similar": "Похожее",
-  "Purchase": "Покупка"
+  "Purchase": "Покупка",
+  "WriteReview": "Написать отзыв",
+  "Answer": "Ответить",
+  "MinWords": "Минимум {{ textLengthLimit }} символов, вы ввели {{ textLength }}",
+  "Send": "Отправить",
+  "Close": "Закрыть"
 }
