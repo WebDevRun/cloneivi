@@ -2,8 +2,8 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
-import { Badge } from '@/components/Badge'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { Comments } from '@/components/Comments'
 import { GalleryPersons } from '@/components/GalleryPersons'
 import { MovieCard } from '@/components/MovieCard'
 import { MovieInfomation } from '@/components/MovieInfomation'
@@ -11,8 +11,7 @@ import { IPerson } from '@/components/MovieInfomation/Medallions'
 import { Slider } from '@/components/Slider'
 import { WatchAllDevices } from '@/components/WatchAllDevices'
 import { useGetFilmByIdQuery } from '@/store/endpoints/films'
-import { IGenre, IMovie } from '@/types/movie'
-import { LinkBtn } from '@/ui/LinkBtn'
+import { IMovie } from '@/types/movie'
 import { MoviePlayer } from '@/ui/MoviePlayer'
 import { Flex, H2 } from '@/ui/ui'
 
@@ -150,6 +149,7 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
 
       <section>
         <H2>{`Комментарии к фильму`}</H2>
+        <Comments />
       </section>
 
       <section>

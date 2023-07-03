@@ -51,7 +51,6 @@ export const getStaticProps = wrapper.getStaticProps(
     await Promise.all(store.dispatch(getRunningQueriesThunk()))
 
     const localeData = await serverSideTranslations(context.locale ?? 'ru', [
-      'header',
       'common',
     ])
 

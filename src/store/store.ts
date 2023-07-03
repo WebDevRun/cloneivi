@@ -2,8 +2,6 @@ import {
   Action,
   combineReducers,
   configureStore,
-  PreloadedState,
-  StateFromReducersMapObject,
   ThunkAction,
 } from '@reduxjs/toolkit'
 import { createWrapper } from 'next-redux-wrapper'
@@ -20,6 +18,7 @@ const rootReducer = combineReducers({
   [genresApi.reducerPath]: genresApi.reducer,
   [personsApi.reducerPath]: personsApi.reducer,
   [authorizationApi.reducerPath]: authorizationApi.reducer,
+  [commentsApi.reducerPath]: commentsApi.reducer,
 })
 
 const middlewares = [
@@ -27,6 +26,7 @@ const middlewares = [
   genresApi.middleware,
   personsApi.middleware,
   authorizationApi.middleware,
+  commentsApi.middleware,
 ]
 
 export const store = () => {
