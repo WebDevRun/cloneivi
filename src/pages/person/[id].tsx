@@ -31,7 +31,7 @@ const PersonPage: NextPageWithLayout<IPersonPage> = ({ id }) => {
   const { t } = useTranslation()
   const router = useRouter()
 
-  const { data: person, isError, error } = useGetPersonByIdQuery(id)
+  const { data: person, isLoading, isError, error } = useGetPersonByIdQuery(id)
 
   const crumbHome: CrumbItem = {
     text: t('MyIvi'),
@@ -51,6 +51,14 @@ const PersonPage: NextPageWithLayout<IPersonPage> = ({ id }) => {
   const breadCrumbsData = []
   breadCrumbsData.push(crumbHome)
   breadCrumbsData.push(crumbCurrentPage)
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error: {JSON.stringify(error)}</div>;
+  }
 
   return (
     <>

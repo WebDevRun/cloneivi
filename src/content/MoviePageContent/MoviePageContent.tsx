@@ -133,6 +133,19 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
 
       <section>
         <H2>{`Трейлеры и доп. материалы`}</H2>
+
+        {film.trailers.map((trailer) => (
+          <div key={trailer.trailer_id}>
+            <MovieCard
+              href={trailer.trailer}
+              imgAlt='Trailer'
+              imgSrc={trailer.img}
+              mode='series'
+              movieName='Трейлер (дублированный)'
+              seriesLength='2 мин'
+            />
+          </div>
+        ))}
       </section>
 
       <section>

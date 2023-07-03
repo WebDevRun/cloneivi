@@ -6,6 +6,7 @@ import { CSSProperties, FC, MouseEvent, useState } from 'react'
 
 import { Button } from '@/ui/Button'
 import { Svg } from '@/ui/Svg'
+import { getProportionalImgWidth } from '@/utils/functions/getProportionalImgWidth'
 
 import styles from './MovieCard.module.scss'
 import { MovieCardProperties } from './MovieCardProperties'
@@ -75,14 +76,6 @@ export const MovieCard: FC<MovieCardProps> = ({
     '--favoriteContent': `"${t('WatchLater')}"`,
   } as CSSProperties
 
-  let sizes = ['300', '450']
-  if (imgSrc) {
-    const splitImgSrc = imgSrc.split('/').at(-2)
-    sizes = splitImgSrc ? splitImgSrc.split('x') : sizes
-  }
-  const width = parseInt(sizes[0])
-  const height = parseInt(sizes[1])
-
   return (
     <Link href={href} className={cn(styles.movieCard, styles[mode])}>
       <div className={styles.movieCardImageCont}>
@@ -102,8 +95,8 @@ export const MovieCard: FC<MovieCardProps> = ({
         ></div>
         {mode !== 'small' && mode !== 'top10' && (
           <Image
-            width={width}
-            height={height}
+            width={getProportionalImgWidth(imgSrc, 286, 161)}
+            height={161}
             className={styles.movieCardImage}
             src={imgSrc}
             alt={imgAlt}
@@ -144,7 +137,7 @@ export const MovieCard: FC<MovieCardProps> = ({
             <Button
               onClick={() => {}}
               size='middle'
-              text={`${t('watchSubscription')}`} 
+              text={`${t('watchSubscription')}`}
             />
           </div>
         )}
