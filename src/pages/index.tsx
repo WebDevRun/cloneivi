@@ -11,7 +11,7 @@ import { TextCollapse } from '@/components/TextCollapse'
 import { IMovie } from '@/types/movie'
 import { Button } from '@/ui/Button'
 import { IconInText } from '@/ui/IconInText'
-import { Flex, H2, Text, TextPar } from '@/ui/ui'
+import { Flex, H2, NavLink, Text, TextPar } from '@/ui/ui'
 import { iMovieToSliderProps } from '@/utils/functions/iMovieToSliderProps'
 import { AppLayout } from '@layouts/AppLayout'
 
@@ -115,11 +115,13 @@ const Home: NextPageWithLayout<IHomePage> = ({
         </section>
 
         <section>
-          <IconInText
-            className={styles.sectionTitle}
-            icon='arrowRight'
-            text={`${t('Drams')}`}
-          />
+          <NavLink href='/movies/drams'>
+            <IconInText
+              className={styles.sectionTitle}
+              icon='arrowRight'
+              text={`${t('Drams')}`}
+            />
+          </NavLink>
           <Slider
             Component={MovieCard}
             arrowSize='big'

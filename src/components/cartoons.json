@@ -4,92 +4,92 @@
     "items": [
       {
         
-        "href": "https://www.ivi.ru/movies/boeviki",
+        "href": "https://www.ivi.ru/animation/boeviki",
         "title": "Anime",
         "text": "Anime"
       },
       {
-        "href": "https://www.ivi.ru/movies/western",
+        "href": "https://www.ivi.ru/animation/western",
         "title": "Action",
         "text": "Action"
       },
       {
-        "href": "https://www.ivi.ru/movies/dlya_vsej_semi",
+        "href": "https://www.ivi.ru/animation/dlya_vsej_semi",
         "title": "Detective",
         "text": "Detective"
       },
       {
-        "href": "https://www.ivi.ru/movies/detskiy",
+        "href": "https://www.ivi.ru/animation/detskiy",
         "title": "Children",
         "text": "Children"
       },
       {
-        "href": "https://www.ivi.ru/movies/documentary",
+        "href": "https://www.ivi.ru/animation/documentary",
         "title": "Adults",
         "text": "Adults"
       },
       {
-        "href": "https://www.ivi.ru/movies/istoricheskie",
+        "href": "https://www.ivi.ru/animation/istoricheskie",
         "title": "Drama",
         "text": "Drama"
       },
       {
-        "href": "https://www.ivi.ru/movies/comedy",
+        "href": "https://www.ivi.ru/animation/comedy",
         "title": "History",
         "text": "History"
       },
       {
-        "href": "https://www.ivi.ru/movies/crime",
+        "href": "https://www.ivi.ru/animation/crime",
         "title": "Comedy",
         "text": "Comedy"
       },
       {
-        "href": "https://www.ivi.ru/movies/comics",
+        "href": "https://www.ivi.ru/animation/comics",
         "title": "Crime",
         "text": "Crime"
       },
       {
-        "href": "https://www.ivi.ru/movies/horror",
+        "href": "https://www.ivi.ru/animation/horror",
         "title": "Musical",
         "text": "Musical"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "https://www.ivi.ru/animation/fentezi",
         "title": "Adventures",
         "text": "Adventures"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "https://www.ivi.ru/animation/fentezi",
         "title": "Family",
         "text": "Family"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "https://www.ivi.ru/animation/fentezi",
         "title": "Serials",
         "text": "Serials"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "https://www.ivi.ru/animation/fentezi",
         "title": "Sport",
         "text": "Sport"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "https://www.ivi.ru/animation/fentezi",
         "title": "Thriller",
         "text": "Thriller"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "https://www.ivi.ru/animation/fentezi",
         "title": "Horror",
         "text": "Horror"
       },      
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "https://www.ivi.ru/animation/fentezi",
         "title": "Fantastic",
         "text": "Fantastic"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "https://www.ivi.ru/animation/fentezi",
         "title": "Fantasy",
         "text": "Fantasy"
       }
@@ -99,17 +99,17 @@
     "title": "Countries",
     "items": [
       {
-        "href": "https://www.ivi.ru/movies/ru",
+        "href": "https://www.ivi.ru/animation/ru",
         "title": "Russians",
         "text": "Russians"
       },
       {
-        "href": "https://www.ivi.ru/movies/foreign",
+        "href": "https://www.ivi.ru/animation/foreign",
         "title": "Foreign",
         "text": "Foreign"
       },
       {
-        "href": "https://www.ivi.ru/movies/su",
+        "href": "https://www.ivi.ru/animation/su",
         "title": "American",
         "text": "American"
       }
@@ -119,22 +119,22 @@
     "title": "Years",
     "items": [
       {
-        "href": "https://www.ivi.ru/movies/2023",
+        "href": "https://www.ivi.ru/animation/2023",
         "title": "FilmsOf2023",
         "text": "FilmsOf2023"
       },
       {
-        "href": "https://www.ivi.ru/movies/2022",
+        "href": "https://www.ivi.ru/animation/2022",
         "title": "FilmsOf2022",
         "text": "FilmsOf2022"
       },
       {
-        "href": "https://www.ivi.ru/movies/2021",
+        "href": "https://www.ivi.ru/animation/2021",
         "title": "FilmsOf2021",
         "text": "FilmsOf2021"
       },
       {
-        "href": "https://www.ivi.ru/movies/2020",
+        "href": "https://www.ivi.ru/animation/2020",
         "title": "FilmsOf2020",
         "text": "FilmsOf2020"
       }
@@ -154,7 +154,7 @@
         "text": "Collections"
       },
       {
-        "href": "https://www.ivi.ru/movies/all?ivi_rating_10_gte=7&amp;sort=ivi&amp;rating_part=main&amp;rating_model=ready",
+        "href": "https://www.ivi.ru/animation/all?ivi_rating_10_gte=7&amp;sort=ivi&amp;rating_part=main&amp;rating_model=ready",
         "title": "CartoonsNickelodeon",
         "text": "CartoonsNickelodeon"
       },
