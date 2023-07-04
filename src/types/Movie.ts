@@ -4,7 +4,7 @@ export interface IMovie {
   name_en: string
   description: string
   year: number
-  countries: ICountry[]
+  country: ICountry[]
   rating: number
   assessments: number
   reviews: number
@@ -18,11 +18,6 @@ export interface IMovie {
   languagesSubtitle: ILanguages[]
 }
 
-export interface IMovieName {
-  name_ru: string
-  name_en: string
-}
-
 export interface IGenre {
   genre_id: string
   genre_ru: string
@@ -30,16 +25,9 @@ export interface IGenre {
   slug: string
 }
 
-export interface ILocaleGenre {
-  genre_id: string
-  genre_name: string
-  slug: string
-}
-
 export interface ILanguages {
   language_id: string
   language: string
-  slug: string
 }
 
 export interface IQuality {
@@ -62,16 +50,14 @@ export interface ICountry {
 
 export interface IYear {
   year_id: string
-  year_name: string
+  year: string
   slug: string
-  year?: number
-  year_min?: number
-  year_max?: number
+  filter: (year: number) => {}
 }
 
 export interface IRating {
   rating_id: string
-  rating_name: string
+  rating: string
   slug: string
-  rating: number
+  filter: (rating: number) => {}
 }

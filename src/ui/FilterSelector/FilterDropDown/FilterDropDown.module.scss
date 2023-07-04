@@ -1,0 +1,32 @@
+$white: '#fff';
+
+.underLine {
+  margin: 16px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  width: 100%;
+}
+
+.big {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 12px;
+}
+
+.small {
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 740px) {
+  .big {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .big {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

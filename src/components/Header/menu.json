@@ -15,7 +15,7 @@
     "id": "3",
     "dataTest": "header-movies",
     "name": "movies",
-    "href": "https://www.ivi.ru/movies"
+    "href": "/movies"
   },
   {
     "id": "4",

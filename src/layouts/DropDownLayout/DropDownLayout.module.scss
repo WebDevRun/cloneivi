@@ -1,8 +1,8 @@
 .dropDownLayout {
   position: absolute;
-  top: 100%;
   width: 100%;
   z-index: 99;
+  margin-top: 5px;
 }
 
 .filter {
@@ -13,9 +13,58 @@
 }
 
 .big {
-  width: 630px;
+  width: 650px;
 }
 
-.header {
-  top: 0;
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width: 740px) {
+  .big {
+    width: 416px;
+  }
+
+  .center {
+    transform: none;
+    left: auto;
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .big {
+    width: 100%
+  }
+
+  .dropDownLayout {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .filter {
+    padding: 16px;
+    margin-top: 4px;
+    background-color: #312B45;
+    border-radius: 4px;
+  }
+
+  .big {
+    width: 630px;
+  }
+
+  .header {
+    top: 0;
+  }
 }

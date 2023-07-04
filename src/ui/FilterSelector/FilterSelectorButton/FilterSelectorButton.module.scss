@@ -1,5 +1,4 @@
 .selectButton {
-  max-width: 280px;
   background-color: #312B45;
   height: 56px;
   color: #fff;
@@ -11,6 +10,8 @@
   font-weight: 500;
   border-radius: 4px;
   user-select: none;
+  justify-content: space-between;
+  overflow: hidden;
 
   & > input {
     position: absolute;
@@ -34,7 +35,8 @@
       line-height: 16px;
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap
+      white-space: nowrap;
+      text-transform: capitalize;
     }
   }
 
