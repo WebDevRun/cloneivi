@@ -249,5 +249,9 @@
   "Answer": "Answer",
   "MinWords": "Minimum {{ textLengthLimit }} characters, you entered {{ textLength }}",
   "Send": "Send",
-  "Close": "Close"
+  "Close": "Close",
+  "ActorsAndCreators": "Actors and creators",
+  "TrailersAndExtrasMaterials": "Trailers and extras materials",
+  "CommentsOnTheFilm": "Comments on the film",
+  "WithTheMovieWatching": "With the «{{filmNameEn}}» movie watching"
 }
