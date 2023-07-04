@@ -130,6 +130,14 @@ export function Decor({ variant = 'underlineEffect', ...props }) {
   return <Base cx={[styles[variant]]} {...props} />
 }
 
-export function NavLink({ underline = false, ...props }) {
+interface NavLinkProps extends BaseProps {
+  underline?: boolean
+  href: string
+}
+
+export function NavLink({
+  underline = false,
+  ...props
+}: WithChildren<NavLinkProps>) {
   return <Base as={Link} cx={[styles.navLink, styles.underline]} {...props} />
 }
