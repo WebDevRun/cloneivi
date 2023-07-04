@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import Link from 'next/link'
 
 import styles from './ui.module.scss'
 
@@ -125,6 +126,10 @@ export function H2({ ...props }) {
   return <Text as='h2' variant='titleH2' {...props} />
 }
 
-export function Decor({ variant = 'underline', ...props }) {
+export function Decor({ variant = 'underlineEffect', ...props }) {
   return <Base cx={[styles[variant]]} {...props} />
+}
+
+export function NavLink({ underline = false, ...props }) {
+  return <Base as={Link} cx={[styles.navLink, styles.underline]} {...props} />
 }
