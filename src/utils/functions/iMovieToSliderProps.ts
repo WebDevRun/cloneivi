@@ -5,7 +5,7 @@ import { declOfNum } from "./declinOfNum"
 const minutes = ['минута', 'минуты', 'минут']
 
 export function iMovieToSliderProps(data: IMovie[], lang: string) {
-  return data.map((item) => {
+  return data?.map((item) => {
     return {
       id: item.film_id,
       genre: [

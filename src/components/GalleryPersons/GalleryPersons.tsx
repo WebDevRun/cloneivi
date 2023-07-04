@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import router from 'next/router'
 import { FC } from 'react'
 
 import { IPerson } from '@/types/person'
@@ -33,8 +34,16 @@ export const GalleryPersons: FC<GalleryPersonsProps> = ({
           key={filmmaker.person_id}
           img={filmmaker.img}
           href={`/person/${filmmaker.person_id}`}
-          firstName={filmmaker.first_name_ru}
-          lastName={filmmaker.last_name_ru}
+          firstName={
+            router.locale === 'ru'
+              ? filmmaker.first_name_ru
+              : filmmaker.first_name_en
+          }
+          lastName={
+            router.locale === 'ru'
+              ? filmmaker.last_name_ru
+              : filmmaker.last_name_en
+          }
           role={filmmaker.filmRoles[0].film_role}
         />
       ))}
@@ -44,8 +53,12 @@ export const GalleryPersons: FC<GalleryPersonsProps> = ({
           key={actor.person_id}
           img={actor.img}
           href={`/person/${actor.person_id}`}
-          firstName={actor.first_name_ru}
-          lastName={actor.last_name_ru}
+          firstName={
+            router.locale === 'ru' ? actor.first_name_ru : actor.first_name_en
+          }
+          lastName={
+            router.locale === 'ru' ? actor.last_name_ru : actor.last_name_en
+          }
           role={actor.filmRoles[0].film_role}
         />
       ))}

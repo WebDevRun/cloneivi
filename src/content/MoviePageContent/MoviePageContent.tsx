@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
@@ -10,10 +11,12 @@ import { MovieInfomation } from '@/components/MovieInfomation'
 import { IPerson } from '@/components/MovieInfomation/Medallions'
 import { Slider } from '@/components/Slider'
 import { WatchAllDevices } from '@/components/WatchAllDevices'
-import { useGetFilmByIdQuery } from '@/store/endpoints/films'
+import { useGetFilmByGenresQuery } from '@/store/endpoints/films'
 import { IMovie } from '@/types/movie'
 import { MoviePlayer } from '@/ui/MoviePlayer'
-import { Flex, H2 } from '@/ui/ui'
+import { Flex, H2, NavLink } from '@/ui/ui'
+import { capitaliseStr } from '@/utils/functions'
+import { iMovieToSliderProps } from '@/utils/functions/iMovieToSliderProps'
 
 import styles from './MoviePageContent.module.scss'
 
@@ -46,6 +49,11 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
 
   const { t } = useTranslation(['common'])
   const router = useRouter()
+  const lang = router.locale
+
+  const drams = useGetFilmByGenresQuery('драма').data as IMovie[]
+
+  const withMovieWatching = iMovieToSliderProps(drams, lang as string)
 
   if (film === undefined) return <p>{`${t('common:search')}...`}</p>
 
@@ -56,14 +64,19 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
           items={[
             {
               path: '/',
-              text: 'Home',
+              text: router.locale === 'ru' ? 'Домашняя' : 'Home',
             },
             {
-              path: '/person/7982ecf2-8fae-471c-8ddf-2e3cbdab360e',
-              text: 'Фёдор Бондарчук',
+              path: `/${film.genres[0].slug}`,
+              text: `${capitaliseStr(
+                router.locale === 'ru'
+                  ? film.genres[0].genre_ru
+                  : film.genres[0].genre_en,
+              )}`,
             },
           ]}
           separator='dot'
+          lastAsLink
         />
       </div>
       <section>
@@ -106,11 +119,17 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
         </Flex>
       </section>
 
-      <section>
-        <H2>{`С фильмом ... смотрят`}</H2>
-        {/* <Slider
+      {withMovieWatching && (
+        <section>
+          <H2 variant='titleBg'>{`${t('WithTheMovieWatching', {
+            filmNameRu: film.name_ru,
+            filmNameEn: film.name_en,
+          })}`}</H2>
+
+          <Slider
             Component={MovieCard}
             arrowSize='big'
+            slidesToShow={7}
             componentSetting={{
               style: 'fill',
               type: 'square',
@@ -119,19 +138,28 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
             }}
             isCrop={true}
             type='list'
-            items={kindCartoonsOut}
+            items={withMovieWatching}
             onItemClick={() => {}}
-          /> */}
-      </section>
+          />
+        </section>
+      )}
 
       <section>
-        <H2 variant='titleBg'>{`Актёры и создатели`}</H2>
+        <H2 variant='titleBg'>
+          <NavLink href={`${film.film_id}/person`} underline>{`${t(
+            'ActorsAndCreators',
+          )}`}</NavLink>
+        </H2>
 
         <GalleryPersons persons={personsFromFilm} showMaxPersons={10} />
       </section>
 
       <section>
-        <H2>{`Трейлеры и доп. материалы`}</H2>
+        <H2 variant='titleBg'>
+          <NavLink href={`${film.film_id}/trailers`} underline>
+            {`${t('TrailersAndExtrasMaterials')}`}
+          </NavLink>
+        </H2>
 
         {film.trailers.map((trailer) => (
           <div key={trailer.trailer_id}>
@@ -148,7 +176,11 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
       </section>
 
       <section>
-        <H2>{`Комментарии к фильму`}</H2>
+        <H2 variant='titleBg'>
+          <NavLink href={`${film.film_id}/comments`} underline>{`${t(
+            'CommentsOnTheFilm',
+          )}`}</NavLink>
+        </H2>
         <Comments />
       </section>
 

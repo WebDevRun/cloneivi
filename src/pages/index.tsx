@@ -21,19 +21,19 @@ import styles from './pages.module.scss'
 
 export interface IHomePage {
   newMovies: IMovie[]
-  kindCartoons: IMovie[]
+  withMovieWatching: IMovie[]
   lang: string
 }
 
 const Home: NextPageWithLayout<IHomePage> = ({
   newMovies,
-  kindCartoons,
+  withMovieWatching,
   lang,
 }) => {
   const { t } = useTranslation()
 
   const newMoviesOut = iMovieToSliderProps(newMovies, lang)
-  const kindCartoonsOut = iMovieToSliderProps(kindCartoons, lang)
+  const withMovieWatchingOut = iMovieToSliderProps(withMovieWatching, lang)
 
   return (
     <>
@@ -131,7 +131,7 @@ const Home: NextPageWithLayout<IHomePage> = ({
             }}
             isCrop={true}
             type='list'
-            items={kindCartoonsOut}
+            items={withMovieWatchingOut}
             onItemClick={() => {}}
             slidesToShow={7}
           />
@@ -178,7 +178,7 @@ export default Home
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const localeData = await serverSideTranslations(locale ?? 'ru')
 
-  const kindCartoons = await $instance.get<
+  const withMovieWatching = await $instance.get<
     AxiosRequestConfig<undefined>,
     AxiosResponse<IMovie[]>
   >(`filter/films?genres=drama&limit=20`)
@@ -191,7 +191,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       newMovies: newMovies.data,
-      kindCartoons: kindCartoons.data,
+      withMovieWatching: withMovieWatching.data,
       lang: locale,
       ...localeData,
     },
