@@ -2,8 +2,6 @@
 @use '@styles/variables' as var;
 
 .movieRating {
-  display: flex;
-  align-items: center;
   background-color: rgba(var.$mainTextColor, 0.08);
   border-radius: fn.toRem(12px);
   padding: fn.toRem(10px);
@@ -15,7 +13,7 @@
 
   width: $size;
   height: $size;
-  background-color: #7e798f;
+  background-color: #73a32f;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,8 +27,10 @@
 
 .text {
   margin-left: fn.toRem(16px);
-  font-size: fn.toRem(15px);
-  font-weight: 500;
+}
+
+.title {
+  color: #ffffff;
 }
 
 .buttonContainer {

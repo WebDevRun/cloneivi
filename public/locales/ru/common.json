@@ -256,5 +256,8 @@
   "ActorsAndCreators": "Актёры и создатели",
   "TrailersAndExtrasMaterials": "Трейлеры и доп. материалы",
   "CommentsOnTheFilm": "Комментарии к фильму",
-  "WithTheMovieWatching": "С фильмом «{{filmNameRu}}» смотрят"
+  "WithTheMovieWatching": "С фильмом «{{filmNameRu}}» смотрят",
+  "Assessment": "оценка",
+  "AssessmentsI": "оценки",
+  "AssessmentsOK": "оценок"
 }

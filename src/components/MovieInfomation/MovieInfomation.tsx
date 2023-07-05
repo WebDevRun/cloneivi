@@ -21,6 +21,7 @@ export interface MovieInfomationProps {
   languagesAudio: string[]
   rating: number
   persons: IPerson[]
+  assessments: number
 }
 
 export const MovieInfomation: FC<MovieInfomationProps> = ({
@@ -35,6 +36,7 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
   languagesAudio,
   rating,
   persons,
+  assessments,
 }) => {
   const { t } = useTranslation()
 
@@ -72,7 +74,7 @@ export const MovieInfomation: FC<MovieInfomationProps> = ({
         </TextCollapse>
       </div>
 
-      <MovieRating rating={rating}></MovieRating>
+      <MovieRating rating={rating} assessments={assessments} ></MovieRating>
     </div>
   )
 }

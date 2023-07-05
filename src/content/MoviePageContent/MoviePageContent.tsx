@@ -64,11 +64,11 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
         <Breadcrumbs
           items={[
             {
-              path: '/',
-              text: router.locale === 'ru' ? 'Домашняя' : 'Home',
+              path: '/movies',
+              text: router.locale === 'ru' ? 'Фильмы' : 'Movies',
             },
             {
-              path: `/${film.genres[0].slug}`,
+              path: `/movies/${film.genres[0].slug}`,
               text: `${capitaliseStr(
                 router.locale === 'ru'
                   ? film.genres[0].genre_ru
@@ -118,8 +118,8 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
               duration={duration}
               genres={
                 router.locale === 'ru'
-                  ? genres.map((item) => item.genre_ru)
-                  : genres.map((item) => item.genre_en)
+                  ? genres.map((item) => capitaliseStr(item.genre_ru))
+                  : genres.map((item) => capitaliseStr(item.genre_en))
               }
               languagesAudio={languagesAudio.map((item) => item.language)}
               persons={personsFromFilm}
@@ -127,6 +127,7 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
               qualities={qualities.map((item) => item.quality)}
               rating={rating}
               title={router.locale === 'ru' ? name_ru : name_en}
+              assessments={assessments}
             />
           </div>
         </Flex>
@@ -201,6 +202,38 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
         <WatchAllDevices
           name={router.locale === 'ru' ? name_ru : name_en}
           poster={img}
+        />
+      </section>
+
+      <section className={styles.bottomBreadcrumbs}>
+        <Breadcrumbs
+          items={[
+            {
+              path: '/',
+              text: router.locale === 'ru' ? 'Мой Иви' : 'My Ivi',
+            },
+            {
+              path: '/movies',
+              text: router.locale === 'ru' ? 'Фильмы' : 'Movies',
+            },
+            {
+              path: `/movies/${film.genres[0].slug}`,
+              text: `${capitaliseStr(
+                router.locale === 'ru'
+                  ? film.genres[0].genre_ru
+                  : film.genres[0].genre_en,
+              )}`,
+            },
+            {
+              path: `/movies/${film.genres[0].slug}`,
+              text: `${capitaliseStr(
+                router.locale === 'ru'
+                  ? film.name_ru
+                  : film.name_en,
+              )}`,
+            },
+          ]}
+          separator='dot'
         />
       </section>
     </div>
