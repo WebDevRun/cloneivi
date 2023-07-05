@@ -1,3 +1,5 @@
+export type IconSize = 'small' | 'middle' | 'big' | 'large' | 'unset'
+
 export type INameIcons =
   | 'arrowLeft'
   | 'arrowRight'
@@ -55,3 +57,4 @@ export type INameIconsExt =
   | 'telegram'
   | 'twitter'
   | 'viber'
+  | 'gift'
