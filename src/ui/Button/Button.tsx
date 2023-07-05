@@ -12,7 +12,7 @@ export interface ButtonProps {
   iconExt?: boolean
   iconFill?: string
   iconSize?: IconSize
-  background?: 'gray' | 'primary' | 'red' | 'transparent'
+  background?: 'gray' | 'darkGrey' | 'primary' | 'red' | 'transparent'
   theme?: 'active' | 'passive' | 'rating' | 'social'
   withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg' | 'round'
   size?: 'small' | 'middle' | 'big'

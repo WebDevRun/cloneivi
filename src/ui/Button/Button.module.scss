@@ -90,6 +90,19 @@ $alpha72: 0.72;
   }
 }
 
+.darkGrey {
+  background-color: rgba($white, 0.08);
+  color: rgba($white, $alpha72);
+
+  svg {
+    fill: rgba($white, $alpha72);
+  }
+
+  &:hover {
+    background-color: rgba($white, 0.18);
+  }
+}
+
 .primary {
   background-image: linear-gradient(270deg, #ea003d 0, #c447ff 100%);
 }

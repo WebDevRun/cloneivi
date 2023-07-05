@@ -13,6 +13,7 @@ import { Slider } from '@/components/Slider'
 import { WatchAllDevices } from '@/components/WatchAllDevices'
 import { useGetFilmByGenresQuery } from '@/store/endpoints/films'
 import { IMovie } from '@/types/movie'
+import { Button } from '@/ui/Button'
 import { MoviePlayer } from '@/ui/MoviePlayer'
 import { Flex, H2, NavLink } from '@/ui/ui'
 import { capitaliseStr } from '@/utils/functions'
@@ -91,6 +92,18 @@ export const MoviePageContent: FC<MovePageContentProps> = ({
               }
               posterSrc={trailers[0].img ? trailers[0].img : img}
             />
+
+            <Flex gap='gap16' className={styles.userButtons}>
+              <Button background='darkGrey' icon='playOutline' text='Трейлер' />
+              <Button background='darkGrey' icon='favoriteAdd' />
+              <Button background='darkGrey' icon='share' />
+              <Button
+                background='darkGrey'
+                icon='catalog'
+                text='Бесплатные фильмы'
+                className={styles.freeCollection}
+              />
+            </Flex>
           </div>
 
           <div className={styles.movieInfomation}>
