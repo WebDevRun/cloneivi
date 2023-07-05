@@ -42,12 +42,16 @@ const Home: NextPageWithLayout<IHomePage> = ({
           <Flex gap='gap16'>
             <Button
               icon='lightning'
+              iconExt
               size='big'
               background='gray'
               width='full'
               text={`30 ${t('DaysSubscriptionFor')} 1 ₽`}
             />
             <Button
+              icon='gift'
+              iconExt
+              iconSize='unset'
               size='big'
               background='gray'
               width='full'

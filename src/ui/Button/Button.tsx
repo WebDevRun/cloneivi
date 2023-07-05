@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React, { FC, MouseEventHandler } from 'react'
 
-import { INameIcons, INameIconsExt } from '@/types/Icons'
+import { INameIcons, INameIconsExt, IconSize } from '@/types/Icons'
 
 import { Svg } from '../Svg'
 
@@ -11,6 +11,7 @@ export interface ButtonProps {
   icon?: INameIcons | INameIconsExt
   iconExt?: boolean
   iconFill?: string
+  iconSize?: IconSize
   background?: 'gray' | 'primary' | 'red' | 'transparent'
   theme?: 'active' | 'passive' | 'rating' | 'social'
   withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg' | 'round'
@@ -29,6 +30,7 @@ export const Button: FC<ButtonProps> = ({
   icon,
   iconExt = false,
   iconFill,
+  iconSize,
   background = 'red',
   theme = 'active',
   withBorder = 'borderNone',
@@ -55,7 +57,7 @@ export const Button: FC<ButtonProps> = ({
     className,
   )
 
-  const iconSize = size === 'big' ? 'big' : 'middle'
+  iconSize = !iconExt ? size : iconExt && !iconSize ? 'unset' : iconSize
 
   return (
     <button

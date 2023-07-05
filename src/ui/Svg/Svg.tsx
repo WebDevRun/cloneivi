@@ -1,11 +1,11 @@
 import { FC, cloneElement } from 'react'
 
-import { INameIcons, INameIconsExt } from '@/types/Icons'
+import { INameIcons, INameIconsExt, IconSize } from '@/types/Icons'
 
 import { names } from './icons'
 
 interface SvgProps {
-  size?: 'small' | 'middle' | 'big' | 'large' | 'unset'
+  size?: IconSize
   icon: INameIcons | INameIconsExt
   ext?: boolean
   fill?: string
@@ -69,3 +69,4 @@ export const Svg: FC<SvgProps> = ({
     </>
   )
 }
+
