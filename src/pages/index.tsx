@@ -72,7 +72,6 @@ const Home: NextPageWithLayout<IHomePage> = ({
           <Slider
             Component={MovieCard}
             arrowSize='big'
-            //slidesToScroll={6}
             componentSetting={{
               style: 'fill',
               type: 'square',
@@ -90,6 +89,8 @@ const Home: NextPageWithLayout<IHomePage> = ({
               }
             })}
             onItemClick={() => {}}
+            slidesToShow={5}
+            slidesToScroll={5}
           />
         </section>
 
@@ -119,7 +120,7 @@ const Home: NextPageWithLayout<IHomePage> = ({
         </section>
 
         <section>
-          <NavLink href='/movies/drams'>
+          <NavLink href='/movies/drama'>
             <IconInText
               className={styles.sectionTitle}
               icon='arrowRight'
@@ -140,19 +141,21 @@ const Home: NextPageWithLayout<IHomePage> = ({
             items={withMovieWatchingOut}
             onItemClick={() => {}}
             slidesToShow={7}
+            slidesToScroll={7}
           />
         </section>
 
         <section>
-          <IconInText
-            className={styles.sectionTitle}
-            icon='arrowRight'
-            text={`${t('NewMovies')}`}
-          />
+          <NavLink href='/movies/2010-2020'>
+            <IconInText
+              className={styles.sectionTitle}
+              icon='arrowRight'
+              text={`${t('NewMovies')}`}
+            />
+          </NavLink>
           <Slider
             Component={MovieCard}
-            isCrop={false}
-            slidesToShow={7}
+            isCrop={true}
             arrowSize='big'
             componentSetting={{
               style: 'fill',
@@ -163,6 +166,8 @@ const Home: NextPageWithLayout<IHomePage> = ({
             items={newMoviesOut}
             type='list'
             onItemClick={() => {}}
+            slidesToShow={7}
+            slidesToScroll={7}
           />
         </section>
 
