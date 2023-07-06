@@ -5,11 +5,12 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { FormEvent, ReactElement, useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import {
   emailUser,
   token,
+  isUserAdmin,
   useGetUserByEmailQuery,
   useIsAuthQuery,
   useLoginMutation,
@@ -20,7 +21,7 @@ import { Button } from '@/ui/Button'
 import { ChatMessage } from '@/ui/ChatMessage/ChatMessage'
 import { Input } from '@/ui/Input/Input'
 import { Spinner } from '@/ui/Spinner/Spinner'
-import { Decor, Flex } from '@/ui/ui'
+import { Decor, Flex, NavLink } from '@/ui/ui'
 import { AppLayout } from '@layouts/AppLayout'
 
 import { Text } from '../../ui/ui'
@@ -42,6 +43,7 @@ const Profile: NextPageWithLayout = () => {
   const [isValidatePassword, setIsValidatePassword] = useState(false)
   const [passwordMatсh, setPasswordMatсh] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
 
   const [isPasswordInvalid, setIsPasswordInvalid] = useState(false)
 
@@ -63,6 +65,9 @@ const Profile: NextPageWithLayout = () => {
 
     dispatch(emailUser(localStorage.getItem('emailUser')))
     setEmail(localStorage.getItem('emailUser') as string)
+
+    dispatch(isUserAdmin(localStorage.getItem('isUserAdmin')))
+    setIsAdmin(!!localStorage.getItem('isUserAdmin'))
   }, [])
 
   const handleEmail = async (event: FormEvent<HTMLFormElement>) => {
@@ -138,10 +143,23 @@ const Profile: NextPageWithLayout = () => {
     dispatch(token(accessToken))
     localStorage.setItem('accessToken', accessToken)
 
-    const emailFromJWT = getDataFromJWT(accessToken).email
+    const dataFromJWT = getDataFromJWT(accessToken)
+
+    const emailFromJWT = dataFromJWT.email
+    const isAdmin = dataFromJWT.roles.find(
+      (item: any) => item.value === 'admin',
+    )
+
+    setEnteredEmail('')
+
     setEmail(emailFromJWT)
+    setIsAdmin(isAdmin)
+
     dispatch(emailUser(emailFromJWT))
+    dispatch(isUserAdmin(true))
+
     localStorage.setItem('emailUser', emailFromJWT)
+    localStorage.setItem('isUserAdmin', isAdmin)
 
     setShowSuccess(true)
 
@@ -162,12 +180,16 @@ const Profile: NextPageWithLayout = () => {
     logout()
 
     setAccessToken('')
-    dispatch(token(''))
-    localStorage.setItem('accessToken', '')
-
     setEmail('')
+    setIsAdmin(false)
+
+    dispatch(token(''))
     dispatch(emailUser(''))
+    dispatch(isUserAdmin(false))
+
+    localStorage.setItem('accessToken', '')
     localStorage.setItem('emailUser', '')
+    localStorage.setItem('isUserAdmin', '')
   }
 
   return (
@@ -186,6 +208,9 @@ const Profile: NextPageWithLayout = () => {
                 <Text variant='bold'>{session?.user?.name}</Text>
               </>
             )}
+
+            {isAdmin && <NavLink href='/admin'>Войти в админ панель</NavLink>}
+
             {isEmailAuthorized && (
               <Button
                 type='button'
@@ -250,7 +275,8 @@ const Profile: NextPageWithLayout = () => {
                   label={`${t('ViaEmail')}`}
                   type='email'
                   name='viaEmail'
-                  required={true}
+                  required
+                  autoFocus
                 />
                 <Button type='submit' width='full' text={`${t('Continue')}`} />
               </form>

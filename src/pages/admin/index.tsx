@@ -1,12 +1,16 @@
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const Admin = () => {
+  const [isAdmin, setIsAdmin] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
-    router.push('/admin/films')
-  }, [router])
+    setIsAdmin(!!localStorage.getItem('isUserAdmin'))
+    if (isAdmin) {
+      router.push('/admin/films')
+    } else router.push('/')
+  }, [])
 }
 
 export default Admin

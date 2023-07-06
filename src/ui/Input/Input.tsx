@@ -1,41 +1,31 @@
+import cn from 'classnames'
 import { ChangeEventHandler, FC } from 'react'
+import { InputHTMLAttributes } from 'react'
 
 import styles from './Input.module.scss'
 
-export interface InputProps {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string
-  type?: 'text' | 'url' | 'email' | 'password' | 'search'
-  required?: boolean
   name: string
-  defaultValue?: string
-  value?: string
-  minLength?: number
+  className?: string
   onChange?: ChangeEventHandler<HTMLInputElement>
 }
 
 export const Input: FC<InputProps> = ({
   label,
-  type = 'text',
-  required = false,
   name,
-  defaultValue,
-  value,
-  minLength,
   onChange,
+  className,
+  ...props
 }) => {
   return (
-    <label className={styles.inputBody}>
+    <label className={cn(styles.inputBody, className)}>
       <input
         className={styles.editBox}
         name={name}
         id={name}
-        autoComplete='off'
-        required={required}
-        type={type}
-        defaultValue={defaultValue}
-        value={value}
         onChange={onChange}
-        minLength={minLength}
+        {...props}
       ></input>
 
       <div className={styles.label}>{label}</div>

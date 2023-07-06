@@ -7,6 +7,7 @@ const url = process.env.NEXT_PUBLIC_API_URL
 export interface State {
   auth: {
     emailUser: string
+    isUserAdmin: boolean
     token: string
   }
   authorizationsApi: {}
@@ -18,6 +19,7 @@ export const authSlice = createSlice({
   initialState: {
     emailUser: '',
     token: '',
+    isUserAdmin: false,
   },
   reducers: {
     emailUser(state, action) {
@@ -26,6 +28,9 @@ export const authSlice = createSlice({
     token(state, action) {
       state.token = action.payload
     },
+    isUserAdmin(state, action) {
+      state.token = action.payload
+    }
   },
 })
 
@@ -99,5 +104,5 @@ export const {
 } = authorizationApi
 
 export const { login, logout, refreshToken } = authorizationApi.endpoints
-export const { emailUser, token } = authSlice.actions
+export const { emailUser, token, isUserAdmin } = authSlice.actions
 export default authSlice.reducer
