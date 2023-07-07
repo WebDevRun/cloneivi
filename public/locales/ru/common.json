@@ -259,5 +259,7 @@
   "WithTheMovieWatching": "С фильмом «{{filmNameRu}}» смотрят",
   "Assessment": "оценка",
   "AssessmentsI": "оценки",
-  "AssessmentsOK": "оценок"
+  "AssessmentsOK": "оценок",
+  "YouMustBeLoggedInAsAnAdmin": "Вы должны войти в систему как администратор, чтобы просмотреть эту страницу",
+  "AccessDenied": "Доступ запрещен"
 }

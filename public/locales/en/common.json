@@ -258,5 +258,7 @@
   "WithTheMovieWatching": "With the «{{filmNameEn}}» movie watching",
   "Assessment": "assessment",
   "AssessmentsI": "assessments",
-  "AssessmentsOK": "assessments"
+  "AssessmentsOK": "assessments",
+  "YouMustBeLoggedInAsAnAdmin": "You must be logged in as an administrator to view this page",
+  "AccessDenied": "Access Denied"
 }

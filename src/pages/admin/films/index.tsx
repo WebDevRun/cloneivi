@@ -1,6 +1,7 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { ReactElement } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 
+import { AccessDenied } from '@/components/AccessDenied'
 import { MoviePatchList } from '@/components/MoviePatchList'
 import { AdminLayout } from '@/layouts/AdminLayout'
 import { AppLayout } from '@/layouts/AppLayout'
@@ -9,15 +10,28 @@ import { getFilms, getRunningQueriesThunk } from '@/store/endpoints/films'
 import { wrapper } from '@/store/store'
 
 const Films: NextPageWithLayout = () => {
-  return <MoviePatchList />
+  const [isAdmin, setIsAdmin] = useState(false)
+
+  useEffect(() => {
+    setIsAdmin(!!localStorage.getItem('isUserAdmin'))
+  }, [])
+
+  if (!isAdmin) {
+    return (
+      <div>
+        <AccessDenied />
+      </div>
+    )
+  } else
+    return (
+      <AdminLayout>
+        <MoviePatchList />
+      </AdminLayout>
+    )
 }
 
 Films.getLayout = (page: ReactElement) => {
-  return (
-    <AppLayout>
-      <AdminLayout>{page}</AdminLayout>
-    </AppLayout>
-  )
+  return <AppLayout>{page}</AppLayout>
 }
 
 export default Films

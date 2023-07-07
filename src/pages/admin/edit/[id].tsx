@@ -2,9 +2,10 @@ import { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { ReactElement } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 
 import { $instance } from '@/axios'
+import { AccessDenied } from '@/components/AccessDenied'
 import { EditFilms } from '@/components/Admin/EditFilms'
 import { BackLink } from '@/components/BackLink'
 import { IMovie } from '@/types/movie'
@@ -20,12 +21,25 @@ export interface IMoviePage {
 const Edit: NextPageWithLayout<IMoviePage> = ({ film }) => {
   const { t } = useTranslation()
 
-  return (
-    <div className={styles.editFilmsPage}>
-      <BackLink text={`${t('Back')}`} />
-      <EditFilms film={film} />
-    </div>
-  )
+  const [isAdmin, setIsAdmin] = useState(false)
+
+  useEffect(() => {
+    setIsAdmin(!!localStorage.getItem('isUserAdmin'))
+  }, [])
+
+  if (!isAdmin) {
+    return (
+      <div>
+        <AccessDenied />
+      </div>
+    )
+  } else
+    return (
+      <div className={styles.editFilmsPage}>
+        <BackLink text={`${t('Back')}`} />
+        <EditFilms film={film} />
+      </div>
+    )
 }
 
 Edit.getLayout = function getLayout(page: ReactElement) {

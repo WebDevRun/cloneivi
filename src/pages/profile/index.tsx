@@ -294,7 +294,8 @@ const Profile: NextPageWithLayout = () => {
                   minLength={6}
                   name='comeUpWithPassword'
                   onChange={(e) => setPassword(e.target.value)}
-                  required={true}
+                  required
+                  autoFocus
                 />
                 {!isValidatePassword && (
                   <Button
@@ -318,7 +319,8 @@ const Profile: NextPageWithLayout = () => {
                   type='password'
                   name='comeUpWithPassword'
                   defaultValue={password}
-                  required={true}
+                  required
+                  autoFocus
                 />
                 {!password && (
                   <Button
@@ -332,7 +334,8 @@ const Profile: NextPageWithLayout = () => {
                   label={`${t('RepeatThePassword')}`}
                   type='password'
                   name='repeatPassword'
-                  required={true}
+                  required
+                  autoFocus
                   onChange={(e) => {
                     if (password === e.target.value) {
                       setPasswordMatсh(true)
@@ -359,7 +362,8 @@ const Profile: NextPageWithLayout = () => {
                   label={`${t('InputPassword')}`}
                   type='password'
                   name='inputPassword'
-                  required={true}
+                  required
+                  autoFocus
                   onChange={(e) => {
                     setIsPasswordInvalid(false)
                     setPassword(e.target.value)
