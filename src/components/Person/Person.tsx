@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { IPerson } from '@/types/Person'
+import { IPerson } from '@/types/person'
 
 import styles from './Person.module.scss'
 import { PersonFilmography } from './PersonFilmography'
@@ -20,7 +20,7 @@ export const Person: FC<PersonProps> = ({ person, maxShowFilms }) => {
       <section>
         <PersonFilmography
           films={person.films}
-          pathDataSrc='http://localhost:4000/films/'
+          pathDataSrc={'/watch/'}
           maxShowItems={maxShowFilms}
         />
       </section>

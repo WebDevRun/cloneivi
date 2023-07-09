@@ -1,5 +1,57 @@
 @use '../styles/functions' as fn;
 
+.inputWrapper {
+  position: relative;
+}
+
+.inputBody {
+  display: block;
+  position: relative;
+  background-color: #d9d7e0;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.editBox {
+  display: block;
+  position: absolute;
+  top: 20px;
+  height: 20px;
+  background-color: transparent;
+  color: #000;
+  border-radius: 8px;
+
+  width: 100%;
+  transform: translateZ(0);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+
+  text-overflow: ellipsis;
+
+  padding-left: 12px;
+}
+
+.overlays {
+  position: absolute;
+  left: 12px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: translateZ(0);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.placeholder {
+  color: #a5a1b2;
+  will-change: transform;
+  text-rendering: geometricPrecision;
+  transform-origin: 0 0;
+  text-overflow: ellipsis;
+}
+
 .pageNotFound {
   background-image: url(../assets/images/other/bg404.png);
   height: fn.toRem(348px);
@@ -8,4 +60,57 @@
   h1 {
     margin-bottom: fn.toRem(8px);
   }
+}
+
+.home {
+  section {
+    padding-top: fn.toRem(24px);
+    padding-bottom: fn.toRem(24px);
+  }
+}
+
+.clauseTitle {
+  margin-bottom: fn.toRem(24px);
+}
+
+.clauseText {
+  li {
+    position: relative;
+    margin-left: fn.toRem(12px);
+    padding-left: fn.toRem(16px);
+    list-style: none;
+    color: #a5a1b2;
+  }
+
+  li:before {
+    background-color: #a5a1b2;
+    border-radius: 50%;
+    content: '';
+    height: fn.toRem(6px);
+    left: 0;
+    position: absolute;
+    top: fn.toRem(10px);
+    width: fn.toRem(6px);
+  }
+
+  li + li,
+  p + p,
+  p + ol,
+  ol + p {
+    margin-top: fn.toRem(8px);
+  }
+}
+
+.noticeTvBlock {
+  & > * {
+    color: #d9d7e0;
+  }
+
+  & > :first-child {
+    margin-bottom: fn.toRem(20px);
+  }
+}
+
+.sectionTitle {
+  margin-bottom: fn.toRem(24px);
 }

@@ -11,10 +11,11 @@ import styles from './IconInText.module.scss'
 export interface IconInTextProps {
   icon?: INameIcons | INameIconsExt
   orderIcon?: 'before' | 'after'
-  sizeIcon?: 'small' | 'middle' | 'big' | 'large'
+  sizeIcon?: 'small' | 'middle' | 'big' | 'large' | 'unset'
   extIcon?: boolean
   text: string
   textVariant?: TextVariants
+  className?: string
 }
 
 export const IconInText: FC<IconInTextProps> = ({
@@ -24,9 +25,10 @@ export const IconInText: FC<IconInTextProps> = ({
   text,
   textVariant = 'titleBg',
   extIcon = false,
+  className
 }) => {
   return (
-    <div className={cn(styles.iconInText, styles[orderIcon])}>
+    <div className={cn(styles.iconInText, styles[orderIcon], className)}>
       <Text className={styles.text} variant={textVariant}>
         {text}
       </Text>

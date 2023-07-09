@@ -50,3 +50,4 @@ export const SmallLeftFilter: Story = {
     size: 'small',
   },
 }
+

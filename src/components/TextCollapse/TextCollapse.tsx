@@ -13,6 +13,7 @@ export interface TextCollapseProps {
   maxChar?: number
   textForCollapse?: string
   textForExpand?: string
+  className?: string
 }
 
 export const TextCollapse: FC<TextCollapseProps> = (props) => {
@@ -25,6 +26,7 @@ export const TextCollapse: FC<TextCollapseProps> = (props) => {
     maxChar = 100,
     textForCollapse = `${t('common:collapse')}`,
     textForExpand = `${t('common:expand')}`,
+    className = 'textCollapse',
   } = props
 
   const [isExpanded, setIsExpanded] = useState(false)
@@ -57,9 +59,13 @@ export const TextCollapse: FC<TextCollapseProps> = (props) => {
 
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: displayedText }} />
+      <div
+        className={className}
+        dangerouslySetInnerHTML={{ __html: displayedText }}
+      />
       {displayedText.length > maxChar && (
         <Button
+          className={styles.button}
           background='transparent'
           onClick={toggleExpand}
           size='middle'

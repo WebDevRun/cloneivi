@@ -1,0 +1,93 @@
+[
+  {
+    "id": "1",
+    "poster": "https://thumbs.dfs.ivi.ru/storage6/contents/e/0/08c76a2df45108ec28af6300cc5b93.jpg/304x620//?q=85",
+    "imgText": "https://thumbs.dfs.ivi.ru/storage4/contents/b/3/826ab6a9a975f9919837f0d17ba642.png/x200/?q=85",
+    "imgNum": [
+      "https://solea-parent.dfs.ivi.ru/picture/bypass/number1.svg"
+    ],
+    "urlFilm": "https://www.ivi.ru/watch/zimorodok"
+  },
+  {
+    "id": "2",
+    "poster": "https://thumbs.dfs.ivi.ru/storage6/contents/8/e/450906495295d77ae520333e1d099b.jpg/304x620//?q=85",
+    "imgText": "https://thumbs.dfs.ivi.ru/storage6/contents/7/8/84c6abaf34c582be3150e33115604d.png/x200/?q=85",
+    "imgNum": [
+      "https://solea-parent.dfs.ivi.ru/picture/bypass/number2.svg"
+    ],
+    "urlFilm": "https://www.ivi.ru/watch/horoshij-doktor"
+  },
+  {
+    "id": "3",
+    "poster": "https://thumbs.dfs.ivi.ru/storage15/contents/c/a/7499b4959ea8fe1652ef1616e4a7b6.jpg/304x620//?q=85",
+    "imgText": "https://thumbs.dfs.ivi.ru/storage8/contents/c/e/f0abb1382cb8a3fd700cb7bb4aeb7d.png/x200/?q=85",
+    "imgNum": [
+      "https://solea-parent.dfs.ivi.ru/picture/bypass/number3.svg"
+    ],
+    "urlFilm": "https://www.ivi.ru/watch/505880"
+  },
+  {
+    "id": "4",
+    "poster": "https://thumbs.dfs.ivi.ru/storage8/contents/7/b/622cfb7cc3e84806a9fca50adc6ea3.jpg/304x620//?q=85",
+    "imgText": "https://thumbs.dfs.ivi.ru/storage23/contents/f/8/394e450e465ea6c8dabbc6be829f2f.png/x200/?q=85",
+    "imgNum": [
+      "https://solea-parent.dfs.ivi.ru/picture/bypass/number4.svg"
+    ],
+    "urlFilm": "https://www.ivi.ru/watch/490794"
+  },
+  {
+    "id": "5",
+    "poster": "https://thumbs.dfs.ivi.ru/storage33/contents/4/6/fe79e9b42b721e05350af77b450367.jpg/304x620//?q=85",
+    "imgText": "https://thumbs.dfs.ivi.ru/storage30/contents/f/5/3ea8b2d4e1a7743defa41aef3314e9.png/x200/?q=85",
+    "imgNum": [
+      "https://solea-parent.dfs.ivi.ru/picture/bypass/number5.svg"
+    ],
+    "urlFilm": "https://www.ivi.ru/watch/509304"
+  },
+  {
+    "id": "6",
+    "poster": "https://thumbs.dfs.ivi.ru/storage33/contents/b/2/661be4b1a65157bb5440ffc3bbeb06.jpg/304x620//?q=85",
+    "imgText": "https://thumbs.dfs.ivi.ru/storage28/contents/4/8/c0919a0f0fce59bcaaa0ca5dea3dec.png/x200/?q=85",
+    "imgNum": [
+      "https://solea-parent.dfs.ivi.ru/picture/bypass/number6.svg"
+    ],
+    "urlFilm": "https://www.ivi.ru/watch/love-is-in-the-air"
+  },
+  {
+    "id": "7",
+    "poster": "https://thumbs.dfs.ivi.ru/storage28/contents/d/e/f3afc43a0709ea1ebf35cdf142cc46.jpg/304x620//?q=85",
+    "imgText": "https://thumbs.dfs.ivi.ru/storage9/contents/d/e/14ad136916cb3797041ef18a0b6149.png/x200/?q=85",
+    "imgNum": [
+      "https://solea-parent.dfs.ivi.ru/picture/bypass/number7.svg"
+    ],
+    "urlFilm": "https://www.ivi.ru/watch/semya-2023"
+  },
+  {
+    "id": "8",
+    "poster": "https://thumbs.dfs.ivi.ru/storage4/contents/5/a/8894efe622cc7d033f979d6d332c62.jpg/304x620//?q=85",
+    "imgText": "https://thumbs.dfs.ivi.ru/storage26/contents/8/b/01e32f32cfb12d9cfe3ef27a962627.png/x200/?q=85",
+    "imgNum": [
+      "https://solea-parent.dfs.ivi.ru/picture/bypass/number8.svg"
+    ],
+    "urlFilm": "https://www.ivi.ru/watch/krasivee-chem-tyi"
+  },
+  {
+    "id": "9",
+    "poster": "https://thumbs.dfs.ivi.ru/storage33/contents/3/d/03bff539c9ca62abdfff07d8593e4c.jpg/304x620//?q=85",
+    "imgText": "https://thumbs.dfs.ivi.ru/storage38/contents/6/f/860d17757dae7a9902d40b1fc1aeb0.png/x200/?q=85",
+    "imgNum": [
+      "https://solea-parent.dfs.ivi.ru/picture/bypass/number9.svg"
+    ],
+    "urlFilm": "https://www.ivi.ru/watch/508769"
+  },
+  {
+    "id": "10",
+    "poster": "https://thumbs.dfs.ivi.ru/storage9/contents/8/9/9dbedac85fe64039086a8bcc3c3a04.jpg/304x620//?q=85",
+    "imgText": "https://thumbs.dfs.ivi.ru/storage4/contents/f/1/3aa0a1cd2eee0614ac0bc92c48b135.png/x200/?q=85",
+    "imgNum": [
+      "https://solea-parent.dfs.ivi.ru/picture/bypass/number1.svg",
+      "https://solea-parent.dfs.ivi.ru/picture/bypass/number0.svg"
+    ],
+    "urlFilm": "https://www.ivi.ru/watch/508528"
+  }
+]

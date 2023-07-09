@@ -24,6 +24,19 @@ $alpha72: 0.72;
     margin-right: fn.toRem(8px);
     transition-duration: 0.4s;
   }
+
+  &:disabled {
+    opacity: 0.32;
+    cursor: default;
+  }
+}
+
+.round {
+  border-radius: 50%;
+  &:disabled,
+  &:disabled:hover {
+    background-color: rgb(73, 73, 73);
+  }
 }
 
 .active svg {
@@ -77,6 +90,19 @@ $alpha72: 0.72;
   }
 }
 
+.darkGrey {
+  background-color: rgba($white, 0.08);
+  color: rgba($white, $alpha72);
+
+  svg {
+    fill: rgba($white, $alpha72);
+  }
+
+  &:hover {
+    background-color: rgba($white, 0.18);
+  }
+}
+
 .primary {
   background-image: linear-gradient(270deg, #ea003d 0, #c447ff 100%);
 }
@@ -98,6 +124,11 @@ $alpha72: 0.72;
   font-size: fn.toRem(15px);
   line-height: fn.toRem(20px);
   font-weight: 500;
+
+  &.asHeight {
+    width: fn.toRem(40px);
+    padding: 0;
+  }
 }
 
 .big {
@@ -108,6 +139,11 @@ $alpha72: 0.72;
   line-height: fn.toRem(20px);
   font-weight: 500;
   width: fn.toRem(320px);
+
+  &.asHeight {
+    width: fn.toRem(48px);
+    padding: 0;
+  }
 }
 
 .borderSm,
@@ -124,7 +160,7 @@ $alpha72: 0.72;
   }
 
   &:hover {
-    border: 1px solid rgba($white, 1);
+    border: 1px solid $white;
     background: transparent;
   }
 
@@ -212,5 +248,16 @@ $alpha72: 0.72;
 
   &:hover {
     background-color: rgba($white, 0.29);
+  }
+}
+
+.social {
+  display: flex;
+  border-radius: 50%;
+  background-color: #1f1b2e;
+  border-color: #1f1b2e;
+
+  &:hover {
+    background-color: #2e2844;
   }
 }

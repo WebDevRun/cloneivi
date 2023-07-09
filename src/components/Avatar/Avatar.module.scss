@@ -1,0 +1,7 @@
+@use '../../styles/functions' as fn;
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-left: fn.toRem(12px);
+}

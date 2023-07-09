@@ -13,7 +13,9 @@ export function getProportionalImgWidth(
   const sizes = pathImage ? pathImage.split('/').at(-1)?.split('x') : [300, 450]
 
   const originalWidth = sizes![0] ? sizes![0] : initCalcWidth
-  const originalHeight = sizes![1] ? sizes![1] : requiredFixHeight
+  const originalHeight = sizes![1]
+    ? sizes![1].toString().split('_')[0]
+    : requiredFixHeight
 
   const reductionRatio = +originalHeight / requiredFixHeight
 

@@ -83,6 +83,20 @@
   padding: fn.toRem(12px);
 }
 
+.accountLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fn.toRem(44px);
+  width: fn.toRem(44px);
+
+  .textContainer {
+    font-size: fn.toRem(32px);
+    line-height: fn.toRem(32px);
+    font-weight: 500;
+  }
+}
+
 .link:has(.accountLinks) {
   display: block;
 
@@ -137,7 +151,7 @@
   transition: 0.3s;
 }
 
-.actorImg{
+.actorImg {
   border-radius: fn.toRem(5px);
   width: 44px;
   height: 44px;
@@ -214,11 +228,15 @@
   background-color: #ea003d;
 }
 
-.actor2{
+.green {
+  background-color: #73a32f;
+}
+
+.actor2 {
   width: 88px;
 }
 
-.actor2Img{
+.actor2Img {
   border-radius: 50%;
 }
 
@@ -234,8 +252,8 @@
   line-height: fn.toRem(16px);
 }
 
-.actor2:hover{
-  .actor2Text{
+.actor2:hover {
+  .actor2Text {
     color: white;
   }
 }

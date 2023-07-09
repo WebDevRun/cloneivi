@@ -3,12 +3,13 @@ import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 
-import { LinkBtn } from '@/ui/LinkBtn'
 import { Svg } from '@/ui/Svg'
 import { SwitchLanguage } from '@/ui/SwitchLanguage'
 import logo from '@assets/images/common/ivi.svg'
+import { Button } from '@ui/Button'
 
-import { Button } from '../../ui/Button'
+import { Avatar } from '../Avatar'
+
 
 import styles from './Header.module.scss'
 import menu from './menu.json'
@@ -27,7 +28,7 @@ export const Header: FC = () => {
   return (
     <div className={styles.header} onMouseOver={handleMouseOver}>
       <div className={styles.headerLogo}>
-        <Link href='https://www.ivi.ru/'>
+        <Link href='/'>
           <Image src={logo} alt={t('common:logo') as string} />
         </Link>
       </div>
@@ -47,10 +48,7 @@ export const Header: FC = () => {
       </nav>
 
       <div className={styles.topWide}>
-        <div
-          data-test='header-addButton'
-          className={styles.additionalButton}
-        >
+        <div data-test='header-addButton' className={styles.additionalButton}>
           <Button
             size='small'
             background='primary'
@@ -73,18 +71,13 @@ export const Header: FC = () => {
       <Link
         data-test='header-notify'
         className={styles.notifyLink}
-        href='https://www.ivi.ru/profile/pull_notifications'
+        href='/profile/pull_notifications'
       >
         <Svg icon='notify' />
       </Link>
 
       <div data-test='header-profile' className={styles.profile}>
-        <LinkBtn
-          href='https://www.ivi.ru/profile'
-          mode='account'
-          background='default'
-          icon='profile'
-        />
+        <Avatar />
       </div>
 
       <div className={styles.language}>

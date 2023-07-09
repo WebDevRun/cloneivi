@@ -1,3 +1,5 @@
+export type IconSize = 'small' | 'middle' | 'big' | 'large' | 'unset'
+
 export type INameIcons =
   | 'arrowLeft'
   | 'arrowRight'
@@ -15,6 +17,8 @@ export type INameIcons =
   | 'drama'
   | 'rating'
   | 'similar'
+  | 'refresh'
+  | 'email'
   | 'anyDev'
   | 'search'
   | 'catalog'
@@ -34,6 +38,8 @@ export type INameIcons =
   | 'catalogAdd'
   | 'noAds'
   | 'download'
+  | 'thumbUp'
+  | 'thumbDown'
 
 export type INameIconsExt =
   | 'top10'
@@ -41,10 +47,14 @@ export type INameIconsExt =
   | 'user'
   | 'googlePlay'
   | 'appStore'
+  | 'dislike'
+  | 'vkontakte'
+  | 'google'
+  | 'lightning'
   | 'avatar'
   | 'linkedin'
   | 'odnoklassniki'
   | 'telegram'
   | 'twitter'
   | 'viber'
-  | 'vkontakte'
+  | 'gift'

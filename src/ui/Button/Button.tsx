@@ -1,27 +1,36 @@
 import cn from 'classnames'
 import React, { FC, MouseEventHandler } from 'react'
 
-import { INameIcons } from '@/types/Icons'
+import { INameIcons, INameIconsExt, IconSize } from '@/types/Icons'
 
 import { Svg } from '../Svg'
 
 import styles from './Button.module.scss'
 
 export interface ButtonProps {
-  icon?: INameIcons
-  background?: 'gray' | 'primary' | 'red' | 'transparent'
-  theme?: 'active' | 'passive' | 'rating'
-  withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg'
+  icon?: INameIcons | INameIconsExt
+  iconExt?: boolean
+  iconFill?: string
+  iconSize?: IconSize
+  background?: 'gray' | 'darkGrey' | 'primary' | 'red' | 'transparent'
+  theme?: 'active' | 'passive' | 'rating' | 'social'
+  withBorder?: 'borderNone' | 'borderSm' | 'borderMd' | 'borderBg' | 'round'
   size?: 'small' | 'middle' | 'big'
-  width?: 'full' | 'fitContent'
+  width?: 'full' | 'fitContent' | 'asHeight'
   fields?: 'noneFields' | 'widthFields'
   text?: string
   subText?: string
+  type?: 'button' | 'reset' | 'submit'
+  disabled?: boolean
+  className?: string
   onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
 export const Button: FC<ButtonProps> = ({
   icon,
+  iconExt = false,
+  iconFill,
+  iconSize,
   background = 'red',
   theme = 'active',
   withBorder = 'borderNone',
@@ -30,6 +39,9 @@ export const Button: FC<ButtonProps> = ({
   text,
   subText,
   fields = 'widthFields',
+  type = 'button',
+  disabled,
+  className,
   onClick,
 }) => {
   const mainCn = cn(
@@ -39,16 +51,25 @@ export const Button: FC<ButtonProps> = ({
     styles[withBorder],
     styles[size],
     styles[width],
+    className && styles[className],
     !text && styles.onlyIcon,
     fields === 'noneFields' && styles[fields],
+    className,
   )
 
-  const iconSize = size === 'big' ? 'big' : 'middle'
+  iconSize = !iconExt ? size : iconExt && !iconSize ? 'unset' : iconSize
 
   return (
-    <button type='button' className={mainCn} onClick={onClick}>
+    <button
+      type={type}
+      className={mainCn}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {icon && (
-        <div className={styles.icon}>{<Svg icon={icon} size={iconSize} />}</div>
+        <div className={styles.icon}>
+          {<Svg icon={icon} ext={iconExt} size={iconSize} fill={iconFill} />}
+        </div>
       )}
       {text && (
         <div className={styles.mainText}>

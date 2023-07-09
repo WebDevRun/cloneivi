@@ -19,10 +19,19 @@ $activeColor: #7E798F;
   transition: background-color 0.4s;
 }
 
-.square {
+.active {
 
+}
+
+.name {
+  word-wrap: break-word;
+  font-size: 12px;
+}
+
+.square {
   .fill,
-  .outline {
+  .outline,
+  .active {
     flex-direction: column;
     border-radius: fn.toRem(8px);
     gap: 8px;
@@ -40,17 +49,30 @@ $activeColor: #7E798F;
     }
   }
 
-  .outline {
+  .outline,
+  .active {
     width: fn.toRem(108px);
     height: fn.toRem(88px);
-    background: transparent;
     border: $border;
     font-size: fn.toRem(13px);
     line-height: fn.toRem(16px);
 
+    .name {
+      width: fn.toRem(90px);
+      text-align: center;
+    }
+  }
+
+  .outline {
+    background: transparent;
+
     &:hover {
       background-color: $activeColor;
     }
+  }
+
+  .active {
+    background-color: $activeColor
   }
 }
 

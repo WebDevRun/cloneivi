@@ -1,11 +1,20 @@
 import cn from 'classnames'
 import Link from 'next/link'
+import { useSession } from 'next-auth/react'
 import { useTranslation } from 'next-i18next'
 import { FC, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
+import {
+  isUserAdmin,
+  State,
+  useIsAuthQuery,
+} from '@/store/endpoints/authorization'
+import { INameIcons, INameIconsExt } from '@/types/Icons'
 import { Button } from '@/ui/Button'
+import { LinkBtn } from '@/ui/LinkBtn'
 
-import { Text } from '../../ui/ui'
+import { NavLink, Text } from '../../ui/ui'
 import addButton from '../addButton.json'
 import cartoons from '../cartoons.json'
 import movies from '../movies.json'
@@ -18,11 +27,13 @@ import { SubscriptionWidget } from '../SubscriptionWidget/SubscriptionWidget'
 import tv from '../tv.json'
 
 import styles from './HeaderDropdown.module.scss'
-import { LinkBtn } from '@/ui/LinkBtn'
-import { INameIcons, INameIconsExt } from '@/types/Icons'
 
 export const HeaderDropdown: FC = () => {
   const { t } = useTranslation()
+  const dispatch = useDispatch()
+
+  const { data: isEmailAuthorized } = useIsAuthQuery()
+  const { status } = useSession()
   const [active, setActive] = useState('headerDropdown')
   const [lists, setLists] = useState(movies)
   const [isTv, setIsTv] = useState(false)
@@ -30,6 +41,7 @@ export const HeaderDropdown: FC = () => {
   const [isAddButton, setIsAddButton] = useState(false)
   const [isProfile, setIsProfile] = useState(false)
   const [sideFit, setSideFit] = useState('')
+  const [isAdmin, setIsAdmin] = useState(false)
 
   let mainCn = cn(styles[active])
   let sideCn = cn(styles.sideContent, styles[sideFit])
@@ -87,6 +99,14 @@ export const HeaderDropdown: FC = () => {
   const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
     setActive('headerDropdown')
   }
+
+  const isSocialAuthorized = status === 'authenticated'
+  const isAuthorized = isEmailAuthorized || isSocialAuthorized
+
+  useEffect(() => {
+    dispatch(isUserAdmin(localStorage.getItem('isUserAdmin')))
+    setIsAdmin(!!localStorage.getItem('isUserAdmin'))
+  }, [])
 
   return (
     <div className={mainCn} onMouseLeave={handleMouseLeave}>
@@ -237,7 +257,11 @@ export const HeaderDropdown: FC = () => {
                 ))}
               </div>
               <div className={styles.profileSide}>
-                <Button text={`${t('LogInOrRegister')}`} />
+                {!isAuthorized && <Button text={`${t('LogInOrRegister')}`} />}
+                {isAdmin && (
+                  <NavLink href='/admin'>Войти в админ панель</NavLink>
+                )}
+
                 <ShowList data={profile.extra} />
               </div>
             </div>

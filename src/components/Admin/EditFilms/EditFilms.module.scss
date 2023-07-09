@@ -1,0 +1,16 @@
+@use '../../../styles/functions/' as fn;
+
+.title {
+  margin: fn.toRem(24px) 0;
+}
+
+.form {
+  & > *:not(:first-child) {
+    margin-top: fn.toRem(16px);
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: fn.toRem(16px);
+}

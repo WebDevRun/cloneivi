@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import Link from 'next/link'
 
 import styles from './ui.module.scss'
 
@@ -27,11 +28,6 @@ export type TextVariants =
   | 'normal'
   | 'small'
 
-interface TextProps extends BaseProps {
-  variant?: TextVariants
-  bold?: boolean
-}
-
 export function Base({
   as: Component = 'div',
   cx: _cx = [],
@@ -58,12 +54,14 @@ interface FlexProps extends BaseProps {
   variant?: FlexVariants
   wrap?: boolean
   alignItems?: FlexVariants
+  gap?: 'gap0' | 'gap4' | 'gap8' | 'gap12' | 'gap16'
 }
 
 export function Flex({
   variant,
   wrap,
   alignItems,
+  gap = 'gap12',
   cx: _cx = [],
   ...props
 }: WithChildren<FlexProps>) {
@@ -75,6 +73,7 @@ export function Flex({
           variant && styles[variant],
           wrap && styles.wrap,
           alignItems && styles[alignItems],
+          styles[gap],
         ),
         ..._cx,
       ]}
@@ -83,12 +82,32 @@ export function Flex({
   )
 }
 
+interface TextProps extends BaseProps {
+  variant?: TextVariants
+  centerText?: boolean
+  bold?: boolean
+}
+
 export function Text({
   variant = 'normal',
+  centerText = false,
   bold = false,
+  cx: _cx = [],
   ...props
 }: WithChildren<TextProps>) {
-  return <Base cx={[styles[variant]]} {...props} />
+  return (
+    <Base
+      cx={[
+        cn(
+          styles[variant],
+          centerText && styles.centerText,
+          bold && styles.bold,
+        ),
+        ..._cx,
+      ]}
+      {...props}
+    />
+  )
 }
 
 export function TextPar({ ...props }) {
@@ -105,4 +124,20 @@ export function H1({ ...props }) {
 
 export function H2({ ...props }) {
   return <Text as='h2' variant='titleH2' {...props} />
+}
+
+export function Decor({ variant = 'underlineEffect', ...props }) {
+  return <Base cx={[styles[variant]]} {...props} />
+}
+
+interface NavLinkProps extends BaseProps {
+  underline?: boolean
+  href: string
+}
+
+export function NavLink({
+  underline = false,
+  ...props
+}: WithChildren<NavLinkProps>) {
+  return <Base as={Link} cx={[styles.navLink, styles.underline]} {...props} />
 }

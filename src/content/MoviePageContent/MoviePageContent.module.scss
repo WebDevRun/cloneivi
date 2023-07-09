@@ -1,0 +1,37 @@
+@use '../../styles/functions' as fn;
+
+.MoviePageContent {
+  section {
+    padding-top: fn.toRem(24px);
+    padding-bottom: fn.toRem(32px);
+
+    h2 {
+      margin-bottom: fn.toRem(24px);
+    }
+  }
+}
+
+.moviePlayer {
+  width: 62.5%;
+  padding-right: fn.toRem(32px);
+  position: sticky;
+  top: fn.toRem(32px);
+}
+
+.movieInfomation {
+  width: 37.5%;
+}
+
+.headerBar {
+  padding-top: fn.toRem(20px);
+}
+
+.userButtons {
+  margin-top: fn.toRem(24px);
+  margin-bottom: fn.toRem(16px);
+}
+
+.freeCollection {
+  margin-left: auto;
+  margin-right: 0;
+}

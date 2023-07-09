@@ -2,6 +2,26 @@
 
 .medallions {
   display: flex;
-  gap: fn.toRem(4px);
-  margin-bottom: fn.toRem(24px);
+}
+
+.rating {
+  max-width: 90px;
+  min-width: 72px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.rating:hover > * {
+  color: #ffffff;
+  transition-duration: 0.4s;
+}
+
+.rating:hover > button {
+  background-color: rgba(#ffffff, 0.29);
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.48);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

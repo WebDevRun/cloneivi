@@ -1,0 +1,21 @@
+@use '@styles/functions' as fn;
+
+.movieForm {
+  display: flex;
+  align-items: center;
+  gap: fn.toRem(8px);
+
+  & > *:first-child {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .movieForm {
+    flex-direction: column;
+
+    & > * {
+      width: 100%;
+    }
+  }
+}

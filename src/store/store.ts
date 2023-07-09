@@ -1,19 +1,50 @@
-import { configureStore } from '@reduxjs/toolkit'
+import {
+  Action,
+  combineReducers,
+  configureStore,
+  ThunkAction,
+} from '@reduxjs/toolkit'
 import { createWrapper } from 'next-redux-wrapper'
 
+import { authSlice, authorizationApi } from './endpoints/authorization'
+import { commentsApi } from './endpoints/comments'
 import { filmsApi } from './endpoints/films'
+import { genresApi } from './endpoints/genres'
+import { personsApi } from './endpoints/persons'
 
-export const makeStore = () =>
-  configureStore({
-    reducer: {
-      [filmsApi.reducerPath]: filmsApi.reducer,
-    },
+const rootReducer = combineReducers({
+  auth: authSlice.reducer,
+  [filmsApi.reducerPath]: filmsApi.reducer,
+  [genresApi.reducerPath]: genresApi.reducer,
+  [personsApi.reducerPath]: personsApi.reducer,
+  [authorizationApi.reducerPath]: authorizationApi.reducer,
+  [commentsApi.reducerPath]: commentsApi.reducer,
+})
+
+const middlewares = [
+  filmsApi.middleware,
+  genresApi.middleware,
+  personsApi.middleware,
+  authorizationApi.middleware,
+  commentsApi.middleware,
+]
+
+export const store = () => {
+  return configureStore({
+    reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(filmsApi.middleware),
+      getDefaultMiddleware().concat(middlewares),
   })
+}
 
-export type AppStore = ReturnType<typeof makeStore>
-export type RootState = ReturnType<AppStore['getState']>
+export type AppStore = ReturnType<typeof store>
+export type AppState = ReturnType<AppStore['getState']>
 export type AppDispatch = AppStore['dispatch']
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  AppState,
+  unknown,
+  Action
+>
 
-export const wrapper = createWrapper<AppStore>(makeStore)
+export const wrapper = createWrapper<AppStore>(store)

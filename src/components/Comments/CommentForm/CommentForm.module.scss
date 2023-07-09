@@ -1,0 +1,103 @@
+@use '@styles/functions' as fn;
+
+$borderRadius: fn.toRem(8px);
+$fontSize: fn.toRem(15px);
+$transitionDuration: 0.4s;
+$inputTransform: scale(0.87) translate(fn.toRem(-12px), fn.toRem(-24px));
+$errorColor: #ff542e;
+
+.commentForm {
+  display: flex;
+  gap: fn.toRem(12px);
+}
+
+.inputContainer {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.label {
+  display: block;
+  position: relative;
+  border-radius: $borderRadius;
+  background-color: #d9d7e0;
+}
+
+.input {
+  $horizontalPadding: fn.toRem(12px);
+
+  width: 100%;
+  padding-right: $horizontalPadding;
+  padding-left: $horizontalPadding;
+  padding-top: fn.toRem(18px);
+  padding-bottom: fn.toRem(2px);
+  background-color: inherit;
+  border-radius: inherit;
+  color: #1f1b2e;
+  font-size: $fontSize;
+  font-weight: 500;
+
+  &:focus + .placeholder {
+    transform: $inputTransform;
+  }
+}
+
+.placeholder {
+  position: absolute;
+  top: 50%;
+  left: fn.toRem(12px);
+  color: #a5a1b2;
+  transform: translateY(-50%);
+  transition-duration: $transitionDuration;
+}
+
+.hasText {
+  transform: $inputTransform;
+}
+
+.caption {
+  margin-top: fn.toRem(4px);
+  color: $errorColor;
+  font-size: fn.toRem(13px);
+}
+
+.buttonContainer {
+  display: flex;
+  gap: fn.toRem(8px);
+}
+
+.button {
+  padding: fn.toRem(9px) fn.toRem(15px);
+  border-radius: $borderRadius;
+  background-color: #ea003d;
+  color: inherit;
+  font-size: $fontSize;
+  font-weight: 500;
+  transition-duration: $transitionDuration;
+
+  &:hover {
+    background-color: #ff0f4d;
+  }
+}
+
+.disabled {
+  opacity: 0.32;
+}
+
+.error {
+  color: $errorColor;
+}
+
+@media (max-width: 600px) {
+  .commentForm {
+    flex-direction: column;
+  }
+
+  .avatar {
+    display: none;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,36 @@
+.badge {
+  color: #d9d7e0;
+
+  &:hover *:not(.extra) {
+    color: #ffffff;
+    transition: 0.4s;
+  }
+
+  & * {
+    transition: color 0.4s;
+  }
+}
+
+.medium {
+  width: 88px;
+  height: 88px;
+}
+
+.circle {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.textSection {
+  margin-top: 8px;
+  overflow: hidden;
+
+  &.medium {
+    max-width: 88px;
+    height: fit-content;
+  }
+}
+
+.extra {
+  color: #a5a1b2;
+}

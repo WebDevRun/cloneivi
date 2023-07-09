@@ -4,163 +4,128 @@
     "items": [
       {
         
-        "href": "https://www.ivi.ru/movies/boeviki",
+        "href": "/movies/anime",
         "title": "Anime",
         "text": "Anime"
       },
       {
-        "href": "https://www.ivi.ru/movies/boeviki",
+        "href": "/movies/biography",
         "title": "Biography",
         "text": "Biography"
       },
       {
-        "href": "https://www.ivi.ru/movies/western",
+        "href": "/movies/militant",
         "title": "Action",
         "text": "Action"
       },
       {
-        "href": "https://www.ivi.ru/movies/voennye",
+        "href": "/movies/western",
         "title": "Western",
         "text": "Western"
       },
       {
-        "href": "https://www.ivi.ru/movies/detective",
+        "href": "/movies/military",
         "title": "Military",
         "text": "Military"
       },
       {
-        "href": "https://www.ivi.ru/movies/dlya_vsej_semi",
+        "href": "/movies/detective",
         "title": "Detective",
         "text": "Detective"
       },
       {
-        "href": "https://www.ivi.ru/movies/detskiy",
+        "href": "/movies/children",
         "title": "Children",
         "text": "Children"
       },
       {
-        "href": "https://www.ivi.ru/movies/documentary",
+        "href": "/movies/adults",
         "title": "Adults",
         "text": "Adults"
       },
       {
-        "href": "https://www.ivi.ru/movies/drama",
+        "href": "/movies/documentary",
         "title": "Documentary",
         "text": "Documentary"
       },
       {
-        "href": "https://www.ivi.ru/movies/istoricheskie",
+        "href": "/movies/drama",
         "title": "Drama",
         "text": "Drama"
       },
       {
-        "href": "https://www.ivi.ru/movies/disaster",
-        "title": "Game",
-        "text": "Game"
-      },
-      {
-        "href": "https://www.ivi.ru/movies/comedy",
+        "href": "/movies/history",
         "title": "History",
         "text": "History"
       },
       {
-        "href": "https://www.ivi.ru/movies/crime",
+        "href": "/movies/comedy",
         "title": "Comedy",
         "text": "Comedy"
       },
       {
-        "href": "https://www.ivi.ru/movies/melodramy",
-        "title": "Concert",
-        "text": "Concert"
-      },
-      {
-        "href": "https://www.ivi.ru/movies/misticheskie",
+        "href": "/movies/shortfilm",
         "title": "ShortFilm",
         "text": "ShortFilm"
       },
       {
-        "href": "https://www.ivi.ru/movies/comics",
+        "href": "/movies/criminal",
         "title": "Crime",
         "text": "Crime"
       },
       {
-        "href": "https://www.ivi.ru/movies/adventures",
+        "href": "/movies/melodrama",
         "title": "Melodrama",
         "text": "Melodrama"
       },
       {
-        "href": "https://www.ivi.ru/movies/sport",
-        "title": "Music",
-        "text": "Music"
-      },
-      {
-        "href": "https://www.ivi.ru/movies/thriller",
-        "title": "Cartoons",
-        "text": "Cartoons"
-      },
-      {
-        "href": "https://www.ivi.ru/movies/horror",
+        "href": "/movies/musical",
         "title": "Musical",
         "text": "Musical"
       },
       {
-        "href": "https://www.ivi.ru/movies/fantastika",
-        "title": "News",
-        "text": "News"
-      },
-      {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "/movies/adventure",
         "title": "Adventures",
         "text": "Adventures"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "/movies/realitytv",
         "title": "RealTV",
         "text": "RealTV"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "/movies/family",
         "title": "Family",
         "text": "Family"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "/movies/sport",
         "title": "Sport",
         "text": "Sport"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "TalkShow",
-        "text": "TalkShow"
-      },
-      {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "/movies/thriller",
         "title": "Thriller",
         "text": "Thriller"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "/movies/horror",
         "title": "Horror",
         "text": "Horror"
       },      {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "/movies/fiction",
         "title": "Fantastic",
         "text": "Fantastic"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "/movies/filmnoir",
         "title": "NoirFilm",
         "text": "NoirFilm"
       },
       {
-        "href": "https://www.ivi.ru/movies/fentezi",
+        "href": "/movies/fantasy",
         "title": "Fantasy",
         "text": "Fantasy"
-      },
-      {
-        "href": "https://www.ivi.ru/movies/fentezi",
-        "title": "Ceremony",
-        "text": "Ceremony"
       }
     ]
   },
@@ -168,14 +133,19 @@
     "title": "Countries",
     "items": [
       {
-        "href": "https://www.ivi.ru/movies/ru",
+        "href": "/movies/russia",
         "title": "Russians",
         "text": "Russians"
       },
       {
-        "href": "https://www.ivi.ru/movies/foreign",
-        "title": "Foreign",
-        "text": "Foreign"
+        "href": "/movies/ussr",
+        "title": "USSR",
+        "text": "USSR"
+      },
+      {
+        "href": "/movies/usa",
+        "title": "USA",
+        "text": "USA"
       }
     ]
   },
@@ -183,22 +153,22 @@
     "title": "Years",
     "items": [
       {
-        "href": "https://www.ivi.ru/movies/2023",
+        "href": "/movies/2023",
         "title": "FilmsOf2023",
         "text": "FilmsOf2023"
       },
       {
-        "href": "https://www.ivi.ru/movies/2022",
+        "href": "/movies/2022",
         "title": "FilmsOf2022",
         "text": "FilmsOf2022"
       },
       {
-        "href": "https://www.ivi.ru/movies/2021",
+        "href": "/movies/2021",
         "title": "FilmsOf2021",
         "text": "FilmsOf2021"
       },
       {
-        "href": "https://www.ivi.ru/movies/2020",
+        "href": "/movies/2020",
         "title": "FilmsOf2020",
         "text": "FilmsOf2020"
       }
